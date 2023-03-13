@@ -1,0 +1,12 @@
+Primeiro passo instalar Git bash dentro dele dar comando
+Ls --> Lista diretórios e arquivos da pasta atual
+
+cd Desktop/ ----> Muda de diretório
+
+COPIA O URL DO PROJETO NO GIT
+git clone https://github.com/CodHatGuerra/TCC.git  --> Baixa repositorio no computador
+
+
+
+
+EDITAR E ADICIONAR NOVOS ARQUIVOS
