@@ -3,7 +3,7 @@
 </p>
 
 ---
-#### VacinaFácil é um sistema em desenvolvimento que tem como objetivo facilitar o acesso e o controle das informações da carteira de vacinação por meio da versão digital. O sistema é integrado ao Poupatempo, onde o usuário pode vincular a sua carteira física de vacinação ao sistema, permitindo o acesso às informações pelo aplicativo.
+#### VacinaFácil é um sistema em desenvolvimento, que tem como objetivo facilitar o acesso e o controle das informações da carteira de vacinação por meio da versão digital. O sistema é integrado ao Poupatempo, onde o usuário pode vincular a sua carteira física de vacinação ao sistema, permitindo o acesso às informações pelo aplicativo.
 
 #### Com o VacinaFácil, a perda ou ausência da carteira de vacinação física não será mais um problema, uma vez que todas as informações estarão disponíveis de forma digital, permitindo que o usuário possa apresentar as informações sempre que necessário. Além disso, o sistema oferece uma série de vantagens, como a possibilidade de consulta das vacinas tomadas, o agendamento de novas doses, a programação de lembretes e o acompanhamento do calendário de vacinação.
 
