@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header a {
+    align-items: center;
+}
+
+.title-group {
+    display: flex;
+    gap: 20px;
+}
+
