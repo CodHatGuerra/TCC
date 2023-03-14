@@ -11,7 +11,7 @@
 
 #### Em resumo, o VacinaFácil é um sistema que permite que a carteira de vacinação possa ser acessada digitalmente, desde que tenha sido vinculada ao sistema por meio do Poupatempo. Com a solução, problemas como a perda ou ausência do documento físico são solucionados, evitando a necessidade de buscar uma segunda via em postos de saúde. Além disso, o sistema oferece diversas vantagens, como a consulta das vacinas tomadas, agendamento de novas doses, programação de lembretes e acompanhamento do calendário de vacinação.
 ---
-# Técnologias
+# Tecnologias
 
 * #### Front-end:  Angular
 * #### Back-end: API com NodeJS
