@@ -12,7 +12,11 @@ import { MatListModule} from '@angular/material/list';
 
 
 import { FooterComponent } from './components/template/footer/footer.component';
-import { NavComponent } from './components/template/nav/nav.component'
+import { NavComponent } from './components/template/nav/nav.component';
+import { PerfilComponent } from './views/perfil/perfil.component';
+import { CalendarioComponent } from './views/calendario/calendario.component';
+import { AgendamentosComponent } from './views/agendamentos/agendamentos.component';
+import { RegistrosComponent } from './views/registros/registros.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { NavComponent } from './components/template/nav/nav.component'
     HeaderComponent,
     FooterComponent,
     NavComponent,
+    PerfilComponent,
+    CalendarioComponent,
+    AgendamentosComponent,
+    RegistrosComponent,
   ],
   imports: [
     BrowserModule,

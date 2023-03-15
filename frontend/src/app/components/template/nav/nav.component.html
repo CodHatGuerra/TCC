@@ -1,19 +1,34 @@
-<mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side" opened 
+<mat-sidenav-container class="container" color="primary">
+    <mat-sidenav class="sidenav"  mode="side" opened 
     fixedInViewport="true" fixedTopGap="64">
         <mat-nav-list class="nav-list">
-            <a mat-list-item>
+            <a mat-list-item routerLink="/perfil">
                 <i class="material-icons">
                     person
                 </i>
                 Perfil
             </a>
-            <a mat-list-item>
-                <i class="material-icons">
-                    table
+            <a mat-list-item routerLink="calendario">
+                <i class="material-icons v-middle" >
+                    event
                 </i>
-                Tabela
+            Calendário 
+            </a>
+            <a mat-list-item>
+                <i class="material-icons v-middle" routerLink="agendamentos">
+                    schedule
+                </i>
+            Agendamentos
+            </a>
+            <a mat-list-item>
+                <i class="material-icons v-middle" routerLink="registros">
+                    assignment
+                </i>
+            Registros
             </a>
         </mat-nav-list>
     </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>
