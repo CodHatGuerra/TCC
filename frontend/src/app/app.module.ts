@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 
 import { FooterComponent } from './components/template/footer/footer.component';
@@ -16,7 +17,9 @@ import { NavComponent } from './components/template/nav/nav.component';
 import { PerfilComponent } from './views/perfil/perfil.component';
 import { CalendarioComponent } from './views/calendario/calendario.component';
 import { AgendamentosComponent } from './views/agendamentos/agendamentos.component';
-import { RegistrosComponent } from './views/registros/registros.component'
+import { RegistrosComponent } from './views/registros/registros.component';
+import { HomeComponent } from './views/home/home.component';
+import { WhiteDirective } from './components/template/White.directive'
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { RegistrosComponent } from './views/registros/registros.component'
     CalendarioComponent,
     AgendamentosComponent,
     RegistrosComponent,
+    HomeComponent,
+    WhiteDirective,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { RegistrosComponent } from './views/registros/registros.component'
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

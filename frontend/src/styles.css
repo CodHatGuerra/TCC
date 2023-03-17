@@ -7,3 +7,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .v-middle {
     vertical-align: middle;
 }
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
