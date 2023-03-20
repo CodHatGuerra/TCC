@@ -1,5 +1,5 @@
 <p align="center">
-    <img title="a title" alt="Alt text" src="/Logo/LogoMDP.png" style="height: 400px">
+    <img title="a title" alt="Alt text" src="/Logo/LogoMD.png" style="height: 400px">
 </p>
 
 ---
