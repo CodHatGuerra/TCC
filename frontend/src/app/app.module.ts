@@ -6,20 +6,27 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/template/header/header.component';
 
+//Material
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatStepperModule} from '@angular/material/stepper'
 
-
+//Components
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { PerfilComponent } from './views/perfil/perfil.component';
-import { CalendarioComponent } from './views/calendario/calendario.component';
-import { AgendamentosComponent } from './views/agendamentos/agendamentos.component';
-import { RegistrosComponent } from './views/registros/registros.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { CalendarComponent } from './views/calendar/calendar.component';
+import { SchedulindComponent } from './views/schedulind/schedulind.component';
+import { RegisterComponent } from './views/register/register.component';
 import { HomeComponent } from './views/home/home.component';
-import { WhiteDirective } from './components/template/White.directive'
+import { WhiteDirective } from './components/template/White.directive';
+import { EnrrollComponent } from './views/enrroll/enrroll.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +34,13 @@ import { WhiteDirective } from './components/template/White.directive'
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    PerfilComponent,
-    CalendarioComponent,
-    AgendamentosComponent,
-    RegistrosComponent,
+    ProfileComponent,
+    CalendarComponent,
+    SchedulindComponent,
+    RegisterComponent,
     HomeComponent,
     WhiteDirective,
+    EnrrollComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,12 @@ import { WhiteDirective } from './components/template/White.directive'
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+<h1 class="tittle">Cadastro</h1>
+
+<p class="upForm">Digite seu nome completo, CPF, e-mail e telefone no formulário abaixo:</p>
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Nome Completo</mat-label>
+        <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="phone">
+    </mat-form-field>
+    <button mat-raised-button (click)="submit()">Enviar</button>
+</form>

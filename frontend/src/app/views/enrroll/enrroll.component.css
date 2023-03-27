@@ -1,0 +1,23 @@
+form{
+    display: grid;
+}
+
+.tittle{
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Open Sans';
+    margin-bottom: 70px;
+}
+
+.upForm {
+    font-family: 'Open Sans';
+    font-size: 20px;
+    font-weight: 600;
+    color: #21a4f0 ;
+}
+
+button {
+    width: 100px;
+    color: white !important;
+    background-color: #21a4f0 !important;
+}
