@@ -1,3 +1,7 @@
+import { ViewsService } from './../views.service';
+import { User } from './enrroll.module';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,8 +12,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EnrrollComponent {
     form: FormGroup;
+
+    user: User = {
+      id: 0,
+      name: '',
+      cpf: 0,
+      email: '',
+      phone: 0,
+    }
   
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private viewsService: ViewsService) {
       this.form = this.fb.group({
         name: ['', Validators.required],
         email: ['', Validators.required, Validators.email],
@@ -17,7 +29,10 @@ export class EnrrollComponent {
         phone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
       });
   }
-  submit() {
-    console.log(this.form.value);
+
+  submit(): void{
+    this.viewsService.newUser(this.user).subscribe(( )=> {
+      console.log('Dados enviados')
+    })
   }
 }
