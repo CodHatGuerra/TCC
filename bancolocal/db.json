@@ -1,3 +1,11 @@
 {
-    "user": []
+  "user": [
+    {
+      "name": "Eliel Elano Chaves Silva",
+      "email": "elielelano7@gmail.com",
+      "cpf": "000000000-00",
+      "phone": "(14)982118732",
+      "id": 1
+    }
+  ]
 }

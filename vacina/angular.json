@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend": {
+    "vacina": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -40,7 +40,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend",
+            "outputPath": "dist/vacina",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -88,10 +88,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "frontend:build:production"
+              "browserTarget": "vacina:build:production"
             },
             "development": {
-              "browserTarget": "frontend:build:development"
+              "browserTarget": "vacina:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,13 +99,13 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend:build"
+            "browserTarget": "vacina:build"
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "99f6c61e-ae08-4012-9a57-1dce49fc2916"
+    "analytics": "b3c805b6-4305-4099-a84c-c133dea2980a"
   }
 }

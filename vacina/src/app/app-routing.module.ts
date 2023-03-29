@@ -27,7 +27,6 @@ const routes: Routes = [{
   path: 'enrroll',
   component: EnrrollComponent
 }
-
 ];
 
 @NgModule({
