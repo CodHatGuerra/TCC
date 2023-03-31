@@ -15,7 +15,7 @@ const routes: Routes = [{
   path: 'calendar',
   component: CalendarComponent
 },{
-  path: 'schudulind',
+  path: 'schedulind',
   component: SchedulindComponent
 },{
   path: 'register',
