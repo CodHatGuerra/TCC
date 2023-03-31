@@ -15,10 +15,11 @@ import { EnrrollComponent } from './views/enrroll/enrroll.component';
 
 //diretiva
 
-import { WhiteDirective } from './template/white.directive';
+import { WhiteDirective } from './directives/white.directive';
 
 //Material
 
+import { MatCardModule } from '@angular/material/card' 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from '@angular/material/list';
@@ -29,6 +30,7 @@ import { HomeComponent } from './views/home/home.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { RegisterComponent } from './views/register/register.component';
 import { SchedulindComponent } from './views/schedulind/schedulind.component';
+import { BlueDirective } from './directives/blue.directive';
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import { SchedulindComponent } from './views/schedulind/schedulind.component';
     HomeComponent,
     ProfileComponent,
     RegisterComponent,
-    SchedulindComponent
+    SchedulindComponent,
+    BlueDirective,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { SchedulindComponent } from './views/schedulind/schedulind.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatCardModule,
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,

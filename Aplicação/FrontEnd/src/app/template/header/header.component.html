@@ -1,32 +1,32 @@
-<mat-toolbar class="header mat-elevation-z4">
+<mat-toolbar  class="header mat-elevation-z4">
     <img src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="home">
     <div class="titulo">
-        <a class="home" routerLink="home" >
-            <i class="material-icons v-middle">
+        <a class="home" appBlue routerLink="home" >
+            <i #teste (click)="func()" class="material-icons v-middle">
                 home
             </i>
             Início
          </a>
-        <a class="notifications">
+        <a #teste (click)="func()" class="notifications">
             <i class="material-icons v-middle">
                 notifications
             </i>
             Notificações
         </a>
-        <a routerLink="profile"> 
+        <a #teste (click)="func()" routerLink="profile"> 
             <i class="material-icons v-middle">
                 person
             </i>
             Perfil
         </a>
-        <a class="settings">
+        <a #teste (click)="func()" class="settings">
             <i class="material-icons v-middle">
                 settings
             </i>
             Configurações
         </a>
     </div>
-    <a class="exit">
+    <a #teste (click)="func()" class="exit">
         <i class="material-icons v-middle">
             exit_to_app
         </i>

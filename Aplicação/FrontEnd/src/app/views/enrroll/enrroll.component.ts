@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from './enrroll.module';
-import { AppService } from 'src/app/-app.service';
+import { AppService } from 'src/app/Services/app.service';
 
 @Component({
   selector: 'app-enrroll',

@@ -1,4 +1,4 @@
-import { User } from './views/enrroll/enrroll.module';
+import { User } from '../views/enrroll/enrroll.module';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
