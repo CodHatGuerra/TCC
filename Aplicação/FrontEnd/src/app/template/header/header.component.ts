@@ -6,17 +6,11 @@ import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-  @ViewChild('teste') teste: ElementRef;
 
-  constructor(private el: ElementRef) { 
-    this.teste=el.nativeElement;
-  }  
+  activeButton = 1;
 
-  func(){ 
-    console.log(this.teste.nativeElement.innerText);
-   }
+  constructor() { }  
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }
+

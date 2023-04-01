@@ -1,5 +1,6 @@
-form{
+.form{
     display: grid;
+    height: 100%;
 }
 
 .tittle{

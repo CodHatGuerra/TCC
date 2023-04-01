@@ -30,7 +30,6 @@ import { HomeComponent } from './views/home/home.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { RegisterComponent } from './views/register/register.component';
 import { SchedulindComponent } from './views/schedulind/schedulind.component';
-import { BlueDirective } from './directives/blue.directive';
 
 
 @NgModule({
@@ -46,7 +45,6 @@ import { BlueDirective } from './directives/blue.directive';
     ProfileComponent,
     RegisterComponent,
     SchedulindComponent,
-    BlueDirective,
   ],
   imports: [
     BrowserModule,
