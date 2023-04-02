@@ -30,7 +30,8 @@ export class EnrrollComponent {
   submit(): void{
     this.user = this.form.value
     this.appService.newUser(this.user).subscribe(( )=> {
-      console.log('Dados enviados')
+        this.appService.alertMessage('Cadastro Concluído!');
     })
   }
+  
 }

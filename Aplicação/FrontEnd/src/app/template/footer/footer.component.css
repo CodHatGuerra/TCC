@@ -1,6 +1,7 @@
 .footer{
-    position: fixed;
+    z-index: 1000;
     bottom: 0;
+    position: fixed;
     justify-content: flex-end;
     padding-right: 36px;
 }

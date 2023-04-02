@@ -30,6 +30,7 @@ import { HomeComponent } from './views/home/home.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { RegisterComponent } from './views/register/register.component';
 import { SchedulindComponent } from './views/schedulind/schedulind.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { SchedulindComponent } from './views/schedulind/schedulind.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
