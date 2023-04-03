@@ -5,13 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { NavComponent } from './template/nav/nav.component';
-import { CalendarComponent } from './views/calendar/calendar.component';
-import { EnrrollComponent } from './views/enrroll/enrroll.component';
+import { CalendarComponent } from './views/ComponentsNav/calendar/calendar.component';
+import { EnrrollComponent } from './views/ComponentsNav/enrroll/enrroll.component';
 
 //diretiva
 
@@ -26,10 +25,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { HomeComponent } from './views/home/home.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import { RegisterComponent } from './views/register/register.component';
-import { SchedulindComponent } from './views/schedulind/schedulind.component';
+import { HomeComponent } from './views/ComponentsHeader/home/home.component';
+import { ProfileComponent } from './views/ComponentsHeader/profile/profile.component';
+import { RegisterComponent } from './views/ComponentsNav/register/register.component';
+import { SchedulindComponent } from './views/ComponentsNav/schedulind/schedulind.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 

@@ -1,6 +1,6 @@
-import { User } from '../views/enrroll/enrroll.module';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../views/ComponentsNav/enrroll/enrroll.module';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
@@ -24,5 +24,9 @@ export class AppService {
 
   newUser(user: User): Observable<User> {
     return this.http.post<User>(this.DbLocal, user);
+  }
+
+  read(): Observable<User[]> {
+    return this.http.get<User[]>(this.DbLocal)
   }
 }
