@@ -14,6 +14,7 @@ app.post("/post", (req, res) => {
 
 app.get("/get", (req, res) => {
   const informacoes = {
+    id: 1,
     nome: "João Silva",
     cpf: "123.456.789-10",
     email: "joao.silva@example.com",
@@ -23,5 +24,6 @@ app.get("/get", (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log("Servidor iniciado na porta 8080");
+  console.log("Rotas: GET -> localhost:8080/get");
+  console.log("Rotas: POST -> localhost:8080/post");
 });
