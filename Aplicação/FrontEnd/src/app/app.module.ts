@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //Components
-import { LoginComponent } from './views/ComponentsNav/login/login.component';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
@@ -30,7 +31,8 @@ import { HomeComponent } from './views/ComponentsHeader/home/home.component';
 import { ProfileComponent } from './views/ComponentsHeader/profile/profile.component';
 import { RegisterComponent } from './views/ComponentsNav/register/register.component';
 import { SchedulindComponent } from './views/ComponentsNav/schedulind/schedulind.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoginComponent } from './views/ComponentsNav/login/login.component'
 
 
 @NgModule({
@@ -46,7 +48,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     ProfileComponent,
     RegisterComponent,
     SchedulindComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

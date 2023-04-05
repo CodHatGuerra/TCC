@@ -7,8 +7,7 @@ import { SchedulindComponent } from './views/ComponentsNav/schedulind/schedulind
 import { RegisterComponent } from './views/ComponentsNav/register/register.component';
 import { HomeComponent } from'./views/ComponentsHeader/home/home.component';
 import { EnrrollComponent } from './views/ComponentsNav/enrroll/enrroll.component';
-import { LoginComponent } from './views/login/login.component';
-
+import { LoginComponent } from './views/ComponentsNav/login/login.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,6 +15,9 @@ const routes: Routes = [{
 },{
   path: 'profile',
   component: ProfileComponent
+},{
+  path: 'login',
+  component: LoginComponent
 },{
   path: 'calendar',
   component: CalendarComponent
@@ -31,9 +33,6 @@ const routes: Routes = [{
 },{
   path: 'enrroll',
   component: EnrrollComponent
-},{
-  path: 'login',
-  component: LoginComponent
 }
 ];
 
