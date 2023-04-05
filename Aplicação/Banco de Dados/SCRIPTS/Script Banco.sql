@@ -1,3 +1,5 @@
+CREATE DATABASE TCC
+
 CREATE TABLE Pessoa (
   ID INT NOT NULL AUTO_INCREMENT,
   CPF INT(8) NOT NULL,
@@ -5,3 +7,4 @@ CREATE TABLE Pessoa (
   Nascimento DATE NOT NULL,
   PRIMARY KEY (ID)
 );
+fadsasdasdasdasdasd

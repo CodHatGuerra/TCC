@@ -23,7 +23,22 @@ app.get("/get", (req, res) => {
   res.json(informacoes);
 });
 
+app.post('/login', (req, res) => {
+  const { login, senha } = req.body;
+
+  // Verificar se o login e senha são válidos
+  if (login === 'vacina' && senha === '123') {
+    // Autenticação bem-sucedida
+    res.status(200).json({ mensagem: 'Autenticação bem-sucedida' });
+  } else {
+    // Autenticação falhou
+    res.status(401).json({ mensagem: 'Credenciais inválidas' });
+  }
+});
+
+
 app.listen(8080, () => {
   console.log("Rotas: GET -> localhost:8080/get");
   console.log("Rotas: POST -> localhost:8080/post");
+  console.log("Rotas: POST USUARIO = vacina SENHA = 123 -> localhost:8080/login");
 });
