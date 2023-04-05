@@ -14,7 +14,8 @@ export class ProfileComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit(): void { 
-    this.appService.read().subscribe(products => {
+    this.appService.read().subscribe(users => {
+      this.users = users
       console.log(this.users)
     })
   }

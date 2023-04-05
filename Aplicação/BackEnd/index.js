@@ -15,10 +15,10 @@ app.post("/post", (req, res) => {
 app.get("/get", (req, res) => {
   const informacoes = {
     id: 1,
-    nome: "João Silva",
-    cpf: "123.456.789-10",
-    email: "joao.silva@example.com",
-    telefone: "(11) 98765-4321",
+    nome: "Eliel Elano Chaves Silva",
+    cpf: "00000000-00",
+    email: "elielelano7@.com",
+    telefone: "(14)982-118732",
   };
   res.json(informacoes);
 });
