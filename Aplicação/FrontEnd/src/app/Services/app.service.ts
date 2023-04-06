@@ -2,9 +2,7 @@ import { Observable, EMPTY } from 'rxjs';
 import { User } from '../views/ComponentsNav/enrroll/enrroll.module';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { map } from 'rxjs/operators'
-import { catchError } from 'rxjs/operators'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +15,13 @@ export class AppService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {  }
   
   alertMessage(msg: string): void{
-    const config = new MatSnackBarConfig();
-    config.panelClass = ['msg-success']
-    config.duration = 3000;
-    config.horizontalPosition = "right";
-    config.verticalPosition = "top"
-    this.snackBar.open(msg, 'X', config);
+    this.snackBar.open(msg, 'X', {
+    panelClass: ['msg-success'],
+    duration: 3000,
+    horizontalPosition: "right",
+    verticalPosition: "top"
+
+  });
   }
   
   newUser(user: User): Observable<User> {

@@ -1,5 +1,6 @@
 .form{
     display: grid;
+    width: 800px;
     height: 100%;
 }
 
@@ -17,8 +18,18 @@
     color: #21a4f0 ;
 }
 
-button {
+.buttons {
+    display: flex;
+    gap: 40px;
+}
+
+.enrroll {
     width: 100px;
     color: white !important;
     background-color: #21a4f0 !important;
+}
+
+.login {
+    width: 100px;
+    color: #21a4f0 !important;
 }

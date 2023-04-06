@@ -31,13 +31,13 @@ export class EnrrollComponent {
   submit(): void{
     this.user = this.form.value
     this.appService.newUser(this.user).subscribe(
-    ( ) => {
-      this.appService.alertMessage('Cadastro Concluído!');
-      this.router.navigate(['/login'])
-    },
-    ( ) => {
-      this.appService.errorteste('Ocorreu um erro')
-    }
-    )
+      ( ) => {
+        this.appService.alertMessage('Cadastro Concluído!');
+        this.router.navigate(['/login'])
+      },
+      ( ) => {
+        this.appService.errorteste('Ocorreu um erro')
+      }
+      )
   }
 }

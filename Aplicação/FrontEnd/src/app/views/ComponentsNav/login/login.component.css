@@ -1,0 +1,40 @@
+.login {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:400px;
+}
+
+.tittle {
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Open Sans';
+    margin-bottom: 70px;
+}
+
+p {
+    font-family: 'Open Sans';
+    font-size: 20px;
+    font-weight: 600;
+    color: #21a4f0 ;
+}
+
+.form {
+    display: grid;
+}
+
+button {
+    width: 100px;
+    color: white !important;
+    background-color: #21a4f0 !important;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+  
