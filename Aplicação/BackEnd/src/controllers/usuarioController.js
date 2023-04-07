@@ -1,9 +1,6 @@
-const CarroService = require("../services/CarroService.js");
+const UsuarioService = require("../services/UsuarioService.js");
 
 module.exports = {
-
-
-
   inserir: async (req, res) => {
     let json = { error: "", result: {} };
 
@@ -20,11 +17,41 @@ module.exports = {
     let bairro = req.body.bairro;
     let estado = req.body.estado;
     let cep = req.body.cep;
- 
-    let allPropertiesFilled = nome && cpf && rg && sexo && data_nascimento && estado_civil && email && numero && nacionalidade && rua && bairro && estado && cep;
+    let senha = req.body.cep;
+
+    let allPropertiesFilled =
+      nome &&
+      cpf &&
+      rg &&
+      sexo &&
+      data_nascimento &&
+      estado_civil &&
+      email &&
+      numero &&
+      nacionalidade &&
+      rua &&
+      bairro &&
+      estado &&
+      cep &&
+      senha;
 
     if (allPropertiesFilled) {
-      let usuarioCodigo = await UsuarioService.inserir(nome, cpf, rg, sexo, data_nascimento, estado_civil, email, numero, nacionalidade, rua, bairro, estado, cep);
+      let usuarioCodigo = await UsuarioService.inserir(
+        nome,
+        cpf,
+        rg,
+        sexo,
+        data_nascimento,
+        estado_civil,
+        email,
+        numero,
+        nacionalidade,
+        rua,
+        bairro,
+        estado,
+        cep,
+        senha
+      );
       json.result = {
         codigo: usuarioCodigo,
         nome,
@@ -39,15 +66,12 @@ module.exports = {
         rua,
         bairro,
         estado,
-        cep
+        cep,
+        senha,
       };
     } else {
-      json.error = 'Campos não Enviados'
+      json.error = "Campos não Enviados";
     }
     res.json(json);
   },
-
-
-
-
 };

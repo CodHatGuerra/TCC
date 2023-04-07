@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dependencias": "npm i express mysql dotenv cors body-parser",
-    "start": "nodemon index.js"
+    "dependencias": "npm i express mysql dotenv cors body-parser nodemon",
+    "start": "nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
