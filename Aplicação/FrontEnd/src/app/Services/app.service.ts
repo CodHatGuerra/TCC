@@ -1,5 +1,5 @@
 import { Observable, EMPTY } from 'rxjs';
-import { User } from '../views/ComponentsNav/enrroll/enrroll.module';
+import { User } from '../components/enrroll/enrroll.module';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,7 +20,6 @@ export class AppService {
     duration: 3000,
     horizontalPosition: "right",
     verticalPosition: "top"
-
   });
   }
   

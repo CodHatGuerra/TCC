@@ -8,5 +8,4 @@ export class WhiteDirective {
   constructor(el: ElementRef) { 
     el.nativeElement.style.color = "#FFF"
   }
-
 }

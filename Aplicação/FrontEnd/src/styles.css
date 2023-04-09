@@ -18,3 +18,7 @@ a {
     background-color: #28a745 !important;
     color: white;
 }
+
+.df {
+    display: flex;
+}

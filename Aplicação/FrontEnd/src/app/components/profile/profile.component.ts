@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../ComponentsNav/enrroll/enrroll.module';
+import { User } from '../enrroll/enrroll.module';
 import { AppService } from 'src/app/Services/app.service';
 
 @Component({
