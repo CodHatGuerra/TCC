@@ -1,3 +1,4 @@
+import { login } from './../views/register-login/register-login.module';
 import { Observable, EMPTY } from 'rxjs';
 import { User } from '../views/enrroll/enrroll.module';
 import { HttpClient } from '@angular/common/http';
@@ -9,8 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AppService {
   
-  Dbget = 'http://localhost:8080/get';
-  Dbpost = 'http://localhost:8080/post';
+  dbLogin = 'http://localhost:8080/api/login';
+  dbSigin = 'http://localhost:8080/api/usuario';
   
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {  }
   
@@ -23,16 +24,16 @@ export class AppService {
   });
   }
   
-  newUser(user: User): Observable<User> {
-    return this.http.post<User>(this.Dbpost, user);
+  sigin(user: User): Observable<User> {
+    return this.http.post<User>(this.dbSigin, user);
   }
 
-  errorteste(e: any): Observable<any> {
+  error(e: any): Observable<any> {
     this.alertMessage('Ocorreu um erro')
     return EMPTY
   }
   
-  read(): Observable<User[]> {
-    return this.http.get<User[]>(this.Dbget)
+  login(login: login): Observable<login> {
+    return this.http.post<login>(this.dbLogin, login);
   }
 }

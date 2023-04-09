@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../views/enrroll/enrroll.module';
 import { AppService } from 'src/app/Services/app.service';
 
 @Component({
@@ -7,16 +6,7 @@ import { AppService } from 'src/app/Services/app.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
 
-  users!: User[]
-  
   constructor(private appService: AppService) { }
-
-  ngOnInit(): void { 
-    this.appService.read().subscribe(users => {
-      this.users = users
-      console.log(this.users)
-    })
-  }
-} 
+}

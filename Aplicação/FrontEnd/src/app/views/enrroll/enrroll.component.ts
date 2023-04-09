@@ -18,12 +18,13 @@ export class EnrrollComponent {
     cpf: null,
     email: '',
     phone: null,
-    nationality: '',
-    sex: '',
-    road: '',
+    nacionalidade: '',
+    data_nascimento: null,
+    sexo: '',
+    rua: '',
     bairro: '',
-    state: '',
-    cep: null
+    estado: '',
+    cep: null,
   }
 
   constructor(private router: Router, private fb: FormBuilder, private appService: AppService) {
@@ -31,19 +32,26 @@ export class EnrrollComponent {
       name: ['', Validators.required,],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      phone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
+      rg: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      phone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      nascimento: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      sexo: ['', Validators.required,],
+      rua: ['', Validators.required,],
+      bairro: ['', Validators.required,],
+      estado: ['', Validators.required,],
+      cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     });
   }
   submit(): void{
     this.user = this.form.value
-    this.appService.newUser(this.user).subscribe(
-      ( ) => {
+    this.appService.sigin(this.user).subscribe(() => {
         this.appService.alertMessage('Cadastro Concluído!');
         this.router.navigate(['/login'])
-      },
-      ( ) => {
-        this.appService.errorteste('Ocorreu um erro')
+      },() => {
+        this.appService.error('Ocorreu um erro')
       }
       )
   }
+
+  
 }

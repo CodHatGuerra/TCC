@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/Services/app.service';
+import { login } from './register-login.module';
 
 @Component({
   selector: 'app-register-login',
@@ -9,7 +10,13 @@ import { AppService } from 'src/app/Services/app.service';
   styleUrls: ['./register-login.component.css']
 })
 export class RegisterLoginComponent {
-  form: FormGroup
+  form: FormGroup;
+
+  login: login = {
+    cpf: null,
+    password: ''
+  }
+
   constructor(private appService: AppService,private fb: FormBuilder ,private router: Router){
     this.form = fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -17,13 +24,14 @@ export class RegisterLoginComponent {
     })
    }
  
-   nav() :void {
-    this.form = this.form.value
-    this.router.navigate(['aplication'])
-    console.log('navegando');
+   register() :void {
+    this.login = this.form.value
+    this.appService.login(this.login).subscribe(()=>{
+      this.router.navigate(['aplication']);
+    })
    }
 
-   sigin() :void{
-    this.router.navigate(['/enrroll'])
+   cadastro() :void{
+    this.router.navigate(['/enrroll']);
    }
 }

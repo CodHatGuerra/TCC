@@ -4,10 +4,11 @@ export interface User {
   cpf: null,
   email: string,
   phone: null,
-  nationality: string,
-  sex: string,
-  road: string,
+  nacionalidade: string,
+  data_nascimento: null
+  sexo: string,
+  rua: string,
   bairro: string,
-  state: string,
+  estado: string,
   cep: null
 }

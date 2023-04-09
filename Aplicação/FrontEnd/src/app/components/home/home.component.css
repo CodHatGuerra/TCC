@@ -23,7 +23,7 @@
 
 .button {
     width: 200px;
-    background-image: url('../../../../assets/img/poupaTempo.png');
+    background-image: url('../../../assets/img/poupaTempo.png');
     height: 100px;
     background-size: cover;
     background-size: contain;
@@ -41,17 +41,17 @@
 .caixas .c1 {
     background-size: cover;
     background-size: cover;
-    background-image: url('../../../../assets/img/img1.png');
+    background-image: url('../../../assets/img/img1.png');
 }
 
 .caixas .c2 {
     background-size: cover;
-    background-image: url('../../../../assets/img/img2.jpeg');
+    background-image: url('../../../assets/img/img2.jpeg');
 }
 
 .caixas .c3 {
     background-size: cover;
-    background-image: url('../../../../assets/img/img3.jpeg');
+    background-image: url('../../../assets/img/img3.jpeg');
     background-position: center;
 }
 
