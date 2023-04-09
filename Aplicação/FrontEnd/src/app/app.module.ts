@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
-import { EnrrollComponent } from './components/enrroll/enrroll.component';
+import { EnrrollComponent } from './views/enrroll/enrroll.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterLoginComponent } from './views/register-login/register-login.component';
+
 //diretiva
 
 import { WhiteDirective } from './directives/white.directive';
@@ -31,6 +32,7 @@ import { SchedulindComponent } from './components/schedulind/schedulind.componen
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AplicationComponent } from './views/aplication/aplication.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,13 @@ import { AplicationComponent } from './views/aplication/aplication.component';
     FooterComponent,
     WhiteDirective,
     EnrrollComponent,
-    HomeComponent,
     ProfileComponent,
-    SchedulindComponent,
     RegisterLoginComponent,
     AplicationComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    SchedulindComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

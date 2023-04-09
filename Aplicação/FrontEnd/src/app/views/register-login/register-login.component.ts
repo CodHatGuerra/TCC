@@ -18,7 +18,12 @@ export class RegisterLoginComponent {
    }
  
    nav() :void {
+    this.form = this.form.value
     this.router.navigate(['aplication'])
     console.log('navegando');
+   }
+
+   sigin() :void{
+    this.router.navigate(['/enrroll'])
    }
 }

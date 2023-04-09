@@ -1,7 +1,12 @@
-.form{
+.sigin {
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.form {
     display: grid;
     width: auto;
-    height: 100%;
+    height: auto;
 }
 
 .tittle{
@@ -9,6 +14,16 @@
     font-weight: 700;
     font-family: 'Open Sans';
     margin-bottom: 70px;
+}
+
+.decoration {
+    height: 89vw;
+    height: 85vh;
+}
+
+.box {
+    padding: 30px;
+    border-radius: 6px;
 }
 
 .upForm {

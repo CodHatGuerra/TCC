@@ -18,6 +18,12 @@ export class EnrrollComponent {
     cpf: null,
     email: '',
     phone: null,
+    nationality: '',
+    sex: '',
+    road: '',
+    bairro: '',
+    state: '',
+    cep: null
   }
 
   constructor(private router: Router, private fb: FormBuilder, private appService: AppService) {
