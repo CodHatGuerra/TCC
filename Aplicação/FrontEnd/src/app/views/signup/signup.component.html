@@ -1,71 +1,71 @@
 <mat-toolbar class="header mat-elevation-z4">
     <img class="logo" src="../../../assets/img/LogoMDP.png">
 </mat-toolbar>
-<div class="sigin df">
-    <img class="decoration" src="../../../assets/img/LogoMDP.png" alt="">
+<div class="signup df">
+    <img class="decoration" src="../../../assets/img/Capa.png" alt="">
     <div class="box mat-elevation-z4">
         <h1 class="tittle">Cadastro</h1>
         <p class="upForm">Digite seu nome completo, CPF, e-mail e telefone no formulário abaixo:</p>
         <form class="form" [formGroup]="form">
-    <mat-form-field>
-        <mat-label>Nome Completo</mat-label>
-        <input matInput formControlName="nome">
-    </mat-form-field>
-    <mat-form-field>
+            <mat-form-field>
+                <mat-label>Nome Completo</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>CPF</mat-label>
         <input matInput formControlName="cpf">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>RG</mat-label>
         <input matInput formControlName="rg">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>Sexo</mat-label>
         <input matInput formControlName="sexo">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>Data de Nascimento</mat-label>
         <input matInput formControlName="data_nascimento">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>Estado Civil</mat-label>
         <input matInput formControlName="estado_civil">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>nacionalidade</mat-label>
         <input matInput formControlName="nacionalidade">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>E-mail</mat-label>
         <input matInput formControlName="email">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Telefone</mat-label>
-        <input matInput formControlName="numero">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Bairro</mat-label>
-        <input matInput formControlName="bairro">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Telefone</mat-label>
+                <input matInput formControlName="numero">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Bairro</mat-label>
+                <input matInput formControlName="bairro">
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>Rua</mat-label>
         <input matInput formControlName="rua">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>Estado</mat-label>
         <input matInput formControlName="estado">
-    </mat-form-field>
-    <mat-form-field>
+            </mat-form-field>
+            <mat-form-field>
         <mat-label>Cep</mat-label>
         <input matInput formControlName="cep">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Senha</mat-label>
-        <input matInput formControlName="senha">
-    </mat-form-field>
-    <div class="buttons">
-        <button class="signup" mat-raised-button (click)="submit()">Cadastrar</button>
-    </div>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Senha</mat-label>
+                <input matInput formControlName="senha">
+            </mat-form-field>
+            <div class="buttons">
+                <button class="cadastrar" mat-raised-button (click)="submit()">Cadastrar</button>
+            </div>
         </form>
     </div>
 </div>

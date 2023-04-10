@@ -36,3 +36,7 @@ a {
     top: 0;
     z-index: 1000;
 }
+
+img {
+    border-radius: 6px;
+}

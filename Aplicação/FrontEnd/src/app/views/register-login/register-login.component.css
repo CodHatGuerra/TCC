@@ -3,18 +3,18 @@ img {
     height: 60px;
 }
 
-.sigin {
+.signin {
     width: 1200px;
-    display: flex;
     margin: 0 auto;
     align-items:center;
+    text-align: center;
     gap: 50px;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 .img {
-    width: 50vw;
-    height: 500px;
+    width: 54vw;
+    height: 70vh;
 }
 
 .login {

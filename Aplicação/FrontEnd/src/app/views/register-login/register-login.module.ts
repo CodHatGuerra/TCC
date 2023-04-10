@@ -1,4 +1,4 @@
 export interface login {
     cpf: null,
-    password: ''
+    password: string
 }

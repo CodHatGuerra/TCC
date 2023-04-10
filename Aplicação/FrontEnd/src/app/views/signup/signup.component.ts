@@ -48,13 +48,11 @@ export class SignupComponent {
     });
   }
   submit(): void{
-    if(this.form.valid){
       this.user = this.form.value
         this.appService.signup(this.user).subscribe(() => {
           this.appService.alertMessage('Cadastro Concluído!');
           this.router.navigate(['/'])  
-        },() => {this.appService.error('Erro')}
+        }
     );
     }        
-}
   }

@@ -1,15 +1,18 @@
-.sigin {
-    margin-top: 100px;
-    justify-content: center;
-}
-
 .form {
     display: grid;
     width: auto;
     height: auto;
 }
 
-.tittle{
+.signup {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+    gap: 50px;
+}
+
+.tittle {
     font-size: 35px;
     font-weight: 700;
     font-family: 'Open Sans';
@@ -17,13 +20,17 @@
 }
 
 .decoration {
-    height: 89vw;
-    height: 85vh;
+    width: 54vw;
+    height: 70vh;
 }
 
 .box {
-    padding: 30px;
+    display: grid;
+    justify-content: center;
+    width: 100%;
     border-radius: 6px;
+    height: auto;
+    padding: 30px;
 }
 
 .upForm {
@@ -38,13 +45,8 @@
     gap: 40px;
 }
 
-.signup {
+.cadastrar {
     width: 100px;
     color: white !important;
     background-color: #21a4f0 !important;
-}
-
-.login {
-    width: 100px;
-    color: #21a4f0 !important;
 }
