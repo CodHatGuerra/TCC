@@ -11,8 +11,12 @@ module.exports = {
       json.result = {
         resposta: usuarioResposta,
       };
+      console.log(`Usuario: ${usuarioResposta[0].nome} CPF: ${usuarioResposta[0].cpf} Logado com Sucesso !`);
     } else {
       json.error = "Usuário e senha são obrigatórios.";
+      console.log(
+        "Tentativa de Login: Login Negado, Usuario ou Senha Incorreto."
+      );
     }
     res.json(json);
   },

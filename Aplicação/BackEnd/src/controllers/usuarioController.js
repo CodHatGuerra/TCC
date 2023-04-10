@@ -69,6 +69,22 @@ module.exports = {
         cep,
         senha,
       };
+      console.log("-----USUARIO REGISTRADO COM SUCESSO !-------")
+      console.log("|nome: " + nome);
+      console.log("|cpf: " + cpf);
+      console.log("|rg: " + rg);
+      console.log("|sexo: " + sexo);
+      console.log("|data_nascimento: " + data_nascimento);
+      console.log("|estado_civil: " + estado_civil);
+      console.log("|email: " + email);
+      console.log("|numero: " + numero);
+      console.log("|nacionalidade: " + nacionalidade);
+      console.log("|rua: " + rua);
+      console.log("|bairro: " + bairro);
+      console.log("|estado: " + estado);
+      console.log("|cep: " + cep);
+      console.log("|senha: " + senha);
+      console.log("--------------------------------------------");
     } else {
       json.error = "Campos não Enviados";
     }

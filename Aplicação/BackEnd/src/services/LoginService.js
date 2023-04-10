@@ -13,7 +13,7 @@ module.exports = {
             return;
           }
           if (results.length > 0) {
-            aceito("Logado Com Sucesso !");
+            aceito(results);
             return;
           } else {
             aceito("Usuairo ou Senha Errado !");
