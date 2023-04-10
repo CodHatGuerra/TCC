@@ -4,7 +4,7 @@ img {
 }
 
 .sigin {
-    width: 1000px;
+    width: 1200px;
     display: flex;
     margin: 0 auto;
     align-items:center;
@@ -12,8 +12,8 @@ img {
     margin-top: 40px;
 }
 
-.texto {
-    width: 500px;
+.img {
+    width: 50vw;
     height: 500px;
 }
 

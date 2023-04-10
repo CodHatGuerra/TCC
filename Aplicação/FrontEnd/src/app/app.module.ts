@@ -10,10 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
-import { EnrrollComponent } from './views/enrroll/enrroll.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterLoginComponent } from './views/register-login/register-login.component';
-
+import { SignupComponent } from './views/signup/signup.component'; 
 //diretiva
 
 import { WhiteDirective } from './directives/white.directive';
@@ -40,14 +39,14 @@ import { RegisterComponent } from './components/register/register.component';
     HeaderComponent,
     FooterComponent,
     WhiteDirective,
-    EnrrollComponent,
+    SignupComponent,
     ProfileComponent,
     RegisterLoginComponent,
     AplicationComponent,
     NavComponent,
     HomeComponent,
     SchedulindComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

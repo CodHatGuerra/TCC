@@ -19,19 +19,21 @@ export class RegisterLoginComponent {
 
   constructor(private appService: AppService,private fb: FormBuilder ,private router: Router){
     this.form = fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      cpf: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
       password: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
     })
    }
  
    register() :void {
-    this.login = this.form.value
-    this.appService.login(this.login).subscribe(()=>{
-      this.router.navigate(['aplication']);
-    })
+    if(this.form.valid){
+      this.login = this.form.value
+      this.appService.login(this.login).subscribe(()=>{
+        this.router.navigate(['aplication']);
+      });
+    }
    }
 
    cadastro() :void{
-    this.router.navigate(['/enrroll']);
+    this.router.navigate(['/signup']);
    }
 }
