@@ -1,6 +1,6 @@
+import { User } from './../views/signup/signup.module';
 import { login } from './../views/register-login/register-login.module';
 import { Observable, EMPTY } from 'rxjs';
-import { User } from '../views/signup/signup.module';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
