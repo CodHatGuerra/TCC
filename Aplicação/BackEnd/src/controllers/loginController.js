@@ -10,8 +10,15 @@ module.exports = {
       let usuarioResposta = await LoginService.login(cpf, senha);
       json.result = {
         resposta: usuarioResposta,
+        autenticado: usuarioResposta.autenticado,
       };
-      console.log(`Usuario: ${usuarioResposta[0].nome} CPF: ${usuarioResposta[0].cpf} Logado com Sucesso !`);
+      if (usuarioResposta.autenticado) {
+        console.log(
+          `Usuario: ${usuarioResposta[0].nome} CPF: ${usuarioResposta[0].cpf} Logado com Sucesso !`
+        );
+      } else {
+        console.log("Tentativa de Login com informações incorretas.");
+      }
     } else {
       json.error = "Usuário e senha são obrigatórios.";
       console.log(

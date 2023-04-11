@@ -13,10 +13,12 @@ module.exports = {
             return;
           }
           if (results.length > 0) {
+            results.autenticado = true;
             aceito(results);
             return;
           } else {
-            aceito("Usuairo ou Senha Errado !");
+            results.autenticado = false;
+            aceito(results);
           }
         }
       );
