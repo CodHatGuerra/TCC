@@ -1,16 +1,10 @@
 export interface User {
   id: null,
   nome: string,
+  rg: null,
   cpf: null,
   email: string,
-  numero: null,
-  nacionalidade: string,
-  data_nascimento: null,
-  estado_civil: string,
-  sexo: string,
-  rua: string,
-  bairro: string,
-  estado: string,
-  cep: null,
+  telefone: null,
+  sexo: string,  
   senha: string
 }

@@ -14,19 +14,19 @@ export class RegisterLoginComponent {
 
   login: login = {
     cpf: null,
-    password: ''
+    senha: ''
   }
 
   constructor(private appService: AppService,private fb: FormBuilder ,private router: Router){
     this.form = fb.group({
       cpf: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
-      password: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
+      senha: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
     })
    }
  
    register() :void {
     if(this.form.valid){
-      this.login = this.form.value
+      this.login = this.form.value      
       this.appService.login(this.login).subscribe(()=>{
         this.router.navigate(['aplication']);
       });

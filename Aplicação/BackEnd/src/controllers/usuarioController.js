@@ -8,31 +8,17 @@ module.exports = {
     let cpf = req.body.cpf;
     let rg = req.body.rg;
     let sexo = req.body.sexo;
-    let data_nascimento = req.body.data_nascimento;
-    let estado_civil = req.body.estado_civil;
+    let telefone = req.body.telefone;
     let email = req.body.email;
-    let numero = req.body.numero;
-    let nacionalidade = req.body.nacionalidade;
-    let rua = req.body.rua;
-    let bairro = req.body.bairro;
-    let estado = req.body.estado;
-    let cep = req.body.cep;
-    let senha = req.body.cep;
+    let senha = req.body.senha;
 
     let allPropertiesFilled =
       nome &&
       cpf &&
       rg &&
+      telefone &&
       sexo &&
-      data_nascimento &&
-      estado_civil &&
       email &&
-      numero &&
-      nacionalidade &&
-      rua &&
-      bairro &&
-      estado &&
-      cep &&
       senha;
 
     if (allPropertiesFilled) {
@@ -41,15 +27,8 @@ module.exports = {
         cpf,
         rg,
         sexo,
-        data_nascimento,
-        estado_civil,
         email,
-        numero,
-        nacionalidade,
-        rua,
-        bairro,
-        estado,
-        cep,
+        telefone,
         senha
       );
       json.result = {
@@ -58,15 +37,8 @@ module.exports = {
         cpf,
         rg,
         sexo,
-        data_nascimento,
-        estado_civil,
         email,
-        numero,
-        nacionalidade,
-        rua,
-        bairro,
-        estado,
-        cep,
+        telefone,
         senha,
       };
       console.log("-----USUARIO REGISTRADO COM SUCESSO !-------")
@@ -74,15 +46,8 @@ module.exports = {
       console.log("|cpf: " + cpf);
       console.log("|rg: " + rg);
       console.log("|sexo: " + sexo);
-      console.log("|data_nascimento: " + data_nascimento);
-      console.log("|estado_civil: " + estado_civil);
       console.log("|email: " + email);
-      console.log("|numero: " + numero);
-      console.log("|nacionalidade: " + nacionalidade);
-      console.log("|rua: " + rua);
-      console.log("|bairro: " + bairro);
-      console.log("|estado: " + estado);
-      console.log("|cep: " + cep);
+      console.log("|telefone: " + telefone);
       console.log("|senha: " + senha);
       console.log("--------------------------------------------");
     } else {
