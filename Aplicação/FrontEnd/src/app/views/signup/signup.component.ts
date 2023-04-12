@@ -41,7 +41,7 @@ export class SignupComponent {
           this.appService.alertMessage('Cadastro Concluído!');
           this.router.navigate(['/'])  
         }
-    );
+      );
     }
   }        
 }

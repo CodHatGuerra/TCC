@@ -27,8 +27,13 @@ export class RegisterLoginComponent {
    register() :void {
     if(this.form.valid){
       this.login = this.form.value      
-      this.appService.login(this.login).subscribe(()=>{
-        this.router.navigate(['aplication']);
+      this.appService.login(this.login).subscribe((resposta: any)=>{        
+        if(resposta.result.autenticado == true ) {
+          this.router.navigate(['aplication']);
+          this.appService.alertMessage('Bem vindo!')
+        } else {
+          this.appService.alertMessage('Usuário não encontrado')
+        }
       });
     }
    }
