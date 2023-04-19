@@ -1,31 +1,30 @@
-import { User } from './../views/signup/signup.module';
-import { login } from './../views/register-login/register-login.module';
+import { UserModel } from './../views/signup/signup.module';
+import { loginModel } from './../views/register-login/register-login.module';
 import { Observable, EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environments';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  
-  dbLogin = 'http://localhost:8080/api/login';
-  dbSignup = 'http://localhost:8080/api/usuario';
-  
+
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {  }
-  
-  alertMessage(msg: string): void{
+
+  alertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
-    panelClass: ['msg-success'],
-    duration: 3000,
-    horizontalPosition: "right",
-    verticalPosition: "top"
-  });
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['cor']
+    });
   }
   
-  signup(user: User): Observable<User> {
-    return this.http.post<User>(this.dbSignup, user);
+  signup(user: UserModel): Observable<UserModel> {
+    return this.http.post<UserModel>(`${environment.dbSignup}`, user);
   }
 
   error(e: any): Observable<any> {
@@ -33,7 +32,7 @@ export class AppService {
     return EMPTY
   }
   
-  login(login: login): Observable<login> {
-    return this.http.post<login>(this.dbLogin, login);
+  login(login: loginModel): Observable<loginModel> {
+    return this.http.post<loginModel>(`${environment.dbSignup}`, login);
   }
 }

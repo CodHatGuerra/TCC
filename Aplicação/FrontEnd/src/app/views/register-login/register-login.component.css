@@ -1,8 +1,3 @@
-img {
-    width: 60px;
-    height: 60px;
-}
-
 .signin {
     width: 1200px;
     margin: 0 auto;
@@ -43,7 +38,7 @@ p {
 
 .form {
     display: grid;
-    width: 25vw;
+    width: auto;
 }
 
 .continue {
@@ -67,3 +62,7 @@ p {
     height: 100%;
 }
   
+
+.class {
+    padding: 40px;
+}

@@ -3,6 +3,10 @@
     background-color: #21a4f0;
 }
 
+.container {
+    z-index: 2;
+}
+
 .white {
     color: white;
 }

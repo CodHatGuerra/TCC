@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from './signup.module';
+import { UserModel } from './signup.module';
 import { AppService } from 'src/app/Services/app.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   form: FormGroup;
 
-  user: User = {
+teste = 0
+
+  user: UserModel = {
     id: null,
     nome: '',
     cpf: null,
@@ -31,7 +33,7 @@ export class SignupComponent {
       rg: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       sexo: ['', Validators.required,],
-      senha: ['', Validators.required,],
+      senha: ['', Validators.required],
     });
   }
   submit(): void{

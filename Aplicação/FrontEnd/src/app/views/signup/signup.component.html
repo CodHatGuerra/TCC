@@ -5,7 +5,7 @@
     <img class="decoration" src="../../../assets/img/Capa.png" alt="">
     <div class="box mat-elevation-z4">
         <h1 class="tittle">Cadastro</h1>
-        <p class="upForm">Digite seu nome completo, CPF, e-mail e telefone no formulário abaixo:</p>
+        <p class="upForm">Digite seus dados para poder realizar o cadastro:</p>
         <form class="form" [formGroup]="form">
             <mat-form-field>
                 <mat-label>Nome Completo</mat-label>
@@ -17,7 +17,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>RG</mat-label>
-                <input matInput formControlName="rg">
+                <input matInput type="number" formControlName="rg">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Sexo</mat-label>
@@ -25,15 +25,32 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>E-mail</mat-label>
-                <input matInput formControlName="email">
+                <input matInput type="email" formControlName="email">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Telefone</mat-label>
-                <input matInput formControlName="telefone">
+                <input matInput type="number" formControlName="telefone">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Senha</mat-label>
-                <input matInput formControlName="senha">
+                <input matInput type="password" formControlName="senha">
+            </mat-form-field>
+            <p>Endereço</p>
+            <mat-form-field>
+                <mat-label>Estado</mat-label>
+                <input matInput type="password" formControlName="estado">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Cidade</mat-label>
+                <input matInput type="password" formControlName="cidade">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Bairro</mat-label>
+                <input matInput type="password" formControlName="bairro">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Rua</mat-label>
+                <input matInput type="password" formControlName="Rua">
             </mat-form-field>
             <div class="buttons">
                 <button class="cadastrar" mat-raised-button (click)="submit()">Cadastrar</button>

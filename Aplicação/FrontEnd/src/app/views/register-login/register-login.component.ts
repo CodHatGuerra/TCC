@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/Services/app.service';
-import { login } from './register-login.module';
+import { loginModel } from './register-login.module';
 
 @Component({
   selector: 'app-register-login',
@@ -10,9 +10,9 @@ import { login } from './register-login.module';
   styleUrls: ['./register-login.component.css']
 })
 export class RegisterLoginComponent {
-  form: FormGroup;
+form: FormGroup;
 
-  login: login = {
+  FormLogin: loginModel = {
     cpf: null,
     senha: ''
   }
@@ -26,19 +26,20 @@ export class RegisterLoginComponent {
  
    register() :void {
     if(this.form.valid){
-      this.login = this.form.value      
-      this.appService.login(this.login).subscribe((resposta: any)=>{        
-        if(resposta.result.autenticado == true ) {
+      this.FormLogin = this.form.value      
+      this.appService.login(this.FormLogin).subscribe((response: any)=>{        
+        if(response.result.autenticado == true ) {
           this.router.navigate(['aplication']);
           this.appService.alertMessage('Bem vindo!')
         } else {
           this.appService.alertMessage('Usuário não encontrado')
         }
       });
-    }
+    } 
    }
 
    cadastro() :void{
     this.router.navigate(['/signup']);
    }
+  
 }

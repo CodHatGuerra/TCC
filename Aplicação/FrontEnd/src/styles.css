@@ -14,9 +14,9 @@ a {
     color: rgb(0, 0, 0);
 }
 
-.msg-success {
+.cor {
     background-color: #28a745 !important;
-    color: white;
+    color: white !important;
 }
 
 .df {
@@ -35,8 +35,4 @@ a {
     position: fixed;
     top: 0;
     z-index: 1000;
-}
-
-img {
-    border-radius: 6px;
 }
