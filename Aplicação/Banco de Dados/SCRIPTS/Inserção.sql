@@ -1,3 +1,5 @@
+USE vf_dev;
+
 INSERT INTO TB_Usuario (Nome, Sobrenome, Email, Senha, DataNascimento, Permissao)
 VALUES
 ('Lucas', 'Silva', 'lucas.silva@example.com', 'senha123', '1990-05-20', 1),
