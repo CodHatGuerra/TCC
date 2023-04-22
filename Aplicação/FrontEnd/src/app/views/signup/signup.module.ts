@@ -6,5 +6,9 @@ export interface UserModel {
   email: string,
   telefone: null,
   sexo: string,  
-  senha: string
+  senha: string,
+  // estado: string,  
+  // cidade: string,  
+  // bairro: string,  
+  // rua: string,  
 }

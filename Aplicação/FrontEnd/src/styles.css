@@ -4,7 +4,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
 .v-middle {
     vertical-align: middle;
 }
@@ -19,7 +18,7 @@ a {
     color: white !important;
 }
 
-.df {
+.DF {
     display: flex;
 }
 
@@ -36,3 +35,8 @@ a {
     top: 0;
     z-index: 1000;
 }
+
+.DG {
+    display: grid;
+}
+

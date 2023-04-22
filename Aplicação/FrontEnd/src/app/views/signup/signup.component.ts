@@ -22,7 +22,11 @@ teste = 0
     email: '',
     telefone: null,
     sexo: '',
-    senha: ''
+    senha: '',
+    // estado: '',
+    // cidade: '',
+    // bairro: '',
+    // rua: '',
   }
 
   constructor(private router: Router, private fb: FormBuilder, private appService: AppService) {
@@ -34,6 +38,10 @@ teste = 0
       telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       sexo: ['', Validators.required,],
       senha: ['', Validators.required],
+      // estado: ['', Validators.required,],
+      // cidade: ['', Validators.required,],
+      // bairro: ['', Validators.required,],
+      // rua: ['', Validators.required,]
     });
   }
   submit(): void{

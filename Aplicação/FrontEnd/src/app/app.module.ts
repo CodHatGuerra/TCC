@@ -18,7 +18,7 @@ import { SignupComponent } from './views/signup/signup.component';
 import { WhiteDirective } from './directives/white.directive';
 
 //Material
-
+import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card' 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -62,6 +62,7 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatIconModule,
     MatSnackBarModule,
   ],
   providers: [],
