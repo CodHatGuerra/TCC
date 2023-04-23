@@ -5,15 +5,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environments';
-
+import { cepModel } from './../views/signup/signup.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) {  }
-
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
+  
   alertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
@@ -21,7 +20,7 @@ export class AppService {
       verticalPosition: "top",
       panelClass: ['cor']
     });
-  }
+    }
   
   signup(user: UserModel): Observable<UserModel> {
     return this.http.post<UserModel>(`${environment.dbSignup}`, user);

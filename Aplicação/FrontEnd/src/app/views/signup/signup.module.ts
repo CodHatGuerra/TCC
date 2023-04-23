@@ -1,14 +1,20 @@
 export interface UserModel {
   id: null,
   nome: string,
-  rg: null,
-  cpf: null,
+  rg: number,
+  cpf: number,
   email: string,
-  telefone: null,
+  telefone: number,
   sexo: string,  
   senha: string,
-  // estado: string,  
-  // cidade: string,  
-  // bairro: string,  
-  // rua: string,  
+  cep: number
+  uf: string,  
+  logradouro: string,  
+  localidade: string,  
+  bairro: string,  
+  numero: number
+}
+
+export interface cepModel {
+  cep:number;
 }

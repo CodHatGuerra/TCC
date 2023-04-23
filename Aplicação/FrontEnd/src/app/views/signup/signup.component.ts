@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel } from './signup.module';
@@ -11,25 +12,26 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
   form: FormGroup;
-
-teste = 0
+  cep:any
 
   user: UserModel = {
     id: null,
     nome: '',
-    cpf: null,
-    rg: null,
+    cpf: 0,
+    rg: 0,
     email: '',
-    telefone: null,
+    telefone: 0,
     sexo: '',
     senha: '',
-    // estado: '',
-    // cidade: '',
-    // bairro: '',
-    // rua: '',
+    cep: 0,
+    uf: '',
+    localidade: '',
+    bairro: '',
+    logradouro: '',
+    numero: 0
   }
 
-  constructor(private router: Router, private fb: FormBuilder, private appService: AppService) {
+  constructor(private http: HttpClient, private router: Router, private fb: FormBuilder, private appService: AppService) {
     this.form = this.fb.group({
       nome: ['', Validators.required,],
       email: ['', [Validators.required, Validators.email]],
@@ -38,13 +40,17 @@ teste = 0
       telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       sexo: ['', Validators.required,],
       senha: ['', Validators.required],
-      // estado: ['', Validators.required,],
-      // cidade: ['', Validators.required,],
-      // bairro: ['', Validators.required,],
-      // rua: ['', Validators.required,]
+      uf: ['', Validators.required,],
+      localidade: ['', Validators.required,],
+      logradouro: ['', Validators.required,],
+      bairro: ['', Validators.required,],
+      rua: ['', Validators.required,],
+      cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     });
   }
-  submit(): void{
+
+  submit(): void {
     if(this.form.valid){
       this.user = this.form.value
         this.appService.signup(this.user).subscribe(() => {
@@ -54,4 +60,18 @@ teste = 0
       );
     }
   }        
+
+  DadosCep() {
+   this.cep =this.form.get('cep')?.value;
+   const url = `http://viacep.com.br/ws/${this.cep}/json/`;  
+   this.http.get<any>(url).subscribe(response => {
+          this.user.uf = response.uf;
+          this.user.localidade = response.localidade,
+          this.user.bairro = response.bairro,
+          this.user.logradouro = response.logradouro  
+   },error => {
+    this.appService.alertMessage('CEP inválido')
+   }
+   );
+  }
 }

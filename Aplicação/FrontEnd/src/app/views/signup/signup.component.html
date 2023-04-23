@@ -4,7 +4,6 @@
 <div class="signup DF">
     <div class="informations DG">
         <img class="decoration" src="../../../assets/img/Capa.png" alt="">
-        
     </div>
     <div class="box mat-elevation-z4">
         <h1 class="tittle">Cadastro</h1>
@@ -16,7 +15,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>CPF</mat-label>
-                <input matInput formControlName="cpf">
+                <input matInput type="number" formControlName="cpf">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>RG</mat-label>
@@ -36,25 +35,34 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Senha</mat-label>
-                <input matInput type="password" formControlName="senha">
+                <input matInput type="text" formControlName="senha">
             </mat-form-field>
-            <!-- <p>Endereço</p>
+            <p class="upForm">Endereço</p>
             <mat-form-field>
-                <mat-label>Estado</mat-label>
-                <input matInput type="text" formControlName="estado">
+                <mat-label>Cep</mat-label>
+                <input matInput type="number" [(ngModel)]="cep"  formControlName="cep">
+            </mat-form-field>
+            <button mat-button type="button" (click)="DadosCep()">Buscar Cep</button>
+            <mat-form-field>
+                <mat-label>Uf</mat-label>
+                <input matInput type="text" readonly [value]="user.uf" formControlName="uf">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Cidade</mat-label>
-                <input matInput type="text" formControlName="cidade">
+                <mat-label>Localidade</mat-label>
+                <input matInput type="text" readonly [value]="user.localidade" formControlName="localidade">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Bairro</mat-label>
-                <input matInput type="text" formControlName="bairro">
+                <input matInput type="text" readonly [value]="user.bairro" formControlName="bairro">
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Rua</mat-label>
-                <input matInput type="text" formControlName="Rua">
-            </mat-form-field> -->
+                <mat-label>Logradouro</mat-label>
+                <input matInput type="text" readonly [value]="user.logradouro" formControlName="logradouro">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Número</mat-label>
+                <input matInput type="number" formControlName="numero">
+            </mat-form-field>
             <div class="buttons">
                 <button class="cadastrar" mat-raised-button (click)="submit()">Cadastrar</button>
             </div>

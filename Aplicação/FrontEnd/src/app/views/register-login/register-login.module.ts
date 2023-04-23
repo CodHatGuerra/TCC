@@ -1,4 +1,4 @@
 export interface loginModel {
-    cpf: null,
+    cpf: number,
     senha: string
 }

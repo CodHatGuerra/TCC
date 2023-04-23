@@ -8,7 +8,6 @@
     width: 1200px;
     margin: 0 auto;
     margin-top: 135px;
-    text-align: center;
     gap: 50px;
 }
 
@@ -20,7 +19,7 @@
 }
 
 .decoration {
-    width: 54vw;
+    width: 50vw;
     height: 70vh;
 }
 

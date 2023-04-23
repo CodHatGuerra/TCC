@@ -13,14 +13,14 @@ export class RegisterLoginComponent {
 form: FormGroup;
 
   FormLogin: loginModel = {
-    cpf: null,
+    cpf: 0,
     senha: ''
   }
 
   constructor(private appService: AppService,private fb: FormBuilder ,private router: Router){
     this.form = fb.group({
       cpf: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
-      senha: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
+      senha: ['', Validators.required]
     })
    }
  

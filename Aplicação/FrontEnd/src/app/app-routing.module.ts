@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { SignupComponent } from './views/signup/signup.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { 
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'schedulind',
         component: SchedulindComponent 
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent 
       },
       {
         path: 'register',

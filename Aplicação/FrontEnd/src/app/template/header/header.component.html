@@ -7,26 +7,8 @@
             </i>
             Início
          </a>
-        <a (click)="activeButton = 2" [ngClass]="{'colorButton': activeButton === 2}" class="notifications">
-            <i class="material-icons v-middle">
-                notifications
-            </i>
-            Notificações
-        </a>
-        <a (click)="activeButton = 3" [ngClass]="{'colorButton': activeButton === 3}" routerLink="profile"> 
-            <i class="material-icons v-middle">
-                person
-            </i>
-            Perfil
-        </a>
-        <a (click)="activeButton = 4" [ngClass]="{'colorButton': activeButton === 4}" class="settings">
-            <i class="material-icons v-middle">
-                settings
-            </i>
-            Configurações
-        </a>
     </div>
-    <a class="exit">
+    <a class="exit" (click)="activeButton = 2" [ngClass]="{'colorButton': activeButton === 2}" routerLink="">
         <i class="material-icons v-middle">
             exit_to_app
         </i>
