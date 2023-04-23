@@ -1,7 +1,7 @@
 const UsuarioService = require("../services/UsuarioService.js");
 
 module.exports = {
-  inserir: async (req, res) => {
+  cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
 
     let nome = req.body.nome;
