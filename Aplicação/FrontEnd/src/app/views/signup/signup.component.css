@@ -1,14 +1,14 @@
-.form {
-    display: grid;
-    width: auto;
-    height: auto;
-}
-
 .signup {
     width: 1200px;
     margin: 0 auto;
     margin-top: 135px;
     gap: 50px;
+}
+
+.form {
+    display: grid;
+    width: 35vw;
+    height: auto;
 }
 
 .tittle {
@@ -19,8 +19,12 @@
 }
 
 .decoration {
-    width: 50vw;
-    height: 70vh;
+    width: 40vw;
+    height: 60vh;
+}
+
+.texts {
+    margin-top: 20px;
 }
 
 .box {
@@ -33,13 +37,6 @@
     margin-bottom: 50px;
 }
 
-.upForm {
-    font-family: 'Open Sans';
-    font-size: 20px;
-    font-weight: 600;
-    color: #21a4f0 ;
-}
-
 .buttons {
     display: flex;
     gap: 40px;
@@ -49,4 +46,16 @@
     width: 100px;
     color: white !important;
     background-color: #21a4f0 !important;
+}
+
+.buscarCep {
+    width: 170px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

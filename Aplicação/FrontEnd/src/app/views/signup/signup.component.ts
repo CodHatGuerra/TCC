@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel } from './signup.module';
 import { AppService } from 'src/app/Services/app.service';
 import { Router } from '@angular/router';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-signup ',
@@ -61,17 +62,17 @@ export class SignupComponent {
     }
   }        
 
+  
   DadosCep() {
    this.cep =this.form.get('cep')?.value;
    const url = `http://viacep.com.br/ws/${this.cep}/json/`;  
-   this.http.get<any>(url).subscribe(response => {
-          this.user.uf = response.uf;
-          this.user.localidade = response.localidade,
-          this.user.bairro = response.bairro,
-          this.user.logradouro = response.logradouro  
-   },error => {
-    this.appService.alertMessage('CEP inválido')
-   }
+   this.http.get<any>(url).subscribe(
+    response => {
+      this.user.uf = response.uf;
+      this.user.localidade = response.localidade,
+      this.user.bairro = response.bairro,
+      this.user.logradouro = response.logradouro  
+    }
    );
   }
 }
