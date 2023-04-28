@@ -62,7 +62,6 @@ export class SignupComponent {
     }
   }        
 
-  
   DadosCep() {
    this.cep =this.form.get('cep')?.value;
    const url = `http://viacep.com.br/ws/${this.cep}/json/`;  

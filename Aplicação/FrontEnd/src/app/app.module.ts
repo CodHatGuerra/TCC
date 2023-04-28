@@ -13,8 +13,8 @@ import { FooterComponent } from './template/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterLoginComponent } from './views/register-login/register-login.component';
 import { SignupComponent } from './views/signup/signup.component'; 
-//diretiva
 
+//diretiva
 import { WhiteDirective } from './directives/white.directive';
 
 //Material
@@ -32,6 +32,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AplicationComponent } from './views/aplication/aplication.component';
 import { RegisterComponent } from './components/register/register.component';
+import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     MatIconModule,
     MatSnackBarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
