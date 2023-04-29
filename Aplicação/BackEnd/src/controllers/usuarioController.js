@@ -8,7 +8,7 @@ module.exports = {
     let cpf = req.body.cpf;
     let rg = req.body.rg;
     let sexo = req.body.sexo;
-    let telefone = req.body.telefone;
+    let nascimento = req.body.sexo;
     let email = req.body.email;
     let senha = req.body.senha;
 
