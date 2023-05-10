@@ -9,7 +9,16 @@ const server = express();
 
 server.use(cors());
 server.use(bodyParser.urlencoded({ extended: false }));
-server.use(session({ secret: "segredo" }));
+
+
+server.use(session({
+  secret: "segredo",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false, maxAge: 10000 } // Defina como "true" para uso em produção com HTTPS
+}));
+
+
 server.use(bodyParser.json());
 server.use("/api", routes);
 
