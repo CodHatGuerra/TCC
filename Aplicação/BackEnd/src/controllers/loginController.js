@@ -6,15 +6,19 @@ module.exports = {
 
     const { cpf, senha } = req.body;
 
+    req.session.isLoggedIn = true;
+
+
     if (cpf && senha) {
       let usuarioResposta = await LoginService.login(cpf, senha);
       json.result = {
         resposta: usuarioResposta,
         autenticado: usuarioResposta.autenticado,
       };
+      
       if (usuarioResposta.autenticado) {
         console.log(
-          `Usuario: ${usuarioResposta[0].nome} CPF: ${usuarioResposta[0].cpf} Logado com Sucesso !`
+          `Usuario: ${usuarioResposta[0].Nome} CPF: ${usuarioResposta[0].cpf} Logado com Sucesso !`
         );
       } else {
         console.log("Tentativa de Login com informações incorretas.");
@@ -26,5 +30,6 @@ module.exports = {
       );
     }
     res.json(json);
+    console.log(req.session.id);
   },
 };

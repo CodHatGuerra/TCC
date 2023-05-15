@@ -1,1 +1,25 @@
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+
+
+
+
+
+
+
+
+
+
+
+JSON PARA API TESTE
+
+			{
+				"nome": "João Silva teste2",
+				"cpf": 12445671911,
+				"rg": 12441178,
+				"sexo": "Masculino",
+				"email": "teste@123.com",
+				"nascimento": "1980-05-05",
+				"email": "joao.silva@example.com",
+				"senha": "123456",
+				"data_Criada": "1980-06-06"
+			}

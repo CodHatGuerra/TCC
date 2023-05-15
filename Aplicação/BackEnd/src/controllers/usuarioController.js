@@ -8,17 +8,21 @@ module.exports = {
     let cpf = req.body.cpf;
     let rg = req.body.rg;
     let sexo = req.body.sexo;
-    let nascimento = req.body.sexo;
+    let nascimento = req.body.nascimento;
+    //let telefone = req.body.telefone;
     let email = req.body.email;
     let senha = req.body.senha;
+    let data_Criada = req.body.data_Criada;
 
     let allPropertiesFilled =
       nome &&
       cpf &&
       rg &&
-      telefone &&
+      nascimento &&
+      //telefone &&
       sexo &&
       email &&
+      data_Criada &&
       senha;
 
     if (allPropertiesFilled) {
@@ -27,9 +31,10 @@ module.exports = {
         cpf,
         rg,
         sexo,
+        senha,
+        nascimento,
         email,
-        telefone,
-        senha
+        data_Criada
       );
       json.result = {
         codigo: usuarioCodigo,
@@ -37,17 +42,16 @@ module.exports = {
         cpf,
         rg,
         sexo,
+        nascimento,
         email,
-        telefone,
         senha,
       };
-      console.log("-----USUARIO REGISTRADO COM SUCESSO !-------")
+      console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
       console.log("|nome: " + nome);
       console.log("|cpf: " + cpf);
       console.log("|rg: " + rg);
       console.log("|sexo: " + sexo);
       console.log("|email: " + email);
-      console.log("|telefone: " + telefone);
       console.log("|senha: " + senha);
       console.log("--------------------------------------------");
     } else {
