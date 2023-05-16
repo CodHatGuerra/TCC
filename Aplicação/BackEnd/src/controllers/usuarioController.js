@@ -4,56 +4,63 @@ module.exports = {
   cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    let nome = req.body.nome;
-    let cpf = req.body.cpf;
-    let rg = req.body.rg;
-    let sexo = req.body.sexo;
-    let nascimento = req.body.nascimento;
-    //let telefone = req.body.telefone;
-    let email = req.body.email;
-    let senha = req.body.senha;
-    let data_Criada = req.body.data_Criada;
+    const usuario = {
+      nome:  req.body.Nome,
+      cpf: req.body.Cpf,
+      rg: req.body.Rg,
+      sexo: req.body.Sexo,
+      data_Nascimento: req.body.Data_Nascimento,
+      email: req.body.Email,
+      senha: req.body.Senha,
+      data_Criada: req.body.Data_Criada
+    };
 
-    let allPropertiesFilled =
-      nome &&
-      cpf &&
-      rg &&
-      nascimento &&
-      //telefone &&
-      sexo &&
-      email &&
-      data_Criada &&
-      senha;
+    const endereco = {
+      cep: req.boy.cep,
+      uf: req.boy.uf,
+      localidade: req.boy.localidade,
+      bairro: req.boy.bairro,
+      logradouro: req.boy.logradouro,
+      numero: req.boy.numero
+    }
 
-    if (allPropertiesFilled) {
-      let usuarioCodigo = await UsuarioService.inserir(
-        nome,
-        cpf,
-        rg,
-        sexo,
-        senha,
-        nascimento,
-        email,
-        data_Criada
-      );
-      json.result = {
-        codigo: usuarioCodigo,
-        nome,
-        cpf,
-        rg,
-        sexo,
-        nascimento,
-        email,
-        senha,
-      };
-      console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
-      console.log("|nome: " + nome);
-      console.log("|cpf: " + cpf);
-      console.log("|rg: " + rg);
-      console.log("|sexo: " + sexo);
-      console.log("|email: " + email);
-      console.log("|senha: " + senha);
-      console.log("--------------------------------------------");
+    const usuarioPreenchido =
+      usuario.nome &&
+      usuario.cpf &&
+      usuario.rg &&
+      usuario.data_Nascimento &&
+      usuario.sexo &&
+      usuario.email &&
+      usuario.data_Criada &&
+      usuario.senha;
+
+    const enderecoPreenchido = 
+    
+      
+    if (usuarioPreenchido) {
+      await UsuarioService.inserir(usuario)
+      .then((resultado) => {
+          json.result = {
+          codigo: resultado.usuarioCodigo,
+          nome: usuario.nome,
+          cpf: usuario.cpf,
+          rg: usuario.rg,
+          data_Nascimento: usuario.data_Nascimento,
+          sexo: usuario.sexo,
+          email: usuario.email,
+          data_Criada: usuario.data_Criada,
+        };
+          console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
+          for(let prop in usuario) {
+            console.log(`${prop} : ${usuario[prop]}`);
+          }
+          console.log("--------------------------------------------");
+      }).catch(error => {
+          json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage
+        }
+      })
     } else {
       json.error = "Campos não Enviados";
     }
