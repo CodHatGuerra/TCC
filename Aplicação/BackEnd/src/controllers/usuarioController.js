@@ -3,29 +3,9 @@ const UsuarioService = require("../services/UsuarioService.js");
 module.exports = {
   cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
-
-    console.log(req.body);
-
-    const usuario = {
-      nome: req.body.nome,
-      cpf: req.body.cpf,
-      rg: req.body.rg,
-      sexo: req.body.sexo,
-      data_Nascimento: req.body.data_Nascimento,
-      email: req.body.email,
-      senha: req.body.senha,
-      data_Criada: req.body.data_Criada,
-      telefone: req.body.telefone,
-    };
-
-    const endereco = {
-      cep: req.boy.cep,
-      uf: req.boy.uf,
-      localidade: req.boy.localidade,
-      bairro: req.boy.bairro,
-      logradouro: req.boy.logradouro,
-      numero: req.boy.numero,
-    };
+    const usuario = req.body.usuario;
+    const endereco = req.body.endereco;
+    const celular = req.body.celular;
 
     const usuarioPreenchido =
       usuario.nome &&
@@ -35,8 +15,7 @@ module.exports = {
       usuario.sexo &&
       usuario.email &&
       usuario.data_Criada &&
-      usuario.senha &&
-      usuario.telefone;
+      usuario.senha;
 
     const enderecoPreenchido =
       endereco.cep &&
@@ -46,11 +25,13 @@ module.exports = {
       endereco.logradouro &&
       endereco.numero;
 
-    if (usuarioPreenchido) {
-      await UsuarioService.inserir(usuario)
+    const celularPreenchido = celular.numero
+
+    if (usuarioPreenchido && enderecoPreenchido && celularPreenchido) {
+      await UsuarioService.inserir(usuario, endereco, celular)
         .then((resultado) => {
           json.result = {
-            codigo: resultado.usuarioCodigo,
+            codigo: resultado,
             nome: usuario.nome,
             cpf: usuario.cpf,
             rg: usuario.rg,
@@ -58,13 +39,21 @@ module.exports = {
             sexo: usuario.sexo,
             email: usuario.email,
             data_Criada: usuario.data_Criada,
-            telefone: telefone,
           };
           console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
+          console.log("ID : " + resultado);
           for (let prop in usuario) {
             console.log(`${prop} : ${usuario[prop]}`);
           }
           console.log("--------------------------------------------");
+            for(let prop in endereco) {
+              console.log(`${prop} : ${endereco[prop]}`);
+            }
+          console.log("--------------------------------------------");
+          for(let prop in celular) {
+            console.log(`${prop} : ${celular[prop]}`);
+          }
+        console.log("--------------------------------------------");
         })
         .catch((error) => {
           json.error = {
@@ -73,7 +62,7 @@ module.exports = {
           };
         });
     } else {
-      json.error = "Campos não Enviados";
+      json.error = "Objeto e propriedades não correspondem ao esperado.";
     }
     res.json(json);
   },
