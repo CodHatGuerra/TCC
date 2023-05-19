@@ -7,3 +7,15 @@ SET GLOBAL validate_password.check_user_name = 0;
 ALTER USER 'user'@'localhost' IDENTIFIED BY 'pass';
 FLUSH PRIVILEGES;
 
+
+
+
+use VF_Dev;
+
+select * from tb_usuario;
+select * from tb_celular;
+select * from tb_endereco;
+
+delete from tb_usuario where ID_Usuario = 1;
+delete from tb_endereco where ID_Endereco = 1;
+delete from tb_celular where ID_Celular = 1;

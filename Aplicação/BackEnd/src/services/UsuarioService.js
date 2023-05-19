@@ -6,7 +6,7 @@ module.exports = {
       let ID_Endereco = null;
 
       db.query(
-        "INSERT INTO tb_usuario (Nome, Cpf, Rg, Sexo, Data_Nascimento, Email, Senha, data_Criada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO TB_Usuario (Nome, Cpf, Rg, Sexo, Data_Nascimento, Email, Senha, data_Criada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
         [
           usuario.nome,
           usuario.cpf,
@@ -24,7 +24,7 @@ module.exports = {
             return;
           }
           db.query(
-            "INSERT INTO tb_endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
+            "INSERT INTO TB_Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
             [
               endereco.cep,
               endereco.uf,
@@ -46,7 +46,7 @@ module.exports = {
             }
           );
           db.query(
-            "INSERT INTO tb_celular (Numero, TB_Usuario_ID_Usuario) VALUES (?, ?)",
+            "INSERT INTO TB_Celular (Numero, TB_Usuario_ID_Usuario) VALUES (?, ?)",
             [celular.numero, results.insertId],
             (error, result) => {
               if (error) {
@@ -62,7 +62,7 @@ module.exports = {
           );
 
           db.query(
-            "INSERT INTO tb_usuario (ID_UsuarioNumero, , TB_Endereco_ID_Endereco  VALUES (?, ?)",
+            "INSERT INTO TB_Usuario (ID_UsuarioNumero, TB_Endereco_ID_Endereco  VALUES (?, ?)",
             [results.insertId, ID_Endereco],
             (error, result) => {
               if (error) {
