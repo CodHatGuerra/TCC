@@ -56,6 +56,7 @@ module.exports = {
         console.log("--------------------------------------------");
         })
         .catch((error) => {
+          console.log("Erro na requisição para o Banco ! " + error);
           json.error = {
             msg: "Erro na requisição para o banco !",
             error: error.sqlMessage,
