@@ -21,6 +21,7 @@ module.exports = {
       // Usuário não está logado ou sessão inválida
       json.error = "Usuário não está logado";
       console.log("Usuario não esta logado.");
+      res.json(json)
     }
   },
 };

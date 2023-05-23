@@ -15,7 +15,7 @@ server.use(session({
   secret: "segredo",
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false, maxAge: 15000 } // Defina como "true" para uso em produção com HTTPS
+  cookie: { secure: false, maxAge: 180000 } // Defina como "true" para uso em produção com HTTPS
 }));
 
 
