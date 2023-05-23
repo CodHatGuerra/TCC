@@ -1,4 +1,5 @@
 const LoginService = require("../services/LoginService.js");
+const jwtService = require("../jwtService.js");
 
 module.exports = {
   login: async (req, res) => {
@@ -8,17 +9,20 @@ module.exports = {
 
     req.session.isLoggedIn = true;
 
-
     if (cpf && senha) {
       let usuarioResposta = await LoginService.login(cpf, senha);
       json.result = {
         resposta: usuarioResposta,
         autenticado: usuarioResposta.autenticado,
+        token: jwtService.gerarToken({
+          id: usuarioResposta.insertId,
+          email: usuarioResposta.Email,
+        }),
       };
-      
+
       if (usuarioResposta.autenticado) {
         console.log(
-          `Usuario: ${usuarioResposta[0].Nome} CPF: ${usuarioResposta[0].cpf} Logado com Sucesso !`
+          `Usuario: ${usuarioResposta[0].Nome} CPF: ${usuarioResposta[0].Cpf} Logado com Sucesso !`
         );
       } else {
         console.log("Tentativa de Login com informações incorretas.");

@@ -1,4 +1,5 @@
 const UsuarioService = require("../services/UsuarioService.js");
+const jwtService = require("../jwtService");
 
 module.exports = {
   cadastrar: async (req, res) => {
@@ -25,7 +26,7 @@ module.exports = {
       endereco.logradouro &&
       endereco.numero;
 
-    const celularPreenchido = celular.numero
+    const celularPreenchido = celular.numero;
 
     if (usuarioPreenchido && enderecoPreenchido && celularPreenchido) {
       await UsuarioService.inserir(usuario, endereco, celular)
@@ -39,6 +40,7 @@ module.exports = {
             sexo: usuario.sexo,
             email: usuario.email,
             data_Criada: usuario.data_Criada,
+            token: jwtService.gerarToken(usuario.nome, usuario.cpf),
           };
           console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
           console.log("ID : " + resultado);
@@ -46,14 +48,14 @@ module.exports = {
             console.log(`${prop} : ${usuario[prop]}`);
           }
           console.log("--------------------------------------------");
-            for(let prop in endereco) {
-              console.log(`${prop} : ${endereco[prop]}`);
-            }
+          for (let prop in endereco) {
+            console.log(`${prop} : ${endereco[prop]}`);
+          }
           console.log("--------------------------------------------");
-          for(let prop in celular) {
+          for (let prop in celular) {
             console.log(`${prop} : ${celular[prop]}`);
           }
-        console.log("--------------------------------------------");
+          console.log("--------------------------------------------");
         })
         .catch((error) => {
           console.log("Erro na requisição para o Banco ! " + error);

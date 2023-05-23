@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dependencias": "npm i express express-session mysql dotenv cors body-parser nodemon",
+    "dependencias": "npm i express express-session mysql dotenv cors body-parser nodemon jsonwebtoken",
     "start": "nodemon ./src/server.js"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22"
   }
