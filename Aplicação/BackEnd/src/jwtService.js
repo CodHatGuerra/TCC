@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 function gerarToken(usuario) {
   const payload = {
@@ -7,10 +7,22 @@ function gerarToken(usuario) {
     // Outras informações relevantes do usuário...
   };
 
-  const token = jwt.sign(payload, "chave-secreta", { expiresIn: "1h" });
+  const chaveSecreta = 'sua-chave-secreta-aqui';
+  const token = jwt.sign(payload, chaveSecreta, { expiresIn: '1h' });
   return token;
+}
+
+function verificarToken(token) {
+  try {
+    const chaveSecreta = 'sua-chave-secreta-aqui';
+    const decoded = jwt.verify(token, chaveSecreta);
+    return decoded;
+  } catch (error) {
+    throw new Error('Token inválido');
+  }
 }
 
 module.exports = {
   gerarToken,
+  verificarToken,
 };
