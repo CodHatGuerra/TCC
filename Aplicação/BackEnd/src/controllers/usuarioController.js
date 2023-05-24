@@ -1,5 +1,5 @@
 const UsuarioService = require("../services/UsuarioService.js");
-const jwtService = require("../jwtService");
+const jwtService = require("../utils/jwtService.js");
 
 module.exports = {
   cadastrar: async (req, res) => {

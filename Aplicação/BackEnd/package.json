@@ -2,7 +2,7 @@
   "name": "TCC Vacina Facil",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dependencias": "npm i express express-session mysql dotenv cors body-parser nodemon jsonwebtoken",
     "start": "nodemon ./src/server.js"

@@ -1,5 +1,5 @@
 const LoginService = require("../services/LoginService.js");
-const jwtService = require("../jwtService.js");
+const jwtService = require("../utils/jwtService.js");
 
 module.exports = {
   login: async (req, res) => {
