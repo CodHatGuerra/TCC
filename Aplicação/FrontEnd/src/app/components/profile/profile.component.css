@@ -1,6 +1,6 @@
-div {
-    border: 1px solid red;
-    width: 200px;
+.card {
     margin: 0 auto;
-    height: 200px;
+    box-sizing: border-box;
+    padding: 15px;
+    width: 400px;
 }

@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environments';
 })
 export class AppService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
-  
+  userInfo: any;
   alertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
@@ -20,6 +20,14 @@ export class AppService {
       panelClass: ['cor']
     });
     }
+
+  setConsoleValue(value: any) {
+    this.userInfo = value;
+  }
+
+  getConsoleValue(): any {
+    return this.userInfo
+  }
   
   signup(date: any): Observable<any> {
     return this.http.post<any>(`${environment.dbSignup}`,date);

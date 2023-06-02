@@ -9,10 +9,16 @@ import { RegisterLoginComponent } from 'src/app/views/register-login/register-lo
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent  {
-  constructor(private service: AppService) { }
-  userInfo:any = null;
+  constructor(private service: AppService) {
+    this.teste()
+   }
 
+
+   infoUser:any[] = [];
    teste() {
-      console.log(this.userInfo);
-    }
+    const teste = this.service.getConsoleValue();
+    this.infoUser = teste
+    console.log(teste);
+    
+  }
 }
