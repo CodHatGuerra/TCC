@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environments';
-import { cepModel } from './../views/signup/signup.module';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +21,8 @@ export class AppService {
     });
     }
   
-  signup(user: UserModel): Observable<UserModel> {
-    return this.http.post<UserModel>(`${environment.dbSignup}`, user);
+  signup(date: any): Observable<any> {
+    return this.http.post<any>(`${environment.dbSignup}`,date);
   }
 
   error(e: any): Observable<any> {
@@ -32,6 +31,6 @@ export class AppService {
   }
   
   login(login: loginModel): Observable<loginModel> {
-    return this.http.post<loginModel>(`${environment.dbSignup}`, login);
+    return this.http.post<loginModel>(`${environment.dbLogin}`, login);
   }
 }

@@ -1,10 +1,15 @@
+.header {
+    width: 100%;
+    
+}
+
 .signin {
     width: 1200px;
     margin: 0 auto;
     align-items:center;
     text-align: center;
     gap: 50px;
-    margin-top: 70px;
+    margin-top: 130px;
 }
 
 .img {
@@ -65,4 +70,21 @@ p {
 
 .class {
     padding: 40px;
+}
+
+@media screen and (max-width:1300px) {
+    .signin {
+        flex-direction: column;
+    }
+
+    
+    .login {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 49vw;
+        border-radius: 6px;
+        height: 400px;
+        padding: 30px;
+    }
 }

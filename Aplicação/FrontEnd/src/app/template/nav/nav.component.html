@@ -1,35 +1,34 @@
 <mat-icon class="menu size" (click)="opened=!opened">menu</mat-icon>
 <mat-sidenav-container class="container" color="primary">
     <mat-sidenav class="sidenav"  mode="side" [(opened)]="opened">
-            <mat-nav-list class="nav-list">
-                <a mat-list-item routerLink="calendar">
-                    <i class="material-icons v-middle"  appWhite>event </i>
-                    <a class="white">Calendário</a>
-                </a>
-                <a mat-list-item routerLink="schedulind">
-                    <i class="material-icons v-middle" appWhite>schedule</i>
-                    <a class="white">Agendamentos</a>
-                </a>
-                <a mat-list-item routerLink="register">
-                    <i class="material-icons v-middle" appWhite>assignment</i>
-                    <a class="white">Registros</a>
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="calendar">
+                <i class="material-icons v-middle"  appWhite>event </i>
+                <a class="white">Calendário</a>
+            </a>
+            <a mat-list-item>
+                <i class="material-icons v-middle" appWhite>schedule</i>
+                <a class="white">Agendamentos</a>
+            </a>
+            <a mat-list-item routerLink="register">
+                <i class="material-icons v-middle" appWhite>assignment</i>
+                <a class="white">Registros</a>
+            </a>
+            <a mat-list-item>
+                <i class="material-icons v-middle" appWhite>notifications</i>
+                <a class="white">Notificações</a>
+            </a>
+            <div class="sub">
+                <a mat-list-item routerLink="profile">
+                    <i class="material-icons v-middle" appWhite>person</i>
+                    <a class="white">Perfil</a>
                 </a>
                 <a mat-list-item>
-                    <i class="material-icons v-middle" appWhite>notifications</i>
-                    <a class="white">Notificações</a>
+                    <i class="material-icons v-middle" appWhite>settings</i>
+                    <a class="white">Configurações</a>
                 </a>
-                <div class="sub">
-                    <a mat-list-item routerLink="profile">
-                        <i class="material-icons v-middle" appWhite>person</i>
-                        <a class="white">Perfil</a>
-                    </a>
-                    <a mat-list-item>
-                        <i class="material-icons v-middle" appWhite>settings</i>
-                        <a class="white">Configurações</a>
-                    </a>
-                
-                </div>
-            </mat-nav-list>
-        </mat-sidenav>
-            <router-outlet class="outlet"></router-outlet>
-    </mat-sidenav-container>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <router-outlet class="outlet"></router-outlet>
+</mat-sidenav-container>

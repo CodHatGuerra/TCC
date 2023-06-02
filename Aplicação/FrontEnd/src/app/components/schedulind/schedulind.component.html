@@ -1,13 +1,6 @@
-<table mat-table [dataSource]="produtos">
-    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
-    <tr mat-row *matRowDef="let produto; columns: colunas"></tr>
-
-    <ng-container matColumnDef="coluna1">
-        <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <th mat-cell *matCellDef="let produto">{{produto.nome}}</th>
-    </ng-container>
-    <ng-container matColumnDef="coluna2">
-        <th mat-header-cell *matHeaderCellDef>Preço</th>
-        <th mat-cell *matCellDef="let produto">{{produto.preco}}</th>
-    </ng-container>
-</table>
+<div class="primary">
+    <div class="itens"></div>
+    <div class="itens"></div>
+    <div class="itens"></div>
+    <div class="itens"></div>
+</div>

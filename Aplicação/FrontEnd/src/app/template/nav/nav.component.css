@@ -19,7 +19,8 @@
     height: 30px !important;
     font-size: 29px !important;
     color: #21a4f0;
-    transform: scale(1.2)
+    transform: scale(1.2);
+    position: sticky;
 }
 
 .outlet {

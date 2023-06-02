@@ -29,6 +29,8 @@ form: FormGroup;
       this.FormLogin = this.form.value      
       this.appService.login(this.FormLogin).subscribe((response: any)=>{        
         if(response.result.autenticado == true ) {
+          console.log(response.result.resposta);
+          
           this.router.navigate(['aplication']);
           this.appService.alertMessage('Bem vindo!')
         } else {

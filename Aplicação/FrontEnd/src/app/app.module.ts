@@ -32,7 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AplicationComponent } from './views/aplication/aplication.component';
 import { RegisterComponent } from './components/register/register.component';
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { DecoratorsComponent } from './decorator/decorators.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MatTableModule } from '@angular/material/table'
     HomeComponent,
     SchedulindComponent,
     RegisterComponent,
+    DecoratorsComponent
   ],
   imports: [
     BrowserModule,

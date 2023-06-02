@@ -1,17 +1,26 @@
-export interface UserModel {
-  id: null,
-  nome: string,
-  rg: number,
-  cpf: number,
-  email: string,
-  telefone: number,
-  sexo: string,  
-  senha: string,
-  cep: number
-  uf: string,  
-  logradouro: string,  
-  localidade: string,  
-  bairro: string,  
+  export interface UserModel {
+    id: null,
+    nome: string,
+    cpf: number,
+    rg: number,
+    data_Nascimento: number;
+    sexo: string,  
+    email: string,
+    data_Criada: number
+    senha: string,
+  }
+  
+  export interface EndModel {
+    cep: number
+    uf: string,  
+    logradouro: string,  
+    bairro: string,  
+    localidade: string,  
+    numero: number
+  }
+
+
+export interface celular {
   numero: number
 }
 
