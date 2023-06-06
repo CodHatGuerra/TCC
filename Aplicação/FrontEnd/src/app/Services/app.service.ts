@@ -1,5 +1,4 @@
-import { UserModel } from './../views/signup/signup.module';
-import { loginModel } from './../views/register-login/register-login.module';
+import { loginModel } from '../views/signin/signin.module';
 import { Observable, EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,7 +10,9 @@ import { environment } from 'src/environments/environments';
 })
 export class AppService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
+  
   userInfo: any;
+
   alertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
@@ -21,16 +22,16 @@ export class AppService {
     });
     }
 
-  setConsoleValue(value: any) {
+  setUser(value: any) {
     this.userInfo = value;
   }
 
-  getConsoleValue(): any {
+  getUser(): any {
     return this.userInfo
   }
   
-  signup(date: any): Observable<any> {
-    return this.http.post<any>(`${environment.dbSignup}`,date);
+  signUp(date: any): Observable<any> {
+    return this.http.post<any>(`${environment.baseUrl}${environment.dbSignup}`,date);
   }
 
   error(e: any): Observable<any> {
@@ -38,7 +39,7 @@ export class AppService {
     return EMPTY
   }
   
-  login(login: loginModel): Observable<loginModel> {
-    return this.http.post<loginModel>(`${environment.dbLogin}`, login);
+  signIn(login: loginModel): Observable<loginModel> {
+    return this.http.post<loginModel>(`${environment.baseUrl}${environment.dbLogin}`, login);
   }
 }

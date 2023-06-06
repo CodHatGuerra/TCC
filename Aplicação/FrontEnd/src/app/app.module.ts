@@ -11,8 +11,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { RegisterLoginComponent } from './views/register-login/register-login.component';
 import { SignupComponent } from './views/signup/signup.component'; 
+import { DecoratorsComponent } from './decorator/decorators.component';
+import { SigninComponent } from './views/signin/signin.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SchedulindComponent } from './components/schedulind/schedulind.component';
+import { AplicationComponent } from './views/aplication/aplication.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 //diretiva
 import { WhiteDirective } from './directives/white.directive';
@@ -26,14 +31,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { ProfileComponent } from './components/profile/profile.component';
-import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
-import { AplicationComponent } from './views/aplication/aplication.component';
-import { RegisterComponent } from './components/register/register.component';
 import { MatTableModule } from '@angular/material/table';
-import { DecoratorsComponent } from './decorator/decorators.component';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { DecoratorsComponent } from './decorator/decorators.component';
     WhiteDirective,
     SignupComponent,
     ProfileComponent,
-    RegisterLoginComponent,
+    SigninComponent,
     AplicationComponent,
     NavComponent,
     HomeComponent,
@@ -67,7 +68,8 @@ import { DecoratorsComponent } from './decorator/decorators.component';
     HttpClientModule,
     MatIconModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

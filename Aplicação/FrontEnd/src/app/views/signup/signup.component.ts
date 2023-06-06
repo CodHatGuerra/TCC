@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel, cepModel, EndModel, celular } from './signup.module';
 import { AppService } from 'src/app/Services/app.service';
-import { Data, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup ',
@@ -13,7 +13,8 @@ import { Data, Router } from '@angular/router';
 export class SignupComponent {
 
   cep:cepModel = {
-    cep:0}
+    cep:0
+  }
 
   usuario: UserModel = {
     id: null,
@@ -81,7 +82,7 @@ endereco: EndModel = {
     Dados.usuario.data_Criada = currentDate.toISOString().split('T')[0];
     
     
-    this.appService.signup(Dados).subscribe(() => {
+    this.appService.signUp(Dados).subscribe(() => {
       this.appService.alertMessage('Cadastro Concluído!');
       this.router.navigate(['/'])  
     });

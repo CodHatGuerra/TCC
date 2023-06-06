@@ -61,7 +61,11 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Sexo</mat-label>
-                <input matInput type="text" formControlName="sexo">
+                <mat-select formControlName="sexo">
+                    <mat-option value="masculino">Masculino</mat-option>
+                    <mat-option value="feminino">Feminino</mat-option>
+                    <mat-option value="outros">Outros</mat-option>
+                </mat-select>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>E-mail</mat-label>

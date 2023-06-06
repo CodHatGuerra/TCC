@@ -1,7 +1,5 @@
 import { AppService } from 'src/app/Services/app.service';
-import { UserModel } from './../../views/signup/signup.module';
-import { Component, OnInit, Input } from '@angular/core';
-import { RegisterLoginComponent } from 'src/app/views/register-login/register-login.component';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -13,12 +11,10 @@ export class ProfileComponent  {
     this.teste()
    }
 
-
-   infoUser:any[] = [];
-   teste() {
-    const teste = this.service.getConsoleValue();
+  infoUser:any[] = [];
+  
+  teste() {
+    const teste = this.service.getUser();
     this.infoUser = teste
-    console.log(teste);
-    
   }
 }

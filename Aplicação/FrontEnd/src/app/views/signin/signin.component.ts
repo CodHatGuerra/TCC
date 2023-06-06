@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/Services/app.service';
-import { loginModel } from './register-login.module';
+import { loginModel } from './signin.module';
 
 @Component({
-  selector: 'app-register-login',
-  templateUrl: './register-login.component.html',
-  styleUrls: ['./register-login.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class RegisterLoginComponent {
+export class SigninComponent {
 form: FormGroup;
 
   FormLogin: loginModel = {
@@ -27,9 +27,9 @@ form: FormGroup;
    register() :void {
     if(this.form.valid){
       this.FormLogin = this.form.value      
-      this.appService.login(this.FormLogin).subscribe((response: any)=>{        
+      this.appService.signIn(this.FormLogin).subscribe((response: any)=>{        
         if(response.result.autenticado == true ) {
-          this.appService.setConsoleValue(response.result.resposta);
+          this.appService.setUser(response.result.resposta);
           this.router.navigate(['aplication']);
           this.appService.alertMessage('Bem vindo!')
         } else {
