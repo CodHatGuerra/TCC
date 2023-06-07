@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/Services/app.service';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { loginModel } from './signin.module';
 
 @Component({
@@ -27,9 +27,10 @@ form: FormGroup;
    register() :void {
     if(this.form.valid){
       this.FormLogin = this.form.value      
-      this.appService.signIn(this.FormLogin).subscribe((response: any)=>{        
+      this.appService.signIn(this.FormLogin).subscribe((response: any) => {        
         if(response.result.autenticado == true ) {
           this.appService.setUser(response.result.resposta);
+          localStorage.setItem('Token', response.result.token);
           this.router.navigate(['aplication']);
           this.appService.alertMessage('Bem vindo!')
         } else {
@@ -42,5 +43,4 @@ form: FormGroup;
    cadastro() :void{
     this.router.navigate(['/signup']);
    }
-  
 }

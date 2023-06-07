@@ -1,14 +1,14 @@
 <mat-toolbar  class="header">
     <img src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="home">
     <div class="title">
-        <a class="home" (click)="activeButton = 1" [ngClass]="{'colorButton': activeButton === 1}" routerLink="home" >
+        <a class="home" routerLink="home" >
             <i class="material-icons v-middle">
                 home
             </i>
             Início
          </a>
     </div>
-    <a class="exit" (click)="activeButton = 2" [ngClass]="{'colorButton': activeButton === 2}" routerLink="">
+    <a class="exit" (click)="signOut()">
         <i class="material-icons v-middle">
             exit_to_app
         </i>

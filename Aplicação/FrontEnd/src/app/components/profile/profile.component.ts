@@ -1,4 +1,5 @@
-import { AppService } from 'src/app/Services/app.service';
+import { Router } from '@angular/router';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,14 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent  {
-  constructor(private service: AppService) {
+  constructor(private service: AppService, private router: Router) {
     this.teste()
    }
 
   infoUser:any[] = [];
   
   teste() {
-    const teste = this.service.getUser();
-    this.infoUser = teste
-  }
+    const user = this.service.getUser();
+    if (user) {
+      this.infoUser = user
+    } else {
+      this.router.navigate([''])
+    }
+   }
 }

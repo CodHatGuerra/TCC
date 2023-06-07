@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel, cepModel, EndModel, celular } from './signup.module';
-import { AppService } from 'src/app/Services/app.service';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 
 @Component({

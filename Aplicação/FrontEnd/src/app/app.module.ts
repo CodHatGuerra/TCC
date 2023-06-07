@@ -1,4 +1,3 @@
-import { NavComponent } from './template/nav/nav.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,19 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './template/header/header.component';
-import { FooterComponent } from './template/footer/footer.component';
+import { FooterComponent } from './components/template/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './views/signup/signup.component'; 
-import { DecoratorsComponent } from './decorator/decorators.component';
 import { SigninComponent } from './views/signin/signin.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { AplicationComponent } from './views/aplication/aplication.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NavComponent } from './components/template/nav/nav.component';
+import { HeaderComponent } from './components/template/header/header.component';
+import { DecoratorsComponent } from './settings/decorator/decorators.component';
 
 //diretiva
-import { WhiteDirective } from './directives/white.directive';
+import { WhiteDirective } from './settings/directives/white.directive';
 
 //Material
 import { MatIconModule } from '@angular/material/icon'
@@ -34,22 +34,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTableModule } from '@angular/material/table';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     WhiteDirective,
     SignupComponent,
     ProfileComponent,
     SigninComponent,
     AplicationComponent,
-    NavComponent,
     HomeComponent,
     SchedulindComponent,
     RegisterComponent,
+    FooterComponent,
+    NavComponent,
+    HeaderComponent,
     DecoratorsComponent
   ],
   imports: [
@@ -69,7 +71,8 @@ import { MatSelectModule } from '@angular/material/select'
     MatIconModule,
     MatSnackBarModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

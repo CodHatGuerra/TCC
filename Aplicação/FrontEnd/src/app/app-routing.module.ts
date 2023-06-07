@@ -7,6 +7,7 @@ import { SchedulindComponent } from './components/schedulind/schedulind.componen
 import { SignupComponent } from './views/signup/signup.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SigninComponent } from './views/signin/signin.component';
+import { AuthGuard } from './settings/auth.guard';
 
 const routes: Routes = [
   { 
@@ -20,6 +21,7 @@ const routes: Routes = [
  {
     path: 'aplication',
     component: AplicationComponent,
+    canActivate: [AuthGuard],
       children: [
       {
         path: '',
