@@ -4,7 +4,7 @@ module.exports = {
   login: (cpf, senha) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "SELECT * FROM TB_Usuario WHERE Cpf = ? AND Senha = ? LIMIT 1",
+        "SELECT * FROM Usuario WHERE Cpf = ? AND Senha = ? LIMIT 1",
         [cpf, senha],
         (error, results) => {
           if (error) {

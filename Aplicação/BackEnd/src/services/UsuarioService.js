@@ -1,13 +1,13 @@
 const db = require("../db");
 
 module.exports = {
-  inserir: (usuario, endereco, celular) => {
+  inserir: (usuario, endereco, telefone) => {
     let ID_Endereco = null;
     let ID_Usuario = null;
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO TB_Usuario (Nome, Cpf, Rg, Sexo, Data_Nascimento, Email, Senha, Data_Criada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Usuario (Nome, Cpf, Rg, Sexo, Data_Nascimento, Email, Senha, Data_Criada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
         [
           usuario.nome,
           usuario.cpf,
@@ -17,7 +17,7 @@ module.exports = {
           usuario.email,
           usuario.senha,
           usuario.data_Criada,
-          celular.numero,
+          telefone.numero,
         ],
         (error, results) => {
           if (error) {
@@ -29,7 +29,7 @@ module.exports = {
 
             new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO TB_Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
                 [
                   endereco.cep,
                   endereco.uf,
@@ -57,8 +57,8 @@ module.exports = {
               .then(() => {
                 return new Promise((resolve, reject) => {
                   db.query(
-                    "INSERT INTO TB_Celular (Numero, TB_Usuario_ID_Usuario) VALUES (?, ?)",
-                    [celular.numero, ID_Usuario],
+                    "INSERT INTO Telefone (Numero, Usuario_ID) VALUES (?, ?)",
+                    [telefone.numero, ID_Usuario],
                     (error) => {
                       if (error) {
                         console.log("ERRO NUMERO");
@@ -74,7 +74,7 @@ module.exports = {
               .then(() => {
                 return new Promise((resolve, reject) => {
                   db.query(
-                    "UPDATE TB_Usuario SET TB_Endereco_ID_Endereco = ? WHERE ID_Usuario = ?",
+                    "UPDATE Usuario SET Endereco_ID = ? WHERE ID = ?",
                     [ID_Endereco, ID_Usuario],
                     (error, sucess) => {
                       if (error) {

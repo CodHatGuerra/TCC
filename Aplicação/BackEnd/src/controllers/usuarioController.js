@@ -6,7 +6,7 @@ module.exports = {
     let json = { error: "", result: {} };
     const usuario = req.body.usuario;
     const endereco = req.body.endereco;
-    const celular = req.body.celular;
+    const telefone = req.body.telefone;
 
     const usuarioPreenchido =
       usuario.nome &&
@@ -26,10 +26,10 @@ module.exports = {
       endereco.logradouro &&
       endereco.numero;
 
-    const celularPreenchido = celular.numero;
+    const telefonePreenchido = telefone.numero;
 
-    if (usuarioPreenchido && enderecoPreenchido && celularPreenchido) {
-      await UsuarioService.inserir(usuario, endereco, celular)
+    if (usuarioPreenchido && enderecoPreenchido && telefonePreenchido) {
+      await UsuarioService.inserir(usuario, endereco, telefone)
         .then((resultado) => {
           json.result = {
             codigo: resultado,
@@ -52,8 +52,8 @@ module.exports = {
             console.log(`${prop} : ${endereco[prop]}`);
           }
           console.log("--------------------------------------------");
-          for (let prop in celular) {
-            console.log(`${prop} : ${celular[prop]}`);
+          for (let prop in telefone) {
+            console.log(`${prop} : ${telefone[prop]}`);
           }
           console.log("--------------------------------------------");
         })

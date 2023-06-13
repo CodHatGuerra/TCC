@@ -1,13 +1,13 @@
 const db = require("../db");
 
 module.exports = {
-  inserir: (posto, endereco, celular) => {
+  inserir: (posto, endereco, telefone) => {
     let ID_Endereco = null;
     let ID_Posto = null;
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO TB_Posto (Nome) VALUES (?)",
+        "INSERT INTO Posto (Nome) VALUES (?)",
         [posto.nome],
         (error, results) => {
           if (error) {
@@ -19,7 +19,7 @@ module.exports = {
 
             new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO TB_Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
                 [
                   endereco.cep,
                   endereco.uf,
@@ -36,7 +36,7 @@ module.exports = {
                   } else {
                     ID_Endereco = result.insertId;
                     console.log(
-                      "Execução com sucesso do insert TB_Endereco: " +
+                      "Execução com sucesso do insert Endereco: " +
                         ID_Endereco
                     );
                     resolve();
@@ -47,8 +47,8 @@ module.exports = {
               .then(() => {
                 return new Promise((resolve, reject) => {
                   db.query(
-                    "INSERT INTO TB_Celular (Numero, TB_Posto_ID_Posto) VALUES (?, ?)",
-                    [celular.numero, ID_Posto],
+                    "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
+                    [telefone.numero, ID_Posto],
                     (error) => {
                       if (error) {
                         console.log("ERRO NUMERO");
@@ -64,7 +64,7 @@ module.exports = {
               .then(() => {
                 return new Promise((resolve, reject) => {
                   db.query(
-                    "UPDATE TB_Posto SET TB_Endereco_ID_Endereco = ? WHERE ID_Posto = ?",
+                    "UPDATE Posto SET Endereco_ID = ? WHERE ID = ?",
                     [ID_Endereco, ID_Posto],
                     (error, sucess) => {
                       if (error) {
@@ -93,7 +93,7 @@ module.exports = {
     let postos = null;
 
     return new Promise((aceito, rejeitado) => {
-      db.query("SELECT * FROM TB_Posto", (error, results) => {
+      db.query("SELECT * FROM Posto", (error, results) => {
         if (error) {
           console.log("Erro Cadastrar Posto" + error);
           rejeitado(error);

@@ -1,0 +1,55 @@
+POST : localhost:8080/api/cadastrar
+
+{
+  "usuario": {
+	  "nome": "João Silva teste2",
+	  "cpf": 12445671911,
+	  "rg": 12441178,
+	  "data_Nascimento": "1980-05-05",
+	  "sexo": "Masculino",
+	  "email": "teste@123.com",
+	  "data_Criada": "1980-06-06",
+	  "senha": "123456"
+	},
+  "endereco": {
+	  "cep": "17357228",
+	  "uf": "SP",
+	  "localidade": "Igaraçu do Tietê",
+	  "bairro": "CECAP",
+	  "logradouro": "Alvino moreira",
+	  "numero": "840"
+  },
+  "telefone": {
+    "numero": "123456789"
+  }
+}
+
+
+POST : localhost:8080/api/login
+
+{
+  "cpf": 12445671911,
+  "senha": 123456
+}
+
+
+POST : localhost:8080/api/posto
+
+{
+  "posto": {
+	  "nome": "Posto 1"
+	},
+  "endereco": {
+	  "cep": "17357228",
+	  "uf": "SP",
+	  "localidade": "Igaraçu do Tietê",
+	  "bairro": "CECAP",
+	  "logradouro": "Alvino moreira",
+	  "numero": "840"
+  },
+  "telefone": {
+    "numero": "123456789"
+  }
+}
+
+GET : localhost:8080/api/posto
