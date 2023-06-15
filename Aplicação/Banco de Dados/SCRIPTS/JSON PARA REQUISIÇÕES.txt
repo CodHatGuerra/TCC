@@ -1,4 +1,4 @@
-POST : localhost:8080/api/cadastrar
+POST : http://localhost:8080/api/cadastrar
 
 {
   "usuario": {
@@ -25,7 +25,7 @@ POST : localhost:8080/api/cadastrar
 }
 
 
-POST : localhost:8080/api/login
+POST : http://localhost:8080/api/login
 
 {
   "cpf": 12445671911,
@@ -33,7 +33,7 @@ POST : localhost:8080/api/login
 }
 
 
-POST : localhost:8080/api/posto
+POST : http://localhost:8080/api/posto
 
 {
   "posto": {
@@ -52,4 +52,4 @@ POST : localhost:8080/api/posto
   }
 }
 
-GET : localhost:8080/api/posto
+GET : http://localhost:8080/api/posto
