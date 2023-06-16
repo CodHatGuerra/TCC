@@ -77,7 +77,7 @@ endereco: EndModel = {
     const Dados = {
       usuario:  this.userForm.value,
       endereco:  this.enderecoForm.value,
-      celular: this.cellForm.value
+      telefone: this.cellForm.value
     }
     Dados.usuario.data_Criada = currentDate.toISOString().split('T')[0];
     

@@ -26,14 +26,18 @@
     color: #21a4f0 ;
 }
 
+form {
+    display: grid;
+}
+
 .form {
     display: grid;
     margin-top: 135px;
-
     border-radius: 6px;
     height: 100%;
     padding: 30px;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .form .tittle {

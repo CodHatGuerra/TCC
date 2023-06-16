@@ -37,8 +37,7 @@ main {
 .caixas .box {
     width: 65vw;
     height: 50vh;
-    border:2px solid #21a4f0;
-    border-radius: 15px;
+    border-radius: 7px;
     margin-top: 40px;
 }
 
