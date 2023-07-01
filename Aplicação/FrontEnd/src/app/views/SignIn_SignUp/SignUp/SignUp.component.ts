@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserModel, cepModel, EndModel, celular } from './signup.module';
+import { UserModel, CepModel, EndModel, Telefone } from './SignUp.module';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup ',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  templateUrl: './SignUp.component.html',
+  styleUrls: ['./SignUp.component.css']
 })
-export class SignupComponent {
+export class SignUpComponent {
 
-  cep:cepModel = {
+  cep: CepModel = {
     cep:0
   }
 
@@ -37,7 +37,7 @@ endereco: EndModel = {
     numero: 0
   }
   
-  celular: celular[] = [{
+  telefone: Telefone[] = [{
   numero: 0
 }];
 
@@ -71,9 +71,8 @@ endereco: EndModel = {
     });
   }
   
-  submit(): void {
+  Submit() {
     const currentDate = new Date();
-
     const Dados = {
       usuario:  this.userForm.value,
       endereco:  this.enderecoForm.value,
@@ -81,12 +80,23 @@ endereco: EndModel = {
     }
     Dados.usuario.data_Criada = currentDate.toISOString().split('T')[0];
     
-    
-    this.appService.signUp(Dados).subscribe(() => {
-      this.appService.alertMessage('Cadastro Concluído!');
-      this.router.navigate(['/'])  
-    });
-  }        
+    if (Dados == null) {
+      this.appService.AlertMessage('Complete o formulário.');
+    } else {
+      this.appService.SignUp(Dados).subscribe(
+        (response) => {
+          if(response.error){
+            console.log(response.error);
+            console.log('Erro ao cadastrar:', response.error);
+            this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
+          } else {
+            this.appService.AlertMessage('Cadastro Concluído!');
+            this.router.navigate(['/']);
+          }
+        },
+      );
+    }
+  }  
 
   DadosCep() {
    this.cep =this.enderecoForm.get('cep')?.value;

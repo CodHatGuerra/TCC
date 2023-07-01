@@ -15,7 +15,7 @@ export class ProfileComponent  {
   infoUser:any[] = [];
   
   teste() {
-    const user = this.service.getUser();
+    const user = this.service.GetUser();
     if (user) {
       this.infoUser = user
     } else {

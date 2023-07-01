@@ -1,0 +1,12 @@
+.card {
+    width: 50vw;
+    margin: 0 auto;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+.card form > button {
+    background-color: #21a4f0;
+}

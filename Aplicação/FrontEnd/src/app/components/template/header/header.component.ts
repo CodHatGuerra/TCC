@@ -11,8 +11,8 @@ export class HeaderComponent {
 
   constructor(private service: AppService, private router: Router) { }  
 
-  signOut() {
-    this.service.signOut();
+  SignOut() {
+    this.service.SignOut();
     this.router.navigate([''])
   }
 }

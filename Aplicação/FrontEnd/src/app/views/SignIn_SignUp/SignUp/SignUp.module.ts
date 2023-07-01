@@ -19,11 +19,10 @@
     numero: number
   }
 
-
-export interface celular {
+export interface Telefone {
   numero: number
 }
 
-export interface cepModel {
+export interface CepModel {
   cep:number;
 }

@@ -1,9 +1,9 @@
 import { Observable, EMPTY } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environments';
-import { loginModel } from 'src/app/views/signin/signin.module';
+import { LoginModel } from 'src/app/views/SignIn_SignUp/SignIn/SignIn.module';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AppService {
   
   userInfo: any;
 
-  alertMessage(msg: string): void {
+  AlertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: "right",
@@ -22,35 +22,43 @@ export class AppService {
     });
     }
 
-  setUser(user: any): void {
+  SetUser(user: any): void {
     localStorage.setItem('user', JSON.stringify(user));
   }
   
-  isUserLoggedIn(): boolean {
+  IsUserLoggedIn(): boolean {
     const token = localStorage.getItem('Token');
     return !!token;
   }
   
-  signOut(): void {
+  SignOut(): void {
     localStorage.removeItem('Token');
    }
 
-  getUser(): any {
+  GetUser(): any {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   }
+
+  Error(e: any): Observable<any> {
+    this.AlertMessage('Ocorreu um erro');
+    return EMPTY
+  }
   
-  signUp(date: any): Observable<any> {
+  SignUp(date: any): Observable<any> {
+    if(date == null){
+      console.log("Contém informações nulas");
+    }
     return this.http.post<any>(`${environment.baseUrl}${environment.dbSignup}`,date);
   }
 
-  error(e: any): Observable<any> {
-    this.alertMessage('Ocorreu um erro')
-    return EMPTY
+  SignIn(login: LoginModel): Observable<LoginModel> {
+    return this.http.post<LoginModel>(`${environment.baseUrl}${environment.dbLogin}`, login);
   }
 
-  signIn(login: loginModel): Observable<loginModel> {
-    return this.http.post<loginModel>(`${environment.baseUrl}${environment.dbLogin}`, login);
-  }
-
+  // SubmitPosto(posto: any): Observable<any> {
+  //   const token = this.GetUser();
+  //   const headers = new HttpHeaders().set('Validação', token)
+  //   return this.http.post<any>(`${environment.baseUrl}${environment.posto}`, posto, { headers });
+  // }
 }

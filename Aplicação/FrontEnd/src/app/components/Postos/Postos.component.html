@@ -1,0 +1,42 @@
+<mat-card class="card mat-elevation-z3">
+    <mat-card-title>Cadastrar novo posto</mat-card-title>
+    <form [formGroup]="formPosto" class="form DG">
+        <mat-form-field>
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="cep" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Cep</mat-label>
+            <input matInput formControlName="cep" (blur)="dataCep()" type="number">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Uf</mat-label>
+            <input matInput formControlName="uf" type="text" [value]="uf" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Localidade</mat-label>
+            <input matInput formControlName="localidade" type="text" [value]="localidade">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Bairro</mat-label>
+            <input matInput formControlName="bairro" type="text" [value]="bairro">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Logradouro</mat-label>
+            <input matInput formControlName="logradouro" type="text" [value]="logradouro">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Número</mat-label>
+            <input matInput formControlName="numero" type="number">
+        </mat-form-field>
+
+        <button mat-button appWhite>Cadastrar</button>
+    </form>
+</mat-card>
+

@@ -1,4 +1,4 @@
-.teste {
+.main {
     display: flex;
     margin: 0 auto;
     max-width: 90%;
@@ -40,7 +40,7 @@ form {
     text-align: center;
 }
 
-.form .tittle {
+.form .title {
     font-size: 35px;
     font-weight: 700;
     font-family: 'Open Sans';

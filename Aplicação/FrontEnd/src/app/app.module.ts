@@ -9,12 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { SignupComponent } from './views/signup/signup.component'; 
-import { SigninComponent } from './views/signin/signin.component';
-import { RegisterComponent } from './components/register/register.component';
-import { SchedulindComponent } from './components/schedulind/schedulind.component';
-import { AplicationComponent } from './views/aplication/aplication.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/Register/Register.component';
+import { SchedulindComponent } from './components/Schedulind/Schedulind.component';
+import { ProfileComponent } from './components/Profile/Profile.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { DecoratorsComponent } from './settings/decorator/decorators.component';
@@ -36,23 +33,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { UserComponent } from './views/user/user.component';
+import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
+import { AdmComponent } from './views/Adm/Adm.component';
+import { PostosComponent } from './components/Postos/Postos.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WhiteDirective,
-    SignupComponent,
+    SignUpComponent,
     ProfileComponent,
-    SigninComponent,
-    AplicationComponent,
+    SignInComponent,
     HomeComponent,
     SchedulindComponent,
     RegisterComponent,
     FooterComponent,
     NavComponent,
     HeaderComponent,
-    DecoratorsComponent
+    DecoratorsComponent,
+    UserComponent,
+    AdmComponent,
+    PostosComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,3 +82,4 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

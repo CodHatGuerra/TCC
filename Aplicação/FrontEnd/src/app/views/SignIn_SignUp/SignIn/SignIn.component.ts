@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
-import { loginModel } from './signin.module';
+import { LoginModel } from './SignIn.module';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  templateUrl: './SignIn.component.html',
+  styleUrls: ['./SignIn.component.css']
 })
-export class SigninComponent {
+export class SignInComponent {
 form: FormGroup;
 
-  FormLogin: loginModel = {
+  FormLogin: LoginModel = {
     cpf: 0,
     senha: ''
   }
@@ -27,20 +27,16 @@ form: FormGroup;
    register() :void {
     if(this.form.valid){
       this.FormLogin = this.form.value      
-      this.appService.signIn(this.FormLogin).subscribe((response: any) => {        
+      this.appService.SignIn(this.FormLogin).subscribe((response: any) => {        
         if(response.result.autenticado == true ) {
-          this.appService.setUser(response.result.resposta);
+          this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
-          this.router.navigate(['aplication']);
-          this.appService.alertMessage('Bem vindo!')
+          this.router.navigate(['adm']);
+          this.appService.AlertMessage('Bem vindo!')
         } else {
-          this.appService.alertMessage('Usuário não encontrado')
+          this.appService.AlertMessage('Usuário não encontrado')
         }
       });
     } 
-   }
-
-   cadastro() :void{
-    this.router.navigate(['/signup']);
    }
 }
