@@ -5,32 +5,33 @@ import { Component } from '@angular/core';
   templateUrl: './schedulind.component.html',
   styleUrls: ['./schedulind.component.css']
 })
-export class SchedulindComponent {
- produtos = [
-  {
-    nome: 'bala',
-    preco: 1
-  },
-  {
-    nome: 'bolacha',
-    preco: 4
-  },
-  {
-    nome: 'biz',
-    preco: 5
-  },
-  {
-    nome: 'carne',
-    preco: 25
-  },
-  {
-    nome: 'sabonete',
-    preco: 4
-  },
-  {
-    nome: 'shampoo',
-    preco: 7
-  },]
+export class SchedulindComponent {  constructor() { }
 
-  colunas: string[]= ['coluna1','coluna2']
+pessoas = [
+{
+ nome: 'Renata',
+ idade: '26',
+ profissao: 'Advogada',
+ cidade: 'bariri'
+},
+{
+ nome: 'Gabriel',
+ idade: '27',
+ profissao: 'Desenvolvedor de software',
+ cidade: 'bauru'
+},
+{
+ nome: 'Andressa',
+ idade: '24',
+ profissao: 'Veterinária',
+ cidade: 'barra'
+},
+{
+ nome: 'Maria',
+ idade: '30',
+ profissao: 'Médica',
+ cidade: 'gotham'
+},
+]
+colunas: string[] = ['nome', 'idade', 'profissao'];
 };

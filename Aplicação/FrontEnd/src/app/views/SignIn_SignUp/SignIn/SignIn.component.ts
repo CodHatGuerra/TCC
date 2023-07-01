@@ -26,17 +26,19 @@ form: FormGroup;
  
    register() :void {
     if(this.form.valid){
-      this.FormLogin = this.form.value      
+      this.FormLogin = this.form.value 
       this.appService.SignIn(this.FormLogin).subscribe((response: any) => {        
-        if(response.result.autenticado == true ) {
+       if(response.result.autenticado == true ) {
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm']);
           this.appService.AlertMessage('Bem vindo!')
         } else {
-          this.appService.AlertMessage('Usuário não encontrado')
+          this.appService.AlertMessage('Usuário não encontrado.')
         }
       });
-    } 
+    } else {
+      this.appService.AlertMessage('Complete os campos para prosseguir.')
+    }
    }
 }

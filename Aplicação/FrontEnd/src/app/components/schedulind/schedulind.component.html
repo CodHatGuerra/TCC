@@ -1,6 +1,26 @@
-<div class="primary">
-    <div class="itens"></div>
-    <div class="itens"></div>
-    <div class="itens"></div>
-    <div class="itens"></div>
-</div>
+<table mat-table [dataSource]="pessoas" class="mat-elevation-z3">
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let pessoa; columns: colunas"></tr>
+  
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.nome}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="idade">
+        <th mat-header-cell *matHeaderCellDef>Idade</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.idade}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="profissao">
+        <th mat-header-cell *matHeaderCellDef>Profissão</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.profissao}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.cidade}} </td>
+      </ng-container>
+    
+    </table>
+    

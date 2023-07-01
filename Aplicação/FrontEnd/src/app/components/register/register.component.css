@@ -1,29 +1,11 @@
-.tabela {
-    display: flex;
-    margin: 0 auto;
-    width: 450px;
-    height: 300px;
-    border: 1px solid black;
-}
-
-p {
-   height: 20px;    
-}
-
-.nome {
+button {
     width: 150px;
-    display: flex;
-    height: 100%;
+    color: white !important;
+    background: #21a4f0 !important;
 }
 
-.idade {
-    width: 150px;
-    display: flex;
-    height: 100%;
-}
-
-.profissao {
-    width: 150px;
-    display: flex;
-    height: 100%;
+div {
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center;
 }
