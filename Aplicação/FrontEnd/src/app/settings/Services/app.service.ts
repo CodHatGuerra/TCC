@@ -49,11 +49,11 @@ export class AppService {
     if(date == null){
       console.log("Contém informações nulas");
     }
-    return this.http.post<any>(`${environment.baseUrl}${environment.dbSignup}`,date);
+    return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`,date);
   }
 
   SignIn(login: LoginModel): Observable<LoginModel> {
-    return this.http.post<LoginModel>(`${environment.baseUrl}${environment.dbLogin}`, login);
+    return this.http.post<LoginModel>(`${environment.baseUrl}${environment.SignIn}`, login);
   }
 
   // SubmitPosto(posto: any): Observable<any> {

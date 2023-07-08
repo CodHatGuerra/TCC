@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: './Profile.component.html',
+  styleUrls: ['./Profile.component.css']
 })
 export class ProfileComponent  {
   constructor(private service: AppService, private router: Router) {

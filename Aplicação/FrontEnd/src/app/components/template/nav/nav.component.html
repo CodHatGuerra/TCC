@@ -1,33 +1,27 @@
-<mat-icon class="menu size" (click)="opened=!opened">menu</mat-icon>
 <mat-sidenav-container class="container" color="primary">
-    <mat-sidenav class="sidenav"  mode="side" [(opened)]="opened">
-        <mat-nav-list class="nav-list">
+    <mat-sidenav class="sidenav" mode="side" [(opened)]="opened"  >
+        <mat-nav-list class="nav-list DF">
             <a mat-list-item routerLink="calendar">
-                <i class="material-icons v-middle"  appWhite>event </i>
-                <a class="white">Calendário</a>
+                <mat-icon class="v-middle" appWhite>event </mat-icon>
+                <span class="white" >Calendário</span>
             </a>
             <a mat-list-item>
-                <i class="material-icons v-middle" appWhite>schedule</i>
-                <a class="white">Agendamentos</a>
+                <mat-icon class="v-middle" appWhite>schedule</mat-icon>
+                <span class="white" >Agendamentos</span>
             </a>
             <a mat-list-item routerLink="register">
-                <i class="material-icons v-middle" appWhite>assignment</i>
-                <a class="white">Registros</a>
+                <mat-icon class="v-middle" appWhite>assignment</mat-icon>
+                <span class="white" >Registros</span>
             </a>
             <a mat-list-item>
-                <i class="material-icons v-middle" appWhite>notifications</i>
-                <a class="white">Notificações</a>
+                <mat-icon class="v-middle" appWhite>notifications</mat-icon>
+                <span class="white" >Notificações</span>
             </a>
-            <div class="sub">
-                <a mat-list-item routerLink="profile">
-                    <i class="material-icons v-middle" appWhite>person</i>
-                    <a class="white">Perfil</a>
-                </a>
-                <a mat-list-item>
-                    <i class="material-icons v-middle" appWhite>settings</i>
-                    <a class="white">Configurações</a>
-                </a>
-            </div>
+            <a mat-list-item routerLink="profile">
+                <mat-icon appWhite class="v-middle">  person  </mat-icon>
+                <span class="white">Perfil</span>
+            </a>
+            
         </mat-nav-list>
     </mat-sidenav>
     <router-outlet class="outlet"></router-outlet>

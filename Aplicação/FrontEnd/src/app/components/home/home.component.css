@@ -4,8 +4,7 @@ main {
 
 .card {
     padding: 15px;
-    background-color: #21a4f0;
-    box-shadow: 0px 0px 7px;
+    background-color: #6cd8c1;
     margin-bottom: 60px;
 }
 
@@ -35,8 +34,8 @@ main {
 }
 
 .caixas .box {
-    width: 65vw;
-    height: 50vh;
+    width: 20vw;
+    height: 30vh;
     border-radius: 7px;
     margin-top: 40px;
 }
@@ -66,3 +65,4 @@ main {
 .text {
     color: black;
 }
+

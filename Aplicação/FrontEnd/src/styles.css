@@ -3,8 +3,13 @@
 
 
 html, body { height: 100%; }
-body { background-color:  #f5f5f7; 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {  
+    margin: 0;
+    font-family: Roboto,
+    "Helvetica Neue",
+    sans-serif; 
+}
 
 .v-middle {
     vertical-align: middle;
@@ -31,9 +36,6 @@ a {
 
 .header {
     display: flex;
-    width: 100%;
-    align-items: center;
-    position: fixed;
     top: 0;
     z-index: 1000;
 }
@@ -46,9 +48,3 @@ a {
     color: white;
 }
 
-.upForm {
-    font-family: 'Open Sans';
-    font-size: 20px;
-    font-weight: 600;
-    color: #21a4f0 ;
-}

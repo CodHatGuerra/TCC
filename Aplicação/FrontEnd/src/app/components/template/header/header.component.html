@@ -1,17 +1,17 @@
-<mat-toolbar  class="header">
-    <img src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="home">
-    <div class="title">
-        <a class="home" routerLink="home" >
-            <i class="material-icons v-middle">
-                home
-            </i>
-            Início
-         </a>
-    </div>
-    <a class="exit" (click)="SignOut()">
-        <i class="material-icons v-middle">
-            exit_to_app
-        </i>
-        Sair
+<mat-toolbar  class="header DF">
+    <img class="logo" src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="home">
+    <a class="home" routerLink="home" >
+        <mat-icon appWhite class="v-middle"> home </mat-icon>
+        <span class="white" >Inicio</span>            
     </a>
+    <div>
+        <a>
+            <mat-icon appWhite class="v-middle" >  settings  </mat-icon>
+        </a>
+        
+        <a (click)="SignOut()">
+            <mat-icon appWhite class="exit v-middle">  exit_to_app  </mat-icon>
+            <span class="white">Sair</span>
+        </a>
+    </div>
 </mat-toolbar>

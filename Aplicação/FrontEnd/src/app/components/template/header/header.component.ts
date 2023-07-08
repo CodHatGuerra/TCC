@@ -1,3 +1,4 @@
+import { TemplateService } from './../Template.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
@@ -9,7 +10,8 @@ import { AppService } from 'src/app/settings/Services/app.service';
 })
 export class HeaderComponent {
 
-  constructor(private service: AppService, private router: Router) { }  
+  constructor(private service: AppService, private router: Router)
+    { }  
 
   SignOut() {
     this.service.SignOut();
