@@ -12,7 +12,7 @@ import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 
 const routes: Routes = [
-  { 
+ { 
     path: '',
     component: SignInComponent
  },
@@ -69,12 +69,12 @@ const routes: Routes = [
     },
     {
       path: 'register',
-      component: RegisterComponent
+      component: RegisterComponent,
+      children: [{
+        path: 'postos',
+        component: PostosComponent,
+      }]
     },
-    {
-      path: 'postos',
-      component: PostosComponent
-    }
   ]
  }
 ];

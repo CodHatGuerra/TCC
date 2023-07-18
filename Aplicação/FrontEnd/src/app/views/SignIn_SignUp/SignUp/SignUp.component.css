@@ -1,6 +1,6 @@
 .main {
     display: flex;
-    margin: 0 auto;
+    justify-content: center;
     max-width: 90%;
     gap: 50px;
 }
@@ -24,6 +24,13 @@
     font-size: 20px;
     font-weight: 600;
     color: #21a4f0 ;
+}
+
+.upForm{
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 600;
+    color: #21a4f0
 }
 
 form {

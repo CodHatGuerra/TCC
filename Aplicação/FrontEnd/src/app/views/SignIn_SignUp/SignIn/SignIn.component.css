@@ -1,6 +1,5 @@
 .header {
     width: 100%;
-    background-color: #5fbff9;
 }
 
 .signin {
@@ -12,12 +11,12 @@
     margin-top: 130px;
 }
 
-.img {
+.signin .img {
     width: 49vw;
     height: 64vh;
 }
 
-.login {
+.signin .login {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -27,28 +26,28 @@
     padding: 30px;
 }
 
-.tittle {
+.login .title {
     font-size: 35px;
     font-weight: 700;
     font-family: 'Open Sans';
     margin-bottom: 70px;
 }
 
-p {
+.login p {
     font-family: 'Open Sans';
     font-size: 20px;
     font-weight: 600;
     color: #21a4f0 ;
 }
 
-.form {
+.login .form {
     display: grid;
     width: auto;
 }
 
 .continue {
     width: 100px;
-    color: white !important;
+    color: rgb(255, 255, 255) !important;
     background-color: #21a4f0 !important;
     margin-right: 40px;
 }
@@ -56,7 +55,6 @@ p {
 .register {
     width: 100px;
     color: #21a4f0 !important;
-
 }
 
 .fullscreen {

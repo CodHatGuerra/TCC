@@ -45,17 +45,7 @@ export class AppService {
     return EMPTY
   }
   
-  SignUp(date: any): Observable<any> {
-    if(date == null){
-      console.log("Contém informações nulas");
-    }
-    return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`,date);
-  }
-
-  SignIn(login: LoginModel): Observable<LoginModel> {
-    return this.http.post<LoginModel>(`${environment.baseUrl}${environment.SignIn}`, login);
-  }
-
+ 
   // SubmitPosto(posto: any): Observable<any> {
   //   const token = this.GetUser();
   //   const headers = new HttpHeaders().set('Validação', token)

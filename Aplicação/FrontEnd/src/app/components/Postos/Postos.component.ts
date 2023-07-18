@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-postos',
-  templateUrl: './postos.component.html',
-  styleUrls: ['./postos.component.css']
+  templateUrl: './Postos.component.html',
+  styleUrls: ['./Postos.component.css']
 })
 export class PostosComponent {
   

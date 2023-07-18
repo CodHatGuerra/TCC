@@ -4,7 +4,7 @@
 <div class="signin DF">
     <img class="img" src="../../../assets/img/Capa.png" alt="">
     <div class="login mat-elevation-z3">
-        <h1 class="tittle">Login</h1>
+        <h1 class="title">Login</h1>
         <p>Digite seu e-mail e senha para acessar sua conta</p>
         <form class="form" [formGroup]="form">
             <mat-form-field>
@@ -16,7 +16,7 @@
                 <input type="password" matInput formControlName="senha" ngModel required>
             </mat-form-field>
             <div class="DF">
-                <button class='continue' mat-button (click)="register()">Continuar</button>
+                <button class="continue" mat-button (click)="register()">Continuar</button>
                 <button class="register" mat-button routerLink="signup">Cadastrar</button>
             </div>
         </form>

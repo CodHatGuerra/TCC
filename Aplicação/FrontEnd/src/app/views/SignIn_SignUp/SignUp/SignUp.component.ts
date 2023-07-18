@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserModel, CepModel, EndModel, Telefone } from './SignUp.module';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environments';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signup ',
@@ -71,6 +73,13 @@ endereco: EndModel = {
     });
   }
   
+  SignUp(date: any): Observable<any> {
+    if(date == null){
+      console.log("Contém informações nulas");
+    }
+    return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`,date);
+  }
+
   Submit() {
     const currentDate = new Date();
     const Dados = {
@@ -83,7 +92,7 @@ endereco: EndModel = {
     if (Dados == null) {
       this.appService.AlertMessage('Complete o formulário.');
     } else {
-      this.appService.SignUp(Dados).subscribe(
+      this.SignUp(Dados).subscribe(
         (response) => {
           if(response.error){
             console.log(response.error);
