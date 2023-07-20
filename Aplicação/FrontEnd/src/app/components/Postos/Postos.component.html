@@ -8,27 +8,27 @@
 
         <mat-form-field>
             <mat-label>Cep</mat-label>
-            <input matInput formControlName="cep" (blur)="dataCep()" type="number">
+            <input matInput formControlName="cep" (blur)="SubmitCep()" type="number">
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>Uf</mat-label>
-            <input matInput formControlName="uf" type="text" [value]="uf" >
+            <input matInput readonly formControlName="uf" type="text" [value]="uf" >
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>Localidade</mat-label>
-            <input matInput formControlName="localidade" type="text" [value]="localidade">
+            <input matInput readonly formControlName="localidade" type="text" [value]="localidade">
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>Bairro</mat-label>
-            <input matInput formControlName="bairro" type="text" [value]="bairro">
+            <input matInput readonly formControlName="bairro" type="text" [value]="bairro">
         </mat-form-field>
         
         <mat-form-field>
             <mat-label>Logradouro</mat-label>
-            <input matInput formControlName="logradouro" type="text" [value]="logradouro">
+            <input matInput readonly formControlName="logradouro" type="text" [value]="logradouro">
         </mat-form-field>
         
         <mat-form-field>
@@ -36,7 +36,7 @@
             <input matInput formControlName="numero" type="number">
         </mat-form-field>
 
-        <button mat-button appWhite>Cadastrar</button>
+        <button mat-button appWhite (click)="SubmitPosto()">Cadastrar</button>
     </form>
 </mat-card>
 

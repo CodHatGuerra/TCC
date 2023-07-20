@@ -66,14 +66,13 @@ const routes: Routes = [
     {
       path: 'profile',
       component: ProfileComponent 
-    },
-    {
+    },{
       path: 'register',
       component: RegisterComponent,
-      children: [{
+      children: [  {
         path: 'postos',
-        component: PostosComponent,
-      }]
+         component: PostosComponent,
+     }]
     },
   ]
  }
