@@ -1,0 +1,40 @@
+.header {
+    justify-content: space-between;
+}
+
+.header > strong {
+    font-weight: 600;
+}
+
+.header div {
+    display: flex;
+    gap: 30px;
+}
+
+p {
+    font-size: 16px;
+    color: white;
+    padding: 4px;
+    margin: 0px;
+    display: flex;
+}
+
+.header div .logo {
+    width: 35px;
+    height: 35px;
+    border: 3px solid white;
+}
+
+span {
+    display: flex;
+    gap: 30px;
+}
+
+.SignIn {
+    border-radius: 6px;
+}
+
+.SignUp {
+    color: #6cd8c1 !important;
+    background-color: rgba(255, 255, 255, 0.973);
+}

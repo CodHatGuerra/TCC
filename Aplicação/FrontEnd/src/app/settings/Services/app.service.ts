@@ -31,10 +31,7 @@ export class AppService {
     return !!token;
   }
   
-  SignOut(): void {
-    localStorage.removeItem('Token');
-   }
-
+ 
   GetUser(): any {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;

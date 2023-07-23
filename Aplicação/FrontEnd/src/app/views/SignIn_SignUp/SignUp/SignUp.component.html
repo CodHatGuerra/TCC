@@ -1,5 +1,6 @@
 <mat-toolbar class="header mat-elevation-z3">
     <img class="logo" src="../../../assets/img/LogoMDP.png">
+    <a routerLink="" appWhite>Login</a>
 </mat-toolbar>
 <div class="main">
     <div class="signup DF">
@@ -81,7 +82,7 @@
 
             <mat-form-field>
                 <mat-label>Senha</mat-label>
-                <input matInput type="text" formControlName="senha">
+                <input matInput type="password" formControlName="senha">
             </mat-form-field>
         </form>
         <form [formGroup]="cellForm">

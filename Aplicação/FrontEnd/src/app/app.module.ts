@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Components
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
+import { ApplicationComponent } from './components/application/application.component';
 import { RegisterComponent } from './components/Register/Register.component';
 import { SchedulindComponent } from './components/Schedulind/Schedulind.component';
 import { ProfileComponent } from './components/Profile/Profile.component';
@@ -38,7 +38,9 @@ import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { PostosComponent } from './components/Postos/Postos.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/template/header/dialog/dialog.component';
+import { HomeComponent } from './views/home/home.component'
 
 @NgModule({
   declarations: [
@@ -47,16 +49,18 @@ import { PostosComponent } from './components/Postos/Postos.component';
     SignUpComponent,
     ProfileComponent,
     SignInComponent,
-    HomeComponent,
+    ApplicationComponent,
     SchedulindComponent,
     RegisterComponent,
     FooterComponent,
     NavComponent,
-    HeaderComponent,
     DecoratorsComponent,
     UserComponent,
     AdmComponent,
     PostosComponent,
+    HeaderComponent,
+    DialogComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +77,7 @@ import { PostosComponent } from './components/Postos/Postos.component';
     FormsModule,
     HttpClientModule,
     MatIconModule,
+    MatDialogModule,
     MatSnackBarModule,
     MatTableModule,
     MatSelectModule,

@@ -1,3 +1,18 @@
+.header {
+    justify-content: space-between;
+}
+
+.header .logo {
+    width: 35px;
+    height: 35px;
+    border: 3px solid white;
+}
+
+.header > a{
+    font-size: 14px;
+    margin-right: 20px;
+}
+
 .main {
     display: flex;
     justify-content: center;
@@ -23,14 +38,14 @@
     font-family: 'Open Sans';
     font-size: 20px;
     font-weight: 600;
-    color: #21a4f0 ;
+    color: #02C39A ;
 }
 
 .upForm{
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 600;
-    color: #21a4f0
+    color: #02C39A
 }
 
 form {
@@ -57,7 +72,7 @@ form {
 .form .cadastrar {
     width: 100px;
     color: white !important;
-    background-color: #21a4f0 !important;
+    background-color: #02C39A !important;
 }
 
 input[type=number]::-webkit-inner-spin-button,

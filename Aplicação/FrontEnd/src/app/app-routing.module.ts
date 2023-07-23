@@ -3,21 +3,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './views/user/user.component';
 import { RegisterComponent } from './components/Register/Register.component';
-import { HomeComponent } from './components/home/home.component';
+import { ApplicationComponent } from './components/application/application.component';
 import { SchedulindComponent } from './components/Schedulind/Schedulind.component';
 import { ProfileComponent } from './components/Profile/Profile.component';
 import { AuthGuard } from './settings/auth.guard';
 import { PostosComponent } from './components/Postos/Postos.component';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
- { 
+  {
     path: '',
+    component: HomeComponent
+  },
+  { 
+    path: 'signIn',
     component: SignInComponent
  },
  { 
-    path: 'signup',
+    path: 'signUp',
     component:  SignUpComponent
  }, 
  {
@@ -27,11 +32,7 @@ const routes: Routes = [
       children: [
       {
         path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'home',
-        component: HomeComponent
+        component: ApplicationComponent
       },
       {
         path: 'schedulind',
@@ -52,12 +53,8 @@ const routes: Routes = [
   component: AdmComponent,
   children: [
     {
-      path: '',
-      component: HomeComponent
-    },
-    {
-      path: 'home',
-      component: HomeComponent
+      path: 'application',
+      component: ApplicationComponent
     },
     {
       path: 'schedulind',

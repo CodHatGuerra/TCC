@@ -5,6 +5,8 @@
 html, body { height: 100%; }
 
 body {  
+
+    background-color: rgb(238, 238, 238);
     margin: 0;
     font-family: Roboto,
     "Helvetica Neue",
@@ -38,6 +40,10 @@ a {
     display: flex;
     top: 0;
     z-index: 1000;
+    background-color: #02C39A;
+}
+
+.footer {
     background-color: #02C39A;
 }
 

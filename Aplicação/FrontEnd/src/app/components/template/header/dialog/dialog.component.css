@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+}
+
+div {
+    justify-content: center;
+    gap: 30px;
+}
+
+.Yes {
+    width: 100px;
+    background-color: #02C39A;
+}
+
+.No {
+    width: 95px;
+    color:  #02C39A !important; 
+    background-color: white;
+}
