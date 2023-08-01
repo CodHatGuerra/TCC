@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserModel, CepModel, EndModel, Telefone } from './SignUp.module';
+import { UserModel, CepModel, EndModel, Telefone } from './signup.module';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signup ',
-  templateUrl: './SignUp.component.html',
-  styleUrls: ['./SignUp.component.css']
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
 export class SignUpComponent {
 

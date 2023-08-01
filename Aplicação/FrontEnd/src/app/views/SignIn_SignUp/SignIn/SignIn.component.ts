@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
-import { LoginModel } from './SignIn.module';
+import { LoginModel } from './signIn.module';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './SignIn.component.html',
-  styleUrls: ['./SignIn.component.css']
+  templateUrl: './signIn.component.html',
+  styleUrls: ['./signIn.component.css']
 })
 export class SignInComponent {
 form: FormGroup;

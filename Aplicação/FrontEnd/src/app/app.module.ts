@@ -9,9 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { ApplicationComponent } from './components/application/application.component';
-import { RegisterComponent } from './components/Register/Register.component';
-import { SchedulindComponent } from './components/Schedulind/Schedulind.component';
-import { ProfileComponent } from './components/Profile/Profile.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SchedulindComponent } from './components/schedulind/schedulind.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { DecoratorsComponent } from './settings/decorator/decorators.component';
@@ -34,13 +34,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserComponent } from './views/user/user.component';
-import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
-import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
-import { AdmComponent } from './views/Adm/Adm.component';
-import { PostosComponent } from './components/Postos/Postos.component';
+import { SignInComponent } from './views/signin_signup/signin/signIn.component';
+import { AdmComponent } from './views/adm/adm.component';
+import { PostosComponent } from './components/postos/postos.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './components/template/header/dialog/dialog.component';
+import { DialogComponent } from './settings/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'
+import { SignUpComponent } from './views/signin_signup/signup/signup.component';
 
 @NgModule({
   declarations: [

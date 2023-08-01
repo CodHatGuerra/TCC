@@ -10,9 +10,12 @@
             <mat-icon appWhite class="v-middle" >  settings  </mat-icon>
         </a>
         
-        <a (click)="SignOut()">
+        <a (click)=" ">
             <mat-icon appWhite class="exit v-middle">  exit_to_app  </mat-icon>
             <span class="white">Sair</span>
         </a>
     </div>
+
 </mat-toolbar>
+
+<app-dialog [nome]="" *ngIf="showEditDialog"></app-dialog>

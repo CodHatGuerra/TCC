@@ -6,8 +6,8 @@ import { environment } from 'src/environments/environments';
 
 @Component({
   selector: 'app-postos',
-  templateUrl: './Postos.component.html',
-  styleUrls: ['./Postos.component.css']
+  templateUrl: './postos.component.html',
+  styleUrls: ['./postos.component.css']
 })
 export class PostosComponent {
   

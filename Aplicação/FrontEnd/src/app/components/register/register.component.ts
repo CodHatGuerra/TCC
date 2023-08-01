@@ -5,8 +5,8 @@ import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './Register.component.html',
-  styleUrls: ['./Register.component.css']
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   constructor(private http: HttpClient, private router: Router){ }
@@ -15,3 +15,4 @@ export class RegisterComponent {
   //   console.log("funcionando")
   // }
 }
+ 

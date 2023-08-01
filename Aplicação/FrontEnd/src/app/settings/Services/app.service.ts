@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environments';
-import { LoginModel } from 'src/app/views/SignIn_SignUp/SignIn/SignIn.module';
+import { LoginModel } from 'src/app/views/signin_signup/signin/signIn.module';
 
 @Injectable({
   providedIn: 'root'

@@ -1,16 +1,16 @@
-import { AdmComponent } from './views/Adm/Adm.component';
+import { AdmComponent } from './views/adm/adm.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './views/user/user.component';
-import { RegisterComponent } from './components/Register/Register.component';
+import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
-import { SchedulindComponent } from './components/Schedulind/Schedulind.component';
-import { ProfileComponent } from './components/Profile/Profile.component';
+import { SchedulindComponent } from './components/schedulind/schedulind.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './settings/auth.guard';
-import { PostosComponent } from './components/Postos/Postos.component';
-import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
-import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { PostosComponent } from './components/postos/postos.component';
 import { HomeComponent } from './views/home/home.component';
+import { SignUpComponent } from './views/signin_signup/signup/signup.component';
+import { SignInComponent } from './views/signin_signup/signin/signIn.component';
 
 const routes: Routes = [
   {
