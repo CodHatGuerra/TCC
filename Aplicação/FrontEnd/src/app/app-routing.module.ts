@@ -1,4 +1,3 @@
-import { AdmComponent } from './views/adm/adm.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './views/user/user.component';
@@ -7,10 +6,11 @@ import { ApplicationComponent } from './components/application/application.compo
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './settings/auth.guard';
-import { PostosComponent } from './components/postos/postos.component';
 import { HomeComponent } from './views/home/home.component';
-import { SignUpComponent } from './views/signin_signup/signup/signup.component';
-import { SignInComponent } from './views/signin_signup/signin/signIn.component';
+import { SignInComponent } from './views/SignIn_SignUp/signIn/signin.component';
+import { AdmComponent } from './views/adm/adm.component';
+import { PostosComponent } from './components/postos/postos.component';
+import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
 
 const routes: Routes = [
   {

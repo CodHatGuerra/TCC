@@ -34,13 +34,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserComponent } from './views/user/user.component';
-import { SignInComponent } from './views/signin_signup/signin/signIn.component';
+import { SignInComponent } from './views/SignIn_SignUp/signIn/signin.component';
 import { AdmComponent } from './views/adm/adm.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './settings/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'
-import { SignUpComponent } from './views/signin_signup/signup/signup.component';
+import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
 
 @NgModule({
   declarations: [

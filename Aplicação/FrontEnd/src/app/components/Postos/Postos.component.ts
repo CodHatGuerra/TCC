@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AppService } from 'src/app/settings/Services/app.service';
+import { AppService } from 'src/app/settings/services/app.service';
 import { environment } from 'src/environments/environments';
 
 @Component({

@@ -1,21 +1,31 @@
-<mat-toolbar  class="header DF">
-    <img class="logo" src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="application">
-    <p><strong>_vacina</strong>Facil.</p>
-    <a class="home" routerLink="application" >
-        <mat-icon appWhite class="v-middle"> home </mat-icon>
-        <span class="white" >Inicio</span>            
+<mat-toolbar class="header DF">
+   <div>
+       <img class="logo" src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="application">
+       <p><strong>_vacina</strong>Facil.</p>
+    </div>
+    <a (click)="SignOut()">
+        <mat-icon appWhite class="exit v-middle">  exit_to_app  </mat-icon>
+        <span class="white">Sair</span>
     </a>
-    <div>
-        <a>
-            <mat-icon appWhite class="v-middle" >  settings  </mat-icon>
+    <span>
+        <mat-icon class="menuIcon" *ngIf="screenWidth < 400" (click)="toggleMenu()" >menu</mat-icon>
+    </span>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="content" *ngIf="isMenuOpen && screenWidth < 400">
+    <mat-sidenav class="sidenav" mode="side" (opened)="true">
+        <a routerLink="application" >
+            <mat-icon appWhite class="v-middle"> home </mat-icon>
+            <span class="white" >Inicio</span>            
         </a>
-        
-        <a (click)=" ">
+
+        <a (click)="SignOut()">
             <mat-icon appWhite class="exit v-middle">  exit_to_app  </mat-icon>
             <span class="white">Sair</span>
         </a>
-    </div>
+    </mat-sidenav>
 
-</mat-toolbar>
+</mat-sidenav-container>
 
-<app-dialog [nome]="" *ngIf="showEditDialog"></app-dialog>
+<app-dialog [nome]="dialogMessage" *ngIf="showEditDialog"></app-dialog>

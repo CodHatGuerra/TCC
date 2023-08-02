@@ -1,4 +1,5 @@
 .header {
+    width: 100%;
     background-color: #6cd8c1;
     justify-content: space-between;
 }
@@ -40,4 +41,37 @@ mat-icon {
 .exit {
     cursor: pointer;
 }
+
+/* @media screen and (max-width: 400px) {
+    .header {
+        width: 100%;
+        display: contents;
+    }
+
+    .menuIcon {
+        font-size: 25px;
+        cursor: pointer;
+        color:rgb(2, 2, 2) 
+    }
+
+    .sidenav {
+        width: 200px;
+        background-color: #6cd8c1;
+        color: white; 
+    }
+
+    .sidenav a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+      }
+      .sidenav a:hover {
+        background-color: #51a395;
+      }
+      
+      .content {
+        background-color: rgb(173, 173, 173);
+        min-height: 100px;
+      } */
 

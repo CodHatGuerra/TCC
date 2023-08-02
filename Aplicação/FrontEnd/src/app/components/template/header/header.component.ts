@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/settings/Services/app.service';
-import { DialogComponent } from '../../../settings/dialog/dialog.component';
+import { AppService } from 'src/app/settings/services/app.service';
 
 @Component({
   selector: 'app-header',
@@ -11,19 +9,35 @@ import { DialogComponent } from '../../../settings/dialog/dialog.component';
 })
 export class HeaderComponent {
 
-  constructor(private service: AppService, private router: Router, private dialog :MatDialog)
-    { }
+  constructor(private service: AppService, private router: Router)
+    {
+      this.teste = window.innerWidth < 660;
+      this.isMenuOpen = false;
+    }
 
     showEditDialog = false;
+    dialogMessage = "Tem certeza que deseja sair?";
+    screenWidth: number = window.innerWidth; 
 
-    titulo: string = "Deseja realmente sair?";
-    // SignOut(): void {
-    //   this.showEditDialog = true;
-    //     if (result === true) {
-    //       localStorage.removeItem('Token');
-    //       this.router.navigate(['']);
-    //     }
-    //   });
-    // }
+    activeButton = 1;
+    teste: boolean;
+    isMenuOpen: boolean = false;
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+      this.screenWidth = window.innerWidth;
+    }
+
+
+  SignOut(): void {
+    this.showEditDialog = true;
+        localStorage.removeItem('Token');
+        this.router.navigate(['']);
+    };
+  
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    }
 }
+
 

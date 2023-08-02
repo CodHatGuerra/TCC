@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserModel, CepModel, EndModel, Telefone } from './signup.module';
-import { AppService } from 'src/app/settings/Services/app.service';
+import { AppService } from 'src/app/settings/services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 import { Observable } from 'rxjs';
+import { CepModel, EndModel, Telefone, UserModel } from './SignUp.module';
 
 @Component({
   selector: 'app-signup ',

@@ -1,11 +1,11 @@
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/settings/Services/app.service';
+import { AppService } from 'src/app/settings/services/app.service';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './Profile.component.html',
-  styleUrls: ['./Profile.component.css']
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent  {
   constructor(private service: AppService, private router: Router) {

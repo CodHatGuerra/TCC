@@ -1,4 +1,4 @@
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
 
 CREATE DATABASE IF NOT EXISTS VF_Dev;
 USE VF_Dev;
