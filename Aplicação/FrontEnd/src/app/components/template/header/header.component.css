@@ -1,6 +1,5 @@
 .header {
     width: 100%;
-    background-color: #6cd8c1;
     justify-content: space-between;
 }
 
@@ -17,6 +16,20 @@
     gap: 10px;
 }
 
+.header .select {
+    width: 200px !important;
+}
+
+.select .option {
+    vertical-align: middle;
+}
+
+.option  p {
+    font-size: 14px;
+    color: black !important;
+    align-items: center;
+}
+
 div {
     display: flex;
     gap: 20px;
@@ -26,20 +39,22 @@ div {
     font-weight: 600;
 }
 
-p {
-    font-size: 16px;
+h4 {
     color: white;
     padding: 4px;
     margin: 0px;
     display: flex;
+    margin-top: 4px;
 }
 
 mat-icon {
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .exit {
     cursor: pointer;
+    color: black !important;
+    font-size: 20px;
 }
 
 /* @media screen and (max-width: 400px) {

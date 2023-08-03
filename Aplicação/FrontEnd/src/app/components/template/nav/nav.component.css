@@ -8,9 +8,9 @@
     background-color: #02C39A;
     transition: width 0.3s;
 }
-
-.sidenav:hover {
-    width: 190px; 
+ 
+ .sidenav:hover {
+    width: 200px; 
 }
 
 .nav-list {

@@ -38,7 +38,7 @@ import { SignInComponent } from './views/SignIn_SignUp/signIn/signin.component';
 import { AdmComponent } from './views/adm/adm.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './settings/dialog/dialog.component';
+import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
 

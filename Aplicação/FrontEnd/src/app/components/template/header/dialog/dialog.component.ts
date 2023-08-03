@@ -10,23 +10,12 @@ export class DialogComponent {
   constructor(public dialogRef: MatDialogRef<DialogComponent>) {
     
   }
-  @Input() nome: string = "";
-  @Output() logoutConfirmed: EventEmitter<void> = new EventEmitter<void>();
-  @Output() logoutCancelled: EventEmitter<void> = new EventEmitter<void>();
-  
 
   OnConfirm() {
-    this.logoutConfirmed.emit();
+    this.dialogRef.close('confirm');
   }
 
   OnCancel() {
-    this.logoutCancelled.emit();
+    this.dialogRef.close();
   }
-  // confirmLogout(): void {
-  //   this.dialogRef.close(true);
-  // }
-
-  // cancelLogout(): void {
-  //   this.dialogRef.close(false);
-  // }
 }
