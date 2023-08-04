@@ -41,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
+import {MatMenuModule} from '@angular/material/menu'
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
     MatSnackBarModule,
     MatTableModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

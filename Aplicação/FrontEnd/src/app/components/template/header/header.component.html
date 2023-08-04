@@ -1,22 +1,32 @@
 <mat-toolbar class="header DF">
-   <div>
-       <img class="logo" src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="application">
-       <h4><strong>_vacina</strong>Facil.</h4>
-    </div>
+  <div>
+    <img
+      class="logo"
+      src="../../../../assets/img/LogoMDP.png"
+      alt="Logo"
+      routerLink="application"
+    />
+    <h4><strong>_vacina</strong>Facil.</h4>
+  </div>
 
-    <mat-select class="select DF">
-        <mat-option (click)="openLogoutDialog()" mat-list-item class="option DF">
-            <mat-icon appWhite class="exit">  exit_to_app  </mat-icon>
-            <p> Sair </p>
-        </mat-option>
-        <mat-option>
-            <mat-icon >  settings  </mat-icon>
-            <p> Configurações </p>
-        </mat-option>
-    </mat-select>
-  
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <mat-nav-list>
+      <mat-list-item (click)="openLogoutDialog()">
+        <mat-icon class="exit"> exit_to_app </mat-icon>
+        <p>Sair</p>
+      </mat-list-item>
+      <mat-list-item>
+          <mat-icon> settings </mat-icon>
+          <p>Configurações</p>
+        </mat-list-item>
+    </mat-nav-list>
+  </mat-menu>
 </mat-toolbar>
-    <!-- <span>
+<!-- <span>
         <mat-icon class="menuIcon" *ngIf="screenWidth < 400" (click)="toggleMenu()" >menu</mat-icon>
     </span> -->
 <!-- 

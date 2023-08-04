@@ -16,21 +16,15 @@
     gap: 10px;
 }
 
-.header .select {
-    width: 200px !important;
+mat-nav-list {
+    width: 220px !important;
 }
 
-.select .option {
-    vertical-align: middle;
+mat-list-item {
+    display: block;
 }
 
-.option  p {
-    font-size: 14px;
-    color: black !important;
-    align-items: center;
-}
-
-div {
+.header > div {
     display: flex;
     gap: 20px;
 }
@@ -39,12 +33,23 @@ div {
     font-weight: 600;
 }
 
+ p {
+    font-size: 14px;
+    color: black !important;
+    align-items: center;
+}
+
+
 h4 {
     color: white;
     padding: 4px;
     margin: 0px;
     display: flex;
     margin-top: 4px;
+}
+
+mat-menu {
+    text-decoration: none;
 }
 
 mat-icon {

@@ -2,8 +2,6 @@ import { Observable, EMPTY } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from 'src/environments/environments';
-import { LoginModel } from 'src/app/views/SignIn_SignUp/signIn/signin.module';
 
 @Injectable({
   providedIn: 'root'

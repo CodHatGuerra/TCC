@@ -1,8 +1,8 @@
+import { LoginModel } from './SignIn.module';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/services/app.service';
-import { LoginModel } from './signin.module';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { HttpClient } from '@angular/common/http';
