@@ -34,14 +34,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserComponent } from './views/user/user.component';
-import { SignInComponent } from './views/SignIn_SignUp/signIn/signin.component';
-import { AdmComponent } from './views/adm/adm.component';
-import { PostosComponent } from './components/postos/postos.component';
+import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
+import { AdmComponent } from './views/Adm/Adm.component';
+import { PostosComponent } from './components/Postos/Postos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'
-import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
-import {MatMenuModule} from '@angular/material/menu'
+import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { MatMenuModule } from '@angular/material/menu'
 
 @NgModule({
   declarations: [

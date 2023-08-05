@@ -5,6 +5,7 @@ h1 {
 div {
     justify-content: center;
     gap: 30px;
+    border-color: #02C39A;
 }
 
 .Yes {
@@ -16,4 +17,9 @@ div {
     width: 95px;
     color:  #02C39A !important; 
     background-color: white;
+}
+
+.teste {
+    padding: 9px;
+    border-color: #02C39A;
 }

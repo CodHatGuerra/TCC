@@ -16,14 +16,6 @@
     padding-top: 16px;
 }
 
-.mat-list-item {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s; 
-}
-
 mat-icon {
     padding-right: 18px;
 }

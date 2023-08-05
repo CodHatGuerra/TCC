@@ -4,8 +4,18 @@ button {
     background: #6cd8c1 !important;
 }
 
+.table {
+    margin: 0 auto;
+}
+
 div {
     gap: 40px;
     margin-top: 40px;
     justify-content: center;
+}
+
+mat-card {
+    width: 45vw;
+    height: 40vh;
+    box-shadow: 0.1px 4px 10px rgba(0, 0, 0, 0.2)
 }

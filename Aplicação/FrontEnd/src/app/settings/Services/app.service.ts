@@ -1,5 +1,4 @@
-import { Observable, EMPTY } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -9,36 +8,50 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AppService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
   
-  userInfo: any;
+    userInfo: any;
 
-  AlertMessage(msg: string): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-      panelClass: ['cor']
-    });
+    AlertMessage(msg: string): void {
+      this.snackBar.open(msg, 'X', {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: ['error']
+      });
     }
 
-  SetUser(user: any): void {
-    localStorage.setItem('user', JSON.stringify(user));
-  }
-  
-  IsUserLoggedIn(): boolean {
-    const token = localStorage.getItem('Token');
-    return !!token;
-  }
-  
- 
-  GetUser(): any {
-    const user = localStorage.getItem('user');
-    return user ? JSON.parse(user) : null;
-  }
+    SuccessMessage(msg: string) :void {
+      this.snackBar.open(msg, 'X', {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: ['success']
+    })}
 
-  Error(e: any): Observable<any> {
-    this.AlertMessage('Ocorreu um erro');
-    return EMPTY
-  }
+    InfoMessage(msg: string): void{
+      this.snackBar.open(msg, 'X', {
+        duration: 3000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: ['info']
+    })}
+
+
+
+    SetUser(user: any): void {
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+
+    IsUserLoggedIn(): boolean {
+      const token = localStorage.getItem('Token');
+      return !!token;
+    }
+
+ 
+    GetUser(): any {
+      const user = localStorage.getItem('user');
+      return user ? JSON.parse(user) : null;
+    }
+
   
  
   // SubmitPosto(posto: any): Observable<any> {

@@ -99,7 +99,7 @@ endereco: EndModel = {
             console.log('Erro ao cadastrar:', response.error);
             this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
           } else {
-            this.appService.AlertMessage('Cadastro Concluído!');
+            this.appService.SuccessMessage('Cadastro Concluído!');
             this.router.navigate(['/']);
           }
         },

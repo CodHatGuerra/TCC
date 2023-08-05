@@ -15,17 +15,18 @@
 
   <mat-menu #menu="matMenu">
     <mat-nav-list>
-      <mat-list-item (click)="openLogoutDialog()">
-        <mat-icon class="exit"> exit_to_app </mat-icon>
-        <p>Sair</p>
-      </mat-list-item>
-      <mat-list-item>
-          <mat-icon> settings </mat-icon>
-          <p>Configurações</p>
-        </mat-list-item>
+      <a mat-list-item class="DF" (click)="openLogoutDialog()">
+        <mat-icon class="exit v-middle"> exit_to_app </mat-icon>
+        <span>Sair</span>
+      </a> 
+      <a mat-list-item class="DF">
+          <mat-icon class="v-middle"> settings </mat-icon>
+          <span>Configurações</span>
+      </a>
     </mat-nav-list>
   </mat-menu>
 </mat-toolbar>
+
 <!-- <span>
         <mat-icon class="menuIcon" *ngIf="screenWidth < 400" (click)="toggleMenu()" >menu</mat-icon>
     </span> -->

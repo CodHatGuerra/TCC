@@ -7,10 +7,10 @@ import { SchedulindComponent } from './components/schedulind/schedulind.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './settings/auth.guard';
 import { HomeComponent } from './views/home/home.component';
-import { SignInComponent } from './views/SignIn_SignUp/signIn/signin.component';
-import { AdmComponent } from './views/adm/adm.component';
-import { PostosComponent } from './components/postos/postos.component';
-import { SignUpComponent } from './views/SignIn_SignUp/signUp/signup.component';
+import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
+import { AdmComponent } from './views/Adm/Adm.component';
+import { PostosComponent } from './components/Postos/Postos.component';
+import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 
 const routes: Routes = [
   {
@@ -51,6 +51,7 @@ const routes: Routes = [
  {
   path: 'adm',
   component: AdmComponent,
+  canActivate: [AuthGuard],
   children: [
     {
       path: 'application',

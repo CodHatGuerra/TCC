@@ -31,8 +31,7 @@ form: FormGroup;
     return this.http.post<LoginModel>(`${environment.baseUrl}${environment.SignIn}`, login);
   }
 
- 
-   register() :void {
+   Register() :void {
     if(this.form.valid){
       this.FormLogin = this.form.value 
       this.SignIn(this.FormLogin).subscribe((response: any) => {        
@@ -40,7 +39,7 @@ form: FormGroup;
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm']);
-          this.appService.AlertMessage('Bem vindo!')
+          this.appService.SuccessMessage('Bem vindo!')
         } else {
           this.appService.AlertMessage('Usuário não encontrado.')
         }

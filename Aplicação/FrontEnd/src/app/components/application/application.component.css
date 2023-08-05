@@ -2,12 +2,6 @@ main {
     padding: 20px;
 }
 
-.card {
-    padding: 15px;
-    background-color: #6cd8c1;
-    margin-bottom: 60px;
-}
-
 .card .title {
     font-size: 40px;
 }

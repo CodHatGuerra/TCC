@@ -3,9 +3,8 @@
 
 
 html, body { height: 100%; }
-
+   
 body {  
-
     background-color: rgb(255, 255, 255);
     margin: 0;
     font-family: Roboto,
@@ -22,10 +21,29 @@ a {
     color: rgb(43, 43, 43);
 }
 
-.cor {
-    background-color: #28a745 !important;
-    color: white !important;
-}
+.mat-mdc-snack-bar-container {
+    &.success {
+      --mdc-snackbar-container-color: #06c533;
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #fff;
+    }
+  }
+
+.mat-mdc-snack-bar-container {
+    &.error {
+      --mdc-snackbar-container-color: #fd1100d8;
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #fff;
+    }
+  }
+
+  .mat-mdc-snack-bar-container {
+    &.info {
+      --mdc-snackbar-container-color: #ff9100;
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #fff;
+    }
+  }
 
 .DF {
     display: flex;
@@ -40,7 +58,7 @@ a {
     display: flex;
     top: 0;
     z-index: 1000;
-    background-color: #02C39A;
+    background-color: #00A896;
 }
 
 .footer {

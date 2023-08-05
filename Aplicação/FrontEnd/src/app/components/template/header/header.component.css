@@ -11,7 +11,6 @@
 
 .header a {
     display: flex;
-    align-items: center;
     text-decoration: none;
     gap: 10px;
 }
@@ -20,9 +19,15 @@ mat-nav-list {
     width: 220px !important;
 }
 
-mat-list-item {
-    display: block;
+mat-menu {
+    text-decoration: none;
+    color: aliceblue !important;
 }
+
+mat-icon {
+    font-size: 18px;
+}
+
 
 .header > div {
     display: flex;
@@ -39,7 +44,6 @@ mat-list-item {
     align-items: center;
 }
 
-
 h4 {
     color: white;
     padding: 4px;
@@ -48,17 +52,9 @@ h4 {
     margin-top: 4px;
 }
 
-mat-menu {
-    text-decoration: none;
-}
-
-mat-icon {
-    font-size: 18px;
-}
-
 .exit {
     cursor: pointer;
-    color: black !important;
+    color: rgb(0, 0, 0) !important;
     font-size: 20px;
 }
 

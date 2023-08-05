@@ -1,4 +1,37 @@
 <div class="DF">
+  <mat-card>
+
+  <mat-table class="table " mat-table [dataSource]="pessoas">
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let pessoa; columns: colunas"></tr>
+  
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Posto </th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.nome}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef>Numero</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.numero}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="profissao">
+        <th mat-header-cell *matHeaderCellDef>Profissão</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.profissao}} </td>
+      </ng-container>
+    
+      <!-- <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <td mat-cell *matCellDef="let pessoa">{{pessoa.cidade}} </td>
+      </ng-container>/mat-card> -->
+  </mat-table>
+</mat-card>
+
+</div>
+
+
+
+<div class="DF">
   <button mat-button routerLink="postos">Registrar Postos</button>
   <button mat-button>Registrar Funcionários</button>
 </div>
