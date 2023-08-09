@@ -7,6 +7,11 @@
         </mat-form-field>
 
         <mat-form-field>
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="telefone" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
             <mat-label>Cep</mat-label>
             <input matInput formControlName="cep" (blur)="SubmitCep()" type="number">
         </mat-form-field>

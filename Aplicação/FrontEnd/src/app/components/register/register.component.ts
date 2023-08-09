@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component} from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { environment } from 'src/environments/environments';
 
 
 @Component({
@@ -9,30 +10,37 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private http: HttpClient, private router: Router){ }
-  // botao(){
-  //   this.router.navigate(["postos"]);
-  //   console.log("funcionando")
-  // }
+  constructor(
+    private http: HttpClient, 
+    private router: Router
+    ){ }
+
+    GetPostos(){
+      this.http.get(`${environment.baseUrl}/${environment.Posto}`).subscribe(
+        (response)=>{
+          console.log(response);
+        }
+      )
+    }
 
   pessoas = [
     {
      nome: 'Posto1',
      numero: '26',
      profissao: 'Advogada',
-     cnumero: 'bariri'
+     cidade: 'bariri'
     },
     {
      nome: 'Posto 2',
      numero: '27',
      profissao: 'Desenvolvedor de software',
-     cnumero: 'bauru'
+     cidade: 'bauru'
     },
     {
      nome: 'Posto 3',
      numero: '24',
      profissao: 'Veterinária',
-     cnumero: 'barra'
+     cidade: 'barra'
     },
     {
      nome: 'Posto 4',
@@ -41,7 +49,7 @@ export class RegisterComponent {
      cidade: 'gotham'
     },
 ]
-colunas: string[] = ['nome', 'numero', 'profissao'];
+colunas: string[] = ['nome', 'numero', 'profissao', 'cidade'];
 };
 
  

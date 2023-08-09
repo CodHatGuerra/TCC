@@ -36,7 +36,6 @@ export class AppService {
     })}
 
 
-
     SetUser(user: any): void {
       localStorage.setItem('user', JSON.stringify(user));
     }
@@ -45,13 +44,11 @@ export class AppService {
       const token = localStorage.getItem('Token');
       return !!token;
     }
-
  
     GetUser(): any {
       const user = localStorage.getItem('user');
       return user ? JSON.parse(user) : null;
     }
-
   
  
   // SubmitPosto(posto: any): Observable<any> {

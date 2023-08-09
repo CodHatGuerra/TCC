@@ -36,7 +36,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserComponent } from './views/user/user.component';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
-import { PostosComponent } from './components/Postos/Postos.component';
+import { PostosComponent } from './components/register/Postos/Postos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'

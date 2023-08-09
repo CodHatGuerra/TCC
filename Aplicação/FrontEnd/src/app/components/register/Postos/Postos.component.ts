@@ -27,6 +27,7 @@ export class PostosComponent {
       bairro: ['', Validators.required],
       cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
     });
   }
   
@@ -39,16 +40,26 @@ export class PostosComponent {
        this.localidade = response.localidade,
        this.bairro = response.bairro,
        this.logradouro = response.logradouro  
-     }
-    );
+     });
    }
 
-   SubmitPosto(): void {
-   var formData = this.formPosto;
-   if( formData == null){
-      this.service.AlertMessage("Formulário incompleto");
-   } 
-   
+   SubmitPosto() {
+   const formData = {
+    posto: {
+      nome: this.formPosto.get('nome')
+    },
+    endereco: {
+      cep: this.cep,
+      uf: this.uf,
+      localidade: this.localidade,
+      bairro: this.bairro,
+      logradouro: this.logradouro,
+      numero: this.formPosto.get('numero')
+    },
+    telefone:{
+      numero: this.formPosto.get('telefone')
+    }
+   }
     this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe((response)=>{
     this.service.AlertMessage("Posto cadastrado")
       console.log(response);

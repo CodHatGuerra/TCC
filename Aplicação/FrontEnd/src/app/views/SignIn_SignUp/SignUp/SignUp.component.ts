@@ -100,7 +100,7 @@ endereco: EndModel = {
             this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
           } else {
             this.appService.SuccessMessage('Cadastro Concluído!');
-            this.router.navigate(['/']);
+            this.router.navigate(['/signIn']);
           }
         },
       );

@@ -9,7 +9,7 @@ import { AuthGuard } from './settings/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
-import { PostosComponent } from './components/Postos/Postos.component';
+import { PostosComponent } from './components/register/Postos/Postos.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 
 const routes: Routes = [
