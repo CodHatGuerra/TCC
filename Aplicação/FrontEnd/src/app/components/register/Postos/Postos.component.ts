@@ -46,22 +46,25 @@ export class PostosComponent {
    SubmitPosto() {
    const formData = {
     posto: {
-      nome: this.formPosto.get('nome')
+      nome: this.formPosto.get('nome')?.value
     },
     endereco: {
-      cep: this.cep,
+      cep: this.formPosto.get('cep')?.value,
       uf: this.uf,
       localidade: this.localidade,
       bairro: this.bairro,
       logradouro: this.logradouro,
-      numero: this.formPosto.get('numero')
+      numero: this.formPosto.get('numero')?.value
     },
     telefone:{
-      numero: this.formPosto.get('telefone')
+      numero: this.formPosto.get('telefone')?.value
     }
    }
+
+   console.log(formData);
+   
     this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe((response)=>{
-    this.service.AlertMessage("Posto cadastrado")
+    this.service.SuccessMessage("Posto cadastrado")
       console.log(response);
     })
   }

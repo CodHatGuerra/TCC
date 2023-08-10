@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 
@@ -9,11 +9,15 @@ import { environment } from 'src/environments/environments';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   constructor(
     private http: HttpClient, 
     private router: Router
     ){ }
+
+    ngOnInit(): void {
+      this.GetPostos();
+    }
 
     GetPostos(){
       this.http.get(`${environment.baseUrl}/${environment.Posto}`).subscribe(
