@@ -13,14 +13,13 @@ export class RegisterComponent implements OnInit {
   constructor(
     private http: HttpClient, 
     private router: Router
-    ){ }
+    ){  }
 
     ngOnInit(): void {
       this.GetPostos();
     }
-
     
-      dados = [] 
+    dados: any = []
 
     GetPostos(){
       this.http.get(`${environment.baseUrl}/${environment.Posto}`).subscribe(
@@ -30,7 +29,7 @@ export class RegisterComponent implements OnInit {
       )
     }
 
-colunas: string[] = ['nome', 'bairro', 'localidade'];
+colunas: string[] = ['nome','localidade','bairro'];
 };
 
  

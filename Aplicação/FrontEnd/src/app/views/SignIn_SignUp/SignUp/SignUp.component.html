@@ -45,7 +45,7 @@
     <div class="form mat-elevation-z4">
         <h1 class="title">Cadastro</h1>
         <p class="upForm">Digite seus dados para poder realizar o cadastro:</p>
-        <form [formGroup]="userForm">
+        <form [formGroup]="form">
             <mat-form-field>
                 <mat-label>Nome Completo</mat-label>
                 <input type="text" matInput formControlName="nome">
@@ -84,7 +84,7 @@
                 <mat-label>Senha</mat-label>
                 <input matInput type="password" formControlName="senha">
             </mat-form-field>
-        </form>
+        
         <form [formGroup]="cellForm">
             <mat-form-field>
                 <mat-label>Celular</mat-label>
@@ -92,7 +92,6 @@
             </mat-form-field>
         </form>
         <p class="upForm">Endereço</p>
-        <form [formGroup]="enderecoForm">
             <mat-form-field>
                 <mat-label>Cep</mat-label>
                 <input matInput type="number" (blur)="DadosCep()" formControlName="cep">
@@ -100,22 +99,22 @@
 
             <mat-form-field>
                 <mat-label>Uf</mat-label>
-                <input matInput type="text" [(ngModel)]="endereco.uf" formControlName="uf">
+                <input matInput type="text" [(ngModel)]="address.uf" formControlName="uf">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Localidade</mat-label>
-                <input matInput type="text" [(ngModel)]="endereco.localidade" formControlName="localidade">
+                <input matInput type="text" [(ngModel)]="address.localidade" formControlName="localidade">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Bairro</mat-label>
-                <input matInput type="text" [(ngModel)]="endereco.bairro" formControlName="bairro">
+                <input matInput type="text" [(ngModel)]="address.bairro" formControlName="bairro">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Logradouro</mat-label>
-                <input matInput type="text"  [(ngModel)]="endereco.logradouro" formControlName="logradouro">
+                <input matInput type="text"  [(ngModel)]="address.logradouro" formControlName="logradouro">
             </mat-form-field>
             
             <mat-form-field>
