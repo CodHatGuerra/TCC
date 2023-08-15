@@ -85,13 +85,13 @@
                 <input matInput type="password" formControlName="senha">
             </mat-form-field>
         
-        <form [formGroup]="cellForm">
             <mat-form-field>
                 <mat-label>Celular</mat-label>
-                <input matInput type="number" formControlName="numero">
+                <input matInput type="number" formControlName="telefone">
             </mat-form-field>
         </form>
         <p class="upForm">Endereço</p>
+        <form [formGroup]="adressForm">
             <mat-form-field>
                 <mat-label>Cep</mat-label>
                 <input matInput type="number" (blur)="DadosCep()" formControlName="cep">
@@ -99,28 +99,28 @@
 
             <mat-form-field>
                 <mat-label>Uf</mat-label>
-                <input matInput type="text" [(ngModel)]="address.uf" formControlName="uf">
+                <input matInput type="text" [(ngModel)]="endereco.uf" formControlName="uf">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Localidade</mat-label>
-                <input matInput type="text" [(ngModel)]="address.localidade" formControlName="localidade">
+                <input matInput type="text" [(ngModel)]="endereco.localidade" formControlName="localidade">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Bairro</mat-label>
-                <input matInput type="text" [(ngModel)]="address.bairro" formControlName="bairro">
+                <input matInput type="text" [(ngModel)]="endereco.bairro" formControlName="bairro">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Logradouro</mat-label>
-                <input matInput type="text"  [(ngModel)]="address.logradouro" formControlName="logradouro">
+                <input matInput type="text"  [(ngModel)]="endereco.logradouro" formControlName="logradouro">
             </mat-form-field>
             
             <mat-form-field>
                 <mat-label>Número</mat-label>
                 <input matInput type="number" formControlName="numero">
-            </mat-form-field>
+            </mat-form-field>    
         </form> 
         <button class="cadastrar" mat-button (click)="Submit()">Cadastrar</button>
     </div>

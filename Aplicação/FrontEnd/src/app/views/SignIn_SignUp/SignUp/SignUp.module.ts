@@ -1,5 +1,4 @@
   export interface UserModel {
-    id: null,
     nome: string,
     cpf: number,
     rg: number,
@@ -10,7 +9,7 @@
     senha: string,
   }
   
-  export interface EndModel {
+  export interface AdressModel {
     cep: number
     uf: string,  
     logradouro: string,  
@@ -18,14 +17,6 @@
     localidade: string,  
     numero: number
   }
-
-export interface Telefone {
-  numero: number
-}
-
-export interface CepModel {
-  cep:number;
-}
 
 export interface Form {
   nome: string,
@@ -35,11 +26,5 @@ export interface Form {
   sexo: string,  
   email: string,
   data_Criada: number,
-  senha: string,
-  cep: number
-  uf: string,  
-  logradouro: string,  
-  bairro: string,  
-  localidade: string,  
-  numero: number,
+  senha: string
 }
