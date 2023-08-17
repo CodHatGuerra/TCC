@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 
 
@@ -11,20 +10,20 @@ import { environment } from 'src/environments/environments';
 })
 export class RegisterComponent implements OnInit {
   constructor(
-    private http: HttpClient, 
-    private router: Router
+    private http: HttpClient
     ){  }
 
     ngOnInit(): void {
       this.GetPostos();
     }
     
-    dados: any = []
+    dados: any[] = []
 
     GetPostos(){
       this.http.get(`${environment.baseUrl}/${environment.Posto}`).subscribe(
         (response)=>{
           this.dados = response as any[];
+          console.log(this.dados)
         }
       )
     }

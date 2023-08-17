@@ -18,7 +18,10 @@ export class PostosComponent {
     logradouro: string = '';
     formPosto: FormGroup;
     
-  constructor(private http: HttpClient, private fb: FormBuilder, private service : AppService) {
+  constructor(
+    private http: HttpClient,
+     private fb: FormBuilder,
+      private appService : AppService) {
     this.formPosto = this.fb.group({
       nome: ['', Validators.required],
       uf: ['', Validators.required],
@@ -43,29 +46,56 @@ export class PostosComponent {
      });
    }
 
-   SubmitPosto() {
-   const formData = {
-    posto: {
-      nome: this.formPosto.get('nome')?.value
-    },
-    endereco: {
-      cep: this.formPosto.get('cep')?.value,
-      uf: this.uf,
-      localidade: this.localidade,
-      bairro: this.bairro,
-      logradouro: this.logradouro,
-      numero: this.formPosto.get('numero')?.value
-    },
-    telefone:{
-      numero: this.formPosto.get('telefone')?.value
+  isObjectEmpty(obj: any): boolean {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const value = obj[key];
+  
+        if (typeof value === 'object') {
+          if (!this.isObjectEmpty(value)) {
+            return false;
+          }
+        } else {
+          if (value !== null && value !== undefined && value !== '') {
+            return false;
+          }
+        }
+      };
     }
-   }
-
-   console.log(formData);
-   
-    this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe((response)=>{
-    this.service.SuccessMessage("Posto cadastrado")
-      console.log(response);
-    })
+    return true;
   }
-}
+    
+   SubmitPosto() {
+ 
+    const formData = {
+      posto: {
+        nome: this.formPosto.value.nome
+      },
+      endereco: {
+        cep: this.formPosto.value.cep,
+        uf: this.uf,
+        localidade: this.localidade,
+        bairro: this.bairro,
+        logradouro: this.logradouro,
+        numero: this.formPosto.value.numero
+      },
+      telefone:{
+        numero: this.formPosto.value.telefone
+      }
+     }
+
+     if (this.isObjectEmpty(formData)) {
+      this.appService.AlertMessage("Formulário incompleto")
+      console.log(formData);
+
+    } else {
+      console.log(formData);
+      this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe(
+        (response) => {
+          if (response) {
+            this.appService.SuccessMessage("Posto cadastrado")
+          }
+        });
+      }
+    }
+  }

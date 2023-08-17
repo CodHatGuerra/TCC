@@ -3,7 +3,7 @@
 
     <mat-table class="table " mat-table [dataSource]="dados">
       <tr mat-header-row *matHeaderRowDef="colunas"></tr>
-      <tr mat-row *matRowDef="let d; columns: dados"></tr>
+      <tr mat-row *matRowDef="let d; columns: colunas"></tr>
     
         <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef> Posto </th>

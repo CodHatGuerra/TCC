@@ -54,12 +54,11 @@ export class SignUpComponent {
     if(date == null)
       console.log("Contém informações nulas");
     
-    return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`,date);
+    return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`, date);
   }
 
   DadosCep() {
-    this.cep = this.form.get('cep')?.value;
-    console.log(this.cep)
+    this.cep = this.adressForm.get('cep')?.value;
     const url = `http://viacep.com.br/ws/${this.cep}/json/`;  
     this.http.get<any>(url).subscribe(
      response => {
@@ -71,37 +70,32 @@ export class SignUpComponent {
    }
 
   Submit() {
+    const Info = {
+    usuario: {
+      nome: this.form.value.nome,
+      cpf: this.form.value.cpf,
+      rg: this.form.value.rg,
+      data_Nascimento: this.form.value.data_Nascimento,
+      sexo: this.form.value.sexo,
+      email: this.form.value.email,
+      data_Criada: new Date(),
+      senha: this.form.value.senha
+    },
+
+    endereco: {
+      cep: this.adressForm.value.cep,
+      uf: this.adressForm.value.uf,
+      localidade: this.adressForm.value.localidade,
+      bairro: this.adressForm.value.logradouro,
+      logradouro: this.adressForm.value.logradouro,
+      numero: this.adressForm.value.numero
+    },
     
-  this.usuario = {
-    nome: this.form.get('nome'),
-    cpf: this.form.get('nome'),
-    data_Nascimento: this.form.get('data_Nascimento'),
-    data_Criada: null,
-    rg: this.form.get('rg'),
-    email: this.form.get('email'),
-    sexo: this.form.get('sexo'),
-    senha: this.form.get('senha')
+    telefone: {
+      numero: this.form.value.telefone
   }
+}
 
-  this.endereco = {
-    cep: this.adressForm. value.cep,
-    uf: '',
-    localidade: '',
-    bairro: '',
-    logradouro: this.adressForm.value.logradouro,
-    numero: this.adressForm.value.numero
-  }
-
-  this.telefone = {
-    numero: this.form.value
-  }
-
-  this.usuario.data_Criada = new Date();
-  const Info = {
-   usuario: this.usuario,
-   endereco: this.endereco,
-   telefone: this.telefone
-  }
     console.log(Info);
     
     if (Info == null) 
@@ -116,7 +110,7 @@ export class SignUpComponent {
             this.appService.SuccessMessage('Cadastro Concluído!');
             this.router.navigate(['/signIn']);
           }
-        } );
+        });
     }
   }  
 }
