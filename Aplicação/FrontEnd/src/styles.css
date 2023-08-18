@@ -44,6 +44,14 @@ a {
       --mdc-snackbar-supporting-text-color: #fff;
     }
   }
+  
+  .mat-mdc-snack-bar-container {
+    &.common {
+      --mdc-snackbar-container-color: #26bd7e;
+      --mat-mdc-snack-bar-button-color: #fff;
+      --mdc-snackbar-supporting-text-color: #fff;
+    }
+  }
 
 .DF {
     display: flex;

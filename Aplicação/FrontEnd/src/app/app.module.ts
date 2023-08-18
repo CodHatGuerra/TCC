@@ -41,7 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
-import { MatMenuModule } from '@angular/material/menu'
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { MatMenuModule } from '@angular/material/menu'
     PostosComponent,
     HeaderComponent,
     DialogComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

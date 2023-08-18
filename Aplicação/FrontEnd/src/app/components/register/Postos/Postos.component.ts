@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { AppService } from 'src/app/settings/services/app.service';
 import { environment } from 'src/environments/environments';
 
@@ -20,19 +21,21 @@ export class PostosComponent {
     
   constructor(
     private http: HttpClient,
-     private fb: FormBuilder,
-      private appService : AppService) {
-    this.formPosto = this.fb.group({
-      nome: ['', Validators.required],
-      uf: ['', Validators.required],
-      localidade: ['', Validators.required],
-      logradouro: ['', Validators.required],
-      bairro: ['', Validators.required],
-      cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
-    });
+    private fb: FormBuilder,
+    private appService : AppService) 
+    {
+      this.formPosto = this.fb.group({
+        nome: ['', Validators.required],
+        uf: ['', Validators.required],
+        localidade: ['', Validators.required],
+        logradouro: ['', Validators.required],
+        bairro: ['', Validators.required],
+        cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+        numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+        telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
+      });
   }
+
   
   SubmitCep() {
     this.cep =this.formPosto.get('cep')?.value;
@@ -65,7 +68,7 @@ export class PostosComponent {
     return true;
   }
     
-   SubmitPosto() {
+   SubmitPosto(): void {
  
     const formData = {
       posto: {
@@ -86,14 +89,13 @@ export class PostosComponent {
 
      if (this.isObjectEmpty(formData)) {
       this.appService.AlertMessage("Formulário incompleto")
-      console.log(formData);
 
     } else {
       console.log(formData);
       this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe(
         (response) => {
           if (response) {
-            this.appService.SuccessMessage("Posto cadastrado")
+            this.appService.Message("Posto cadastrado")
           }
         });
       }

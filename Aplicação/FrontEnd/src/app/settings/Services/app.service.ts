@@ -19,6 +19,16 @@ export class AppService {
       });
     }
 
+    
+    Message(msg: string) :void {
+      this.snackBar.open(msg, 'X', {
+        duration: 1000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: ['common']
+    })}
+
+
     SuccessMessage(msg: string) :void {
       this.snackBar.open(msg, 'X', {
         duration: 3000,

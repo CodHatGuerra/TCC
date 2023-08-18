@@ -39,7 +39,7 @@ form: FormGroup;
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm']);
-          this.appService.SuccessMessage('Bem vindo!')
+          this.appService.Message('Bem vindo!')
         } else {
           this.appService.AlertMessage('Usuário não encontrado.')
         }

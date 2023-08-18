@@ -20,6 +20,7 @@ export class SignUpComponent {
   endereco: any = {}
   telefone: any = {}
   cep: number = 0;
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -106,6 +107,7 @@ export class SignUpComponent {
           if(response.error){
             console.log('Erro ao cadastrar:', response.error);
             this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
+            
           } else {
             this.appService.SuccessMessage('Cadastro Concluído!');
             this.router.navigate(['/signIn']);

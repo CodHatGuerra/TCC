@@ -8,10 +8,15 @@ button {
     margin: 0 auto;
 }
 
-div {
+.main {
     gap: 40px;
     margin-top: 40px;
     justify-content: center;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
 }
 
 mat-card {
