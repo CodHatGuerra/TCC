@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  templateUrl: './SignIn.component.html',
+  styleUrls: ['./SignIn.component.css']
 })
 export class SignInComponent {
 form: FormGroup;

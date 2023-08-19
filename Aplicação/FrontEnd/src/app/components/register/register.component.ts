@@ -22,9 +22,7 @@ export class RegisterComponent implements OnInit {
     }
     
   openSigUn(): void {
-    const form = this.dialog.open(PostosComponent,{
-      width: '600px'
-    });
+    const form = this.dialog.open(PostosComponent);
     form.afterClosed();
   }
   

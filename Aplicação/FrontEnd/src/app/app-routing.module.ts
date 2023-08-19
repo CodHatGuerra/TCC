@@ -11,6 +11,7 @@ import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { PostosComponent } from './components/register/Postos/Postos.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { PostDeleteComponent } from './components/register/Postos/post-delete/post-delete.component';
 
 const routes: Routes = [
   {
@@ -67,10 +68,16 @@ const routes: Routes = [
     },{
       path: 'register',
       component: RegisterComponent,
-      children: [  {
+      children: [
+      {
         path: 'postos',
          component: PostosComponent,
-     }]
+      }, 
+      {
+        path: 'posto/delete/:id',
+        component: PostDeleteComponent
+      }
+    ]
     },
   ]
  }

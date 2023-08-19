@@ -3,25 +3,22 @@
     <p><strong>_vacina</strong>Facil.</p>
 </mat-toolbar>
 
-<div class="signin DF">
-    <img class="img" src="../../../assets/img/Capa.png" alt="">
-    <div class="login mat-elevation-z3">
-        <h1 class="title">Login</h1>
-        <p>Digite seu e-mail e senha para acessar sua conta</p>
-        <form class="form" [formGroup]="form">
-            <mat-form-field>
-                <mat-label>Cpf</mat-label>
-                <input matInput type="number" formControlName="cpf" ngModel required>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Senha</mat-label>
-                <input type="password" matInput formControlName="senha" ngModel required>
-            </mat-form-field>
-            <div class="DF">
-                <button class="continue" mat-button (click)="Register()">Continuar</button>
-                <button class="register" mat-button routerLink="/signUp">Cadastrar</button>
-            </div>
-        </form>
-    </div>
-</div> 
+<div class="login mat-elevation-z3">
+    <h1 class="title" appWhite>Login</h1>
+    <p>Digite seu e-mail e senha para acessar sua conta</p>
+    <form class="form" [formGroup]="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Cpf</mat-label>
+            <input matInput  type="number" formControlName="cpf" ngModel required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput formControlName="senha" ngModel required>
+        </mat-form-field>
+        <div class="DF">
+            <button class="continue" mat-button (click)="Register()">Continuar</button>
+            <button class="register" mat-button routerLink="/signUp">Cadastrar</button>
+        </div>
+    </form>
+</div>
 

@@ -10,5 +10,10 @@ export class NavComponent  {
   opened = true;
   constructor(){
   }
+  isSublistVisible = false;
+
+  toggleSublist() {
+    this.isSublistVisible = !this.isSublistVisible;
+  }
 }
 

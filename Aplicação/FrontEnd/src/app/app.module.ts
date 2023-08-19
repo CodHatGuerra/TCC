@@ -20,6 +20,7 @@ import { DecoratorsComponent } from './settings/decorator/decorators.component';
 import { WhiteDirective } from './settings/directives/white.directive';
 
 //Material
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card' 
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -42,6 +43,7 @@ import { DialogComponent } from './components/template/header/dialog/dialog.comp
 import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { PostDeleteComponent } from './components/register/Postos/post-delete/post-delete.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { MatMenuModule } from '@angular/material/menu';
     PostosComponent,
     HeaderComponent,
     DialogComponent,
-    HomeComponent
+    HomeComponent,
+    PostDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatTableModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
