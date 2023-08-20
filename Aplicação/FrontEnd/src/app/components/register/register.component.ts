@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from 'src/environments/environments';
-import { PostosComponent } from './Postos/Postos.component';
+import { PostoCreateComponent } from './posto-create/posto-create.component';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     }
     
   openSigUn(): void {
-    const form = this.dialog.open(PostosComponent);
+    const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed();
   }
   
@@ -35,7 +35,8 @@ export class RegisterComponent implements OnInit {
       )
     }
 
-colunas: string[] = ['name', 'actions'];
+columnPosto: string[] = ['name', 'cidade','actions'];
+columnEmployee: string[] = ['name', 'cidade','actions'];
 };
 
  

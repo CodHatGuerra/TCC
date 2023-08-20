@@ -2,7 +2,7 @@
     <mat-card class="card">
         <mat-card-title>{{ user.Nome }}</mat-card-title>
         <p>Cpf: {{ user.Cpf }}</p>
-        <p>Data Nascimento: {{ user.Data_Nascimento }}</p>
+        <p>Data Nascimento: {{ user.Data_Nascimento | date}}</p>
         <p>Email: {{ user.Email }}</p>
         <p>Rg: {{ user.Rg }}</p>
         <p>Sexo: {{ user.Sexo }}</p>

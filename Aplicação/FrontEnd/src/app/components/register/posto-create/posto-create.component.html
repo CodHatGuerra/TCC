@@ -1,6 +1,6 @@
-<mat-card class="card mat-elevation-z3">
-    <mat-card-title>Cadastrar novo posto</mat-card-title>
-    <form [formGroup]="formPosto" class="form DG">
+<div class="main">
+    <h1>Adicionar novo posto</h1>
+    <form [formGroup]="formPosto" class="form">
         <mat-form-field appearance="outline">
             <mat-label>Nome</mat-label>
             <input matInput formControlName="nome" type="text">
@@ -15,27 +15,27 @@
             <mat-label>Cep</mat-label>
             <input matInput formControlName="cep" (blur)="SubmitCep()" type="number">
         </mat-form-field>
-        
-        <mat-form-field appearance="outline">
+
+         <mat-form-field appearance="outline">
             <mat-label>Uf</mat-label>
             <input matInput readonly formControlName="uf" type="text" [value]="uf" >
         </mat-form-field>
-        
+
         <mat-form-field appearance="outline">
             <mat-label>Localidade</mat-label>
             <input matInput readonly formControlName="localidade" type="text" [value]="localidade">
         </mat-form-field>
-        
+
         <mat-form-field appearance="outline">
             <mat-label>Bairro</mat-label>
             <input matInput readonly formControlName="bairro" type="text" [value]="bairro">
         </mat-form-field>
-        
+
         <mat-form-field appearance="outline">
             <mat-label>Logradouro</mat-label>
             <input matInput readonly formControlName="logradouro" type="text" [value]="logradouro">
         </mat-form-field>
-        
+
         <mat-form-field appearance="outline">
             <mat-label>Número</mat-label>
             <input matInput formControlName="numero" type="number">
@@ -43,5 +43,4 @@
 
         <button mat-button appWhite (click)="SubmitPosto()">Cadastrar</button>
     </form>
-</mat-card>
-
+</div>

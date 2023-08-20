@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/services/app.service';
 
 import { environment } from 'src/environments/environments';
 
 @Component({
-  selector: 'app-postos',
-  templateUrl: './postos.component.html',
-  styleUrls: ['./postos.component.css']
+  selector: 'app-posto-create',
+  templateUrl: './posto-create.component.html',
+  styleUrls: ['./posto-create.component.css']
 })
-export class PostosComponent {
+export class PostoCreateComponent {
   
     cep: number = 0;
     uf: string = '';
@@ -22,7 +23,9 @@ export class PostosComponent {
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private appService : AppService) 
+    private appService : AppService,
+    private dialogRef: MatDialogRef<PostoCreateComponent>
+    ) 
     {
       this.formPosto = this.fb.group({
         nome: ['', Validators.required],
@@ -89,14 +92,12 @@ export class PostosComponent {
 
      if (this.isObjectEmpty(formData)) {
       this.appService.AlertMessage("Formulário incompleto")
-
     } else {
       console.log(formData);
-      this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe(
-        (response) => {
-          if (response) {
-            this.appService.Message("Posto cadastrado")
-          }
+      this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe( () =>
+        {
+          this.dialogRef.close()
+          this.appService.Message("Posto cadastrado")
         });
       }
     }

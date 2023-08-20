@@ -9,17 +9,15 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent  {
   constructor(private service: AppService, private router: Router) {
-    this.teste()
+    this.GetProfile()
    }
 
   infoUser:any[] = [];
   
-  teste() {
+  GetProfile() {
     const user = this.service.GetUser();
     if (user) {
       this.infoUser = user
-    } else {
-      this.router.navigate([''])
-    }
+    } 
    }
 }

@@ -1,26 +1,42 @@
-button {
-    width: 150px;
-    color: white !important;
-    background: #6cd8c1 !important;
-}
-
-.table {
-    margin: 0 auto;
+mat-card {
+    width: 30%;
+    height: auto;
+    box-shadow: 0.1px 4px 10px rgba(0, 0, 0, 0.2)
 }
 
 .main {
+    width: 100%;
     gap: 40px;
-    margin-top: 40px;
-    justify-content: center;
+    margin-top: 30px;
+    margin-left: 5vw;
 }
+
+.table-posto {
+    height: auto;
+}
+
 
 .icons {
     display: flex;
     gap: 10px;
 }
 
-mat-card {
-    width: 45vw;
-    height: 40vh;
-    box-shadow: 0.1px 4px 10px rgba(0, 0, 0, 0.2)
+.delete {
+    color: rgb(192, 21, 21);
+}
+
+.edit {
+    color: rgb(233, 154, 36);
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .main
+    {
+        width: auto;
+        display: block;
+    }
 }

@@ -1,13 +1,18 @@
+.container {
+    height: 100%;
+}
+
+
 .sidenav {
     position: fixed;
-    margin-top: 84px !important;
+    margin-top: 100px !important;
     width: 60px;
-    height: 50vh;
+    height: 40vh;
     border-radius: 0px 6px 6px 0px;
     background-color: #02C39A;
     transition: width 0.3s;
 }
- 
+
  .sidenav:hover {
     width: 200px; 
 }

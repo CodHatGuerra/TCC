@@ -22,28 +22,27 @@
 }
 
 .login {
-    width: 50%;
+    width: 20%;
     display: grid;
     margin: 0 auto;
     text-align: center;
-    margin-top: 130px;
+    margin-top: 70px;
     align-items: center;
     border-radius: 6px;
-    height: 60vh;
+    height: 65vh;
     padding: 30px;
 }
 
 .login .title {
-    color: beige !important;
     font-size: 35px;
-    font-weight: 700;
+    font-weight: 500;
     font-family: 'Open Sans';
     margin-bottom: 70px;
 }
 
 .login p {
     font-family: 'Open Sans';
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 600;
     color:#02C39A;
 }
@@ -85,7 +84,6 @@
         align-items: center;
         width: 49vw;
         border-radius: 6px;
-        height: 49vh;
         padding: 30px;
     }
 }

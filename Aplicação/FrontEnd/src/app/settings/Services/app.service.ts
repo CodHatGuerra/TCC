@@ -59,11 +59,4 @@ export class AppService {
       const user = localStorage.getItem('user');
       return user ? JSON.parse(user) : null;
     }
-  
- 
-  // SubmitPosto(posto: any): Observable<any> {
-  //   const token = this.GetUser();
-  //   const headers = new HttpHeaders().set('Validação', token)
-  //   return this.http.post<any>(`${environment.baseUrl}${environment.posto}`, posto, { headers });
-  // }
 }
