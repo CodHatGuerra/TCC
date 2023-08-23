@@ -44,6 +44,7 @@ import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { PostDeleteComponent } from './components/register/Postos/post-delete/post-delete.component';
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PostDeleteComponent } from './components/register/Postos/post-delete/po
     HeaderComponent,
     DialogComponent,
     HomeComponent,
-    PostDeleteComponent
+    PostDeleteComponent,
+    ProfileUpdateComponent
   ],
   imports: [
     BrowserModule,

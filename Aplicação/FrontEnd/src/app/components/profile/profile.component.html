@@ -1,10 +1,10 @@
-<main  *ngFor="let user of infoUser">
-    <mat-card class="card">
-        <mat-card-title>{{ user.Nome }}</mat-card-title>
-        <p>Cpf: {{ user.Cpf }}</p>
+<main  *ngFor="let user of infoUser"> 
+    <mat-card class="card ">
+        <div class="name">
+            <mat-card-title>{{ user.Nome }}</mat-card-title>
+        </div>
+        <div class="img"></div>
+        <p>{{ user.Email }}</p>
         <p>Data Nascimento: {{ user.Data_Nascimento }}</p>
-        <p>Email: {{ user.Email }}</p>
-        <p>Rg: {{ user.Rg }}</p>
-        <p>Sexo: {{ user.Sexo }}</p>
     </mat-card>
 </main>

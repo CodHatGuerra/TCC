@@ -8,8 +8,12 @@
     transition: width 0.3s;
 }
  
- .sidenav:hover {
+.sidenav:hover {
     width: 200px; 
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.048);
 }
 
 .nav-list {
