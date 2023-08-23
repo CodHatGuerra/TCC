@@ -13,18 +13,25 @@ const PostoController = require("../controllers/postoController");
 
 
 
-// ROTAS USUARIO - CADASTRO / EDIT/ DELET
-router.post("/cadastrar", UsuarioController.cadastrar);
+// ROTAS USUARIO
+    // CADASTRAR USUARIO
+    router.post("/usuario", UsuarioController.cadastrar);
 
 
 // ROTA LOGIN
-router.post("/login", LoginController.login);
+    // LOGAR
+    router.post("/login", LoginController.login);
 
 
-//ROTAS CADASTRO POSTO
-router.post("/posto", PostoController.cadastrar);
-// CONSULTAR TODOS OS POSTOS
-router.get("/posto", PostoController.consultar);
+//ROTAS POSTO
+    // CADASTRAR POSTO
+    router.post("/posto", authMiddleware, PostoController.cadastrar);
+    // CONSULTAR TODOS OS POSTOS
+    router.get("/posto", authMiddleware, PostoController.consultar);
+    // DELETAR POSTO
+    router.delete("/posto", authMiddleware, PostoController.deletar);
+    // EDITAR POSTO
+    //router.patch("/posto", authMiddleware, PostoController.alterar);
 
 
 

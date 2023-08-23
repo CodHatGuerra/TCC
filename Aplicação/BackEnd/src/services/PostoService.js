@@ -3,7 +3,7 @@ const db = require("../db");
 module.exports = {
   inserir: (posto, endereco, telefone) => {
     let ID_Endereco = null;
-    let ID_Posto = null;
+    let Posto_ID = null;
 
     return new Promise((aceito, rejeitado) => {
       db.query(
@@ -15,11 +15,11 @@ module.exports = {
             rejeitado(error);
             return;
           } else {
-            ID_Posto = results.insertId;
+            Posto_ID = results.insertId;
 
             new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Posto_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 [
                   endereco.cep,
                   endereco.uf,
@@ -27,6 +27,7 @@ module.exports = {
                   endereco.bairro,
                   endereco.logradouro,
                   endereco.numero,
+                  Posto_ID,
                 ],
                 (error, result) => {
                   if (error) {
@@ -36,8 +37,7 @@ module.exports = {
                   } else {
                     ID_Endereco = result.insertId;
                     console.log(
-                      "Execução com sucesso do insert Endereco: " +
-                        ID_Endereco
+                      "Execução com sucesso do insert Endereco: " + ID_Endereco
                     );
                     resolve();
                   }
@@ -48,7 +48,7 @@ module.exports = {
                 return new Promise((resolve, reject) => {
                   db.query(
                     "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
-                    [telefone.numero, ID_Posto],
+                    [telefone.numero, Posto_ID],
                     (error) => {
                       if (error) {
                         console.log("ERRO NUMERO");
@@ -61,24 +61,7 @@ module.exports = {
                   );
                 });
               })
-              .then(() => {
-                return new Promise((resolve, reject) => {
-                  db.query(
-                    "UPDATE Posto SET Endereco_ID = ? WHERE ID = ?",
-                    [ID_Endereco, ID_Posto],
-                    (error, sucess) => {
-                      if (error) {
-                        console.log("ERRO NUMERO");
-                        console.log(error);
-                        reject(error);
-                      } else {
-                        resolve();
-                      }
-                    }
-                  );
-                });
-              })
-              .then(() => aceito(ID_Posto))
+              .then(() => aceito(Posto_ID))
               .catch((error) => {
                 console.log(error);
                 rejeitado(error);
@@ -99,9 +82,30 @@ module.exports = {
           rejeitado(error);
           return;
         } else {
-          aceito(results)
+          aceito(results);
         }
       });
-    })
+    });
+  },
+
+  deletar: (id) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        "INSERT INTO Posto (Nome) VALUES (?)",
+        [posto.nome],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            Posto_ID = results.insertId;
+          }
+        }
+      ).catch((error) => {
+        console.log(error);
+        rejeitado(error);
+      });
+    });
   },
 };

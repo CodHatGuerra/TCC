@@ -56,23 +56,43 @@ module.exports = {
   },
   consultar: async (req, res) => {
     let json = { error: "", result: {} };
- 
-    if (true) {
-      await PostoService.consultar()
-        .then((resultado) => {
-          json.result = {
-            postos: resultado
-          };
-          console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
-        })
-        .catch((error) => {
-          console.log("Erro na requisição para o Banco ! " + error);
-          json.error = {
-            msg: "Erro na requisição para o banco !",
-            error: error.sqlMessage,
-          };
-        });
-    }
+
+    await PostoService.consultar()
+      .then((resultado) => {
+        json.result = {
+          postos: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+
+    res.json(json);
+  },
+  deletar: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    const id = req.body.posto.id;
+
+    await PostoService.deletar()
+      .then((resultado) => {
+        json.result = {
+          postos: resultado,
+        };
+        console.log("-----POSTO DELETADO COM SUCESSO ! !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco !  ROTA DELETE POSTO" + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
     res.json(json);
   },
 };

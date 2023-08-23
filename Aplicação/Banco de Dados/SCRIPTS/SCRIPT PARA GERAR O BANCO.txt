@@ -1,0 +1,121 @@
+-- Configuração inicial
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+
+-- Criação do banco de dados e seleção
+CREATE DATABASE IF NOT EXISTS VF_Dev;
+USE VF_Dev;
+
+-- Criação das tabelas
+
+-- Tabela Usuario
+CREATE TABLE IF NOT EXISTS Usuario (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Nome VARCHAR(180) NOT NULL,
+  Cpf VARCHAR(11) UNIQUE,
+  Rg VARCHAR(20) NOT NULL,
+  Sexo VARCHAR(35) NOT NULL,
+  Data_Nascimento DATE NOT NULL,
+  Email VARCHAR(120) NOT NULL,
+  Senha VARCHAR(45) NOT NULL,
+  Data_Criada DATE NOT NULL
+);
+
+-- Tabela Posto
+CREATE TABLE IF NOT EXISTS Posto (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Nome VARCHAR(75) NOT NULL
+);
+
+-- Tabela Endereco
+CREATE TABLE IF NOT EXISTS Endereco (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Cep VARCHAR(8) NOT NULL,
+  Uf VARCHAR(2) NOT NULL,
+  Localidade VARCHAR(80) NOT NULL,
+  Bairro VARCHAR(120) NOT NULL,
+  Logradouro VARCHAR(120) NOT NULL,
+  Numero VARCHAR(8) NOT NULL,
+  Posto_ID INT,
+  Usuario_ID INT,
+  FOREIGN KEY (Posto_ID)
+    REFERENCES Posto (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  FOREIGN KEY (Usuario_ID)
+    REFERENCES Usuario (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Tabela Telefone
+CREATE TABLE IF NOT EXISTS Telefone (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Numero VARCHAR(45) NOT NULL,
+  Posto_ID INT,
+  Usuario_ID INT,
+  FOREIGN KEY (Posto_ID)
+    REFERENCES Posto (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  FOREIGN KEY (Usuario_ID)
+    REFERENCES Usuario (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Tabela Vacina
+CREATE TABLE IF NOT EXISTS Vacina (
+  ID INT PRIMARY KEY,
+  Nome VARCHAR(150) NOT NULL,
+  Fabrica VARCHAR(150) NOT NULL,
+  Data_Fabricacao DATE NOT NULL,
+  Lote VARCHAR(20) NOT NULL,
+  Data_Aplicacao DATE NOT NULL,
+  Dose VARCHAR(45) NOT NULL,
+  Data_Vinculada DATE NOT NULL
+);
+
+-- Tabela Funcionario
+CREATE TABLE IF NOT EXISTS Funcionario (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Data_Inicio DATE NOT NULL,
+  Data_Fim DATE,
+  Usuario_ID INT NOT NULL,
+  Cargo VARCHAR(60) NOT NULL,
+  FOREIGN KEY (Usuario_ID)
+    REFERENCES Usuario (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Tabela Carteira_vacina
+CREATE TABLE IF NOT EXISTS Carteira_vacina (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Data_Registrada DATE NOT NULL,
+  Vacina_ID INT,
+  Usuario_ID INT,
+  FOREIGN KEY (Vacina_ID)
+    REFERENCES Vacina (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  FOREIGN KEY (Usuario_ID)
+    REFERENCES Usuario (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- Tabela Funcionario_has_Posto
+CREATE TABLE IF NOT EXISTS Funcionario_has_Posto (
+  Funcionario_ID INT NOT NULL,
+  Posto_ID INT NOT NULL,
+  Cargo VARCHAR(45) NOT NULL,
+  PRIMARY KEY (Funcionario_ID, Posto_ID),
+  FOREIGN KEY (Funcionario_ID)
+    REFERENCES Funcionario (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  FOREIGN KEY (Posto_ID)
+    REFERENCES Posto (ID)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);

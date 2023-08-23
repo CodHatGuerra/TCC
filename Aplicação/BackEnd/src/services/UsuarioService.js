@@ -29,7 +29,7 @@ module.exports = {
 
             new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Usuario_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 [
                   endereco.cep,
                   endereco.uf,
@@ -37,6 +37,7 @@ module.exports = {
                   endereco.bairro,
                   endereco.logradouro,
                   endereco.numero,
+                  ID_Usuario,
                 ],
                 (error, result) => {
                   if (error) {
@@ -60,23 +61,6 @@ module.exports = {
                     "INSERT INTO Telefone (Numero, Usuario_ID) VALUES (?, ?)",
                     [telefone.numero, ID_Usuario],
                     (error) => {
-                      if (error) {
-                        console.log("ERRO NUMERO");
-                        console.log(error);
-                        reject(error);
-                      } else {
-                        resolve();
-                      }
-                    }
-                  );
-                });
-              })
-              .then(() => {
-                return new Promise((resolve, reject) => {
-                  db.query(
-                    "UPDATE Usuario SET Endereco_ID = ? WHERE ID = ?",
-                    [ID_Endereco, ID_Usuario],
-                    (error, sucess) => {
                       if (error) {
                         console.log("ERRO NUMERO");
                         console.log(error);
