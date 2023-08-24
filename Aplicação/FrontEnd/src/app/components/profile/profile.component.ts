@@ -12,14 +12,26 @@ export class ProfileComponent  {
     this.teste()
    }
 
-  infoUser:any[] = [];
+  infoUser: any[] = [];
+
+  dataSource: any[] = [];
   
+  idade: number = 0; 
+
   teste() {
     const user = this.service.GetUser();
     if (user) {
       this.infoUser = user
+      const dataNascimento = user.Data_Nascimento;
+      const hoje = new Date();
+      // const diffAnos = hoje.getFullYear() - dataNascimento.getFullYear();
+      // this.idade = diffAnos;
     } else {
       this.router.navigate([''])
     }
    }
-}
+
+   columns: string[] = ['name', 'actions'];
+  }
+
+ 

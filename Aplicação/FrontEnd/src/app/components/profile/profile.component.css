@@ -1,18 +1,40 @@
-main {
+.main {
     margin: 0 auto;
+    justify-content: center;
+    margin-top: 35px;
 }
 
-.card {
+.div {
+    display: flex;
+    width: auto;
+    height: auto;
+    gap: 90px;
+}
+
+.profile {
     display: grid;
-    margin-left: 20px;
     justify-items: center;
-    margin-top: 35px;
     margin-bottom: 50px;
     width: 300px;
     height: 450px;
     padding: 15px;
+}
+
+.title {
+    border-bottom: 2px solid #26bd7e;
+    margin-bottom: 10px;
+}
+
+mat-card {
+    background-color: rgb(248, 248, 248) !important;
     box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001A, 0 1px 10px #0000001A;
-    background-color: rgba(228, 228, 228, 0.877) !important;
+}
+
+.vaccines {
+    width: 50vw;
+    height: 60vh;
+    padding: 10px;
+    text-align: center;
 }
 
 .name {
@@ -25,6 +47,18 @@ main {
 .img {
     width: 160px;
     height: 160px;
-    border: 1px solid black;
     border-radius: 100%;
+}
+
+
+@media screen and (max-width:1050px) {
+    .main  {
+        margin-top: 35px !important;
+    }
+
+    .div {
+        display: grid;
+        justify-items: center;
+        gap: 30px;
+    }
 }
