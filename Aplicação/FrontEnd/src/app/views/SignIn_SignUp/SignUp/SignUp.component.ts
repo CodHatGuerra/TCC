@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/settings/services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
@@ -50,7 +50,25 @@ export class SignUpComponent {
       });
       }
 
-  
+      validateDate(control: any) {
+        const inputDate = control;
+        console.log(inputDate);
+        
+        const currentDate = new Date();
+        const selectedDate = new Date(inputDate);
+    
+        if (selectedDate > currentDate) 
+          return { futureDate: true };
+    
+        if (selectedDate.getFullYear() < 1900) 
+          throw this.appService.AlertMessage('Data inválida');
+    
+          if(selectedDate.getFullYear() > 2025)
+          throw this.appService.AlertMessage('Data inválida');
+
+        return null;
+      }
+
   SignUp(date: any): Observable<any> {
     if(date == null)
       console.log("Contém informações nulas");
@@ -71,34 +89,34 @@ export class SignUpComponent {
    }
 
   Submit() {
+    this.validateDate(this.form.value.data_Nascimento)
+
     const Info = {
-    usuario: {
-      nome: this.form.value.nome,
-      cpf: this.form.value.cpf,
-      rg: this.form.value.rg,
-      data_Nascimento: this.form.value.data_Nascimento,
-      sexo: this.form.value.sexo,
-      email: this.form.value.email,
-      data_Criada: new Date(),
-      senha: this.form.value.senha
-    },
+      usuario: {
+        nome: this.form.value.nome,
+        cpf: this.form.value.cpf,
+        rg: this.form.value.rg,
+        data_Nascimento: this.form.value.data_Nascimento,
+        sexo: this.form.value.sexo,
+        email: this.form.value.email,
+        data_Criada: new Date(),
+        senha: this.form.value.senha
+      },
 
-    endereco: {
-      cep: this.adressForm.value.cep,
-      uf: this.adressForm.value.uf,
-      localidade: this.adressForm.value.localidade,
-      bairro: this.adressForm.value.logradouro,
-      logradouro: this.adressForm.value.logradouro,
-      numero: this.adressForm.value.numero
-    },
-    
-    telefone: {
-      numero: this.form.value.telefone
-  }
-}
+      endereco: {
+        cep: this.adressForm.value.cep,
+        uf: this.adressForm.value.uf,
+        localidade: this.adressForm.value.localidade,
+        bairro: this.adressForm.value.logradouro,
+        logradouro: this.adressForm.value.logradouro,
+        numero: this.adressForm.value.numero
+      },  
 
-    console.log(Info);
-    
+      telefone: {
+        numero: this.form.value.telefone
+      }
+    }
+
     if (Info == null) 
       this.appService.AlertMessage('Complete o formulário.');
     else {

@@ -22,10 +22,13 @@ export class ProfileComponent  {
     const user = this.service.GetUser();
     if (user) {
       this.infoUser = user
-      const dataNascimento = user.Data_Nascimento;
+      const dataNascimento = new Date(user[0].Data_Nascimento);
       const hoje = new Date();
-      // const diffAnos = hoje.getFullYear() - dataNascimento.getFullYear();
-      // this.idade = diffAnos;
+      const diffMilissegundos = hoje.getTime() - dataNascimento.getTime()
+      const diffAnos = Math.floor(diffMilissegundos / (365 * 24 * 60 * 60 * 1000));
+      console.log(diffAnos);
+       
+      this.idade = diffAnos;
     } else {
       this.router.navigate([''])
     }
