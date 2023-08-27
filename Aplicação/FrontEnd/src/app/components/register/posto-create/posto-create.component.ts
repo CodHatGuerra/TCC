@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -89,15 +89,22 @@ export class PostoCreateComponent {
         numero: this.formPosto.value.telefone
       }
      }
+      const userToken = localStorage.getItem('user');
+      const headers = new HttpHeaders({
+       'Authorization': `Bearer ${userToken}`
+      });
 
      if (this.isObjectEmpty(formData)) {
       this.appService.AlertMessage("Formulário incompleto")
     } else {
-      console.log(formData);
-      this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData).subscribe( () =>
-        {
-          this.dialogRef.close()
-          this.appService.Message("Posto cadastrado")
+      this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData, { headers } ).subscribe(
+        (response) => {
+          if(response) { 
+            this.dialogRef.close()
+            this.appService.Message("Posto cadastrado")
+          } else {
+              console.log(response);
+            }
         });
       }
     }

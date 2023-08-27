@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -19,7 +19,6 @@ export class AppService {
       });
     }
 
-    
     Message(msg: string) :void {
       this.snackBar.open(msg, 'X', {
         duration: 1000,
@@ -27,7 +26,6 @@ export class AppService {
         verticalPosition: "top",
         panelClass: ['common']
     })}
-
 
     SuccessMessage(msg: string) :void {
       this.snackBar.open(msg, 'X', {
@@ -44,7 +42,6 @@ export class AppService {
         verticalPosition: "top",
         panelClass: ['info']
     })}
-
 
     SetUser(user: any): void {
       localStorage.setItem('user', JSON.stringify(user));

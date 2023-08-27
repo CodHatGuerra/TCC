@@ -1,10 +1,41 @@
-<main  *ngFor="let user of infoUser">
-    <mat-card class="card">
-        <mat-card-title>{{ user.Nome }}</mat-card-title>
-        <p>Cpf: {{ user.Cpf }}</p>
-        <p>Data Nascimento: {{ user.Data_Nascimento | date}}</p>
-        <p>Email: {{ user.Email }}</p>
-        <p>Rg: {{ user.Rg }}</p>
-        <p>Sexo: {{ user.Sexo }}</p>
-    </mat-card>
+<main class="main DF" *ngFor="let user of infoUser"> 
+    <div class="div">
+        <mat-card class="vaccines">
+           <mat-card-title class="title"> Minhas vacinas </mat-card-title>
+            <table mat-table class="table" [dataSource]="dataSource">
+             <tr mat-header-row *matHeaderRowDef="columns"></tr>
+             <tr mat-row *matRowDef="let row; columns: columns"></tr>
+            
+               <ng-container matColumnDef="name">
+                 <th mat-header-cell *matHeaderCellDef> Tipo de Vacina </th>
+                 <td mat-cell *matCellDef="let row"> {{ row.Nome }} </td>
+               </ng-container>
+              
+               <ng-container  matColumnDef="actions">
+                 <th mat-header-cell *matHeaderCellDef> Doses </th>
+                 <td mat-cell *matCellDef="let row">
+                   <div class="icons">
+                     <a routerLink="/product/update/{{ row.id }}">
+                       <mat-icon class="mat-18" color="primary">
+                         edit
+                       </mat-icon>
+                     </a>
+                     <a routerLink="/product/delete/{{ row.id }}" class="delete">
+                       <mat-icon class="mat-18"> delete </mat-icon>
+                     </a>
+                   </div>
+                 </td>
+               </ng-container>
+           </table>
+     </mat-card>
+
+        <mat-card class="profile ">
+            <div class="name">
+                <mat-card-title>{{ user.Nome }}</mat-card-title>
+            </div>
+            <img class="img" src="../../../assets/img/user.png">
+            <p>{{ user.Email }}</p>
+            <p> {{ idade }} Anos </p>
+        </mat-card>
+    </div>
 </main>

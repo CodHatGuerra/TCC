@@ -24,8 +24,7 @@ server.use("/api", routes);
 
 server.listen(process.env.PORT, () => {
   console.log(`Servidor rodando em: http://localhost:${process.env.PORT}/`);
-  console.log(
-    `Rota para cadastrar pessoa: http://localhost:8080/api/cadastrar`
-  );
+  console.log(`Rota para cadastrar, editar e deletar usuario: http://localhost:8080/api/usuario`);
+  console.log(`Rota para cadastrar, editar e deletar posto: http://localhost:8080/api/posto`);
   console.log(`Rota para Verificar Login: http://localhost:8080/api/login`);
 });

@@ -44,6 +44,8 @@ import { DialogComponent } from './components/template/header/dialog/dialog.comp
 import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
+
 
 @NgModule({
   declarations: [
@@ -63,8 +65,8 @@ import { MatMenuModule } from '@angular/material/menu';
     HeaderComponent,
     DialogComponent,
     HomeComponent,
-    PostoDeleteComponent,
-    PostoCreateComponent
+    PostoCreateComponent, 
+    ProfileUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@
 html, body { height: 100%; }
    
 body {  
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(223, 223, 223);
     margin: 0;
     font-family: Roboto,
     "Helvetica Neue",
@@ -23,7 +23,7 @@ a {
 
 .mat-mdc-snack-bar-container {
     &.success {
-      --mdc-snackbar-container-color: #06c533;
+      --mdc-snackbar-container-color: #26bd7e;
       --mat-mdc-snack-bar-button-color: #fff;
       --mdc-snackbar-supporting-text-color: #fff;
     }

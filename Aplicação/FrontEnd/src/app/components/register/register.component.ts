@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from 'src/environments/environments';
@@ -27,16 +27,19 @@ export class RegisterComponent implements OnInit {
   }
   
     GetPostos(){
-      this.http.get(`${environment.baseUrl}/${environment.Posto}`).subscribe(
+      const userToken = localStorage.getItem('Token');
+      const headers = new HttpHeaders({
+       'Authorization': `Bearer ${userToken}`
+      });
+      this.http.get(`${environment.baseUrl}/${environment.Posto}`, { headers }).subscribe(
         (response: any)=>{
           this.dataSource = response.result.postos;
-          console.log(response);
         }
       )
+      console.log(userToken);
     }
 
-columnPosto: string[] = ['name', 'cidade','actions'];
-columnEmployee: string[] = ['name', 'cidade','actions'];
+columnEmployee: string[] = ['name', 'city','actions'];
 };
 
  

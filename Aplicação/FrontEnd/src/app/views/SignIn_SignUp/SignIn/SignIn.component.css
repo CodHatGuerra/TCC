@@ -52,11 +52,15 @@
     width: auto;
 }
 
+form > div {
+    margin-bottom: 10px ;
+}
+
 .continue {
-    width: 100px;
+    width: 220px;
+    margin: 0 auto;
     color: rgb(255, 255, 255) !important;
     background-color:#02C39A!important;
-    margin-right: 40px;
 }
 
 .register {
@@ -74,6 +78,10 @@
 
 .class {
     padding: 40px;
+}
+
+a {
+    margin-top: 15px;
 }
 
 @media screen and (max-width:1300px) {
