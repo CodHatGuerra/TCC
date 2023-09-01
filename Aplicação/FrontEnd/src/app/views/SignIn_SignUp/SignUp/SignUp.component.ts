@@ -1,16 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder,  FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/settings/services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 import { Observable } from 'rxjs';
-import { AdressModel, UserModel } from './SignUp.module';
 
 @Component({
   selector: 'app-signup ',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  templateUrl: './SignUp.component.html',
+  styleUrls: ['./SignUp.component.css']
 })
 export class SignUpComponent {
 

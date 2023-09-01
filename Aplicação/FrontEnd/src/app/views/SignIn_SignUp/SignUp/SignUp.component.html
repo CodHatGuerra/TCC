@@ -1,127 +1,81 @@
-<mat-toolbar class="header mat-elevation-z3">
-    <img class="logo" src="../../../assets/img/LogoMDP.png">
-    <a routerLink="" appWhite>Login</a>
-</mat-toolbar>
-<div class="main">
-    <div class="signup DF">
-        <div>
-            <img src="../../../assets/img/Capa.png" alt="">
-            <div class="texts DG">
-                <h1>Benefícios da vacinação</h1>
-                <h3>
-                    As vacinas têm muitos benefícios, incluindo a prevenção de doenças graves e potencialmente fatais. 
-                    Quando uma pessoa é vacinada, seu corpo desenvolve imunidade a uma doença específica, o que significa que, 
-                    se ela entrar em contato com a doença, seu corpo estará preparado para combatê-la. A vacinação também ajuda a proteger a saúde pública,
-                    reduzindo a disseminação de doenças.
-                </h3>
-                <h1>Eficácia da vacina</h1>
-                <h3>
-                    As vacinas foram testadas e comprovadas em ensaios clínicos para 
-                    reduzir o risco de contrair doenças.
-                    Embora nenhuma vacina seja 100% eficaz, a maioria das vacinas é altamente eficaz e ajuda a prevenir doenças em grande parte da população.
-                </h3>
-                <h1>Como as vacinas funcionam</h1>
-                <h3>
-                     As vacinas funcionam estimulando o sistema imunológico a produzir anticorpos contra uma doença específica.
-                     Quando o corpo é exposto a uma doença, ele leva tempo para desenvolver imunidade. Mas, com uma vacina, 
-                     o corpo pode desenvolver essa imunidade sem ter que passar pela doença real. Isso ajuda a proteger o corpo contra doenças graves e potencialmente fatais.
-                </h3>
-                <h1>Segurança da vacina</h1>
-                <h3>
-                    As vacinas são seguras e foram cuidadosamente testadas antes de serem aprovadas para uso. 
-                    Os regulamentos de segurança são rigorosos e as agências governamentais de saúde continuam monitorando a segurança das vacinas após a sua aprovação.
-                     Embora alguns efeitos colaterais possam ocorrer, eles geralmente são leves e temporários.
-                </h3>
-                <h1>Mitos e fatos sobre vacinação</h1>
-                <h3>
-                    Há muitos mitos sobre vacinas que circulam, mas a maioria deles não é verdadeira.
-                    Por exemplo, algumas pessoas acreditam que as vacinas podem causar autismo, mas não há evidências científicas para apoiar essa afirmação.
-                    É importante obter informações precisas e baseadas em evidências sobre vacinas. 
-                    Se você tiver alguma dúvida ou preocupação sobre vacinação, fale com um profissional de saúde confiável.
-                </h3>
+<body>
+    
+    <mat-toolbar class="header mat-elevation-z3">
+        <img class="logo" src="../../../assets/img/LogoMDP.png">
+        <a routerLink="" appWhite>Login</a>
+    </mat-toolbar>
+    <h1 class="title">Cadastro</h1>
+    <div class="main">
+        <div class="formSignUp mat-elevation-z8">
+            <form class="formInfo" [formGroup]="form">
+                <p class="upForm">Digite seus dados para poder realizar o cadastro:</p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome Completo</mat-label>
+                    <input type="text" matInput formControlName="nome">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>CPF</mat-label>
+                <input matInput type="number" formControlName="cpf">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>RG</mat-label>
+                    <input matInput type="number" formControlName="rg">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput type="date" formControlName="data_Nascimento">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select formControlName="sexo">
+                        <mat-option value="masculino">Masculino</mat-option>
+                        <mat-option value="feminino">Feminino</mat-option>
+                        <mat-option value="outros">Outros</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput type="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Celular</mat-label>
+                    <input matInput type="number" formControlName="telefone">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input matInput type="password" formControlName="senha">
+                </mat-form-field>
+            </form>
+            <div class="adressForm">
+                <form class="adressForm" [formGroup]="adressForm">
+                    <p class="upForm">Endereço</p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Cep</mat-label>
+                        <input matInput type="number" (blur)="DadosCep()" formControlName="cep">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Uf</mat-label>
+                        <input matInput type="text" [(ngModel)]="endereco.uf" formControlName="uf">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Localidade</mat-label>
+                        <input matInput type="text" [(ngModel)]="endereco.localidade" formControlName="localidade">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Bairro</mat-label>
+                        <input matInput type="text" [(ngModel)]="endereco.bairro" formControlName="bairro">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Logradouro</mat-label>
+                        <input matInput type="text"  [(ngModel)]="endereco.logradouro" formControlName="logradouro">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline"> 
+                        <mat-label>Número</mat-label>
+                        <input matInput type="number" formControlName="numero">
+                    </mat-form-field>    
+                </form> 
             </div>
+            <button class="cadastrar" mat-button (click)="Submit()">Cadastrar</button>
         </div>
     </div>
-    <div class="form mat-elevation-z4">
-        <h1 class="title">Cadastro</h1>
-        <p class="upForm">Digite seus dados para poder realizar o cadastro:</p>
-        <form [formGroup]="form">
-            <mat-form-field appearance="outline">
-                <mat-label>Nome Completo</mat-label>
-                <input type="text" matInput formControlName="nome">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>CPF</mat-label>
-            <input matInput type="number" formControlName="cpf">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>RG</mat-label>
-                <input matInput type="number" formControlName="rg">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Data de nascimento</mat-label>
-                <input matInput type="date" formControlName="data_Nascimento">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Sexo</mat-label>
-                <mat-select formControlName="sexo">
-                    <mat-option value="masculino">Masculino</mat-option>
-                    <mat-option value="feminino">Feminino</mat-option>
-                    <mat-option value="outros">Outros</mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>E-mail</mat-label>
-                <input matInput type="email" formControlName="email">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Senha</mat-label>
-                <input matInput type="password" formControlName="senha">
-            </mat-form-field>
-        
-            <mat-form-field appearance="outline">
-                <mat-label>Celular</mat-label>
-                <input matInput type="number" formControlName="telefone">
-            </mat-form-field>
-        </form>
-        <p class="upForm">Endereço</p>
-        <form [formGroup]="adressForm">
-            <mat-form-field appearance="outline">
-                <mat-label>Cep</mat-label>
-                <input matInput type="number" (blur)="DadosCep()" formControlName="cep">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Uf</mat-label>
-                <input matInput type="text" [(ngModel)]="endereco.uf" formControlName="uf">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Localidade</mat-label>
-                <input matInput type="text" [(ngModel)]="endereco.localidade" formControlName="localidade">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Bairro</mat-label>
-                <input matInput type="text" [(ngModel)]="endereco.bairro" formControlName="bairro">
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>Logradouro</mat-label>
-                <input matInput type="text"  [(ngModel)]="endereco.logradouro" formControlName="logradouro">
-            </mat-form-field>
-            
-            <mat-form-field appearance="outline"> 
-                <mat-label>Número</mat-label>
-                <input matInput type="number" formControlName="numero">
-            </mat-form-field>    
-        </form> 
-        <button class="cadastrar" mat-button (click)="Submit()">Cadastrar</button>
-    </div>
-</div>
+</body>

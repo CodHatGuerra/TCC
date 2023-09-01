@@ -1,3 +1,15 @@
+body {
+    background-color: rgb(170, 95, 95);
+    height: auto;
+    width: auto;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
 .header {
     justify-content: space-between;
 }
@@ -13,22 +25,27 @@
     margin-right: 20px;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    max-width: 90%;
-    gap: 50px;
+.title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.formSignUp {
+    display: grid;
+    margin-top: 50px;
+    border-radius: 6px;
+    height: 100%;
+    padding: 60px;
+    margin-bottom: 50px;
+    text-align: center;
+    background-color: azure;
 }
 
 .signup {
     margin-top: 135px;
     width: 40vw;
-}
-
-.signup div > img {
-    width: 40vw;
-    height: 60vh;
-}
+}   
 
 .signup .texts {
     margin-top: 20px;
@@ -52,24 +69,14 @@ form {
     display: grid;
 }
 
-.form {
-    display: grid;
-    margin-top: 135px;
-    border-radius: 6px;
-    height: 100%;
-    padding: 30px;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.form .title {
+.formSignUp .title {
     font-size: 35px;
     font-weight: 700;
     font-family: 'Open Sans';
     margin-bottom: 70px;
 }
 
-.form .cadastrar {
+.formSignUp .cadastrar {
     width: 100px;
     color: white !important;
     background-color: #02C39A !important;
