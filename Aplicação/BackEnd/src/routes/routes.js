@@ -31,7 +31,7 @@ const PostoController = require("../controllers/postoController");
     // DELETAR POSTO
     router.delete("/posto", authMiddleware, PostoController.deletar);
     // EDITAR POSTO
-    //router.patch("/posto", authMiddleware, PostoController.alterar);
+    router.patch("/posto", authMiddleware, PostoController.alterar);
 
 
 
