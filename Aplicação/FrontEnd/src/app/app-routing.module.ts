@@ -6,7 +6,6 @@ import { ApplicationComponent } from './components/application/application.compo
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './settings/auth.guard';
-import { HomeComponent } from './views/home/home.component';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
@@ -16,71 +15,67 @@ import { PostoCreateComponent } from './components/register/posto-create/posto-c
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  },
-  { 
-    path: 'signIn',
     component: SignInComponent
- },
- { 
+  },
+  {
     path: 'signUp',
-    component:  SignUpComponent
- }, 
- {
+    component: SignUpComponent
+  },
+  {
     path: 'user',
     component: UserComponent,
     canActivate: [AuthGuard],
-      children: [
+    children: [
       {
         path: '',
         component: ApplicationComponent
       },
       {
         path: 'schedulind',
-        component: SchedulindComponent 
+        component: SchedulindComponent
       },
       {
         path: 'profile',
-        component: ProfileComponent 
+        component: ProfileComponent
       },
       {
         path: 'register',
         component: RegisterComponent
       }
     ]
- },
- {
-  path: 'adm',
-  component: AdmComponent,
-  canActivate: [AuthGuard],
-  children: [
-    {
-      path: 'application',
-      component: ApplicationComponent
-    },
-    {
-      path: 'schedulind',
-      component: SchedulindComponent 
-    },
-    {
-      path: 'profile',
-      component: ProfileComponent 
-    },{
-      path: 'register',
-      component: RegisterComponent,
-      children: [
+  },
+  {
+    path: 'adm',
+    component: AdmComponent,
+    canActivate: [AuthGuard],
+    children: [
       {
-        path: 'postos',
-         component: PostoCreateComponent,
-      }, 
+        path: 'application',
+        component: ApplicationComponent
+      },
       {
-        path: 'posto/delete/:id',
-        component: PostoDeleteComponent
-      }
+        path: 'schedulind',
+        component: SchedulindComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      }, {
+        path: 'register',
+        component: RegisterComponent,
+        children: [
+          {
+            path: 'postos',
+            component: PostoCreateComponent,
+          },
+          {
+            path: 'posto/delete/:id',
+            component: PostoDeleteComponent
+          }
+        ]
+      },
     ]
-    },
-  ]
- }
+  }
 ];
 
 @NgModule({

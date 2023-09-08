@@ -2,8 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AppService } from 'src/app/settings/services/app.service';
-
+import { AppService } from 'src/app/settings/Services/app.service';
 import { environment } from 'src/environments/environments';
 
 @Component({
@@ -12,51 +11,49 @@ import { environment } from 'src/environments/environments';
   styleUrls: ['./posto-create.component.css']
 })
 export class PostoCreateComponent {
-  
-    cep: number = 0;
-    uf: string = '';
-    localidade: string = '';
-    bairro: string = '';
-    logradouro: string = '';
-    formPosto: FormGroup;
-    
+
+  cep: number = 0;
+  uf: string = '';
+  localidade: string = '';
+  bairro: string = '';
+  logradouro: string = '';
+  formPosto: FormGroup;
+
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private appService : AppService,
+    private appService: AppService,
     private dialogRef: MatDialogRef<PostoCreateComponent>
-    ) 
-    {
-      this.formPosto = this.fb.group({
-        nome: ['', Validators.required],
-        uf: ['', Validators.required],
-        localidade: ['', Validators.required],
-        logradouro: ['', Validators.required],
-        bairro: ['', Validators.required],
-        cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-        numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-        telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
-      });
+  ) {
+    this.formPosto = this.fb.group({
+      nome: ['', Validators.required],
+      uf: ['', Validators.required],
+      localidade: ['', Validators.required],
+      logradouro: ['', Validators.required],
+      bairro: ['', Validators.required],
+      cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
+    });
   }
 
-  
   SubmitCep() {
-    this.cep =this.formPosto.get('cep')?.value;
-    const url = `http://viacep.com.br/ws/${this.cep}/json/`;  
+    this.cep = this.formPosto.get('cep')?.value;
+    const url = `http://viacep.com.br/ws/${this.cep}/json/`;
     this.http.get<any>(url).subscribe(
-     ( response )=> {
-       this.uf = response.uf;
-       this.localidade = response.localidade,
-       this.bairro = response.bairro,
-       this.logradouro = response.logradouro  
-     });
-   }
+      (response) => {
+        this.uf = response.uf;
+        this.localidade = response.localidade,
+          this.bairro = response.bairro,
+          this.logradouro = response.logradouro
+      });
+  }
 
   isObjectEmpty(obj: any): boolean {
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
         const value = obj[key];
-  
+
         if (typeof value === 'object') {
           if (!this.isObjectEmpty(value)) {
             return false;
@@ -70,9 +67,8 @@ export class PostoCreateComponent {
     }
     return true;
   }
-    
-   SubmitPosto(): void {
- 
+
+  SubmitPosto(): void {
     const formData = {
       posto: {
         nome: this.formPosto.value.nome
@@ -85,27 +81,29 @@ export class PostoCreateComponent {
         logradouro: this.logradouro,
         numero: this.formPosto.value.numero
       },
-      telefone:{
+      telefone: {
         numero: this.formPosto.value.telefone
       }
-     }
-      const userToken = localStorage.getItem('user');
-      const headers = new HttpHeaders({
-       'Authorization': `Bearer ${userToken}`
-      });
+    }
+    const userToken = localStorage.getItem('Token');
+    const headers = new HttpHeaders({
+      'Authorization': `${userToken}`
+    });
 
-     if (this.isObjectEmpty(formData)) {
+    if (this.isObjectEmpty(formData)) {
       this.appService.AlertMessage("Formulário incompleto")
     } else {
-      this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData, { headers } ).subscribe(
+        this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData, { headers }).subscribe(
         (response) => {
-          if(response) { 
+          if (response) {
+            location.reload();
             this.dialogRef.close()
             this.appService.Message("Posto cadastrado")
           } else {
-              console.log(response);
-            }
+            console.log(response);
+            throw this.appService.AlertMessage("Error ao registrar posto");
+          }
         });
-      }
     }
   }
+}

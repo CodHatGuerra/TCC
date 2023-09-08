@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +58,12 @@ export class AppService {
       const user = localStorage.getItem('user');
       return user ? JSON.parse(user) : null;
     }
+    
+  GetPostos(){
+    const userToken = localStorage.getItem('Token');
+    const headers = new HttpHeaders({
+      'Authorization': `${userToken}`
+    });
+   return this.http.get(`${environment.baseUrl}/${environment.Posto}`, { headers })
+  }
 }

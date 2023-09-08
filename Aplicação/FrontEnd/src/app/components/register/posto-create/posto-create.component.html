@@ -11,14 +11,14 @@
             <input matInput formControlName="telefone" type="text">
         </mat-form-field>
 
-        <mat-form-field appearance="outline"> 
+        <mat-form-field appearance="outline">
             <mat-label>Cep</mat-label>
             <input matInput formControlName="cep" (blur)="SubmitCep()" type="number">
         </mat-form-field>
 
-         <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline">
             <mat-label>Uf</mat-label>
-            <input matInput readonly formControlName="uf" type="text" [value]="uf" >
+            <input matInput readonly formControlName="uf" type="text" [value]="uf">
         </mat-form-field>
 
         <mat-form-field appearance="outline">

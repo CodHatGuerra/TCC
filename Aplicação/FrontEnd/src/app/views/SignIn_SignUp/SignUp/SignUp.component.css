@@ -1,13 +1,16 @@
 body {
-    background-color: rgb(170, 95, 95);
+    background-color: rgba(255, 255, 255, 0.562);
     height: auto;
     width: auto;
 }
 
 .main {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    text-align: center;
+    margin: 0 auto;
+    width:  80vw;
     gap: 50px;
+    margin-top: 20px;
 }
 
 .header {
@@ -25,30 +28,47 @@ body {
     margin-right: 20px;
 }
 
-.title {
-    text-align: center;
-    margin-top: 30px;
+form {
+    display: grid;
 }
-
 
 .formSignUp {
     display: grid;
-    margin-top: 50px;
+    margin: 0 auto;
+    grid-template-areas: 
+        'formInfo adressForm'
+        'buttonRegister buttonRegister';
+        justify-items: center;
+    margin-top: 10px;
+    margin-bottom: 100px;
     border-radius: 6px;
-    height: 100%;
-    padding: 60px;
-    margin-bottom: 50px;
+    padding: 40px;
+    gap: 30px;
     text-align: center;
-    background-color: azure;
+    background-color: rgb(242, 243, 243);
 }
 
-.signup {
-    margin-top: 135px;
-    width: 40vw;
-}   
+.formInfo {
+    grid-area: formInfo;
+}
 
-.signup .texts {
-    margin-top: 20px;
+.adressForm {
+    grid-area: adressForm;
+}
+
+.buttonRegister {
+    grid-area: buttonRegister;
+}
+
+.adressForm {
+    width: 30vw;
+    margin: 0 auto;
+    height: 400px;
+}
+
+.formInfo {
+    width: 30vw;
+    margin: 0 auto;
 }
 
 .signup .texts > h1{
@@ -65,25 +85,32 @@ body {
     color: #02C39A
 }
 
-form {
-    display: grid;
-}
-
-.formSignUp .title {
-    font-size: 35px;
-    font-weight: 700;
-    font-family: 'Open Sans';
-    margin-bottom: 70px;
-}
-
-.formSignUp .cadastrar {
-    width: 100px;
+.buttonRegister {
+    width: 200px;
+    height: 40px;
     color: white !important;
     background-color: #02C39A !important;
+    margin: 0 auto;
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* input {
+    color: white !important;
+} */
+
+@media screen and (max-width:1300px) {
+    .formSignUp {
+        margin-top: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .buttonRegister {
+        margin-top: 80px;
+    }
 }

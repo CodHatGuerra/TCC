@@ -2,7 +2,7 @@ import { LoginModel } from './SignIn.module';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/settings/services/app.service';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { HttpClient } from '@angular/common/http';
@@ -35,7 +35,7 @@ form: FormGroup;
     if(this.form.valid){
       this.FormLogin = this.form.value 
       this.SignIn(this.FormLogin).subscribe((response: any) => {        
-       if(response.result.autenticado == true ) {
+       if(response.result.autenticado == true) {
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm']);

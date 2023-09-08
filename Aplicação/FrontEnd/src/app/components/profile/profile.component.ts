@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/settings/services/app.service';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,16 +7,16 @@ import { Component } from '@angular/core';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent  {
+export class ProfileComponent {
   constructor(private service: AppService, private router: Router) {
     this.teste()
-   }
+  }
 
   infoUser: any[] = [];
 
   dataSource: any[] = [];
-  
-  idade: number = 0; 
+
+  idade: number = 0;
 
   teste() {
     const user = this.service.GetUser();
@@ -27,14 +27,13 @@ export class ProfileComponent  {
       const diffMilissegundos = hoje.getTime() - dataNascimento.getTime()
       const diffAnos = Math.floor(diffMilissegundos / (365 * 24 * 60 * 60 * 1000));
       console.log(diffAnos);
-       
+
       this.idade = diffAnos;
     } else {
       this.router.navigate([''])
     }
-   }
-
-   columns: string[] = ['name', 'actions'];
   }
 
- 
+  columns: string[] = ['name', 'actions'];
+}
+

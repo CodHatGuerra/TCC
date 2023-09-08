@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Form, FormBuilder,  FormGroup, Validators } from '@angular/forms';
-import { AppService } from 'src/app/settings/services/app.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 import { Observable } from 'rxjs';
@@ -19,6 +19,8 @@ export class SignUpComponent {
   endereco: any = {}
   telefone: any = {}
   cep: number = 0;
+  passWord: number = 0;
+  confimPassWord!: string ;
 
   constructor(
     private http: HttpClient,
@@ -26,70 +28,71 @@ export class SignUpComponent {
     private fb: FormBuilder,
     private appService: AppService
 
-    ) {
-      
-      this.form = this.fb.group({
-        nome: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        cpf: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-        rg: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-        data_Nascimento: ['', Validators.required],
-        sexo: ['', Validators.required],
-        telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-        senha: ['', Validators.required]
-      });
+  ) {
 
-      this.adressForm = this.fb.group({
-        uf: ['', Validators.required],
-        cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-        localidade: ['', Validators.required],
-        logradouro: ['', Validators.required],
-        bairro: ['', Validators.required],
-        numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      });
-      }
+    this.form = this.fb.group({
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      cpf: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      rg: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      data_Nascimento: ['', Validators.required],
+      sexo: ['', Validators.required],
+      telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      senha: ['', Validators.required],
+      confirmarSenha: ['', Validators.required],
+    });
 
-      validateDate(control: any) {
-        const inputDate = control;
-        console.log(inputDate);
-        
-        const currentDate = new Date();
-        const selectedDate = new Date(inputDate);
-    
-        if (selectedDate > currentDate) 
-          return { futureDate: true };
-    
-        if (selectedDate.getFullYear() < 1900) 
-          throw this.appService.AlertMessage('Data inválida');
-    
-        if(selectedDate.getFullYear() > 2025)
-          throw this.appService.AlertMessage('Data inválida');
+    this.adressForm = this.fb.group({
+      uf: ['', Validators.required],
+      cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+      localidade: ['', Validators.required],
+      logradouro: ['', Validators.required],
+      bairro: ['', Validators.required],
+      numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
+    });
+  }
 
-        return null;
-      }
+  validateDate(control: any) {
+    const inputDate = control;
+    console.log(inputDate);
+
+    const currentDate = new Date();
+    const selectedDate = new Date(inputDate);
+
+    if (selectedDate > currentDate)
+      return { futureDate: true };
+
+    if (selectedDate.getFullYear() < 1900)
+      throw this.appService.AlertMessage('Data inválida');
+
+    if (selectedDate.getFullYear() > 2025)
+      throw this.appService.AlertMessage('Data inválida');
+
+    return null;
+  }
 
   SignUp(date: any): Observable<any> {
-    if(date == null)
+    if (date == null)
       console.log("Contém informações nulas");
-    
+
     return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`, date);
   }
 
   DadosCep() {
     this.cep = this.adressForm.get('cep')?.value;
-    const url = `http://viacep.com.br/ws/${this.cep}/json/`;  
+    const url = `http://viacep.com.br/ws/${this.cep}/json/`;
     this.http.get<any>(url).subscribe(
-     response => {
-       this.endereco.uf = response.uf;
-       this.endereco.localidade = response.localidade,
-       this.endereco.bairro = response.bairro,
-       this.endereco.logradouro = response.logradouro  
-     });
-   }
+      response => {
+        this.endereco.uf = response.uf;
+        this.endereco.localidade = response.localidade,
+          this.endereco.bairro = response.bairro,
+          this.endereco.logradouro = response.logradouro
+      });
+  }
 
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
-   const newDate = new Date()
+    const newDate = new Date()
     const Info = {
       usuario: {
         nome: this.form.value.nome,
@@ -101,7 +104,6 @@ export class SignUpComponent {
         data_Criada: newDate.toISOString().split('T')[0],
         senha: this.form.value.senha
       },
-
       endereco: {
         cep: this.adressForm.value.cep,
         uf: this.adressForm.value.uf,
@@ -109,27 +111,29 @@ export class SignUpComponent {
         bairro: this.adressForm.value.logradouro,
         logradouro: this.adressForm.value.logradouro,
         numero: this.adressForm.value.numero
-      },  
-
+      },
       telefone: {
         numero: this.form.value.telefone
       }
     }
 
-    if (Info == null) 
-      this.appService.AlertMessage('Complete o formulário.');
-    else {
-      this.SignUp(Info).subscribe(
-        (response) => {
-          if(response.error){
-            console.log('Erro ao cadastrar:', response.error);
-            this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
-            
-          } else {
-            this.appService.SuccessMessage('Cadastro Concluído!');
-            this.router.navigate(['/signIn']);
-          }
-        });
-    }
-  }  
+    if (this.form.invalid)
+      throw this.appService.AlertMessage('Complete o formulário.');
+
+    if (this.form.value.senha !== this.form.value.confirmarSenha)
+      throw this.appService.AlertMessage('As senhas não coincidem');
+
+    this.SignUp(Info).subscribe(
+      (response) => {
+        if (response.error) {
+          console.log('Erro ao cadastrar:', response.error);
+          this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
+
+        } else {
+          this.appService.SuccessMessage('Cadastro Concluído!');
+          this.router.navigate(['']);
+        }
+      });
+  }
 }
+

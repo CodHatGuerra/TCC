@@ -22,7 +22,7 @@
 }
 
 .login {
-    width: 20%;
+    width: 28%;
     display: grid;
     margin: 0 auto;
     text-align: center;
@@ -42,7 +42,7 @@
 
 .login p {
     font-family: 'Open Sans';
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
     color:#02C39A;
 }
@@ -57,7 +57,7 @@ form > div {
 }
 
 .continue {
-    width: 220px;
+    width: 100%;
     margin: 0 auto;
     color: rgb(255, 255, 255) !important;
     background-color:#02C39A!important;

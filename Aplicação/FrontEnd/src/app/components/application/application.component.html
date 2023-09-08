@@ -1,35 +1,32 @@
-<main>
-    <!-- <mat-card  class="card mat-elevation-z3">
-        <mat-card-title appWhite class="title">Vacina fácil</mat-card-title>
-        <mat-card-subtitle appWhite class="subtitle">o VacinaFácil é um sistema que permite que a carteira de vacinação possa ser acessada digitalmente, 
-            desde que tenha sido vinculada ao sistema por meio do Poupatempo. Com a solução, problemas como a perda ou ausência do documento físico são solucionados, 
-            evitando a necessidade de buscar uma segunda via em postos de saúde. Além disso, o sistema oferece diversas vantagens, 
-            como a consulta das vacinas tomadas, agendamento de novas doses, programação de lembretes e acompanhamento do calendário de vacinação.
-        </mat-card-subtitle>
-    </mat-card> -->
+<main class="main" *ngFor="let user of infoUser">
+    <div class="div">
+        <mat-card class="vaccines">
+            <mat-card-title class="title"> Minhas vacinas </mat-card-title>
+            <table mat-table class="table" [dataSource]="dataSource">
+                <tr mat-header-row *matHeaderRowDef="columns"></tr>
+                <tr mat-row *matRowDef="let row; columns: columns"></tr>
 
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Tipo de Vacina </th>
+                    <td mat-cell *matCellDef="let row"> {{ row.Nome }} </td>
+                </ng-container>
 
-    <div class="cards DG">
-        <mat-card></mat-card>
-        <mat-card></mat-card>
-        <mat-card></mat-card>
-        <mat-card></mat-card>
-        <mat-card></mat-card>
-        <mat-card></mat-card>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Doses </th>
+                    <td mat-cell *matCellDef="let row">
+                        <div class="icons">
+                            <a routerLink="/product/update/{{ row.id }}">
+                                <mat-icon class="mat-18" color="primary">
+                                    edit
+                                </mat-icon>
+                            </a>
+                            <a routerLink="/product/delete/{{ row.id }}" class="delete">
+                                <mat-icon class="mat-18"> delete </mat-icon>
+                            </a>
+                        </div>
+                    </td>
+                </ng-container>
+            </table>
+        </mat-card>
     </div>
-
-    <div class="caixas">
-        <div class="box c1">
-            <mat-card-title  class="text"></mat-card-title>
-        </div>
-        <div class="box c2">
-            <mat-card-title  class="text"></mat-card-title>
-        </div>
-        <div class="box c3">
-            <mat-card-title  class="text"></mat-card-title>
-        </div>
-    </div>
-
-    <mat-card class="sub">  </mat-card>
 </main>
-

@@ -15,7 +15,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { DecoratorsComponent } from './settings/decorator/decorators.component';
-import { PostoDeleteComponent } from './components/register/posto-delete/posto-delete.component';
 import { PostoCreateComponent } from './components/register/posto-create/posto-create.component';
 
 //diretiva
@@ -41,10 +40,8 @@ import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
-import { HomeComponent } from './views/home/home.component'
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 
 
 @NgModule({
@@ -64,9 +61,7 @@ import { ProfileUpdateComponent } from './components/profile/profile-update/prof
     AdmComponent,
     HeaderComponent,
     DialogComponent,
-    HomeComponent,
-    PostoCreateComponent, 
-    ProfileUpdateComponent
+    PostoCreateComponent
   ],
   imports: [
     BrowserModule,

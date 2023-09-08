@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AppService } from 'src/app/settings/Services/app.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { environment } from 'src/environments/environments';
 import { PostoCreateComponent } from './posto-create/posto-create.component';
 
 
@@ -14,32 +13,28 @@ export class RegisterComponent implements OnInit {
   dataSource: any[] = []
   constructor(
     private dialog: MatDialog,
-    private http: HttpClient
-    ){  }
+    private appService: AppService
+  ) { }
 
-    ngOnInit(): void {
-      this.GetPostos();
-    }
-    
+  ngOnInit(): void {
+    this.GetPostos();
+  }
+
   openSigUn(): void {
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed();
   }
-  
-    GetPostos(){
-      const userToken = localStorage.getItem('Token');
-      const headers = new HttpHeaders({
-       'Authorization': `Bearer ${userToken}`
-      });
-      this.http.get(`${environment.baseUrl}/${environment.Posto}`, { headers }).subscribe(
-        (response: any)=>{
-          this.dataSource = response.result.postos;
-        }
-      )
-      console.log(userToken);
-    }
 
-columnEmployee: string[] = ['name', 'city','actions'];
+  GetPostos() {
+    this.appService.GetPostos().subscribe(
+      (response: any) => {
+        this.dataSource = response.result.postos;
+        console.log(response);
+        
+      }
+    )
+  }
+
+  columnEmployee: string[] = ['name', 'city', 'actions'];
 };
 
- 

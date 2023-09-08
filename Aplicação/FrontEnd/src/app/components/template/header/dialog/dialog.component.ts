@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -7,9 +7,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent {
-  constructor(public dialogRef: MatDialogRef<DialogComponent>) {
-    
-  }
+  constructor(public dialogRef: MatDialogRef<DialogComponent>) {}
 
   OnConfirm() {
     this.dialogRef.close('confirm');
