@@ -22,7 +22,7 @@
 
 .title {
     border-bottom: 2px solid #26bd7e;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 mat-card {
@@ -30,10 +30,10 @@ mat-card {
     box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001A, 0 1px 10px #0000001A;
 }
 
-.vaccines {
-    width: 50vw;
-    height: 60vh;
-    padding: 10px;
+.vaccine {
+    width: 90vw;
+    height: auto;
+    padding: 20px;
     text-align: center;
 }
 

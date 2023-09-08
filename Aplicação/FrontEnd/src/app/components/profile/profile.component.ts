@@ -26,8 +26,6 @@ export class ProfileComponent {
       const hoje = new Date();
       const diffMilissegundos = hoje.getTime() - dataNascimento.getTime()
       const diffAnos = Math.floor(diffMilissegundos / (365 * 24 * 60 * 60 * 1000));
-      console.log(diffAnos);
-
       this.idade = diffAnos;
     } else {
       this.router.navigate([''])

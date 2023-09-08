@@ -1,30 +1,19 @@
-<main class="main" *ngFor="let user of infoUser">
+<main class="main DF">
     <div class="div">
-        <mat-card class="vaccines">
+        <mat-card class="vaccine">
             <mat-card-title class="title"> Minhas vacinas </mat-card-title>
-            <table mat-table class="table" [dataSource]="dataSource">
+            <table mat-table class="table" [dataSource]="vaccines">
                 <tr mat-header-row *matHeaderRowDef="columns"></tr>
-                <tr mat-row *matRowDef="let row; columns: columns"></tr>
+                <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>
 
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef> Tipo de Vacina </th>
-                    <td mat-cell *matCellDef="let row"> {{ row.Nome }} </td>
+                    <td mat-cell *matCellDef="let vaccine"> {{ vaccine.nome }} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef> Doses </th>
-                    <td mat-cell *matCellDef="let row">
-                        <div class="icons">
-                            <a routerLink="/product/update/{{ row.id }}">
-                                <mat-icon class="mat-18" color="primary">
-                                    edit
-                                </mat-icon>
-                            </a>
-                            <a routerLink="/product/delete/{{ row.id }}" class="delete">
-                                <mat-icon class="mat-18"> delete </mat-icon>
-                            </a>
-                        </div>
-                    </td>
+                    <td mat-cell *matCellDef="let vaccine"> {{vaccine.doses}}</td>
                 </ng-container>
             </table>
         </mat-card>

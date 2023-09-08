@@ -59,7 +59,7 @@ export class AppService {
       return user ? JSON.parse(user) : null;
     }
     
-  GetPostos(){
+  GetPosto(){
     const userToken = localStorage.getItem('Token');
     const headers = new HttpHeaders({
       'Authorization': `${userToken}`

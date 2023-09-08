@@ -26,13 +26,11 @@ export class RegisterComponent implements OnInit {
   }
 
   GetPostos() {
-    this.appService.GetPostos().subscribe(
+    this.appService.GetPosto().subscribe(
       (response: any) => {
         this.dataSource = response.result.postos;
         console.log(response);
-        
-      }
-    )
+      })
   }
 
   columnEmployee: string[] = ['name', 'city', 'actions'];
