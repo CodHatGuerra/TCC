@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
   constructor(private service: AppService, private router: Router) {
-    this.teste()
+    this.Profile()
   }
 
   infoUser: any[] = [];
@@ -18,10 +18,12 @@ export class ProfileComponent {
 
   idade: number = 0;
 
-  teste() {
+  Profile() {
     const user = this.service.GetUser();
     if (user) {
       this.infoUser = user
+      console.log(user);
+      
       const dataNascimento = new Date(user[0].Data_Nascimento);
       const hoje = new Date();
       const diffMilissegundos = hoje.getTime() - dataNascimento.getTime()

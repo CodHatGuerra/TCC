@@ -1,25 +1,25 @@
-
 .main {
    padding: 25px;
-    text-align: center;
+   text-align: center;
 }
 
 form {
-   width: 30vw;
+   height: 60vh;
+   width: 50vw;
    display: grid;
    margin: 0 auto;
+   grid-template-columns: 1fr 1fr;
    margin-top: 20px;
    margin-bottom: 20px;
    background-color: transparent;
-   height: 500px;
-}
-
-input {
-   font-size:  10px;
 }
 
 form > button {
     width: 140px;
     margin: 0 auto;
     background-color: #21a4f0;
+}
+
+.MR {
+   margin-right: 20px;
 }

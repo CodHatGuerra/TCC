@@ -44,7 +44,7 @@
     font-family: 'Open Sans';
     font-size: 14px;
     font-weight: 600;
-    color:#02C39A;
+    color:#449DD1;
 }
 
 .login .form {
@@ -60,12 +60,7 @@ form > div {
     width: 100%;
     margin: 0 auto;
     color: rgb(255, 255, 255) !important;
-    background-color:#02C39A!important;
-}
-
-.register {
-    width: 100px;
-    color:#02C39A!important;
+    background-color:#449DD1 !important;
 }
 
 .fullscreen {

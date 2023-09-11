@@ -1,26 +1,19 @@
 <mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side" [(opened)]="opened">
-            <mat-nav-list class="nav-list DF">
-                <a mat-list-item routerLink="application">
-                    <mat-icon class="v-middle" appWhite> event </mat-icon>
+    <mat-sidenav *ngFor="let user of infoUser" class="sidenav" mode="side" [(opened)]="opened">
+        <mat-nav-list class="nav-list DF">
+            <a mat-list-item routerLink="application">
+                <div class="caderneta">
+                    <mat-icon class="icon v-middle" appWhite> event </mat-icon>
                     <span class="white"> Caderneta </span>
-                </a>
-
-                <a mat-list-item>
-                    <mat-icon class="v-middle" appWhite> schedule </mat-icon>
-                    <span class="white">Agendamentos</span>
-               </a>
-
-                <a mat-list-item  (click)="toggleSublist()" routerLink="register">
-                    <mat-icon class="v-middle" appWhite> assignment </mat-icon>
+                </div>
+            </a>
+            <a mat-list-item (click)="toggleSublist()" routerLink="register">
+                <div class="Register">
+                    <mat-icon class="icon v-middle" appWhite> assignment </mat-icon>
                     <span class="white"> Registros </span>
-                </a>
-
-                <a mat-list-item routerLink="profile">
-                    <mat-icon appWhite class="v-middle">  person  </mat-icon>
-                    <span class="white"> Perfil </span>
-                </a>
-            </mat-nav-list>
+                </div>
+            </a>
+        </mat-nav-list>
     </mat-sidenav>
     <router-outlet class="outlet"></router-outlet>
 </mat-sidenav-container>

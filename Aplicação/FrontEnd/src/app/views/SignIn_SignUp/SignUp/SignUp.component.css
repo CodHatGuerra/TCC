@@ -39,7 +39,6 @@ form {
         'formInfo adressForm'
         'buttonRegister buttonRegister';
         justify-items: center;
-    margin-top: 10px;
     margin-bottom: 100px;
     border-radius: 6px;
     padding: 40px;
@@ -71,25 +70,25 @@ form {
     margin: 0 auto;
 }
 
-.signup .texts > h1{
+h1 {
     font-family: 'Open Sans';
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    color: #02C39A ;
+    color: #050505 ;
 }
 
 .upForm{
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 600;
-    color: #02C39A
+    color: #449DD1
 }
 
 .buttonRegister {
     width: 200px;
     height: 40px;
     color: white !important;
-    background-color: #02C39A !important;
+    background-color: #449DD1 !important;
     margin: 0 auto;
 }
 

@@ -2,86 +2,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 
-html, body { height: 100%; }
-   
-body {  
-    background-color: rgb(223, 223, 223);
-    margin: 0;
-    font-family: Roboto,
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(223, 223, 223);
+  margin: 0;
+  font-family: Roboto,
     "Helvetica Neue",
-    sans-serif; 
+    sans-serif;
 }
 
 .v-middle {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 a {
-    text-decoration: none;
-    color: rgb(43, 43, 43);
+  text-decoration: none;
+  color: rgb(43, 43, 43);
 }
 
 .mat-mdc-snack-bar-container {
-    &.success {
-      --mdc-snackbar-container-color: #26bd7e;
-      --mat-mdc-snack-bar-button-color: #fff;
-      --mdc-snackbar-supporting-text-color: #fff;
-    }
+  &.success {
+    --mdc-snackbar-container-color: #26bd7e;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
   }
+}
 
 .mat-mdc-snack-bar-container {
-    &.error {
-      --mdc-snackbar-container-color: #fd1100d8;
-      --mat-mdc-snack-bar-button-color: #fff;
-      --mdc-snackbar-supporting-text-color: #fff;
-    }
+  &.error {
+    --mdc-snackbar-container-color: #fd1100d8;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
   }
+}
 
-  .mat-mdc-snack-bar-container {
-    &.info {
-      --mdc-snackbar-container-color: #ff9100;
-      --mat-mdc-snack-bar-button-color: #fff;
-      --mdc-snackbar-supporting-text-color: #fff;
-    }
+.mat-mdc-snack-bar-container {
+  &.info {
+    --mdc-snackbar-container-color: #ff9100;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
   }
-  
-  .mat-mdc-snack-bar-container {
-    &.common {
-      --mdc-snackbar-container-color: #26bd7e;
-      --mat-mdc-snack-bar-button-color: #fff;
-      --mdc-snackbar-supporting-text-color: #fff;
-    }
+}
+
+.mat-mdc-snack-bar-container {
+  &.common {
+    --mdc-snackbar-container-color: #26bd7e;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
   }
+}
 
 .DF {
-    display: flex;
+  display: flex;
 }
 
 .logo {
-    width: 64px;
-    height: 64px;
+  width: 64px;
+  height: 64px;
 }
 
 .header {
-    display: flex;
-    top: 0;
-    z-index: 1000;
-    background-color: #00A896;
+  display: flex;
+  top: 0;
+  z-index: 1000;
+  background-color: #449DD1;
 }
 
 .footer {
-    background-color: #02C39A;
+  background-color: #02C39A;
 }
 
 .DG {
-    display: grid;
+  display: grid;
 }
 
 .white {
-    color: white;
+  color: white;
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }

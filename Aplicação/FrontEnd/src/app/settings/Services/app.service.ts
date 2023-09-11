@@ -8,62 +8,67 @@ import { environment } from 'src/environments/environments';
   providedIn: 'root'
 })
 export class AppService {
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
-  
-    userInfo: any;
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
-    AlertMessage(msg: string): void {
-      this.snackBar.open(msg, 'X', {
-        duration: 3000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
-        panelClass: ['error']
-      });
-    }
+  userInfo: any;
 
-    Message(msg: string) :void {
-      this.snackBar.open(msg, 'X', {
-        duration: 1000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
-        panelClass: ['common']
-    })}
+  AlertMessage(msg: string): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['error']
+    });
+  }
 
-    SuccessMessage(msg: string) :void {
-      this.snackBar.open(msg, 'X', {
-        duration: 3000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
-        panelClass: ['success']
-    })}
+  Message(msg: string): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 1000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['common']
+    })
+  }
 
-    InfoMessage(msg: string): void{
-      this.snackBar.open(msg, 'X', {
-        duration: 3000,
-        horizontalPosition: "right",
-        verticalPosition: "top",
-        panelClass: ['info']
-    })}
+  SuccessMessage(msg: string): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['success']
+    })
+  }
 
-    SetUser(user: any): void {
-      localStorage.setItem('user', JSON.stringify(user));
-    }
+  InfoMessage(msg: string): void {
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['info']
+    })
+  }
 
-    IsUserLoggedIn(): boolean {
-      const token = localStorage.getItem('Token');
-      return !!token;
-    }
- 
-    GetUser(): any {
-      const user = localStorage.getItem('user');
-      return user ? JSON.parse(user) : null;
-    }
-    
-  GetPosto(){
+  SetUser(user: any): void {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  IsUserLoggedIn(): boolean {
+    const token = localStorage.getItem('Token');
+    return !!token;
+  }
+
+  GetUser(): any {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  GetPosto() {
     const userToken = localStorage.getItem('Token');
+    console.log(userToken);
+
     const headers = new HttpHeaders({
       'Authorization': `${userToken}`
     });
-   return this.http.get(`${environment.baseUrl}/${environment.Posto}`, { headers })
+    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, { headers })
   }
 }

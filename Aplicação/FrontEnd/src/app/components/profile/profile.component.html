@@ -1,12 +1,14 @@
-<main class="main DF" *ngFor="let user of infoUser"> 
-    <div class="div">
+<main class="main DF">
+    <div class="div" *ngFor="let user of infoUser">
         <mat-card class="profile ">
-            <div class="name">
-                <mat-card-title>{{ user.Nome }}</mat-card-title>
-            </div>
-            <img class="img" src="../../../assets/img/user.png">
+            <div class="img" src="../../../assets/img/user.jpg"></div>
             <p>{{ user.Email }}</p>
             <p> {{ idade }} Anos </p>
         </mat-card>
     </div>
+
+    <mat-card class="infoUser">
+            
+    </mat-card>
+
 </main>

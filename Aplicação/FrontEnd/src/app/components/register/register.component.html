@@ -21,9 +21,7 @@
           <th mat-header-cell *matHeaderCellDef> Ações </th>
           <td mat-cell *matCellDef="let row">
             <div class="icons">
-              <a (click)="openSigUn()">
-                <mat-icon > add </mat-icon>
-              </a>
+
               <a class="edit" routerLink="/product/update/{{ row.id }}">
                 <mat-icon class="mat-18">
                   edit

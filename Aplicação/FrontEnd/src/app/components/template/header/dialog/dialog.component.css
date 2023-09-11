@@ -2,24 +2,30 @@ h1 {
     text-align: center;
 }
 
-div {
+.dialog {
+    display: grid;
     justify-content: center;
+    background-color: #F8F1FF;
     gap: 30px;
-    border-color: #02C39A;
-}
-
-.Yes {
-    width: 100px;
-    background-color: #02C39A;
 }
 
 .No {
+    width: 100px;
+    background-color: #1B998B;
+}
+
+.Yes {
     width: 95px;
     color:  #02C39A !important; 
     background-color: white;
 }
 
-.teste {
+.dialog {
     padding: 9px;
+    height: 200px;
     border-color: #02C39A;
+}
+
+.buttons {
+    margin-top: 40px;
 }

@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogComponent } from './dialog/dialog.component';
+import { AppService } from 'src/app/settings/Services/app.service';
 
 @Component({
   selector: 'app-header',
@@ -10,34 +11,29 @@ import { DialogComponent } from './dialog/dialog.component';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router, public dialog: MatDialog)
-    {
-      //this.teste = window.innerWidth < 660;
-     // this.isMenuOpen = false;
-    }
+  constructor(private router: Router, public dialog: MatDialog, private service: AppService) 
+  { 
+    this.User()    
+  }
 
-    dialogMessage = "Tem certeza que deseja sair?";
-    //screenWidth: number = window.innerWidth; 
-
-   // teste: boolean;
-    //isMenuOpen: boolean = false;
-
-    // @HostListener('window:resize', ['$event'])
-    // onResize(event: any) {
-    //   this.screenWidth = window.innerWidth;
-    // }
-
-    openLogoutDialog() {
-      const dialogRef = this.dialog.open(DialogComponent, {
-        width: '300px', 
-      });
+  user: any;
+  
+  openLogoutDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '300px',
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result === 'confirm'){
+      if (result === 'confirm') {
         localStorage.removeItem('Token');
         this.router.navigate(['']);
-        }
-    })};
+      }
+    })
+  };
+
+  User(){
+    this.user = this.service.GetUser();
+  }  
 }
 
 

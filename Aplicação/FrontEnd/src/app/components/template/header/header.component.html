@@ -1,47 +1,25 @@
 <mat-toolbar class="header DF">
   <div>
-    <img
-      class="logo"
-      src="../../../../assets/img/LogoMDP.png"
-      alt="Logo"
-      routerLink="application"
-    />
+    <img class="logo" src="../../../../assets/img/LogoMDP.png" alt="Logo" routerLink="application" />
     <h4><strong>_vacina</strong>Facil.</h4>
   </div>
+  <div class="end">
+    <div routerLink="profile" class="profile">
+      <img class="img v-middle" src="../../../assets/img/user.jpg">
+      <h3 class="name white"> {{ user[0].Nome }} </h3>
+    </div>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
 
-  <mat-menu #menu="matMenu">
-    <mat-nav-list>
-      <a mat-list-item class="DF" (click)="openLogoutDialog()">
-        <mat-icon class="exit v-middle"> exit_to_app </mat-icon>
-        <span>Sair</span>
-      </a> 
-      <a mat-list-item class="DF">
-          <mat-icon class="v-middle"> settings </mat-icon>
-          <span>Configurações</span>
-      </a>
-    </mat-nav-list>
-  </mat-menu>
+    <mat-menu #menu="matMenu">
+      <mat-nav-list>
+        <a mat-list-item class="DF" (click)="openLogoutDialog()">
+          <mat-icon class="exit v-middle"> exit_to_app </mat-icon>
+          <span>Sair</span>
+        </a>
+      </mat-nav-list>
+    </mat-menu>
+  </div>
 </mat-toolbar>
-
-<!-- <span>
-        <mat-icon class="menuIcon" *ngIf="screenWidth < 400" (click)="toggleMenu()" >menu</mat-icon>
-    </span> -->
-<!-- 
-<mat-sidenav-container class="content" *ngIf="isMenuOpen && screenWidth < 400">
-    <mat-sidenav class="sidenav" mode="side" (opened)="true">
-        <a routerLink="application" >
-            <mat-icon appWhite class="v-middle"> home </mat-icon>
-            <span class="white" >Inicio</span>            
-        </a>
-
-        <a (click)="SignOut()">
-            <mat-icon appWhite class="exit v-middle">  exit_to_app  </mat-icon>
-            <span class="white">Sair</span>
-        </a>
-    </mat-sidenav> 
-
-</mat-sidenav-container> -->
