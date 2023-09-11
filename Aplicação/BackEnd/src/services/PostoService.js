@@ -72,20 +72,33 @@ module.exports = {
     });
   },
 
-  consultar: () => {
+  consultar: (ID) => {
     let postos = null;
-
-    return new Promise((aceito, rejeitado) => {
-      db.query("SELECT * FROM Posto", (error, results) => {
-        if (error) {
-          console.log("Erro Cadastrar Posto" + error);
-          rejeitado(error);
-          return;
-        } else {
-          aceito(results);
-        }
+    if (id) {
+      return new Promise((aceito, rejeitado) => {
+        db.query("SELECT * FROM Posto WHERE id = ?",[ID],(error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        });
       });
-    });
+    } else {
+      return new Promise((aceito, rejeitado) => {
+        db.query("SELECT * FROM Posto", (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        });
+      });
+    }
   },
 
   deletar: (id) => {
@@ -178,5 +191,5 @@ module.exports = {
         }
       );
     });
-  }
+  },
 };

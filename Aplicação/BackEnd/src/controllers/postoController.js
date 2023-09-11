@@ -113,7 +113,9 @@ module.exports = {
   consultar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    await PostoService.consultar()
+    let ID = req.params.id;
+
+    await PostoService.consultar(ID)
       .then((resultado) => {
         json.result = {
           postos: resultado,

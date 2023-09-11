@@ -26,6 +26,8 @@ const PostoController = require("../controllers/postoController");
 //ROTAS POSTO
     // CADASTRAR POSTO
     router.post("/posto", authMiddleware, PostoController.cadastrar);
+    // CONSULTAR UM POSTO
+    router.get("/posto/:id", authMiddleware, PostoController.consultar);
     // CONSULTAR TODOS OS POSTOS
     router.get("/posto", authMiddleware, PostoController.consultar);
     // DELETAR POSTO
