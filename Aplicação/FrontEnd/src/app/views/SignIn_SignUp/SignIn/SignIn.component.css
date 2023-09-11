@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
+
 .header {
     width: 100%;
     gap: 30px
@@ -34,15 +36,15 @@
 }
 
 .login .title {
-    font-size: 35px;
-    font-weight: 500;
-    font-family: 'Open Sans';
-    margin-bottom: 70px;
+    font-size: 60px;
+    font-weight: 600;
+    font-family: 'dancing script';
+    margin-bottom: 50px;
 }
 
 .login p {
     font-family: 'Open Sans';
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color:#449DD1;
 }
