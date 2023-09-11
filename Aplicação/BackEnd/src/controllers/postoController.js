@@ -2,7 +2,6 @@ const PostoService = require("../services/PostoService.js");
 const jwtService = require("../utils/jwtService.js");
 
 module.exports = {
-
   alterar: async (req, res) => {
     let json = { error: "", result: {} };
 
@@ -10,9 +9,7 @@ module.exports = {
     const endereco = req.body.endereco;
     const telefone = req.body.telefone;
 
-    const postoPreenchido = 
-      posto.nome &&
-      posto.id;
+    const postoPreenchido = posto.nome && posto.id;
 
     const enderecoPreenchido =
       endereco.cep &&
@@ -113,9 +110,30 @@ module.exports = {
   consultar: async (req, res) => {
     let json = { error: "", result: {} };
 
+    await PostoService.consultar()
+      .then((resultado) => {
+        json.result = {
+          postos: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+
+    res.json(json);
+  },
+
+  consultarID: async (req, res) => {
+    let json = { error: "", result: {} };
+
     let ID = req.params.id;
 
-    await PostoService.consultar(ID)
+    await PostoService.consultarID(ID)
       .then((resultado) => {
         json.result = {
           postos: resultado,
@@ -145,7 +163,9 @@ module.exports = {
         console.log("-----POSTO DELETADO COM SUCESSO ! !-------");
       })
       .catch((error) => {
-        console.log("Erro na requisição para o Banco !  ROTA DELETE POSTO" + error);
+        console.log(
+          "Erro na requisição para o Banco !  ROTA DELETE POSTO" + error
+        );
         json.error = {
           msg: "Erro na requisição para o banco !",
           error: error.sqlMessage,

@@ -8,34 +8,25 @@ const UsuarioController = require("../controllers/usuarioController");
 const LoginController = require("../controllers/loginController");
 const PostoController = require("../controllers/postoController");
 
-
-
-
-
-
 // ROTAS USUARIO
-    // CADASTRAR USUARIO
-    router.post("/usuario", UsuarioController.cadastrar);
-
+// CADASTRAR USUARIO
+router.post("/usuario", UsuarioController.cadastrar);
 
 // ROTA LOGIN
-    // LOGAR
-    router.post("/login", LoginController.login);
-
+// LOGAR
+router.post("/login", LoginController.login);
 
 //ROTAS POSTO
-    // CADASTRAR POSTO
-    router.post("/posto", authMiddleware, PostoController.cadastrar);
-    // CONSULTAR UM POSTO
-    router.get("/posto/:id", authMiddleware, PostoController.consultar);
-    // CONSULTAR TODOS OS POSTOS
-    router.get("/posto", authMiddleware, PostoController.consultar);
-    // DELETAR POSTO
-    router.delete("/posto", authMiddleware, PostoController.deletar);
-    // EDITAR POSTO
-    router.patch("/posto", authMiddleware, PostoController.alterar);
-
-
+// CADASTRAR POSTO
+router.post("/posto", authMiddleware, PostoController.cadastrar);
+// CONSULTAR UM POSTO
+router.get("/posto/:id", authMiddleware, PostoController.consultarID);
+// CONSULTAR TODOS OS POSTOS
+router.get("/posto", authMiddleware, PostoController.consultar);
+// DELETAR POSTO
+router.delete("/posto", authMiddleware, PostoController.deletar);
+// EDITAR POSTO
+router.patch("/posto", authMiddleware, PostoController.alterar);
 
 // Rota protegida que requer autenticação
 router.get("/teste", authMiddleware, TesteController.teste);

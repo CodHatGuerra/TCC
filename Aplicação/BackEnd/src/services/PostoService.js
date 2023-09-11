@@ -72,11 +72,28 @@ module.exports = {
     });
   },
 
-  consultar: (ID) => {
+  consultar: () => {
     let postos = null;
-    if (id) {
+
+    return new Promise((aceito, rejeitado) => {
+      db.query("SELECT * FROM Posto", (error, results) => {
+        if (error) {
+          console.log("Erro Cadastrar Posto" + error);
+          rejeitado(error);
+          return;
+        } else {
+          aceito(results);
+        }
+      });
+    });
+  },
+
+  consultarID: (ID) => {
+    let postos = null;
+
+    if (ID) {
       return new Promise((aceito, rejeitado) => {
-        db.query("SELECT * FROM Posto WHERE id = ?",[ID],(error, results) => {
+        db.query("SELECT * FROM Posto WHERE id = ?", [ID], (error, results) => {
           if (error) {
             console.log("Erro Cadastrar Posto" + error);
             rejeitado(error);
