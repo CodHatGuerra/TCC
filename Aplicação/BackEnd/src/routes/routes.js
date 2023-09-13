@@ -7,14 +7,18 @@ const TesteController = require("../controllers/testeController");
 const UsuarioController = require("../controllers/usuarioController");
 const LoginController = require("../controllers/loginController");
 const PostoController = require("../controllers/postoController");
+const FuncionarioController = require("../controllers/FuncionarioController");
+
 
 // ROTAS USUARIO
 // CADASTRAR USUARIO
 router.post("/usuario", UsuarioController.cadastrar);
 
+
 // ROTA LOGIN
 // LOGAR
 router.post("/login", LoginController.login);
+
 
 //ROTAS POSTO
 // CADASTRAR POSTO
@@ -27,6 +31,13 @@ router.get("/posto", authMiddleware, PostoController.consultar);
 router.delete("/posto", authMiddleware, PostoController.deletar);
 // EDITAR POSTO
 router.patch("/posto", authMiddleware, PostoController.alterar);
+
+
+//ROTAS FUNCIONARIO
+router.post("/funcionario", FuncionarioController.cadastrar);
+
+
+
 
 // Rota protegida que requer autenticação
 router.get("/teste", authMiddleware, TesteController.teste);

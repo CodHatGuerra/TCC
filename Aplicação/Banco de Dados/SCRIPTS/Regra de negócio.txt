@@ -1,3 +1,0 @@
-VACINAS
--Tem que ser unique, pois o funcionário não pode cadatrar vacinas iguais. Ele irá cadastrar as doses daquela vacina.
--não deve cadastrar a mesma dose.
