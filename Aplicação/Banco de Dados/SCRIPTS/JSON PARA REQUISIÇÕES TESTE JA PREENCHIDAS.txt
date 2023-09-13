@@ -32,7 +32,7 @@ POST : http://localhost:8080/api/usuario
 
 *---------------------LOGIN-------------------------------------------------------------*
 LOGAR
-POST : http://localhost:8080/api/login
+POST : 	
 
 {
   "cpf": 12445671911,
@@ -63,5 +63,6 @@ POST : http://localhost:8080/api/posto
 }
 *---------------------------------------------------------------------------------------*
 OBTER
-GET : http://localhost:8080/api/posto
+GET ALL : http://localhost:8080/api/posto]
+GET BY ID : http://localhost:8080/api/posto/1
 *----------------------------------------------------------------------------------------*
