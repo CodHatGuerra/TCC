@@ -73,27 +73,26 @@ module.exports = {
   },
 
   consultar: () => {
-    let postos = null;
+    let postos = [];
 
     return new Promise((aceito, rejeitado) => {
-      db.query("SELECT * FROM Posto", (error, results) => {
-        if (error) {
-          console.log("Erro Cadastrar Posto" + error);
-          rejeitado(error);
-          return;
-        } else {
-          aceito(results);
-        }
-      });
-    });
-  },
-
-  consultarID: (ID) => {
-    let postos = null;
-
-    if (ID) {
-      return new Promise((aceito, rejeitado) => {
-        db.query("SELECT * FROM Posto WHERE id = ?", [ID], (error, results) => {
+      db.query(
+        `
+          SELECT
+            P.ID AS Posto_ID,
+            P.Nome AS Nome_do_Posto,
+            E.Cep,
+            E.Uf,
+            E.Localidade,
+            E.Bairro,
+            E.Logradouro,
+            E.Numero
+          FROM
+            Posto AS P
+          LEFT JOIN
+            Endereco AS E ON P.ID = E.Posto_ID;
+        `
+        , (error, results) => {
           if (error) {
             console.log("Erro Cadastrar Posto" + error);
             rejeitado(error);
@@ -102,6 +101,41 @@ module.exports = {
             aceito(results);
           }
         });
+    });
+  },
+
+  consultarID: (ID) => {
+    let postos = null;
+
+    if (ID) {
+      return new Promise((aceito, rejeitado) => {
+        db.query(
+          `
+            SELECT
+              P.ID AS Posto_ID,
+              P.Nome AS Nome_do_Posto,
+              E.Cep,
+              E.Uf,
+              E.Localidade,
+              E.Bairro,
+              E.Logradouro,
+              E.Numero
+            FROM
+              Posto AS P
+            LEFT JOIN
+              Endereco AS E ON P.ID = E.Posto_ID
+            WHERE
+              P.ID = ?;
+          `
+          , [ID], (error, results) => {
+            if (error) {
+              console.log("Erro Cadastrar Posto" + error);
+              rejeitado(error);
+              return;
+            } else {
+              aceito(results);
+            }
+          });
       });
     } else {
       return new Promise((aceito, rejeitado) => {
