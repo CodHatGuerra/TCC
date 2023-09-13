@@ -1,5 +1,4 @@
 const UsuarioService = require("../services/UsuarioService.js");
-const jwtService = require("../utils/jwtService.js");
 
 module.exports = {
   cadastrar: async (req, res) => {
@@ -40,7 +39,6 @@ module.exports = {
             sexo: usuario.sexo,
             email: usuario.email,
             data_Criada: usuario.data_Criada,
-            token: jwtService.gerarToken(usuario.nome, usuario.cpf),
           };
           console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
           console.log("ID : " + resultado);

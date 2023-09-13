@@ -16,7 +16,7 @@ module.exports = {
         autenticado: usuarioResposta.autenticado,
         token: jwtService.gerarToken({
           id: usuarioResposta.insertId,
-          email: usuarioResposta.Email,
+          cpf: usuarioResposta.Cpf,
         }),
       };
 
