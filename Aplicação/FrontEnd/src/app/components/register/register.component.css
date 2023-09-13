@@ -10,13 +10,11 @@ mat-card {
     margin-top: 30px;
     margin-left: 5vw;
     margin-bottom: 50px;
-
 }
 
 .table-posto {
     height: auto;
 }
-
 
 .icons {
     display: flex;

@@ -2,6 +2,19 @@
     <div class="div">
         <mat-card class="vaccine">
             <mat-card-title class="title"> Minhas vacinas </mat-card-title>
+            <div class="age">
+                <div class="DIV">
+                    <img class="baby" src="../../../assets/img/baby.png">
+                </div>
+                <div class="DIV">
+                    <img class="teenager" src="../../../assets/img/teenager.png">
+                </div>
+                <div class="DIV">
+                    <img src="../../../assets/img/adult.png">
+                </div>
+                <div class="DIV"></div>
+                <div class="DIV"></div>
+            </div>
             <table mat-table class="table" [dataSource]="vaccines">
                 <tr mat-header-row *matHeaderRowDef="columns"></tr>
                 <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>

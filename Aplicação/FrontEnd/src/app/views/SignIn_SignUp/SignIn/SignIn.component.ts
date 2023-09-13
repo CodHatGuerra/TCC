@@ -38,7 +38,7 @@ form: FormGroup;
        if(response.result.autenticado == true) {
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
-          this.router.navigate(['adm']);
+          this.router.navigate(['adm', 'application']);
           this.appService.Message('Bem vindo!')
         } else {
           this.appService.AlertMessage('Usuário não encontrado.')
