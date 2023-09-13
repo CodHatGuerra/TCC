@@ -40,11 +40,13 @@
   align-items: center;
   border-radius: 100%;
   border: 1px solid #449dd1;
+  margin-bottom: 7px;
 }
 
 .DIV > img {
   width: 50px;
   height: 50px;
+  display: grid;
 }
 
 mat-card {
