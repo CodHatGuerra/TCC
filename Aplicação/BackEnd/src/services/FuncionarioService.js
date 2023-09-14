@@ -1,241 +1,185 @@
 const db = require("../db");
 
 module.exports = {
-    alterar: (posto, endereco, telefone) => {
-        let ID_Endereco = null;
-        let Posto_ID = null;
-
-        return new Promise((aceito, rejeitado) => {
-            db.query(
-                "INSERT INTO Posto (Nome) VALUES (?)",
-                [posto.nome],
-                (error, results) => {
-                    if (error) {
-                        console.log("Erro Cadastrar Posto" + error);
-                        rejeitado(error);
-                        return;
-                    } else {
-                        Posto_ID = results.insertId;
-
-                        new Promise((resolve, reject) => {
-                            db.query(
-                                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Posto_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                                [
-                                    endereco.cep,
-                                    endereco.uf,
-                                    endereco.localidade,
-                                    endereco.bairro,
-                                    endereco.logradouro,
-                                    endereco.numero,
-                                    Posto_ID,
-                                ],
-                                (error, result) => {
-                                    if (error) {
-                                        console.log("ERRO ENDEREÇO");
-                                        console.log(error);
-                                        reject(error);
-                                    } else {
-                                        ID_Endereco = result.insertId;
-                                        console.log(
-                                            "Execução com sucesso do insert Endereco: " + ID_Endereco
-                                        );
-                                        resolve();
-                                    }
-                                }
-                            );
-                        })
-                            .then(() => {
-                                return new Promise((resolve, reject) => {
-                                    db.query(
-                                        "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
-                                        [telefone.numero, Posto_ID],
-                                        (error) => {
-                                            if (error) {
-                                                console.log("ERRO NUMERO");
-                                                console.log(error);
-                                                reject(error);
-                                            } else {
-                                                resolve();
-                                            }
-                                        }
-                                    );
-                                });
-                            })
-                            .then(() => aceito(Posto_ID))
-                            .catch((error) => {
-                                console.log(error);
-                                rejeitado(error);
-                            });
-                    }
-                }
-            );
-        });
-    },
-
-    consultar: () => {
-        let postos = [];
-
-        return new Promise((aceito, rejeitado) => {
-            db.query(
-                `
-          SELECT
-            P.ID AS Posto_ID,
-            P.Nome AS Nome_do_Posto,
-            E.Cep,
-            E.Uf,
-            E.Localidade,
-            E.Bairro,
-            E.Logradouro,
-            E.Numero
-          FROM
-            Posto AS P
-          LEFT JOIN
-            Endereco AS E ON P.ID = E.Posto_ID;
+  alterar: (funcionario) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
         `
-                , (error, results) => {
-                    if (error) {
-                        console.log("Erro Cadastrar Posto" + error);
-                        rejeitado(error);
-                        return;
-                    } else {
-                        aceito(results);
-                    }
-                });
-        });
-    },
-
-    consultarID: (ID) => {
-        let postos = null;
-
-        if (ID) {
-            return new Promise((aceito, rejeitado) => {
-                db.query(
-                    `
-            SELECT
-              P.ID AS Posto_ID,
-              P.Nome AS Nome_do_Posto,
-              E.Cep,
-              E.Uf,
-              E.Localidade,
-              E.Bairro,
-              E.Logradouro,
-              E.Numero
-            FROM
-              Posto AS P
-            LEFT JOIN
-              Endereco AS E ON P.ID = E.Posto_ID
-            WHERE
-              P.ID = ?;
-          `
-                    , [ID], (error, results) => {
-                        if (error) {
-                            console.log("Erro Cadastrar Posto" + error);
-                            rejeitado(error);
-                            return;
-                        } else {
-                            aceito(results);
-                        }
-                    });
-            });
-        } else {
-            return new Promise((aceito, rejeitado) => {
-                db.query("SELECT * FROM Posto", (error, results) => {
-                    if (error) {
-                        console.log("Erro Cadastrar Posto" + error);
-                        rejeitado(error);
-                        return;
-                    } else {
-                        aceito(results);
-                    }
-                });
-            });
+        UPDATE
+          Funcionario_tem_Posto
+        SET
+          Posto_ID = ?
+        WHERE
+          Funcionario_ID = ?;
+        `,
+        [funcionario.Posto_ID, funcionario.Usuario_ID],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Alterar Cadastro Funcionario" + error);
+            rejeitado(error);
+            return;
+          } else {
+            console.log("Cadastro Alterado com Sucesso !");
+            aceito();
+          }
         }
-    },
+      );
+    });
+  },
 
-    deletar: (id) => {
-        return new Promise((aceito, rejeitado) => {
-            db.query(
-                "INSERT INTO Posto (Nome) VALUES (?)",
-                [posto.nome],
-                (error, results) => {
-                    if (error) {
-                        console.log("Erro Cadastrar Posto" + error);
-                        rejeitado(error);
-                        return;
-                    } else {
-                        Posto_ID = results.insertId;
-                    }
+  consultar: (ID) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        `
+        SELECT 
+          F.ID AS Funcionario_ID, U.Nome AS Nome_Funcionario, F.Cargo
+        FROM 
+          Funcionario AS F
+        INNER JOIN 
+          Usuario AS U 
+        ON 
+          F.Usuario_ID = U.ID
+        INNER JOIN 
+          Funcionario_tem_Posto 
+        AS FP ON
+           F.ID = FP.Funcionario_ID
+        INNER JOIN 
+          Posto AS P ON FP.Posto_ID = P.ID
+        WHERE P.ID = ?;
+        `,
+        [ID],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        }
+      );
+    });
+  },
+  consultarID: (CPF) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        `
+          SELECT 
+            U.Nome AS Nome_Funcionario, F.ID AS Funcionario_ID, F.Cargo, P.Nome AS Nome_Posto, P.ID AS Posto_ID
+          FROM 
+            Funcionario AS F
+          INNER JOIN 
+            Usuario AS U ON F.Usuario_ID = U.ID
+          INNER JOIN 
+            Funcionario_tem_Posto AS FP ON F.ID = FP.Funcionario_ID
+          INNER JOIN 
+            Posto AS P ON FP.Posto_ID = P.ID
+          WHERE 
+            U.Cpf = ?;
+          `,
+        [CPF],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        }
+      );
+    });
+  },
+
+  deletar: (ID) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        `
+        DELETE FROM
+          Funcionario_tem_Posto
+        WHERE
+         Funcionario_ID = ?;
+        `,
+        [ID],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Ao Deletar Funcionario " + error);
+            rejeitado(error);
+            return;
+          } else {
+            new Promise((resolve, reject) => {
+              db.query(
+                `
+                DELETE FROM 
+                  Funcionario
+                WHERE
+                 ID = ?;
+                `,
+                [ID],
+                (error) => {
+                  if (error) {
+                    console.log(
+                      "Erro ao deletar da tabela Funcionario_tem_Posto INEXISTENTE"
+                    );
+                    console.log(error);
+                    reject(error);
+                  } else {
+                    resolve(results);
+                  }
                 }
-            ).catch((error) => {
+              );
+            })
+              .then(() => aceito())
+              .catch((error) => {
                 console.log(error);
                 rejeitado(error);
-            });
-        });
-    },
+              });
+          }
+        }
+      );
+    });
+  },
 
-    inserir: (funcionario) => {
-        let ID_Funcionario = null;
+  inserir: (funcionario) => {
+    let ID_Funcionario = null;
 
-        return new Promise((aceito, rejeitado) => {
-            db.query(
-                "INSERT INTO Posto (Nome) VALUES (?)",
-                [posto.nome],
-                (error, results) => {
-                    if (error) {
-                        console.log("Erro Cadastrar Posto" + error);
-                        rejeitado(error);
-                        return;
-                    } else {
-                        Posto_ID = results.insertId;
-
-                        new Promise((resolve, reject) => {
-                            db.query(
-                                "INSERT INTO Funcionario(Data_Inicio, Usuario_ID, Cargo) VALUES (?, ?, ?)",
-                                [
-                                    funcionario.Data_Inicio,
-                                    funcionario.Usuario_ID,
-                                    funcionario.Cargo,
-                                ],
-                                (error, result) => {
-                                    if (error) {
-                                        console.log("ERRO INFORMAÇÕES FUNCIONARIO");
-                                        console.log(error);
-                                        reject(error);
-                                    } else {
-                                        ID_Funcionario = result.insertId;
-                                        console.log(
-                                            "Execução com sucesso do insert Funcionario: " + ID_Funcionario
-                                        );
-                                        resolve();
-                                    }
-                                }
-                            );
-                        })
-                            .then(() => {
-                                return new Promise((resolve, reject) => {
-                                    db.query(
-                                        "INSERT INTO Funcionario_tem_Posto (Funcionario_ID, Posto_ID) VALUES (?, ?)",
-                                        [ID_Funcionario, funcionario.Posto_ID],
-                                        (error) => {
-                                            if (error) {
-                                                console.log("ID DO POSTO INEXISTENTE");
-                                                console.log(error);
-                                                reject(error);
-                                            } else {
-                                                resolve();
-                                            }
-                                        }
-                                    );
-                                });
-                            })
-                            .then(() => aceito())
-                            .catch((error) => {
-                                console.log(error);
-                                rejeitado(error);
-                            });
-                    }
-                }
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        "INSERT INTO Funcionario(Data_Inicio, Usuario_ID, Cargo) VALUES (?, ?, ?)",
+        [funcionario.Data_Inicio, funcionario.Usuario_ID, funcionario.Cargo],
+        (error, result) => {
+          if (error) {
+            console.log("ERRO INFORMAÇÕES FUNCIONARIO");
+            console.log(error);
+            rejeitado(error);
+          } else {
+            ID_Funcionario = result.insertId;
+            console.log(
+              "Execução com sucesso do insert Funcionario: " + ID_Funcionario
             );
-        });
-    },
+            new Promise((resolve, reject) => {
+              db.query(
+                "INSERT INTO Funcionario_tem_Posto (Funcionario_ID, Posto_ID) VALUES (?, ?)",
+                [ID_Funcionario, funcionario.Posto_ID],
+                (error) => {
+                  if (error) {
+                    console.log("ID DO POSTO INEXISTENTE");
+                    console.log(error);
+                    reject(error);
+                  } else {
+                    resolve();
+                  }
+                }
+              );
+            })
+              .then(() => aceito())
+              .catch((error) => {
+                console.log(error);
+                rejeitado(error);
+              });
+          }
+        }
+      );
+    });
+  },
 };

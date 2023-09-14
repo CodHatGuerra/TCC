@@ -80,3 +80,41 @@ CADASTRAR : POST  http://localhost:8080/api/funcionario
     "Cargo" : "ATENDENTE"
   }
 }
+
+
+
+CONSULTAR FUNCIONARIOS POR ID DO POSTO : GET http://localhost:8080/api/funcionario/1
+RESPOSTA DO JSON: 
+
+{
+  "error": "",
+  "result": {
+    "postos": [
+      {
+        "Funcionario_ID": 2,
+        "Nome_Funcionario": "João Silva teste2",
+        "Cargo": "ATENDENTE"
+      }
+    ]
+  }
+}
+
+CONSULTAR FUNCIONARIO PELO CPF DO FUNCIONARIO : GET http://localhost:8080/api/funcionario/cpf/12445671911
+
+RESPOSTA DO JSON
+{
+  "error": "",
+  "result": {
+    "funcionario": [
+      {
+        "Nome_Funcionario": "João Silva teste2",
+        "Funcionario_ID": 1,
+        "Cargo": "ATENDENTE",
+        "Nome_Posto": "Posto 1",
+        "Posto_ID": 1
+      }
+    ]
+  }
+}
+
+DELETAR FUNCIONARIO PELO ID DO FUNCIONARIO : http://localhost:8080/api/funcionario/4

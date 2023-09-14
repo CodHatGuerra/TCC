@@ -34,10 +34,20 @@ router.patch("/posto", authMiddleware, PostoController.alterar);
 
 
 //ROTAS FUNCIONARIO
+//CADASTRAR FUNCIONARIO
 router.post("/funcionario", FuncionarioController.cadastrar);
 
+//ALTERAR FUNCIONARIO
+router.patch("/funcionario", FuncionarioController.alterar);
 
+// CONSULTAR TODOS FUNCIONARIO DE UM POSTO
+router.get("/funcionario/:id", FuncionarioController.consultar);
 
+// CONSULTAR UM FUNCIONARIO PELO CPF
+router.get("/funcionario/cpf/:cpf", FuncionarioController.consultarID);
+
+// DELETAR FUNCIONARIO PELO ID
+router.delete("/funcionario/:id", FuncionarioController.deletar);
 
 // Rota protegida que requer autenticação
 router.get("/teste", authMiddleware, TesteController.teste);
