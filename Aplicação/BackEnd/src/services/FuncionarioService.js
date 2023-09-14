@@ -214,11 +214,11 @@ module.exports = {
                             .then(() => {
                                 return new Promise((resolve, reject) => {
                                     db.query(
-                                        "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
-                                        [telefone.numero, Posto_ID],
+                                        "INSERT INTO Funcionario_tem_Posto (Funcionario_ID, Posto_ID) VALUES (?, ?)",
+                                        [ID_Funcionario, funcionario.Posto_ID],
                                         (error) => {
                                             if (error) {
-                                                console.log("ERRO NUMERO");
+                                                console.log("ID DO POSTO INEXISTENTE");
                                                 console.log(error);
                                                 reject(error);
                                             } else {
@@ -228,7 +228,7 @@ module.exports = {
                                     );
                                 });
                             })
-                            .then(() => aceito(Posto_ID))
+                            .then(() => aceito())
                             .catch((error) => {
                                 console.log(error);
                                 rejeitado(error);

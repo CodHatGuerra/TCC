@@ -1,4 +1,4 @@
-const PostoService = require("../services/PostoService.js");
+const FuncionarioService = require("../services/FuncionarioService.js");
 
 module.exports = {
   alterar: async (req, res) => {
@@ -56,7 +56,7 @@ module.exports = {
   cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    const funcionario = req.body.funcionario;
+    const funcionario = req.body.Funcionario;
 
     const funcionarioPreenchido =
     funcionario.Data_Inicio &&
@@ -68,11 +68,11 @@ module.exports = {
       await FuncionarioService.inserir(funcionario)
         .then(() => {
           json.result = {
-            msg: "Cadastrado com Sucesso !",
+            msg: "Funcionario Cadastrado com Sucesso !",
           };
           console.log("-----Funcionario REGISTRADO COM SUCESSO !-------");
           console.log("ID FUNCIONARIO : " + funcionario.usuario_Id);
-          console.log("ID POSTO : " + posto_Id);
+          console.log("ID POSTO : " + Posto_ID);
           console.log("------------------------------------------------");
         })
         .catch((error) => {
@@ -90,7 +90,7 @@ module.exports = {
   consultar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    await PostoService.consultar()
+    await FuncionarioService.consultar()
       .then((resultado) => {
         json.result = {
           postos: resultado,
