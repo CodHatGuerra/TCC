@@ -90,7 +90,7 @@ export class PostoCreateComponent {
       'Authorization': `${userToken}`
     });
 
-    if (this.isObjectEmpty(formData)) {
+    if (this.formData.in)) {
       this.appService.AlertMessage("Formulário incompleto")
     } else {
         this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData, { headers }).subscribe(
