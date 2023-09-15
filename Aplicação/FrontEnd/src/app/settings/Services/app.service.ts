@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environments';
 export class AppService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
+  userToken = localStorage.getItem('Token');
+
   userInfo: any;
 
   AlertMessage(msg: string): void {
@@ -62,13 +64,19 @@ export class AppService {
     return user ? JSON.parse(user) : null;
   }
 
-  GetPosto() {
+  GetPosto(): any {
+    const headers = new HttpHeaders({
+      'Authorization': `${this.userToken}`
+    });
+    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, {  headers })
+  }
+  
+  GetByIdPosto(id: number) {
     const userToken = localStorage.getItem('Token');
-    console.log(userToken);
 
     const headers = new HttpHeaders({
       'Authorization': `${userToken}`
     });
-    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, { headers })
+    return this.http.get(`${environment.baseUrl}/${environment.Posto}/${id}`, {  headers })
   }
 }

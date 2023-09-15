@@ -2,6 +2,7 @@ import { AppService } from "src/app/settings/Services/app.service";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { PostoCreateComponent } from "./posto-create/posto-create.component";
+import { PostoDeleteComponent } from "./posto-delete/posto-delete.component";
 
 @Component({
   selector: "app-register",
@@ -21,6 +22,11 @@ export class RegisterComponent implements OnInit {
     form.afterClosed();
   }
 
+  openSigOutDelete(): void {
+    const form = this.dialog.open(PostoDeleteComponent);
+    form.afterClosed();
+  }
+
   GetPostos() {
     this.appService.GetPosto().subscribe((response: any) => {
       this.dataSource = response.result.postos;
@@ -28,5 +34,5 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  columnEmployee: string[] = ["name", "city", "actions"];
+  columnEmployee: string[] = ["name", "city", "rua", "actions"];
 }

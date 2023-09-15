@@ -16,6 +16,11 @@ mat-card {
     height: auto;
 }
 
+.cadastrar {
+    width: 50px;
+    height: 30px;
+}
+
 .icons {
     display: flex;
     gap: 10px;

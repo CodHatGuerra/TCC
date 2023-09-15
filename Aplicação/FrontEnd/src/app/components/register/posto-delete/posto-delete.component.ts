@@ -11,16 +11,18 @@ export class PostoDeleteComponent{
   constructor(private service: AppService, private router: Router, private route: ActivatedRoute) { }
 
   posto: any;
+  postoSingle: any;
 
-  // ngOnInit(): void {
-  //   const id = Number(this.route.snapshot.paramMap.get("id"));
-  //   if (id) {
-  //     this.service.readId(id).subscribe((product) => {
-  //       this.product = product
-  //     })
-  //   }
-    GetPosto(){
-      this.posto = this.service.GetPosto();
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get("id"));
+    if (id) {
+      this.service.GetByIdPosto(id).subscribe((posto) => {
+        this.postoSingle = posto;
+      })
     }
-  
+  }
+
+  GetPosto() {
+    return this.posto = this.service.GetPosto();
+  }
 }
