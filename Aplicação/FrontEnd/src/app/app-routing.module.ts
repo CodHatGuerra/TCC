@@ -69,7 +69,7 @@ const routes: Routes = [
             component: PostoCreateComponent,
           },
           {
-            path: 'posto/delete/:id',
+            path: "posto/delete/:id",
             component: PostoDeleteComponent
           }
         ]

@@ -11,12 +11,16 @@ export class AppService {
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   userToken = localStorage.getItem('Token');
+  httpHeaders = new HttpHeaders({
+    'Authorization': `${this.userToken}`
+  })
 
   userInfo: any;
+  singlePosto: any;
 
   AlertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
-      duration: 3000,
+      duration: 3500,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ['error']
@@ -25,7 +29,7 @@ export class AppService {
 
   Message(msg: string): void {
     this.snackBar.open(msg, 'X', {
-      duration: 1000,
+      duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ['common']
@@ -34,7 +38,7 @@ export class AppService {
 
   SuccessMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
-      duration: 3000,
+      duration: 4000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ['success']
@@ -65,18 +69,18 @@ export class AppService {
   }
 
   GetPosto(): any {
-    const headers = new HttpHeaders({
-      'Authorization': `${this.userToken}`
-    });
-    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, {  headers })
+    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, {  headers: this.httpHeaders })
   }
   
-  GetByIdPosto(id: number) {
-    const userToken = localStorage.getItem('Token');
-
-    const headers = new HttpHeaders({
-      'Authorization': `${userToken}`
-    });
-    return this.http.get(`${environment.baseUrl}/${environment.Posto}/${id}`, {  headers })
+  GetSinglePosto(): number {
+    return this.singlePosto;
   }
+
+  GetByIdPosto(id: number) {
+   this.http.get(`${environment.baseUrl}/${environment.Posto}/${id}`, { headers: this.httpHeaders }).subscribe(()=>{
+
+   })
+    return this.singlePosto;
+  }
+
 }
