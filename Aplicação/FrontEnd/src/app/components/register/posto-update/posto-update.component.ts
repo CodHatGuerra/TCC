@@ -1,4 +1,3 @@
-import { Posto } from './../../interfaces';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/Services/app.service';
@@ -14,7 +13,13 @@ export class PostoUpdateComponent implements OnInit {
   }
   result: any = {};
 
-  postoUpdate = {
+  postoUpdate : any = {}
+
+  ngOnInit(): void {
+    const id = this.service.GetIdPosto();
+    this.service.GetByIdPosto(id).subscribe((response) => {
+      
+  this.postoUpdate = {  
     id: this.result.result[0].Posto_ID,
     posto: {
       nome: this.result.postos[0].Nome_do_Posto
@@ -31,9 +36,6 @@ export class PostoUpdateComponent implements OnInit {
       numero: 9
     }
   }
-  ngOnInit(): void {
-    const id = this.service.GetIdPosto();
-    this.service.GetByIdPosto(id).subscribe((response) => {
       console.log(response);
       this.result = response.result;
     });

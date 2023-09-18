@@ -152,9 +152,9 @@ module.exports = {
   deletar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    const id = req.body.posto.id;
+    const id = req.params.id;
 
-    await PostoService.deletar()
+    await PostoService.deletar(id)
       .then((resultado) => {
         json.result = {
           postos: resultado,

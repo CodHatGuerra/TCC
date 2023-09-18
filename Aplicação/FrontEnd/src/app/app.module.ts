@@ -44,6 +44,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { CreatePasswordComponent } from './views/create-password/create-password.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { MatMenuModule } from '@angular/material/menu';
     DialogComponent,
     PostoCreateComponent,
     PostoDeleteComponent,
-    PostoUpdateComponent
+    PostoUpdateComponent,
+    CreatePasswordComponent
   ],
   imports: [
     BrowserModule,

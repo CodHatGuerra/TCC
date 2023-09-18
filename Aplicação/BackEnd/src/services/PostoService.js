@@ -155,18 +155,54 @@ module.exports = {
   deletar: (id) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Posto (Nome) VALUES (?)",
-        [posto.nome],
+        "DELETE FROM Endereco WHERE Posto_ID = ?",
+        [id],
         (error, results) => {
           if (error) {
-            console.log("Erro Cadastrar Posto" + error);
+            console.log("Erro DELETAR Endereco" + error);
             rejeitado(error);
             return;
           } else {
             Posto_ID = results.insertId;
           }
         }
-      ).catch((error) => {
+      )
+      .then(() => {
+        return new Promise((resolve, reject) => {
+          db.query(
+            "DELETE FROM Telefone WHERE Posto_ID = ?",
+            [id],
+            (error) => {
+              if (error) {
+                console.log("ERRO DELETAR Telefone");
+                console.log(error);
+                reject(error);
+              } else {
+                resolve();
+              }
+            }
+          );
+        });
+      })
+      .then(() => {
+        return new Promise((resolve, reject) => {
+          db.query(
+            "DELETE FROM Posto WHERE ID = ?",
+            [id],
+            (error) => {
+              if (error) {
+                console.log("ERRO AO DELETAR POSTO");
+                console.log(error);
+                reject(error);
+              } else {
+                resolve();
+              }
+            }
+          );
+        });
+      })
+      .then(() => aceito(Posto_ID))
+      .catch((error) => {
         console.log(error);
         rejeitado(error);
       });

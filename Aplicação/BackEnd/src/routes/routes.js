@@ -28,7 +28,7 @@ router.get("/posto/:id", authMiddleware, PostoController.consultarID);
 // CONSULTAR TODOS OS POSTOS
 router.get("/posto", authMiddleware, PostoController.consultar);
 // DELETAR POSTO
-router.delete("/posto", authMiddleware, PostoController.deletar);
+router.delete("/posto/:id", authMiddleware, PostoController.deletar);
 // EDITAR POSTO
 router.patch("/posto", authMiddleware, PostoController.alterar);
 
