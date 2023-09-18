@@ -1,8 +1,9 @@
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environments';
+import { Posto } from 'src/app/components/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,9 @@ export class AppService {
     'Authorization': `${this.userToken}`
   })
 
+  //variáveis
+  id_Posto: any;
   userInfo: any;
-  singlePosto: any;
 
   AlertMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
@@ -68,19 +70,33 @@ export class AppService {
     return user ? JSON.parse(user) : null;
   }
 
+  SetIdPosto(id: number){
+    this.id_Posto = id;
+  }
+
+  GetIdPosto(): number{
+    return this.id_Posto;
+  }
+
+  //retorna todos os postos
   GetPosto(): any {
-    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, {  headers: this.httpHeaders })
-  }
-  
-  GetSinglePosto(): number {
-    return this.singlePosto;
+    return this.http.get(`${environment.baseUrl}/${environment.Posto}`,
+     { headers: this.httpHeaders })
   }
 
-  GetByIdPosto(id: number) {
-   this.http.get(`${environment.baseUrl}/${environment.Posto}/${id}`, { headers: this.httpHeaders }).subscribe(()=>{
-
-   })
-    return this.singlePosto;
+  DeletePosto(id: number): Observable<any>{    
+    return this.http.delete<any>(`${environment.baseUrl}/${environment.Posto}/${id}`, 
+    { headers: this.httpHeaders })
   }
 
-}
+  //faz a requisição para retornar um posto
+  GetByIdPosto(id: number): Observable<any>{
+    const url = `http://localhost:8080/api/posto/${id}`;
+    return this.http.get<any>(url, { headers: this.httpHeaders })
+  }
+
+  UpdatePosto(posto: any): Observable<Posto>{
+    return this.http.put<Posto>(`${environment.baseUrl}/${environment.Posto}/${posto.id}`, 
+    posto , { headers: this.httpHeaders } )
+  }
+} 

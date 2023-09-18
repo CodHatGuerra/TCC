@@ -1,5 +1,5 @@
 <main class="main DF">
-    <div class="div">
+    <div class="div DG">
         <mat-card class="vaccine">
             <mat-card-title class="title"> Minhas vacinas </mat-card-title>
             <div class="age">
@@ -21,6 +21,9 @@
                     </div>
                     <p>Adulto</p>
                 </div>
+            </div>
+            <div class="DF addV">
+                <button mat-button class="addVaccines"><mat-icon>add</mat-icon>Vacinas</button>
             </div>
             <table mat-table class="table" [dataSource]="vaccines">
                 <tr mat-header-row *matHeaderRowDef="columns"></tr>

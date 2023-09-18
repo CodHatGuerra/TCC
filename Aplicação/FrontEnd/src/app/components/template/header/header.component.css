@@ -32,8 +32,10 @@ mat-icon {
     display: flex;
 }
 
-.header > strong {
-    font-weight: 600;
+h4 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'dancing script' !important;
 }
 
 p {

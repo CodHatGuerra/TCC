@@ -8,6 +8,7 @@ mat-card {
     width: 100%;
     gap: 40px;
     margin-top: 30px;
+    grid-template-columns: 1fr 1fr;
     margin-left: 5vw;
     margin-bottom: 50px;
 }
@@ -16,9 +17,20 @@ mat-card {
     height: auto;
 }
 
-.cadastrar {
-    width: 50px;
-    height: 30px;
+.registerPosto {
+    width: 180px;
+    height: 40px;
+    background-color: #78C0E0;
+    margin-bottom: 50px;
+    color: #FFF !important;
+}
+
+.registerEmployees {
+    width: 250px;
+    height: 40px;
+    background-color: #78C0E0;
+    margin-bottom: 50px;
+    color: #FFF !important;
 }
 
 .icons {

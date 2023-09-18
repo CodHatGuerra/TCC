@@ -4,6 +4,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { PostoCreateComponent } from "./posto-create/posto-create.component";
 import { PostoDeleteComponent } from "./posto-delete/posto-delete.component";
 import { ActivatedRoute, Router } from "@angular/router";
+import { PostoUpdateComponent } from "./posto-update/posto-update.component";
 
 @Component({
   selector: "app-register",
@@ -15,24 +16,28 @@ export class RegisterComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private service: AppService,
-    private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.GetPostos();
   }
-
+  
   openSigUn(): void {
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed();
   }
 
-  openSigOutDelete(): void {
-    const id = Number(this.route.snapshot.paramMap.get("id"));
-    this.service.GetByIdPosto(id)
-    this.router.navigate(['adm/register/posto/delete', id]);
+  openSigOutDelete(id: number) {
+    this.service.SetIdPosto(id);
+    this.router.navigate(['adm', 'register', 'posto', 'delete', id]);
     this.dialog.open(PostoDeleteComponent);
+  }
+
+  openUpdatePosto(id: number){
+    this.service.SetIdPosto(id);
+    this.router.navigate(['adm', 'register', 'posto', 'update', id]);
+    this.dialog.open(PostoUpdateComponent);
   }
 
   GetPostos() {
@@ -40,6 +45,5 @@ export class RegisterComponent implements OnInit {
       this.dataSource = response.result.postos;
     });
   }
-
   columnEmployee: string[] = ["name", "city", "rua", "actions"];
 }

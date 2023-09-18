@@ -11,6 +11,7 @@ import { AdmComponent } from './views/Adm/Adm.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { PostoDeleteComponent } from './components/register/posto-delete/posto-delete.component';
 import { PostoCreateComponent } from './components/register/posto-create/posto-create.component';
+import { PostoUpdateComponent } from './components/register/posto-update/posto-update.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
           {
             path: 'postos',
             component: PostoCreateComponent,
+          },
+          {
+            path: "posto/update/:id",
+            component: PostoUpdateComponent
           },
           {
             path: "posto/delete/:id",

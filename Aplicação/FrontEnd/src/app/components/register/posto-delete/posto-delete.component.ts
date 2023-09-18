@@ -1,6 +1,6 @@
-import { Component, Input} from "@angular/core";
+import { LoginModel } from './../../../views/SignIn_SignUp/SignIn/SignIn.module';
+import { Component } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
-import { ActivatedRoute, Router } from "@angular/router";
 import { AppService } from "src/app/settings/Services/app.service";
 
 @Component({
@@ -11,16 +11,23 @@ import { AppService } from "src/app/settings/Services/app.service";
 export class PostoDeleteComponent {
   constructor(
     private service: AppService,
-    private router: Router,
-    private route: ActivatedRoute,
     private dialogRef: MatDialogRef<PostoDeleteComponent>
-  ) {}
-  
-    posto: any;
+  ) { }
+
+  response: any = {};
 
   ngOnInit(): void {
-    this.service.GetSinglePosto();
-    console.log(this.posto);
+    const id = this.service.GetIdPosto();
+    this.service.GetByIdPosto(id).subscribe((response) => {
+      this.response = response.result;
+      console.log(response);
+    });
   }
 
+  deletePosto(): void{
+    this.service.DeletePosto(this.response.postos[0].Posto_ID).subscribe(() => {
+      this.service.SuccessMessage("Posto Removido com sucesso!");
+      this.dialogRef.close();
+    });
+  }
 }

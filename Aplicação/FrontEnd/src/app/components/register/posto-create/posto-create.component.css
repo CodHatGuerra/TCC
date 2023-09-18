@@ -4,7 +4,7 @@
 }
 
 form {
-   height: 60vh;
+   height: 50vh;
    width: 50vw;
    display: grid;
    margin: 0 auto;
@@ -14,10 +14,10 @@ form {
    background-color: transparent;
 }
 
-form > button {
-    width: 140px;
-    margin: 0 auto;
-    background-color: #21a4f0;
+form>button {
+   width: 140px;
+   margin: 0 auto;
+   background-color: #21a4f0;
 }
 
 .MR {

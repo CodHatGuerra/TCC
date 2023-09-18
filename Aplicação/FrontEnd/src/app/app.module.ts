@@ -16,6 +16,8 @@ import { NavComponent } from './components/template/nav/nav.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { DecoratorsComponent } from './settings/decorator/decorators.component';
 import { PostoCreateComponent } from './components/register/posto-create/posto-create.component';
+import { PostoDeleteComponent } from './components/register/posto-delete/posto-delete.component';
+import { PostoUpdateComponent } from './components/register/posto-update/posto-update.component';
 
 //diretiva
 import { WhiteDirective } from './settings/directives/white.directive';
@@ -61,7 +63,9 @@ import { MatMenuModule } from '@angular/material/menu';
     AdmComponent,
     HeaderComponent,
     DialogComponent,
-    PostoCreateComponent
+    PostoCreateComponent,
+    PostoDeleteComponent,
+    PostoUpdateComponent
   ],
   imports: [
     BrowserModule,

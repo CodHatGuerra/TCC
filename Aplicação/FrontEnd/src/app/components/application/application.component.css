@@ -11,6 +11,14 @@
   gap: 90px;
 }
 
+.vaccine {
+  width: 90vw;
+  height: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .profile {
   display: grid;
   justify-items: center;
@@ -22,6 +30,18 @@
 
 .title {
   margin-bottom: 30px;
+}
+
+.vaccine > .addV {
+  justify-content: end;
+}
+
+.addVaccines {
+  width: 140px;
+  height: 30px;
+  color: #FFF !important;
+  background-color:  #449dd1;
+  margin-bottom: 10px;
 }
 
 .age {
@@ -57,13 +77,6 @@ mat-card {
 .DIV:hover {
   background-color: #449dd1;
   cursor: pointer;
-}
-
-.vaccine {
-  width: 90vw;
-  height: auto;
-  padding: 20px;
-  text-align: center;
 }
 
 .name {
