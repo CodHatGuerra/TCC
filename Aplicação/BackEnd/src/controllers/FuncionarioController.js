@@ -4,10 +4,7 @@ module.exports = {
   alterar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    const funcionario = req.body.Funcionario;
-
-    console.log(funcionario);
-
+    const funcionario = req.body.funcionario;
     const funcionarioPreenchido =
       funcionario.Usuario_ID && funcionario.Posto_ID && funcionario.Cargo;
 

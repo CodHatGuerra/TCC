@@ -20,7 +20,35 @@ module.exports = {
             return;
           } else {
             console.log("Cadastro Alterado com Sucesso !");
-            aceito();
+            new Promise((resolve, reject) => {
+              db.query(
+                `
+                UPDATE 
+                  Funcionario
+                SET
+                 Cargo = ?
+                WHERE
+                 ID = ?;
+                `,
+                [funcionario.Cargo,funcionario.Usuario_ID],
+                (error) => {
+                  if (error) {
+                    console.log(
+                      "Erro ao Trocar o cargo do funcionario"
+                    );
+                    console.log(error);
+                    reject(error);
+                  } else {
+                    resolve(results);
+                  }
+                }
+              );
+            })
+              .then(() => aceito())
+              .catch((error) => {
+                console.log(error);
+                rejeitado(error);
+              });
           }
         }
       );

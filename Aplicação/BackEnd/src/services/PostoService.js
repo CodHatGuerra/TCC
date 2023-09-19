@@ -73,8 +73,6 @@ module.exports = {
   },
 
   consultar: () => {
-    let postos = [];
-
     return new Promise((aceito, rejeitado) => {
       db.query(
         `
@@ -91,8 +89,8 @@ module.exports = {
             Posto AS P
           LEFT JOIN
             Endereco AS E ON P.ID = E.Posto_ID;
-        `
-        , (error, results) => {
+        `,
+        (error, results) => {
           if (error) {
             console.log("Erro Cadastrar Posto" + error);
             rejeitado(error);
@@ -100,13 +98,12 @@ module.exports = {
           } else {
             aceito(results);
           }
-        });
+        }
+      );
     });
   },
 
   consultarID: (ID) => {
-    let postos = null;
-
     if (ID) {
       return new Promise((aceito, rejeitado) => {
         db.query(
@@ -126,8 +123,9 @@ module.exports = {
               Endereco AS E ON P.ID = E.Posto_ID
             WHERE
               P.ID = ?;
-          `
-          , [ID], (error, results) => {
+          `,
+          [ID],
+          (error, results) => {
             if (error) {
               console.log("Erro Cadastrar Posto" + error);
               rejeitado(error);
@@ -135,7 +133,8 @@ module.exports = {
             } else {
               aceito(results);
             }
-          });
+          }
+        );
       });
     } else {
       return new Promise((aceito, rejeitado) => {
@@ -166,30 +165,22 @@ module.exports = {
             Posto_ID = results.insertId;
           }
         }
-      )
-      .then(() => {
-        return new Promise((resolve, reject) => {
-          db.query(
-            "DELETE FROM Telefone WHERE Posto_ID = ?",
-            [id],
-            (error) => {
-              if (error) {
-                console.log("ERRO DELETAR Telefone");
-                console.log(error);
-                reject(error);
-              } else {
-                resolve();
-              }
-            }
-          );
+      );
+
+      new Promise((resolve, reject) => {
+        db.query("DELETE FROM Telefone WHERE Posto_ID = ?", [id], (error) => {
+          if (error) {
+            console.log("ERRO DELETAR Telefone");
+            console.log(error);
+            reject(error);
+          } else {
+            resolve();
+          }
         });
       })
-      .then(() => {
-        return new Promise((resolve, reject) => {
-          db.query(
-            "DELETE FROM Posto WHERE ID = ?",
-            [id],
-            (error) => {
+        .then(() => {
+          new Promise((resolve, reject) => {
+            db.query("DELETE FROM Posto WHERE ID = ?", [id], (error) => {
               if (error) {
                 console.log("ERRO AO DELETAR POSTO");
                 console.log(error);
@@ -197,15 +188,14 @@ module.exports = {
               } else {
                 resolve();
               }
-            }
-          );
+            });
+          });
+        })
+        .then(() => aceito(Posto_ID))
+        .catch((error) => {
+          console.log(error);
+          rejeitado(error);
         });
-      })
-      .then(() => aceito(Posto_ID))
-      .catch((error) => {
-        console.log(error);
-        rejeitado(error);
-      });
     });
   },
 

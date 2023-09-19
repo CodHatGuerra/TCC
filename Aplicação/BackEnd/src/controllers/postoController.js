@@ -155,11 +155,9 @@ module.exports = {
     const id = req.params.id;
 
     await PostoService.deletar(id)
-      .then((resultado) => {
-        json.result = {
-          postos: resultado,
-        };
+      .then(() => {
         console.log("-----POSTO DELETADO COM SUCESSO ! !-------");
+        console.log("ID POSTO DELETADO: " + id);
       })
       .catch((error) => {
         console.log(

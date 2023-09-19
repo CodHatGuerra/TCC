@@ -1,6 +1,214 @@
 const db = require("../db");
 
 module.exports = {
+  alterar: (usuario, endereco, telefone) => {
+    let ID_Endereco = null;
+    let Posto_ID = null;
+
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        "INSERT INTO Usuario (Nome) VALUES (?)",
+        [posto.nome],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            Posto_ID = results.insertId;
+
+            new Promise((resolve, reject) => {
+              db.query(
+                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Posto_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                [
+                  endereco.cep,
+                  endereco.uf,
+                  endereco.localidade,
+                  endereco.bairro,
+                  endereco.logradouro,
+                  endereco.numero,
+                  Posto_ID,
+                ],
+                (error, result) => {
+                  if (error) {
+                    console.log("ERRO ENDEREÇO");
+                    console.log(error);
+                    reject(error);
+                  } else {
+                    ID_Endereco = result.insertId;
+                    console.log(
+                      "Execução com sucesso do insert Endereco: " + ID_Endereco
+                    );
+                    resolve();
+                  }
+                }
+              );
+            })
+              .then(() => {
+                return new Promise((resolve, reject) => {
+                  db.query(
+                    "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
+                    [telefone.numero, Posto_ID],
+                    (error) => {
+                      if (error) {
+                        console.log("ERRO NUMERO");
+                        console.log(error);
+                        reject(error);
+                      } else {
+                        resolve();
+                      }
+                    }
+                  );
+                });
+              })
+              .then(() => aceito(Posto_ID))
+              .catch((error) => {
+                console.log(error);
+                rejeitado(error);
+              });
+          }
+        }
+      );
+    });
+  },
+  consultar: () => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        `
+          SELECT * FROM Usuario;
+        `,
+        (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        }
+      );
+    });
+  },
+  consultarID: (ID) => {
+    if (ID) {
+      return new Promise((aceito, rejeitado) => {
+        db.query(
+          `
+            SELECT * FROM Usuario WHERE ID = ?;
+          `,
+          [ID],
+          (error, results) => {
+            if (error) {
+              console.log("Erro Cadastrar Posto" + error);
+              rejeitado(error);
+              return;
+            } else {
+              aceito(results);
+            }
+          }
+        );
+      });
+    } else {
+      return new Promise((aceito, rejeitado) => {
+        db.query("SELECT * FROM Posto", (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        });
+      });
+    }
+  },
+  deletar: (id) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        "DELETE FROM Endereco WHERE Usuario_ID = ?",
+        [id],
+        (error, results) => {
+          if (error) {
+            console.log("Erro DELETAR Endereco do usuario" + error);
+            rejeitado(error);
+            return;
+          } else {
+            new Promise((resolve, reject) => {
+              db.query(
+                "DELETE FROM Telefone WHERE Usuario_ID = ?",
+                [id],
+                (error) => {
+                  if (error) {
+                    console.log("ERRO DELETAR Telefone");
+                    console.log(error);
+                    reject(error);
+                  } else {
+                    resolve();
+                  }
+                }
+              );
+            })
+              .then(() => {
+                new Promise((resolve, reject) => {
+                  db.query(
+                    "DELETE FROM Funcionario WHERE Usuario_ID = ?",
+                    [id],
+                    (error) => {
+                      if (error) {
+                        console.log("ERRO AO DELETAR Usuario");
+                        console.log(error);
+                        reject(error);
+                      } else {
+                        resolve();
+                      }
+                    }
+                  );
+                });
+              })
+              .then(() => {
+                new Promise((resolve, reject) => {
+                  db.query(
+                    "DELETE FROM Carteira_tem_Vacina WHERE Carteira_ID IN (SELECT ID FROM Carteira WHERE Usuario_ID = ?);",
+                    [id],
+                    (error) => {
+                      if (error) {
+                        console.log("ERRO AO DELETAR Usuario");
+                        console.log(error);
+                        reject(error);
+                      } else {
+                        resolve();
+                      }
+                    }
+                  );
+                });
+              })
+              .then(() => {
+                new Promise((resolve, reject) => {
+                  db.query(
+                    "DELETE FROM Usuario WHERE ID = ?",
+                    [id],
+                    (error) => {
+                      if (error) {
+                        console.log("ERRO AO DELETAR Funcionario");
+                        console.log(error);
+                        reject(error);
+                      } else {
+                        resolve();
+                      }
+                    }
+                  );
+                });
+              })
+              .then(() => aceito(Posto_ID))
+              .catch((error) => {
+                console.log(error);
+                rejeitado(error);
+              });
+          }
+        }
+      );
+    });
+  },
   inserir: (usuario, endereco, telefone) => {
     let ID_Endereco = null;
     let ID_Usuario = null;

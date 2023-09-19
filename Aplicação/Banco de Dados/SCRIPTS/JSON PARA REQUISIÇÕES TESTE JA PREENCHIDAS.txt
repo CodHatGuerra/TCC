@@ -63,8 +63,9 @@ POST : http://localhost:8080/api/posto
 }
 *---------------------------------------------------------------------------------------*
 OBTER
-GET ALL : http://localhost:8080/api/posto]
+GET ALL : http://localhost:8080/api/posto
 GET BY ID : http://localhost:8080/api/posto/1
+DELETAR POSTO : delete --> http://localhost:8080/api/posto/1
 *----------------------------------------------------------------------------------------*
 
 
@@ -75,7 +76,7 @@ CADASTRAR : POST  http://localhost:8080/api/funcionario
   "Funcionario" : 
   {
     "Data_Inicio" : "2023-09-13",
-    "Usuario_ID" : "1",
+    "Usuario_ID" : "1", 
     "Posto_ID" : 1,
     "Cargo" : "ATENDENTE"
   }
