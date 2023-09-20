@@ -20,7 +20,7 @@ export class AppService {
   id_Posto: any;
   userInfo: any;
 
-  AlertMessage(msg: string): void {
+  AlertMessage(msg: string): void{
     this.snackBar.open(msg, "X", {
       duration: 3500,
       horizontalPosition: "right",

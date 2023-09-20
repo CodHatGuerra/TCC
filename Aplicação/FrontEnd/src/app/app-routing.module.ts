@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './views/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -9,9 +9,9 @@ import { AuthGuard } from './settings/auth.guard';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
-import { PostoDeleteComponent } from './components/register/posto-delete/posto-delete.component';
-import { PostoCreateComponent } from './components/register/posto-create/posto-create.component';
-import { PostoUpdateComponent } from './components/register/posto-update/posto-update.component';
+import { PostoDeleteComponent } from './components/register/postos/posto-delete/posto-delete.component';
+import { PostoCreateComponent } from './components/register/postos/posto-create/posto-create.component';
+import { PostoUpdateComponent } from './components/register/postos/posto-update/posto-update.component';
 
 const routes: Routes = [
   {

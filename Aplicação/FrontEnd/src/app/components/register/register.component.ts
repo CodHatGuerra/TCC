@@ -1,10 +1,11 @@
 import { AppService } from "src/app/settings/Services/app.service";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { PostoCreateComponent } from "./posto-create/posto-create.component";
-import { PostoDeleteComponent } from "./posto-delete/posto-delete.component";
+import { PostoCreateComponent } from "./postos/posto-create/posto-create.component";
+import { PostoDeleteComponent } from "./postos/posto-delete/posto-delete.component";
 import { ActivatedRoute, Router } from "@angular/router";
-import { PostoUpdateComponent } from "./posto-update/posto-update.component";
+import { PostoUpdateComponent } from "./postos/posto-update/posto-update.component";
+import { EmployeesCreateComponent } from "./employees/employees-create/employees-create.component";
 
 @Component({
   selector: "app-register",
@@ -17,12 +18,12 @@ export class RegisterComponent implements OnInit {
     private dialog: MatDialog,
     private service: AppService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.GetPostos();
   }
-  
+
   openSigUn(): void {
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed();
@@ -30,13 +31,13 @@ export class RegisterComponent implements OnInit {
 
   openSigOutDelete(id: number) {
     this.service.SetIdPosto(id);
-    this.router.navigate(['adm', 'register', 'posto', 'delete', id]);
+    this.router.navigate(["adm", "register", "posto", "delete", id]);
     this.dialog.open(PostoDeleteComponent);
   }
 
-  openUpdatePosto(id: number){
+  openUpdatePosto(id: number) {
     this.service.SetIdPosto(id);
-    this.router.navigate(['adm', 'register', 'posto', 'update', id]);
+    this.router.navigate(["adm", "register", "posto", "update", id]);
     this.dialog.open(PostoUpdateComponent);
   }
 
@@ -45,5 +46,11 @@ export class RegisterComponent implements OnInit {
       this.dataSource = response.result.postos;
     });
   }
-  columnEmployee: string[] = ["name", "city", "rua", "actions"];
+
+  openDialogEmployee() {
+    this.dialog.open(EmployeesCreateComponent);
+  }
+
+  columnPosto: string[] = ["name", "city", "rua", "actions"];
+  columnEmployee: string[] = ["nameEmployee", "cargo", "nomePosto", "actions"];
 }

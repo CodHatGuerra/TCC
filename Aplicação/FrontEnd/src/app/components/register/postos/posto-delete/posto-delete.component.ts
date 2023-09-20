@@ -1,4 +1,3 @@
-import { LoginModel } from './../../../views/SignIn_SignUp/SignIn/SignIn.module';
 import { Component } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
 import { AppService } from "src/app/settings/Services/app.service";
@@ -16,7 +15,7 @@ export class PostoDeleteComponent {
 
   response: any = {};
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     const id = this.service.GetIdPosto();
     this.service.GetByIdPosto(id).subscribe((response) => {
       this.response = response.result;

@@ -3,8 +3,8 @@
     <button mat-button class="registerPosto" (click)="openSigUn()"><mat-icon> add </mat-icon> Adicionar posto</button>
     <mat-card>
       <table mat-table class="table-posto" [dataSource]="dataSource">
-        <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnEmployee"></tr>
+        <tr mat-header-row *matHeaderRowDef="columnPosto"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnPosto"></tr>
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Posto</th>
           <td mat-cell *matCellDef="let row">{{row.Nome_do_Posto}}</td>
@@ -34,25 +34,24 @@
     </mat-card>
   </div>
   <div class="employees">
-    <button mat-button class="registerEmployees"><mat-icon> add </mat-icon> Adicionar Funcionarios</button>
+    <button mat-button (click)="openDialogEmployee()" class="registerEmployees"><mat-icon> add </mat-icon> Adicionar Funcionarios</button>
     <mat-card>
       <table mat-table class="table-employees" [dataSource]="dataSource">
         <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
         <tr mat-row *matRowDef="let row; columns: columnEmployee"></tr>
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Funcionarios</th>
+        <ng-container matColumnDef="nameEmployee">
+          <th mat-header-cell *matHeaderCellDef>Funcionario</th>
           <td mat-cell *matCellDef="let row"></td>
         </ng-container>
-        <ng-container matColumnDef="city">
-          <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <ng-container matColumnDef="cargo">
+          <th mat-header-cell *matHeaderCellDef>Cargo</th>
           <td mat-cell *matCellDef="let row">{{ row.Localidade }}</td>
         </ng-container>
-        <ng-container matColumnDef="rua">
-          <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <ng-container matColumnDef="nomePosto">
+          <th mat-header-cell *matHeaderCellDef>Posto</th>
           <td mat-cell *matCellDef="let row">{{ row.Logradouro }}</td>
         </ng-container>
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef>Ações</th>
           <td mat-cell *matCellDef="let row">
             <div class="icons">
               <a class="edit" routerLink="/product/update/{{ row.id }}">

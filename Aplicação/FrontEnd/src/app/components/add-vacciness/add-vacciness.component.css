@@ -1,0 +1,12 @@
+main {
+    width: 50vw;
+    height: 70vh;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
+
+form {
+    display: grid;  
+    width: 30vw;
+}

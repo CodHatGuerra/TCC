@@ -1,0 +1,18 @@
+<main>
+  <h2>Adicionar novo funcionário</h2>
+  <form [formGroup]="formEmployee" class="form">
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Cpf</mat-label>
+      <input matInput formControlName="Cpf" type="text" />
+    </mat-form-field>
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Cargo</mat-label>
+      <input matInput formControlName="cargo" type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Posto</mat-label>
+      <input matInput formControlName="Posto_ID" type="text" />
+    </mat-form-field>
+    <button mat-button appWhite>Cadastrar</button>
+  </form>
+</main>

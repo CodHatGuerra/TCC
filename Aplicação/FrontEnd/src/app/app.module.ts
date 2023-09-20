@@ -15,9 +15,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { DecoratorsComponent } from './settings/decorator/decorators.component';
-import { PostoCreateComponent } from './components/register/posto-create/posto-create.component';
-import { PostoDeleteComponent } from './components/register/posto-delete/posto-delete.component';
-import { PostoUpdateComponent } from './components/register/posto-update/posto-update.component';
+import { PostoCreateComponent } from './components/register/postos/posto-create/posto-create.component';
+import { PostoDeleteComponent } from './components/register/postos/posto-delete/posto-delete.component';
+import { PostoUpdateComponent } from './components/register/postos/posto-update/posto-update.component';
 
 //diretiva
 import { WhiteDirective } from './settings/directives/white.directive';
@@ -44,7 +44,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { CreatePasswordComponent } from './views/create-password/create-password.component';
+import { AddVaccinessComponent } from './components/add-vacciness/add-vacciness.component';
+import { EmployeesCreateComponent } from './components/register/employees/employees-create/employees-create.component';
+import { EmployeesDeleteComponent } from './components/register/employees/employees-delete/employees-delete.component';
 
 
 @NgModule({
@@ -67,7 +69,9 @@ import { CreatePasswordComponent } from './views/create-password/create-password
     PostoCreateComponent,
     PostoDeleteComponent,
     PostoUpdateComponent,
-    CreatePasswordComponent
+    AddVaccinessComponent,
+    EmployeesCreateComponent,
+    EmployeesDeleteComponent
   ],
   imports: [
     BrowserModule,
