@@ -97,9 +97,8 @@ export class PostoCreateComponent {
       })
       .subscribe((response) => {
         if (response) {
-          location.reload();
-          this.dialogRef.close();
           this.appService.Message("Posto cadastrado");
+          this.dialogRef.close();
         } else {
           console.log(response);
           throw this.appService.AlertMessage("Error ao registrar posto");

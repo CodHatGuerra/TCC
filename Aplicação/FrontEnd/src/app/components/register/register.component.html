@@ -1,7 +1,6 @@
-<div class="main DG">
+<main>
   <div class="postos">
     <button mat-button class="registerPosto" (click)="openSigUn()"><mat-icon> add </mat-icon> Adicionar posto</button>
-    <mat-card>
       <table mat-table class="table-posto" [dataSource]="dataSource">
         <tr mat-header-row *matHeaderRowDef="columnPosto"></tr>
         <tr mat-row *matRowDef="let row; columns: columnPosto"></tr>
@@ -24,15 +23,17 @@
               <a class="edit" (click)="openUpdatePosto(row.Posto_ID)">
                 <mat-icon class="mat-18"> edit </mat-icon>
               </a>
-              <a class="delete" (click)="openSigOutDelete(row.Posto_ID)"  class="delete">
+              <a class="delete" (click)="openSigOutDelete(row.Posto_ID)" class="delete">
                 <mat-icon class="mat-18"> delete </mat-icon>
               </a>
             </div>
           </td>
         </ng-container>
       </table>
-    </mat-card>
   </div>
+</main>
+
+<!-- </div>
   <div class="employees">
     <button mat-button (click)="openDialogEmployee()" class="registerEmployees"><mat-icon> add </mat-icon> Adicionar Funcionarios</button>
     <mat-card>
@@ -64,7 +65,4 @@
           </td>
         </ng-container>
       </table>
-    </mat-card>
-  </div>
-
-</div>
+ -->

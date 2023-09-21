@@ -31,7 +31,7 @@ export class AppService {
 
   Message(msg: string): void {
     this.snackBar.open(msg, "X", {
-      duration: 3000,
+      duration: 4000,
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ["common"],
@@ -79,7 +79,7 @@ export class AppService {
   }
 
   //retorna todos os postos
-  GetPosto(): any {
+  GetPosto(): Observable<any> {
     return this.http.get(`${environment.baseUrl}/${environment.Posto}`, {
       headers: this.httpHeaders,
     });
@@ -90,7 +90,7 @@ export class AppService {
       `${environment.baseUrl}/${environment.Posto}/${id}`,
       { headers: this.httpHeaders }
     );
-  }
+  } 
 
   //faz a requisição para retornar um posto
   GetByIdPosto(id: number): Observable<any> {
