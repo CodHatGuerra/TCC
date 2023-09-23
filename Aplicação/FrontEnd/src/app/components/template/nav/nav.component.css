@@ -1,37 +1,49 @@
 .sidenav {
-    position: fixed;
-    margin-top: 100px !important;
-    width: 60px;
-    height: 145px;
-    border-radius: 0px 6px 6px 0px;
-    background-color: #009F93;
-    transition: width 0.3s;
-}
-
-.sidenav:hover {
-    width: 180px;
+  position: fixed;
+  margin-top: 100px !important;
+  width: 200px;
+  height: 445px;
+  border-radius: 0px 6px 6px 0px;
+  background-color: #009f93;
+  transition: width 0.3s;
+  margin-right: 10px !important;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.048);
+  background-color: rgba(255, 255, 255, 0.048);
 }
 
 .nav-list {
-    padding-top: 16px;
+  padding-top: 16px;
 }
 
+.arrow-icon {
+  padding-left: 10px;
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+.arrow-icon.rotated {
+  transform: rotate(360deg);
+}
+
+.fade-in {
+    opacity: 0;
+    transition:  opacity 0.3s ease-in-out
+  }
+
 .icon {
-    padding-right: 18px;
-    width: 30px;
+  padding-right: 18px;
+  width: 30px;
 }
 
 .div {
-    display: flex;
-    width: auto;
-    height: auto;
-    gap: 90px;
+  display: flex;
+  width: auto;
+  height: auto;
+  gap: 90px;
 }
 
 .textProfile {
-    padding-left: 28px;
+  padding-left: 28px;
 }

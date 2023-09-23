@@ -1,10 +1,10 @@
 import { AppService } from "src/app/settings/Services/app.service";
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { PostoCreateComponent } from "./postos/posto-create/posto-create.component";
-import { PostoDeleteComponent } from "./postos/posto-delete/posto-delete.component";
-import { ActivatedRoute, Router } from "@angular/router";
-import { PostoUpdateComponent } from "./postos/posto-update/posto-update.component";
+import { PostoCreateComponent } from "../postos/posto-create/posto-create.component";
+import { PostoDeleteComponent } from "../postos/posto-delete/posto-delete.component";
+import { Router } from "@angular/router";
+import { PostoUpdateComponent } from "../postos/posto-update/posto-update.component";
 import { EmployeesCreateComponent } from "./employees/employees-create/employees-create.component";
 
 @Component({

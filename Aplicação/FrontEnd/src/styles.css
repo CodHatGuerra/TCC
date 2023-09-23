@@ -5,10 +5,7 @@
 html,
 body {
   height: 100%;
-}
-
-body {
-  background-color: rgb(223, 223, 223);
+  background-color: rgb(211, 211, 211);
   margin: 0;
   font-family: Roboto,
     "Helvetica Neue",

@@ -13,9 +13,7 @@ export class ProfileComponent {
   }
 
   infoUser: any[] = [];
-
   dataSource: any[] = [];
-
   idade: number = 0;
 
   Profile() {

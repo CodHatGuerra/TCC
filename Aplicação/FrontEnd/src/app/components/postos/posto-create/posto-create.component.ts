@@ -66,7 +66,7 @@ export class PostoCreateComponent {
     return true;
   }
 
-  SubmitPosto(): void {
+   SubmitPosto(): void {
     if (this.formPosto.valid)
       this.appService.AlertMessage("Formulário incompleto");
 
@@ -98,7 +98,7 @@ export class PostoCreateComponent {
       .subscribe((response) => {
         if (response) {
           this.appService.Message("Posto cadastrado");
-          this.dialogRef.close();
+          window.location.reload();
         } else {
           console.log(response);
           throw this.appService.AlertMessage("Error ao registrar posto");

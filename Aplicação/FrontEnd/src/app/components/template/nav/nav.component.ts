@@ -22,7 +22,11 @@ export class NavComponent  {
   infoUser: any[] = [];
 
   dataSource: any[] = [];
+  showOptions: boolean = false;
 
+  toggleOptions() {
+    this.showOptions = !this.showOptions;
+  }
   idade: number = 0;
 
   teste() {

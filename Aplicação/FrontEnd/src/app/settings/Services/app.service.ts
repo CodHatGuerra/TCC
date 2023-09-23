@@ -1,4 +1,4 @@
-import { Observable, tap } from "rxjs";
+import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -44,7 +44,7 @@ export class AppService {
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ["success"],
-    });
+    }); 
   }
 
   InfoMessage(msg: string): void {

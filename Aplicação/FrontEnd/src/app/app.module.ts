@@ -15,9 +15,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { DecoratorsComponent } from './settings/decorator/decorators.component';
-import { PostoCreateComponent } from './components/register/postos/posto-create/posto-create.component';
-import { PostoDeleteComponent } from './components/register/postos/posto-delete/posto-delete.component';
-import { PostoUpdateComponent } from './components/register/postos/posto-update/posto-update.component';
+import { PostoCreateComponent } from './components/postos/posto-create/posto-create.component';
+import { PostoDeleteComponent } from './components/postos/posto-delete/posto-delete.component';
+import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
 
 //diretiva
 import { WhiteDirective } from './settings/directives/white.directive';
@@ -47,6 +47,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AddVaccinessComponent } from './components/add-vacciness/add-vacciness.component';
 import { EmployeesCreateComponent } from './components/register/employees/employees-create/employees-create.component';
 import { EmployeesDeleteComponent } from './components/register/employees/employees-delete/employees-delete.component';
+import { PostosComponent } from './components/postos/postos.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { EmployeesDeleteComponent } from './components/register/employees/employ
     PostoUpdateComponent,
     AddVaccinessComponent,
     EmployeesCreateComponent,
-    EmployeesDeleteComponent
+    EmployeesDeleteComponent,
+    PostosComponent
   ],
   imports: [
     BrowserModule,

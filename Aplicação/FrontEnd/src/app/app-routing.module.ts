@@ -1,4 +1,5 @@
-import { Component, NgModule } from '@angular/core';
+import { PostoDeleteComponent } from './components/postos/posto-delete/posto-delete.component';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './views/user/user.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -9,9 +10,9 @@ import { AuthGuard } from './settings/auth.guard';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
-import { PostoDeleteComponent } from './components/register/postos/posto-delete/posto-delete.component';
-import { PostoCreateComponent } from './components/register/postos/posto-create/posto-create.component';
-import { PostoUpdateComponent } from './components/register/postos/posto-update/posto-update.component';
+import { PostoCreateComponent } from './components/postos/posto-create/posto-create.component';
+import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
+import { PostosComponent } from './components/postos/postos.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
         component: SchedulindComponent
       },
       {
+        path: 'postos',
+        component: PostosComponent
+      },
+      {
         path: 'profile',
         component: ProfileComponent
       }, {
@@ -66,7 +71,7 @@ const routes: Routes = [
         component: RegisterComponent,
         children: [
           {
-            path: 'postos',
+            path: 'postos/create',
             component: PostoCreateComponent,
           },
           {

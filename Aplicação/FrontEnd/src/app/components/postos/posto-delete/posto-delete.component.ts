@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
 import { AppService } from "src/app/settings/Services/app.service";
 
@@ -7,15 +7,13 @@ import { AppService } from "src/app/settings/Services/app.service";
   templateUrl: "./posto-delete.component.html",
   styleUrls: ["./posto-delete.component.css"],
 })
-export class PostoDeleteComponent {
+export class PostoDeleteComponent implements OnInit {
   constructor(
     private service: AppService,
     private dialogRef: MatDialogRef<PostoDeleteComponent>
-  ) { }
+  ) {}
 
-  response: any = {};
-
-  ngOnInit(): void {  
+  ngOnInit(): void {
     const id = this.service.GetIdPosto();
     this.service.GetByIdPosto(id).subscribe((response) => {
       this.response = response.result;
@@ -23,10 +21,18 @@ export class PostoDeleteComponent {
     });
   }
 
-  deletePosto(): void{
-    this.service.DeletePosto(this.response.postos[0].Posto_ID).subscribe(() => {
-      this.service.SuccessMessage("Posto Removido com sucesso!");
-      this.dialogRef.close();
-    });
+  response: any = {};
+
+  deletePosto(): void {
+    this.service
+      .DeletePosto(this.response.postos[0].Posto_ID)
+      .subscribe((response) => {
+        if (response) {
+          window.location.reload();
+          setTimeout(() => {
+            this.service.SuccessMessage("Posto Removido com sucesso!");
+          }, 1000);
+        }
+      });
   }
 }

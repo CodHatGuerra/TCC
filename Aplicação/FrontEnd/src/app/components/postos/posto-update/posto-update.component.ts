@@ -18,24 +18,7 @@ export class PostoUpdateComponent implements OnInit {
   ngOnInit(): void {
     const id = this.service.GetIdPosto();
     this.service.GetByIdPosto(id).subscribe((response) => {
-      
-  this.postoUpdate = {  
-    id: this.result.result[0].Posto_ID,
-    posto: {
-      nome: this.result.postos[0].Nome_do_Posto
-    },
-    endereco: {
-      cep: this.result.postos[0].Cep,
-      uf: this.result.postos[0].Uf,
-      localidade: this.result.postos[0].Localidade,
-      bairro: this.result.postos[0].Bairro,
-      logradouro: this.result.postos[0].Logradouro,
-      numero: this.result.Numero[0]
-    },
-    telefone: {
-      numero: 9
-    }
-  }
+   
       console.log(response);
       this.result = response.result;
     });
@@ -43,8 +26,27 @@ export class PostoUpdateComponent implements OnInit {
 
   updatePosto(): void {
     this.service.UpdatePosto(this.postoUpdate).subscribe(() => {
-      this.service.SuccessMessage("Posto Removido com sucesso!");
+      this.service.SuccessMessage("Posto atulizado com sucesso!");
       this.dialogRef.close();
     });
   }
 }
+
+   
+// this.postoUpdate = {  
+//   id: this.result.result[0].Posto_ID,
+//   posto: {
+//     nome: this.result.postos[0].Nome_do_Posto
+//   },
+//   endereco: {
+//     cep: this.result.postos[0].Cep,
+//     uf: this.result.postos[0].Uf,
+//     localidade: this.result.postos[0].Localidade,
+//     bairro: this.result.postos[0].Bairro,
+//     logradouro: this.result.postos[0].Logradouro,
+//     numero: this.result.Numero[0]
+//   },
+//   telefone: {
+//     numero: 9
+//   }
+// }
