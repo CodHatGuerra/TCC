@@ -1,12 +1,15 @@
 .sidenav {
   position: fixed;
   margin-top: 100px !important;
-  width: 200px;
-  height: 445px;
+  width: 60px;
+  height: 126px;
   border-radius: 0px 6px 6px 0px;
-  background-color: #009f93;
+  background-color: #1376f7;
   transition: width 0.3s;
-  margin-right: 10px !important;
+}
+
+.sidenav:hover {
+  width: 200px;
 }
 
 .container {
@@ -27,10 +30,14 @@
   transform: rotate(360deg);
 }
 
+.expanded-sidenav {
+  height: 235px;
+}
+
 .fade-in {
-    opacity: 0;
-    transition:  opacity 0.3s ease-in-out
-  }
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out
+}
 
 .icon {
   padding-right: 18px;

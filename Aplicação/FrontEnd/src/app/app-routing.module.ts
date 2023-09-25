@@ -2,7 +2,6 @@ import { PostoDeleteComponent } from './components/postos/posto-delete/posto-del
 import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './views/user/user.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ApplicationComponent } from './components/application/application.component';
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -10,9 +9,9 @@ import { AuthGuard } from './settings/auth.guard';
 import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
-import { PostoCreateComponent } from './components/postos/posto-create/posto-create.component';
-import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
 import { PostosComponent } from './components/postos/postos.component';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
 
 const routes: Routes = [
   {
@@ -39,11 +38,7 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
-      },
-      {
-        path: 'register',
-        component: RegisterComponent
-      }
+      }    
     ]
   },
   {
@@ -51,6 +46,10 @@ const routes: Routes = [
     component: AdmComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: '',
+        component: ApplicationComponent
+      },
       {
         path: 'application',
         component: ApplicationComponent
@@ -61,29 +60,26 @@ const routes: Routes = [
       },
       {
         path: 'postos',
-        component: PostosComponent
+        component: PostosComponent,
+        children: [
+          {
+          path: 'update/:id',
+          component: PostoUpdateComponent
+        },
+        {
+          path: 'delete/:id',
+          component: PostoDeleteComponent
+        },
+      ]
+      },
+      {
+        path: 'employee',
+        component: EmployeesComponent
       },
       {
         path: 'profile',
         component: ProfileComponent
-      }, {
-        path: 'register',
-        component: RegisterComponent,
-        children: [
-          {
-            path: 'postos/create',
-            component: PostoCreateComponent,
-          },
-          {
-            path: "posto/update/:id",
-            component: PostoUpdateComponent
-          },
-          {
-            path: "posto/delete/:id",
-            component: PostoDeleteComponent
-          }
-        ]
-      },
+      }
     ]
   }
 ];

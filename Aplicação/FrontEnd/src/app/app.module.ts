@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { ApplicationComponent } from './components/application/application.component';
-import { RegisterComponent } from './components/register/register.component';
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NavComponent } from './components/template/nav/nav.component';
@@ -45,9 +44,10 @@ import { DialogComponent } from './components/template/header/dialog/dialog.comp
 import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddVaccinessComponent } from './components/add-vacciness/add-vacciness.component';
-import { EmployeesCreateComponent } from './components/register/employees/employees-create/employees-create.component';
-import { EmployeesDeleteComponent } from './components/register/employees/employees-delete/employees-delete.component';
+import { EmployeesCreateComponent } from './components/employees/employees-create/employees-create.component';
+import { EmployeesDeleteComponent } from './components/employees/employees-delete/employees-delete.component';
 import { PostosComponent } from './components/postos/postos.component';
+import { EmployeesComponent } from './components/employees/employees.component';
 
 
 @NgModule({
@@ -59,7 +59,6 @@ import { PostosComponent } from './components/postos/postos.component';
     SignInComponent,
     ApplicationComponent,
     SchedulindComponent,
-    RegisterComponent,
     FooterComponent,
     NavComponent,
     DecoratorsComponent,
@@ -73,7 +72,8 @@ import { PostosComponent } from './components/postos/postos.component';
     AddVaccinessComponent,
     EmployeesCreateComponent,
     EmployeesDeleteComponent,
-    PostosComponent
+    PostosComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,

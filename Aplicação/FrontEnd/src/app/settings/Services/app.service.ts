@@ -9,7 +9,7 @@ import { Posto } from "src/app/components/interfaces";
   providedIn: "root",
 })
 export class AppService {
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   userToken = localStorage.getItem("Token");
   httpHeaders = new HttpHeaders({
@@ -20,7 +20,7 @@ export class AppService {
   id_Posto: any;
   userInfo: any;
 
-  AlertMessage(msg: string): void{
+  AlertMessage(msg: string): void {
     this.snackBar.open(msg, "X", {
       duration: 3500,
       horizontalPosition: "right",
@@ -44,7 +44,7 @@ export class AppService {
       horizontalPosition: "right",
       verticalPosition: "top",
       panelClass: ["success"],
-    }); 
+    });
   }
 
   InfoMessage(msg: string): void {
@@ -75,7 +75,7 @@ export class AppService {
   }
 
   GetIdPosto(): number {
-    return this.id_Posto;
+    return this.id_Posto!;
   }
 
   //retorna todos os postos
@@ -90,7 +90,7 @@ export class AppService {
       `${environment.baseUrl}/${environment.Posto}/${id}`,
       { headers: this.httpHeaders }
     );
-  } 
+  }
 
   //faz a requisição para retornar um posto
   GetByIdPosto(id: number): Observable<any> {
@@ -100,7 +100,7 @@ export class AppService {
 
   UpdatePosto(posto: any): Observable<Posto> {
     return this.http.put<Posto>(
-      `${environment.baseUrl}/${environment.Posto}/${posto.id}`,
+      `${environment.baseUrl}/${environment.Posto}`,
       posto,
       { headers: this.httpHeaders }
     );

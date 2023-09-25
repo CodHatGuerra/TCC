@@ -1,0 +1,27 @@
+.employees {
+    width: auto;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.buttonRegister {
+    width: 200px;
+    background-color: #78C0E0;
+
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.delete {
+    color: rgb(192, 21, 21);
+}
+
+.edit {
+    color: rgb(233, 154, 36);
+}
+

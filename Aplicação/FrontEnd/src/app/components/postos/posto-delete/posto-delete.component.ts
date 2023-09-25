@@ -10,17 +10,17 @@ import { AppService } from "src/app/settings/Services/app.service";
 export class PostoDeleteComponent implements OnInit {
   constructor(
     private service: AppService,
-    private dialogRef: MatDialogRef<PostoDeleteComponent>
-  ) {}
+    private dialog: MatDialogRef<PostoDeleteComponent>
+  ) { }
 
   ngOnInit(): void {
     const id = this.service.GetIdPosto();
     this.service.GetByIdPosto(id).subscribe((response) => {
       this.response = response.result;
-      console.log(response);
     });
   }
 
+  pageReloaded = false;
   response: any = {};
 
   deletePosto(): void {
@@ -28,11 +28,11 @@ export class PostoDeleteComponent implements OnInit {
       .DeletePosto(this.response.postos[0].Posto_ID)
       .subscribe((response) => {
         if (response) {
-          window.location.reload();
-          setTimeout(() => {
-            this.service.SuccessMessage("Posto Removido com sucesso!");
-          }, 1000);
+          this.dialog.close();
+          this.service.SuccessMessage("Posto Removido com sucesso!");
+        } else {
+          this.service.AlertMessage("Erro ao registrar posto!");
         }
-      });
+      })
   }
 }

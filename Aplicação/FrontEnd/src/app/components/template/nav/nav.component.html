@@ -1,10 +1,5 @@
 <mat-sidenav-container class="container">
-  <mat-sidenav
-    *ngFor="let user of infoUser"
-    class="sidenav"
-    mode="side"
-    [(opened)]="opened"
-  >
+  <mat-sidenav *ngFor="let user of infoUser" class="sidenav" mode="side" [(opened)]="opened" [ngClass]="{'expanded-sidenav': showOptions}">
     <mat-nav-list class="nav-list DF">
       <a mat-list-item routerLink="application">
         <div class="caderneta">
@@ -16,21 +11,22 @@
         <div class="Register">
           <mat-icon class="icon v-middle" appWhite>assignment</mat-icon>
           <span class="white">Registros</span>
-          <mat-icon class="arrow-icon v-middle" appWhite [class.rotated]="showOptions">{{ showOptions ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>     
+          <mat-icon class="arrow-icon v-middle" appWhite [class.rotated]="showOptions">{{ showOptions ?
+            'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
         </div>
       </a>
       <!-- Mostrar a lista de opções quando toggleOptions() for chamado -->
-      <div  [ngClass]="{'option-list': showOptions}" *ngIf="showOptions">
+      <div *ngIf="showOptions">
         <mat-nav-list>
-          <a mat-list-item routerLink="funcionarios">
+          <a mat-list-item routerLink="employee">
             <div class="option">
-                <mat-icon class="icon v-middle" appWhite>person</mat-icon>
+              <mat-icon class="icon v-middle" appWhite>person</mat-icon>
               <span class="white">Funcionários</span>
             </div>
           </a>
           <a mat-list-item routerLink="postos">
             <div class="option">
-                <mat-icon class="icon v-middle" appWhite>pin_drop</mat-icon>
+              <mat-icon class="icon v-middle" appWhite>pin_drop</mat-icon>
               <span class="white">Postos</span>
             </div>
           </a>

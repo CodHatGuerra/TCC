@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   margin-top: 35px;
+  margin: 20px  ;
+  width: 100%;
+  height: auto;
 }
 
 .div {
@@ -12,11 +15,15 @@
 }
 
 .vaccine {
-  width: 90vw;
+  width: 80vw;
   height: auto;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
+}
+
+table {
+  background-color: #c9c9c9 !important;
 }
 
 .profile {

@@ -3,31 +3,31 @@
     <form class="form">
         <mat-form-field class="MR" appearance="outline">
             <mat-label>Nome</mat-label>
-            <input matInput [value]="result.postos[0]?.Nome_do_Posto" type="text">
+            <input matInput [value]="result.postos[0].Nome_do_Posto" type="text">
         </mat-form-field>
         <mat-form-field class="MR" appearance="outline">
             <mat-label>Cep</mat-label>
-            <input matInput [value]="result.postos[0]?.Cep" type="number">
+            <input matInput [value]="result.postos[0].Cep" type="number">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Uf</mat-label>
-            <input matInput [value]="result.postos[0]?.Uf" type="text">
+            <input matInput [value]="result.postos[0].Uf" type="text">
         </mat-form-field>
         <mat-form-field class="MR" appearance="outline">
             <mat-label>Localidade</mat-label>
-            <input matInput [value]="result.postos[0]?.Localidade" type="text">
+            <input matInput [value]="result.postos[0].Localidade" type="text">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Bairro</mat-label>
-            <input matInput [value]="result.postos[0]?.Bairro" type="text">
+            <input matInput [value]="result.postos[0].Bairro" type="text">
         </mat-form-field>
         <mat-form-field class="MR" appearance="outline">
             <mat-label>Logradouro</mat-label>
-            <input matInput [value]="result.postos[0]?.Logradouro" type="text">
+            <input matInput [value]="result.postos[0].Logradouro" type="text">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Número</mat-label>
-            <input matInput [value]="result.postos[0]?.Numero" type="number">
+            <input matInput [value]="result.postos[0].Numero" type="number">
         </mat-form-field>
         <button mat-button appWhite class="buttonUpdate" (click)="updatePosto()">Atualizar</button>
     </form>
