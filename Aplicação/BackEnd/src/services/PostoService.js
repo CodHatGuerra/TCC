@@ -2,16 +2,14 @@ const db = require("../db");
 
 module.exports = {
   alterar: (posto, endereco, telefone) => {
-    let ID_Endereco = null;
-    let Posto_ID = null;
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Posto (Nome) VALUES (?)",
-        [posto.nome],
+        "UPDATE Posto SET Nome = ? WHERE ID = ?;",
+        [posto.nome, posto.id],
         (error, results) => {
           if (error) {
-            console.log("Erro Cadastrar Posto" + error);
+            console.log("Erro na alteração de dados do Posto" + error);
             rejeitado(error);
             return;
           } else {
@@ -19,7 +17,20 @@ module.exports = {
 
             new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Posto_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                `
+                UPDATE 
+                  Endereco
+                SET
+                  Cep = ?,
+                  Uf = ?,
+                  Localidade = ?,
+                  Bairro = ?,
+                  Logradouro = ?,
+                  Numero = ?
+                WHERE
+                  Posto_ID = ?;
+                `
+                ,
                 [
                   endereco.cep,
                   endereco.uf,
@@ -27,17 +38,16 @@ module.exports = {
                   endereco.bairro,
                   endereco.logradouro,
                   endereco.numero,
-                  Posto_ID,
+                  posto.id,
                 ],
                 (error, result) => {
                   if (error) {
-                    console.log("ERRO ENDEREÇO");
+                    console.log("ERRO NA REQUISIÇÃO PARA ALTERAR O ENDEREÇO DO POSTO !");
                     console.log(error);
                     reject(error);
                   } else {
-                    ID_Endereco = result.insertId;
                     console.log(
-                      "Execução com sucesso do insert Endereco: " + ID_Endereco
+                      "Execução com sucesso do update do posto: " + posto.id
                     );
                     resolve();
                   }
@@ -47,11 +57,11 @@ module.exports = {
               .then(() => {
                 return new Promise((resolve, reject) => {
                   db.query(
-                    "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
-                    [telefone.numero, Posto_ID],
+                    "UPDATE Telefone SET Numero = ?  WHERE Posto_ID = ?;",
+                    [telefone.numero, posto.id],
                     (error) => {
                       if (error) {
-                        console.log("ERRO NUMERO");
+                        console.log("ERRO AO ALTERAR O NUMERO DO POSTO !");
                         console.log(error);
                         reject(error);
                       } else {

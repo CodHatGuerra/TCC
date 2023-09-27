@@ -39,7 +39,7 @@ router.get("/posto", authMiddleware, PostoController.consultar);
 //DELETAR POSTO
 router.delete("/posto/:id", authMiddleware, PostoController.deletar);
 //EDITAR POSTO
-router.patch("/posto", authMiddleware, PostoController.alterar);
+router.put("/posto", authMiddleware, PostoController.alterar);
 //--------------------------------------------------------//
 
 //ROTAS FUNCIONARIO

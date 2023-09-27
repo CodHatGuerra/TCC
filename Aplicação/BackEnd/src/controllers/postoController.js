@@ -21,13 +21,12 @@ module.exports = {
     const telefonePreenchido = telefone.numero;
 
     if (postoPreenchido && enderecoPreenchido && telefonePreenchido) {
-      await PostoService.inserir(posto, endereco, telefone)
+      await PostoService.alterar(posto, endereco, telefone)
         .then((resultado) => {
           json.result = {
-            msg: "Alterado com Sucesso !",
+            msg: "Posto Alterado com Sucesso !",
           };
           console.log("-----POSTO ALTERADO SUCESSO !-------");
-          console.log("ID : " + resultado);
           for (let prop in posto) {
             console.log(`${prop} : ${posto[prop]}`);
           }
