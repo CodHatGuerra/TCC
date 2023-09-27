@@ -28,10 +28,10 @@ export class PostoDeleteComponent implements OnInit {
       .DeletePosto(this.response.postos[0].Posto_ID)
       .subscribe((response) => {
         if (response) {
-          this.dialog.close();
+          window.location.reload();
           this.service.SuccessMessage("Posto Removido com sucesso!");
         } else {
-          this.service.AlertMessage("Erro ao registrar posto!");
+          this.service.AlertMessage("Erro ao remover posto!");
         }
       })
   }

@@ -69,9 +69,7 @@ export class PostoCreateComponent {
   }
 
    SubmitPosto(): void {
-    if (this.formPosto.valid)
-      this.appService.AlertMessage("Formulário incompleto");
-
+ 
     const formData = {
       posto: {
         nome: this.formPosto.value.nome,
@@ -88,6 +86,7 @@ export class PostoCreateComponent {
         numero: this.formPosto.value.telefone,
       },
     };
+
     const userToken = localStorage.getItem("Token");
     const headers = new HttpHeaders({
       Authorization: `${userToken}`,
@@ -100,7 +99,7 @@ export class PostoCreateComponent {
       .subscribe((response) => {
         if (response) {
           this.appService.SuccessMessage("Posto cadastrado");
-          this.router.navigate(['postos'])
+          this.dialogRef.close();
         } else {
           console.log(response);
           throw this.appService.AlertMessage("Error ao registrar posto");

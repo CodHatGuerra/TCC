@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/Services/app.service';
+import { Posto } from '../../interfaces';
 
 @Component({
   selector: 'app-posto-update',
@@ -13,7 +14,22 @@ export class PostoUpdateComponent implements OnInit {
   }
   result: any = {};
 
-  postoUpdate: any = {}
+  postoUpdate: Posto = {
+    posto: {
+      nome: ""
+    },
+    endereco: {
+      cep: 0,
+      uf: "",
+      localidade: "",
+      bairro: "",
+      logradouro: "",
+      numero: 0
+    },
+    telefone: {
+      numero: 0
+    }
+  };
 
   ngOnInit(): void {
     const id = this.service.GetIdPosto();
@@ -23,7 +39,6 @@ export class PostoUpdateComponent implements OnInit {
   }
 
   updatePosto(): void {
-    console.log(this.result);
     this.postoUpdate = {
       posto: {
         nome: this.result.postos[0].Nome_do_Posto
@@ -34,18 +49,22 @@ export class PostoUpdateComponent implements OnInit {
         localidade: this.result.postos[0].Localidade,
         bairro: this.result.postos[0].Bairro,
         logradouro: this.result.postos[0].Logradouro,
-        numero: this.result.Numero[0]
+        numero: this.result.postos[0].Numero // Note que removi o [0] aqui, pois não parece necessário
       },
       telefone: {
         numero: 9
       }
-    }
+    };
 
     console.log(this.postoUpdate);
     this.service.UpdatePosto(this.postoUpdate).subscribe((response) => {
-      console.log(response);
-      this.service.SuccessMessage("Posto atulizado com sucesso!");
-      this.dialogRef.close();
+      if (response) {
+        this.service.SuccessMessage("Posto atulizado com sucesso!");
+        this.dialogRef.close();
+      }
+      else {
+        console.log(response);
+      }
     });
   }
 }

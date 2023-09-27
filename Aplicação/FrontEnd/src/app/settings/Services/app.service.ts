@@ -98,7 +98,7 @@ export class AppService {
     return this.http.get<any>(url, { headers: this.httpHeaders });
   }
 
-  UpdatePosto(posto: any): Observable<Posto> {
+  UpdatePosto(posto: Posto): Observable<any> {
     return this.http.put<Posto>(
       `${environment.baseUrl}/${environment.Posto}`,
       posto,
