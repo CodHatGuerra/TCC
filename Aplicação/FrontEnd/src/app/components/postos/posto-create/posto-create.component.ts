@@ -92,14 +92,14 @@ export class PostoCreateComponent {
       Authorization: `${userToken}`,
     });
 
-    this.http
-      .post(`${environment.baseUrl}/${environment.Posto}`, formData, {
+    this.http.post(`${environment.baseUrl}/${environment.Posto}`, formData, {
         headers,
       })
       .subscribe((response) => {
         if (response) {
           this.appService.SuccessMessage("Posto cadastrado");
           this.dialogRef.close();
+          window.location.reload();
         } else {
           console.log(response);
           throw this.appService.AlertMessage("Error ao registrar posto");

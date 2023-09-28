@@ -1,6 +1,7 @@
 export interface Posto  {
     posto: {
-        nome: string
+        nome: string,
+        id: number
       },
     endereco: {
         cep: number,

@@ -4,6 +4,8 @@
     margin-top: 35px;
     width: 90%;
     gap: 30px;
+    height: 100%;
+    margin-bottom: 100px;
 }
 
 .div {
@@ -25,7 +27,8 @@
     padding: 20px;
     display: grid;
     margin-top: 30px;
-
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .infoUser {

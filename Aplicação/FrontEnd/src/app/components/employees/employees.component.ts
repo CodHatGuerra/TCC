@@ -10,11 +10,13 @@ import { MatDialog } from '@angular/material/dialog';
 export class EmployeesComponent {
   constructor(private dialog: MatDialog)
   {}
+  
   dataSource: any[] = [];
 
   openDialogEmployee() {
     this.dialog.open(EmployeesCreateComponent);
   }
+
   columnEmployee: string[] = ["nameEmployee", "cargo", "nomePosto", "actions"];
 
 }

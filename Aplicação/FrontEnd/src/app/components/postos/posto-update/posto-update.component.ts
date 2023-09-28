@@ -16,7 +16,8 @@ export class PostoUpdateComponent implements OnInit {
 
   postoUpdate: Posto = {
     posto: {
-      nome: ""
+      nome: "",
+      id: 0
     },
     endereco: {
       cep: 0,
@@ -35,13 +36,16 @@ export class PostoUpdateComponent implements OnInit {
     const id = this.service.GetIdPosto();
     this.service.GetByIdPosto(id).subscribe((response) => {
       this.result = response.result!;
+      console.log(response);
+      
     });
   }
 
   updatePosto(): void {
     this.postoUpdate = {
       posto: {
-        nome: this.result.postos[0].Nome_do_Posto
+        nome: this.result.postos[0].Nome_do_Posto,
+        id: this.result.postos[0].Posto_ID
       },
       endereco: {
         cep: this.result.postos[0].Cep,
@@ -49,7 +53,7 @@ export class PostoUpdateComponent implements OnInit {
         localidade: this.result.postos[0].Localidade,
         bairro: this.result.postos[0].Bairro,
         logradouro: this.result.postos[0].Logradouro,
-        numero: this.result.postos[0].Numero // Note que removi o [0] aqui, pois não parece necessário
+        numero: this.result.postos[0].Numero 
       },
       telefone: {
         numero: 9
@@ -61,6 +65,7 @@ export class PostoUpdateComponent implements OnInit {
       if (response) {
         this.service.SuccessMessage("Posto atulizado com sucesso!");
         this.dialogRef.close();
+        window.location.reload();
       }
       else {
         console.log(response);
