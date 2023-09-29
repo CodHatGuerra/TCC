@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -24,7 +24,8 @@ export class PostoCreateComponent {
     private fb: FormBuilder,
     private appService: AppService,
     private dialogRef: MatDialogRef<PostoCreateComponent>,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.formPosto = this.fb.group({
       nome: ["", Validators.required],
@@ -99,7 +100,6 @@ export class PostoCreateComponent {
         if (response) {
           this.appService.SuccessMessage("Posto cadastrado");
           this.dialogRef.close();
-          window.location.reload();
         } else {
           console.log(response);
           throw this.appService.AlertMessage("Error ao registrar posto");

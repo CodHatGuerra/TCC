@@ -9,7 +9,7 @@ import { Posto } from "src/app/components/interfaces";
   providedIn: "root",
 })
 export class AppService {
-  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
   userToken = localStorage.getItem("Token");
   httpHeaders = new HttpHeaders({
@@ -104,5 +104,10 @@ export class AppService {
       posto,
       { headers: this.httpHeaders }
     );
+  }
+
+
+  getEmployee(){
+    
   }
 }

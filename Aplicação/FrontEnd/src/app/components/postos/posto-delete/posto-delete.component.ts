@@ -23,16 +23,18 @@ export class PostoDeleteComponent implements OnInit {
   pageReloaded = false;
   response: any = {};
 
-  deletePosto(): void {
+  deletePosto(): void { 
     this.service
       .DeletePosto(this.response.postos[0].Posto_ID)
       .subscribe((response) => {
         if (response) {
-          window.location.reload();
+          this.dialog.close();
           this.service.SuccessMessage("Posto Removido com sucesso!");
         } else {
           this.service.AlertMessage("Erro ao remover posto!");
         }
       })
   }
+
+  
 }

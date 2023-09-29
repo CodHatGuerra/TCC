@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
   selector: "app-employees-create",
@@ -9,7 +10,11 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class EmployeesCreateComponent {
   formEmployee: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private dialogRef: MatDialogRef<EmployeesCreateComponent>
+    ) 
+  {
     this.formEmployee = this.fb.group({
       cargo: ["", Validators.required],
       Usuario_ID: ["", Validators.required],
@@ -28,11 +33,4 @@ export class EmployeesCreateComponent {
       },
     };
   }
-
-  "Funcionario": {
-    Data_Inicio: "2023-09-13";
-    Usuario_ID: "1";
-    Posto_ID: 1;
-    Cargo: "ATENDENTE";
-  };
 }

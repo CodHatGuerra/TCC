@@ -1,5 +1,4 @@
 body {
-    background-color: rgba(255, 255, 255, 0.562);
     height: auto;
     width: auto;
 }
@@ -12,6 +11,20 @@ body {
     gap: 50px;
     margin-top: 20px;
 }
+
+
+h4 {
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    font-family: 'dancing script' !important;
+    padding: 4px;
+    margin: 0px;
+    display: flex;
+    margin-top: 4px;
+}
+
 
 .header {
     justify-content: space-between;
