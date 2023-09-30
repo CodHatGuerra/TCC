@@ -1,6 +1,6 @@
 <main>
-  <mat-card class="header"></mat-card>
-  <button mat-button class="registerPosto" (click)="openSigUn()"><mat-icon> add </mat-icon> Adicionar Funcionário</button>
+  <h1>Funcionários</h1>
+  <button mat-button class="registerEmployee" (click)="openSigUn()"><mat-icon> add </mat-icon> Adicionar Funcionário</button>
   <mat-card class="employee mat-elevation-z4">
     <table mat-table class="table-posto" [dataSource]="dataSource">
       <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
