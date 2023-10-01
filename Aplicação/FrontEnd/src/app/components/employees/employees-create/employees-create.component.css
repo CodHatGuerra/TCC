@@ -1,6 +1,9 @@
 main {
+  width: 50vw;
+  height: 50vh;
   padding: 25px;
   text-align: center;
+  background-color: rgb(214, 214, 214);
 }
 
 form {

@@ -3,6 +3,7 @@ main {
     display: grid;
     margin-top: 30px;
     justify-content: center;
+    text-align: center;
 }
 /* 
 .header {
@@ -15,6 +16,11 @@ main {
     padding: 20px;
 } */
 
+span {
+    display: flex;
+    justify-content: end;
+}
+
 .postos {
     width: 70vw;
     margin-top: 30px !important;
@@ -26,7 +32,7 @@ main {
     width: 180px;
     height: 40px;
     margin-top: 30px;
-    background-color: #78C0E0;
+    background-color: #359fcc;
     color: #FFF !important;
 }
 

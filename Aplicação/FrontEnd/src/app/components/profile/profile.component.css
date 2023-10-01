@@ -8,89 +8,65 @@
     margin-bottom: 100px;
 }
 
-.div {
-    display: flex;
-    width: auto;
-    height: auto;
-    gap: 90px;
-}
-
 .info {
-    width: 80vw;
-    text-align: center;
-    height: 70vh;
-}
-
-.form {
-    width: auto;
+    width: 70vw;
     height: auto;
     padding: 20px;
-    display: grid;
-    margin-top: 30px;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 40%;
 }
 
-.infoUser {
-    width: 70vw;
-    height: 46vh;
+.data {
+    display: grid;
+}
+
+.mdc-card {
+    flex-direction: row;
 }
 
 .profile {
     display: grid;
     justify-items: center;
-    margin-bottom: 50px;
     width: 300px;
-    height: 300px;
-    padding: 15px;
 }
 
-.title {
-    border-bottom: 2px solid #26bd7e;
-    margin-bottom: 10px;
+h4 {
+    font-weight: 700;
+    margin: 0;
 }
 
 mat-card {
-    background-color: rgb(248, 248, 248) !important;
+    background-color: rgb(214, 214, 214) !important;
     box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001A, 0 1px 10px #0000001A;
 }
 
-.vaccines {
-    width: 50vw;
-    height: 60vh;
-    padding: 10px;
-    text-align: center;
+.buttonEdit {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgb(52, 52, 255);
+    box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001A, 0 1px 10px #0000001A;
 }
 
-.name {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    border-bottom: 2px solid #26bd7e;
+.edit {
+    color: white !important;
+    font-size: 20px;
 }
 
 .img {
     width: 160px;
     height: 160px;
-    border-radius: 100%;
+    border-radius: 40%;
+    border: 3px solid rgb(31, 132, 226);
     background-image: url(../../../assets/img/user.jpg);
     background-size: contain;
     background-position: center;
     align-items: center;
 }
 
-
-
 @media screen and (max-width:1050px) {
     .main  {
         margin-top: 35px !important;
         display: block;
         justify-items: center;
-    }
-
-    aside {
-        display: grid;
-        justify-items: center;
-        gap: 30px;
     }
 }

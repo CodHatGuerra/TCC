@@ -1,21 +1,37 @@
-<main class="main DF">
-    <aside *ngFor="let user of infoUser">
-        <mat-card class="profile ">
-            <div class="img" src="../../../assets/img/user.jpg"></div>
-            <p>{{ user.Email }}</p>
-            <p> {{ idade }} Anos </p>
-        </mat-card>
-    </aside>
-
-    <mat-card class="info mat-elevation-z4">
-        <mat-card-title>Minhas informções</mat-card-title>
-        <h4>Nome</h4>
-        <h4>Telefone</h4>
-        <h4>Rg</h4>
-        <h4>Sexo</h4>
-        <h4>Cep</h4>
-        <h4>e-mail</h4>
-        <h4>Telefone</h4>
-    </mat-card> 
-
+<main class="main DF" *ngFor="let user of infoUser">
+  <mat-card class="info mat-elevation-z4">
+    <div class="data">
+      <div class="nome">
+        <h4>Nome:</h4>
+        <p>{{ user.Nome }}</p>
+      </div>
+      <div class="rg">
+        <h4>Rg:</h4>
+        <p>{{ user.Rg }}</p>
+      </div>
+      <div class="email">
+        <h4>E-mail:</h4>
+        <p>{{ user.Email }}</p>
+      </div>
+      <div class="sexo">
+        <h4>Sexo:</h4>
+        <p>{{ user.Sexo }}</p>
+      </div>
+      <div class="dataNascimento">
+        <h4>Data de Nascimento:</h4>
+        <p>{{ user.Data_Nascimento | date }}</p>
+      </div>
+      <div class="cpf">
+        <h4>Cpf:</h4>
+        <p>{{ user.Cpf }}</p>
+      </div>
+    </div>
+    <div class="profile">
+      <div class="img" src="../../../assets/img/user.jpg"></div>
+      <p>{{ idade }} Anos</p>
+      <button mat-button class="buttonEdit">
+        <mat-icon class="edit">edit</mat-icon>
+      </button>
+    </div>
+  </mat-card>
 </main>

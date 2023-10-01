@@ -50,11 +50,6 @@ p {
     align-items: center;
 }
 
-h4 {
- 
-  
-}
-
 .name {
     padding: 4px;
     margin: 0px;
@@ -78,6 +73,11 @@ h4 {
     cursor: pointer;
     gap: 10px;
     margin-right: 20px;
+    align-items: center;
+}
+
+button {
+    margin-top: 4px;
 }
 
 .end {

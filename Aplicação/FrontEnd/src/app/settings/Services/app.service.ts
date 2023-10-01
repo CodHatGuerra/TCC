@@ -70,6 +70,10 @@ export class AppService {
     return user ? JSON.parse(user) : null;
   }
 
+  GetUserByCpf(cpf: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/usuario/${cpf}`,  { headers: this.httpHeaders })
+  }
+
   SetIdPosto(id: number) {
     this.id_Posto = id;
   }
@@ -94,8 +98,7 @@ export class AppService {
 
   //faz a requisição para retornar um posto
   GetByIdPosto(id: number): Observable<any> {
-    const url = `http://localhost:8080/api/posto/${id}`;
-    return this.http.get<any>(url, { headers: this.httpHeaders });
+    return this.http.get<any>(`http://localhost:8080/api/posto/${id}`, { headers: this.httpHeaders });
   }
 
   UpdatePosto(posto: Posto): Observable<any> {
@@ -107,7 +110,4 @@ export class AppService {
   }
 
 
-  getEmployee(){
-    
-  }
 }

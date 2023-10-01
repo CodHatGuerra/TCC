@@ -60,7 +60,6 @@ export class PostoUpdateComponent implements OnInit {
       }
     };
 
-    console.log(this.postoUpdate);
     this.service.UpdatePosto(this.postoUpdate).subscribe((response) => {
       if (response) {
         this.service.SuccessMessage("Posto atulizado com sucesso!");

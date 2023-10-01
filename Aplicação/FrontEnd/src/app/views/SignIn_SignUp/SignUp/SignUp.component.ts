@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
@@ -52,6 +52,37 @@ export class SignUpComponent {
     });
   }
 
+  fileName = '';
+  
+  onFileSelected(event: any) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+      const formData = new FormData();
+      formData.append("thumbnail", file);
+  
+      const reader = new FileReader();
+  
+      reader.onload = (e) => {
+        const fileContent: string | ArrayBuffer | null = reader.result;
+  
+        if (typeof fileContent === 'string') {
+          // A variável 'fileContent' agora contém o conteúdo do arquivo como uma string.
+          console.log('Conteúdo do arquivo como string:', fileContent);
+  
+          // Você pode usar o conteúdo do arquivo como desejar aqui.
+        }
+      };
+  
+      // Lê o arquivo como uma string
+      reader.readAsText(file);
+      
+      // Envie o arquivo para o servidor ou realize outras operações necessárias.
+      // Certifique-se de que o código de envio para o servidor seja chamado dentro deste bloco
+      // após a leitura do arquivo.
+    }
+}
   validateDate(control: any) {
     const inputDate = control;
     console.log(inputDate);

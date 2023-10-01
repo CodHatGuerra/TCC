@@ -1,32 +1,42 @@
 <main>
-  <h1>Funcionários</h1>
-  <button mat-button class="registerEmployee" (click)="openSigUn()"><mat-icon> add </mat-icon> Adicionar Funcionário</button>
+  <span class="search">
+    <form class="DF">
+        <input placeholder="Pesquise um funcionário aqui." type="text">
+        <button mat-button> <mat-icon class="mat-18"> search </mat-icon></button>
+    </form>
+    <button mat-button class="registerEmployee" (click)="openSigUn()"><mat-icon class="add"> add </mat-icon></button>
+  </span>
+
   <mat-card class="employee mat-elevation-z4">
     <table mat-table class="table-posto" [dataSource]="dataSource">
       <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
       <tr mat-row *matRowDef="let row; columns: columnEmployee"></tr>
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let row">{{row.Nome_do_Posto}}</td>
+        <td mat-cell *matCellDef="let row">{{row}}</td>
       </ng-container>
       <ng-container matColumnDef="city">
         <th mat-header-cell *matHeaderCellDef>Cidade</th>
-        <td mat-cell *matCellDef="let row">{{ row.Localidade }}</td>
+        <td mat-cell *matCellDef="let row">{{ row}}</td>
       </ng-container>
-      <ng-container matColumnDef="rua">
+      <ng-container matColumnDef="cargo">
         <th mat-header-cell *matHeaderCellDef>Bairro </th>
-        <td mat-cell *matCellDef="let row">{{ row.Logradouro }}</td>
+        <td mat-cell *matCellDef="let row">{{ row }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nomePosto">
+        <th mat-header-cell *matHeaderCellDef>Posto </th>
+        <td mat-cell *matCellDef="let row">{{ row }}</td>
       </ng-container>
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
           <div class="icons">
-            <!-- <a class="edit" (click)="openDialogEmployee(row.Posto_ID)">
+            <a class="edit">
               <mat-icon class="mat-18"> edit </mat-icon>
             </a>
-            <a class="delete" (click)="openSigOutDelete(row.Posto_ID)" class="delete">
+            <a class="delete" class="delete">
               <mat-icon class="mat-18"> delete </mat-icon>
-            </a> -->
+            </a>
           </div>
         </td>
       </ng-container>
