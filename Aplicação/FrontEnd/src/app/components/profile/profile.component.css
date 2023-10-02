@@ -1,72 +1,77 @@
 .main {
-    margin: 0 auto;
-    justify-content: center;
-    margin-top: 35px;
-    width: 90%;
-    gap: 30px;
-    height: 100%;
-    margin-bottom: 100px;
+  justify-content: center;
+  margin-top: 35px;
+  width: 90%;
+  height: 100%;
+  margin-bottom: 100px;
 }
 
 .info {
-    width: 70vw;
-    height: auto;
-    padding: 20px;
-    gap: 40%;
+  width: 50vw;
+  height: auto;
+  padding: 20px;
+  justify-content: space-between;
 }
 
 .data {
-    display: grid;
-}
-
-.mdc-card {
-    flex-direction: row;
+  display: grid;
 }
 
 .profile {
-    display: grid;
-    justify-items: center;
-    width: 300px;
+  display: grid;
+  justify-items: center;
+}
+
+.mdc-card {
+  flex-direction: row;
 }
 
 h4 {
-    font-weight: 700;
-    margin: 0;
+  font-weight: 700;
+  margin: 0;
 }
 
 mat-card {
-    background-color: rgb(214, 214, 214) !important;
-    box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001A, 0 1px 10px #0000001A;
+  background-color: rgb(214, 214, 214) !important;
+  box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
 }
 
 .buttonEdit {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: rgb(52, 52, 255);
-    box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001A, 0 1px 10px #0000001A;
+  width: 40px !important;
+  height: 55px;
+  padding: 0px !important;
+  justify-items: center;
+  border-radius: 40px;
+  background-color: rgb(52, 52, 255);
+  box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
 }
 
 .edit {
-    color: white !important;
-    font-size: 20px;
+  color: white !important;
+  font-size: 20px !important; 
 }
 
 .img {
-    width: 160px;
-    height: 160px;
-    border-radius: 40%;
-    border: 3px solid rgb(31, 132, 226);
-    background-image: url(../../../assets/img/user.jpg);
-    background-size: contain;
-    background-position: center;
-    align-items: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 30%;
+  border: 3px solid rgb(31, 132, 226);
+  background-image: url(../../../assets/img/user.jpg);
+  background-size: contain;
+  background-position: center;
+  align-items: center;
 }
 
-@media screen and (max-width:1050px) {
-    .main  {
-        margin-top: 35px !important;
-        display: block;
-        justify-items: center;
-    }
+@media screen and (max-width: 1050px) {
+  .main {
+    margin-top: 35px !important;
+    display: block;
+    justify-items: center;
+    margin-top: 35px;
+    margin-bottom: 100px;
+  }
+
+  .info {
+    margin: 0 auto;
+  }
 }
