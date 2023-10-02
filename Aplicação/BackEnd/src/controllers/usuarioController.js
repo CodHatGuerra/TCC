@@ -166,6 +166,28 @@ module.exports = {
 
     res.json(json);
   },
+  consultarCPF: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    let CPF = req.params.cpf;
+
+    await UsuarioService.consultarCPF(CPF)
+      .then((resultado) => {
+        json.result = {
+          Usuario: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+
+    res.json(json);
+  },
   deletar: async (req, res) => {
     let json = { error: "", result: {} };
 

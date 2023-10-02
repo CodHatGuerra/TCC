@@ -99,7 +99,34 @@ module.exports = {
           [ID],
           (error, results) => {
             if (error) {
-              console.log("Erro Cadastrar Posto" + error);
+              console.log("Erro Ao Consultar FUNCIONARIO" + error);
+              rejeitado(error);
+              return;
+            } else {
+              aceito(results);
+            }
+          }
+        );
+      });
+    } else {
+      if (error) {
+        console.log("Erro Cadastrar Posto" + error);
+        rejeitado(error);
+        return;
+      } 
+    }
+  },
+  consultarCPF: (CPF) => {
+    if (CPF) {
+      return new Promise((aceito, rejeitado) => {
+        db.query(
+          `
+          SELECT * FROM Usuario WHERE CPF = ? LIMIT 1;
+          `,
+          [CPF],
+          (error, results) => {
+            if (error) {
+              console.log("Erro ao consultar Usuario" + error);
               rejeitado(error);
               return;
             } else {

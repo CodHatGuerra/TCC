@@ -16,6 +16,8 @@ router.post("/usuario", UsuarioController.cadastrar); //
 router.get("/usuario/", UsuarioController.consultar); //
 //CONSULTAR USUARIO POR ID                                //
 router.get("/usuario/:id", UsuarioController.consultarID); //
+//CONSULTAR USUARIO POR CPF                                //
+router.get("/usuario/cpf/:cpf", UsuarioController.consultarCPF); //
 //ALTERAR USUARIO                                         //
 router.post("/usuario", UsuarioController.cadastrar); //
 //DELETAR USUARIO                                         //
@@ -47,9 +49,9 @@ router.put("/posto", authMiddleware, PostoController.alterar);
 //CADASTRAR FUNCIONARIO
 router.post("/funcionario", FuncionarioController.cadastrar);
 //ALTERAR FUNCIONARIO
-router.patch("/funcionario", FuncionarioController.alterar);
+router.put("/funcionario", FuncionarioController.alterar);
 //CONSULTAR TODOS FUNCIONARIO DE UM POSTO
-router.get("/funcionario/:id", FuncionarioController.consultar);
+router.get("/funcionario/posto/:id", FuncionarioController.consultar);
 //CONSULTAR UM FUNCIONARIO PELO CPF
 router.get("/funcionario/cpf/:cpf", FuncionarioController.consultarID);
 //DELETAR FUNCIONARIO PELO ID
