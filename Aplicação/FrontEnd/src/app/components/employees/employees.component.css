@@ -17,16 +17,16 @@ main {
     margin-bottom: 50px;
 }
 
-table{
-    background-color: #d4d4d4 !important;
-    width: auto;
-}
-
 .search {
     max-width: 100%;
     display: flex;
     gap: 40px;
     margin-bottom: 40px;
+}
+
+table{
+    background-color: #d4d4d4 !important;
+    width: auto;
 }
 
 .registerEmployee {
@@ -36,7 +36,7 @@ table{
 }
 
 input {
-    width: 40vw;
+    width: 30vw;
     padding: 5px;
     height: 7px;
     border-radius: 4px;

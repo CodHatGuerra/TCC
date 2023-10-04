@@ -5,6 +5,7 @@ import { AppService } from 'src/app/settings/Services/app.service';
 import { PostoUpdateComponent } from './posto-update/posto-update.component';
 import { PostoDeleteComponent } from './posto-delete/posto-delete.component';
 import { PostoCreateComponent } from './posto-create/posto-create.component';
+import { PostosService } from './postos.service';
 
 @Component({
   selector: 'app-postos',
@@ -15,7 +16,8 @@ export class PostosComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private service: AppService,
-    private router: Router
+    private router: Router,
+    private postoService: PostosService 
   ) { }
   dataSource: any[] = [];
   ngOnInit(): void {
@@ -30,7 +32,7 @@ export class PostosComponent implements OnInit {
   }
 
   buscarDados() {
-    this.service.GetPosto().subscribe((response: any) => {
+    this.postoService.GetPosto().subscribe((response: any) => {
       this.dataSource = response.result.postos;
     });
   }

@@ -1,18 +1,19 @@
 <main>
   <h2>Adicionar novo funcionário</h2>
-  <form [formGroup]="formEmployee" class="form">
+  <form [formGroup]="formEmployee" class="form" *ngFor="let proper of posto">
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Cpf</mat-label>
-      <input matInput formControlName="cpf" type="text" />
+      <input matInput formControlName="cpf" type="text"/>
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Cargo</mat-label>
       <input matInput formControlName="cargo" type="text" />
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Posto</mat-label>
-      <input matInput formControlName="Posto_ID" type="text" />
+      <mat-label>{{proper.Nome_do_Posto}}</mat-label>
+      <input matInput readonly [placeholder]="proper.Nome_do_Posto" formControlName="Posto_ID" type="text" [value]="proper.Posto_ID">
     </mat-form-field>
-    <button mat-button appWhite>Cadastrar</button>
+    <button mat-button appWhite (click)="SubmitEmployee()">Cadastrar</button>
   </form>
 </main>
+  

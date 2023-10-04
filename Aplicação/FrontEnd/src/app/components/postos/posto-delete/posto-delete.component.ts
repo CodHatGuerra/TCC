@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
 import { AppService } from "src/app/settings/Services/app.service";
+import { PostosService } from "../postos.service";
 
 @Component({
   selector: "app-posto-delete",
@@ -10,12 +11,13 @@ import { AppService } from "src/app/settings/Services/app.service";
 export class PostoDeleteComponent implements OnInit {
   constructor(
     private service: AppService,
+    private postoService: PostosService,
     private dialog: MatDialogRef<PostoDeleteComponent>
   ) { }
 
   ngOnInit(): void {
     const id = this.service.GetIdPosto();
-    this.service.GetByIdPosto(id).subscribe((response) => {
+    this.postoService.GetByIdPosto(id).subscribe((response) => {
       this.response = response.result;
     });
   }

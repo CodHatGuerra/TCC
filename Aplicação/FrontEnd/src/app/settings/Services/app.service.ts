@@ -83,11 +83,6 @@ export class AppService {
   }
 
   //retorna todos os postos
-  GetPosto(): Observable<any> {
-    return this.http.get(`${environment.baseUrl}/${environment.Posto}`, {
-      headers: this.httpHeaders,
-    });
-  }
 
   DeletePosto(id: number): Observable<any> {
     return this.http.delete<any>(
@@ -97,10 +92,7 @@ export class AppService {
   }
 
   //faz a requisição para retornar um posto
-  GetByIdPosto(id: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/posto/${id}`, { headers: this.httpHeaders });
-  }
-
+ 
   UpdatePosto(posto: Posto): Observable<any> {
     return this.http.put<Posto>(
       `${environment.baseUrl}/${environment.Posto}`,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Posto } from '../../interfaces';
+import { PostosService } from '../postos.service';
 
 @Component({
   selector: 'app-posto-update',
@@ -10,7 +11,11 @@ import { Posto } from '../../interfaces';
 })
 export class PostoUpdateComponent implements OnInit {
 
-  constructor(private service: AppService, private dialogRef: MatDialogRef<PostoUpdateComponent>) {
+  constructor(
+    private service: AppService,
+     private dialogRef: MatDialogRef<PostoUpdateComponent>,
+     private postoService: PostosService
+     ) {
   }
   result: any = {};
 
@@ -34,7 +39,7 @@ export class PostoUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.service.GetIdPosto();
-    this.service.GetByIdPosto(id).subscribe((response) => {
+    this.postoService.GetByIdPosto(id).subscribe((response) => {
       this.result = response.result!;
       console.log(response);
       
