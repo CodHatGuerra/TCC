@@ -11,7 +11,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>{{proper.Nome_do_Posto}}</mat-label>
-      <input matInput readonly [placeholder]="proper.Nome_do_Posto" formControlName="Posto_ID" type="text" [value]="proper.Posto_ID">
+      <input matInput readonly [placeholder]="proper.Nome_do_Posto" type="text">
     </mat-form-field>
     <button mat-button appWhite (click)="SubmitEmployee()">Cadastrar</button>
   </form>

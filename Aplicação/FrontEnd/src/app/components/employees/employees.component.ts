@@ -19,11 +19,14 @@ export class EmployeesComponent implements OnInit {
     private postoService: PostosService) { }
 
   postos: any;
+  
   dataSource: any[] = [];
   columnEmployee: string[] = ["cargo", "city", "nomePosto", "actions"];
 
+   idPosto: number = 0; 
+
   ngOnInit(): void {
-    //this.buscarDados();
+    this.getEmployeeByPosto()
     this.getPosto()
   }
 
@@ -33,18 +36,33 @@ export class EmployeesComponent implements OnInit {
     
     const form = this.dialog.open(EmployeesCreateComponent);
     form.afterClosed().subscribe(a => {
-      // this.buscarDados()
+      this.getEmployeeByPosto() 
     });
   }
 
-  buscarDados() {
-    this.employeeService.getEmployee().subscribe((response: any) => {
-      this.dataSource = response;
+  onSelectionChange(event: any) {
+    this.idPosto = event.value;
+    this.employeeService.setIdPosto(event.value);
+    this.getEmployeeByPosto()
+  }
+
+  getEmployeeByPosto() {
+    this.employeeService.getEmployee(this.idPosto).subscribe((response: any) => {
+     this.dataSource = response.postos;
       console.log(response);
     });
   }
 
-  
+
+
+  getPosto() {
+    this.postoService.GetPosto().subscribe((response) => {
+      this.postos = response.result.postos;
+    });
+  }
+
+
+
   // openUpdateEmployee(id: number) {
   //   this.service.SetIdPosto(id);
   //   this.router.navigate(["adm", "postos", "update", id]);
@@ -62,15 +80,4 @@ export class EmployeesComponent implements OnInit {
   //     this.buscarDados()
   //   });
 
-
-
-  getPosto() {
-    this.postoService.GetPosto().subscribe((response) => {
-      this.postos = response.result.postos;
-    });
-  }
-
-  onSelectionChange(event: any) {
-    this.employeeService.setIdPosto(event.value);
-  }
 }

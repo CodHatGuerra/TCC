@@ -23,8 +23,6 @@ export class EmployeesCreateComponent implements OnInit {
   ) {
     this.formEmployee = this.fb.group({
       cargo: ["", Validators.required],
-      Usuario_ID: ["", Validators.required],
-      Posto_ID: ["", [Validators.required]],
       numero: ["", [Validators.required, Validators.pattern("[0-9]*")]],
       cpf: ["", [Validators.required, Validators.pattern("[0-9]*")]],
     });
@@ -37,29 +35,31 @@ export class EmployeesCreateComponent implements OnInit {
   getPosto() {
     const id = this.employeeService.getIdPosto();
     this.postosService.GetByIdPosto(id).subscribe((response) => {
-      this.posto = response.result.postos
+      this.posto = response.result.postos;
     });
   }
 
-  findByUserCpf(){
-    return this.employeeService.getUserByCpf(this.formEmployee.value.cpf).subscribe((response)=> {
-      this.formEmployee.value.Usuario_ID = response.result.Usuario[0].ID
-    })
-  }
-
   SubmitEmployee() {
-    this.findByUserCpf();
-    const newDate = new Date();
-    const employee = {
-      funcionario: {
-        Data_Inicio: newDate.toISOString().split("T")[0],
-        Usuario_ID:  this.formEmployee.value.Usuario_ID,
-        Posto_ID: this.formEmployee.value.Posto_ID,
-        Cargo: this.formEmployee.value.cargo
-      },
-    };
-    this.service.SuccessMessage("Funcionário registrado com sucesso!")
-    console.log(employee);
-    
+    this.employeeService
+      .getUserByCpf(this.formEmployee.value.cpf)
+      .subscribe((response) => {
+        const Usuario_ID = response.result.Usuario[0].ID;
+
+        const newDate = new Date();
+        const employee = {
+          Funcionario: {
+            Data_Inicio: newDate.toISOString().split("T")[0],
+            Usuario_ID: Usuario_ID,
+            Posto_ID: this.posto[0].Posto_ID,
+            Cargo: this.formEmployee.value.cargo,
+          },
+        };
+
+        console.log(employee);
+        this.employeeService.postEmployee(employee).subscribe((response)=>{
+          console.log(response);
+          this.service.SuccessMessage("Funcionário registrado com sucesso!");
+        }) 
+      });
   }
 }

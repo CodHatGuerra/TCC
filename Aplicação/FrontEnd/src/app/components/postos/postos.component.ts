@@ -21,17 +21,17 @@ export class PostosComponent implements OnInit {
   ) { }
   dataSource: any[] = [];
   ngOnInit(): void {
-    this.buscarDados();
+    this.getPosto();
   }
 
   openSigUn(): void {
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed().subscribe(a => {
-      this.buscarDados()
+      this.getPosto()
     });
   }
 
-  buscarDados() {
+  getPosto() {
     this.postoService.GetPosto().subscribe((response: any) => {
       this.dataSource = response.result.postos;
     });
@@ -42,7 +42,7 @@ export class PostosComponent implements OnInit {
     this.router.navigate(["adm", "postos", "update", id]);
     const dialog = this.dialog.open(PostoUpdateComponent);
     dialog.afterClosed().subscribe(a => {
-      this.buscarDados()
+      this.getPosto()
     });
   }
 
@@ -51,7 +51,7 @@ export class PostosComponent implements OnInit {
     this.router.navigate(["adm", "postos", "delete", id]);
     const dialog = this.dialog.open(PostoDeleteComponent);
     dialog.afterClosed().subscribe(a => {
-      this.buscarDados()
+      this.getPosto()
     });
   }
   columnPosto: string[] = ["name", "city", "rua", "actions"];

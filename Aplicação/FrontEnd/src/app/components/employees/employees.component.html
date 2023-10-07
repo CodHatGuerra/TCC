@@ -1,6 +1,5 @@
 <main>
   <span class="search">
-
     <mat-form-field>
       <mat-label>Postos Registrados</mat-label>
       <mat-select (selectionChange)="onSelectionChange($event)">
@@ -9,15 +8,25 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-
-    <form class="DF">
-      <input placeholder="Pesquise um funcionário aqui." type="text">
-      <button mat-button> <mat-icon class="mat-18"> search </mat-icon></button>
-    </form>
-    <button mat-button class="registerEmployee" (click)="openSigUn()"><mat-icon class="add"> add </mat-icon></button>
   </span>
 
+  <form class="searchEmployee">
+    <mat-form-field class="formField" appearance="outline">
+      <input matInput placeholder="Pesquise aqui." type="text">
+      <button mat-button> <mat-icon class="mat-18"> search </mat-icon></button>
+    </mat-form-field>
+  </form>
   <mat-card class="employee mat-elevation-z4">
+    <span>
+      <mat-card-title>Funcionários</mat-card-title>
+      <button mat-button class="searchEmployee">
+        Buscar
+        <mat-icon> search </mat-icon>
+      </button>
+      <button mat-button class="registerEmployee" (click)="openSigUn()">
+        <mat-icon class="add"> add </mat-icon>
+      </button>
+    </span>
     <table mat-table class="table-posto" [dataSource]="dataSource">
       <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
       <tr mat-row *matRowDef="let row; columns: columnEmployee"></tr>
