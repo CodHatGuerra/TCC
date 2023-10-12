@@ -4,7 +4,7 @@ module.exports = {
   alterar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    const funcionario = req.body.funcionario;
+    const funcionario = req.body.Funcionario;
     const funcionarioPreenchido =
       funcionario.Usuario_ID && funcionario.Posto_ID && funcionario.Cargo;
 
@@ -93,6 +93,24 @@ module.exports = {
     let ID = req.params.cpf;
 
     await FuncionarioService.consultarID(ID)
+      .then((resultado) => {
+        json.result = {
+          funcionario: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+    res.json(json);
+  },
+  consultarTodos: async (req, res) => {
+    let json = { error: "", result: {} };
+    await FuncionarioService.consultarTodos()
       .then((resultado) => {
         json.result = {
           funcionario: resultado,

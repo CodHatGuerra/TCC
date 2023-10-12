@@ -19,7 +19,7 @@ router.get("/usuario/:id", UsuarioController.consultarID); //
 //CONSULTAR USUARIO POR CPF                                //
 router.get("/usuario/cpf/:cpf", UsuarioController.consultarCPF); //
 //ALTERAR USUARIO                                         //
-router.put("/usuario/:id", UsuarioController.alterar);      //
+router.put("/usuario/:id", UsuarioController.alterar); //
 //DELETAR USUARIO                                         //
 router.delete("/usuario/:id", UsuarioController.deletar); //
 //--------------------------------------------------------//
@@ -47,15 +47,17 @@ router.put("/posto", authMiddleware, PostoController.alterar);
 //ROTAS FUNCIONARIO
 //--------------------------------------------------------//
 //CADASTRAR FUNCIONARIO
-router.post("/funcionario", FuncionarioController.cadastrar);
+router.post("/funcionario", authMiddleware, FuncionarioController.cadastrar);
 //ALTERAR FUNCIONARIO
-router.put("/funcionario", FuncionarioController.alterar);
+router.put("/funcionario", authMiddleware, FuncionarioController.alterar);
+//CONSULTAR TODOS FUNCIONARIO DE TODOS OS POSTOS
+router.get("/funcionario/", authMiddleware, FuncionarioController.consultarTodos);
 //CONSULTAR TODOS FUNCIONARIO DE UM POSTO
-router.get("/funcionario/posto/:id", FuncionarioController.consultar);
+router.get("/funcionario/posto/:id", authMiddleware, FuncionarioController.consultar);
 //CONSULTAR UM FUNCIONARIO PELO CPF
-router.get("/funcionario/cpf/:cpf", FuncionarioController.consultarID);
+router.get("/funcionario/cpf/:cpf", authMiddleware, FuncionarioController.consultarID);
 //DELETAR FUNCIONARIO PELO ID
-router.delete("/funcionario/:id", FuncionarioController.deletar);
+router.delete("/funcionario/:id", authMiddleware, FuncionarioController.deletar);
 //--------------------------------------------------------//
 
 // Rota protegida que requer autenticação

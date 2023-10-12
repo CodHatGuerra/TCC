@@ -2,11 +2,9 @@ const db = require("../db");
 
 module.exports = {
   alterar: (usuario, telefone, id) => {
-
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "UPDATE Usuario SET Nome = ?, Cpf = ?, Rg = ?, Sexo = ?, Data_Nascimento = ?, Email = ?, Senha = ? WHERE ID = ?"
-        ,
+        "UPDATE Usuario SET Nome = ?, Cpf = ?, Rg = ?, Sexo = ?, Data_Nascimento = ?, Email = ?, Senha = ? WHERE ID = ?",
         [
           usuario.nome,
           usuario.cpf,
@@ -15,7 +13,7 @@ module.exports = {
           usuario.data_Nascimento,
           usuario.email,
           usuario.senha,
-          usuario.id
+          id,
         ],
         (error, results) => {
           if (error) {
@@ -23,7 +21,6 @@ module.exports = {
             rejeitado(error);
             return;
           } else {
-
             return new Promise((resolve, reject) => {
               db.query(
                 "UPDATE Telefone SET Numero = ? WHERE Usuario_ID = ?",
@@ -128,7 +125,7 @@ module.exports = {
   deletar: (id) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "DELETE FROM Endereco WHERE Usuario_ID = ?",
+        "DELETE FROM Telefone WHERE Usuario_ID = ?",
         [id],
         (error, results) => {
           if (error) {
@@ -138,11 +135,11 @@ module.exports = {
           } else {
             new Promise((resolve, reject) => {
               db.query(
-                "DELETE FROM Telefone WHERE Usuario_ID = ?",
+                "DELETE FROM Funcionario WHERE Usuario_ID = ?",
                 [id],
                 (error) => {
                   if (error) {
-                    console.log("ERRO DELETAR Telefone");
+                    console.log("ERRO AO DELETAR Usuario");
                     console.log(error);
                     reject(error);
                   } else {
@@ -151,23 +148,6 @@ module.exports = {
                 }
               );
             })
-              .then(() => {
-                new Promise((resolve, reject) => {
-                  db.query(
-                    "DELETE FROM Funcionario WHERE Usuario_ID = ?",
-                    [id],
-                    (error) => {
-                      if (error) {
-                        console.log("ERRO AO DELETAR Usuario");
-                        console.log(error);
-                        reject(error);
-                      } else {
-                        resolve();
-                      }
-                    }
-                  );
-                });
-              })
               .then(() => {
                 new Promise((resolve, reject) => {
                   db.query(
@@ -202,7 +182,7 @@ module.exports = {
                   );
                 });
               })
-              .then(() => aceito(Posto_ID))
+              .then(() => aceito())
               .catch((error) => {
                 console.log(error);
                 rejeitado(error);

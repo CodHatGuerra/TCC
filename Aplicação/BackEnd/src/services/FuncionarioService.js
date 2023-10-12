@@ -30,12 +30,10 @@ module.exports = {
                 WHERE
                  ID = ?;
                 `,
-                [funcionario.Cargo,funcionario.Usuario_ID],
+                [funcionario.Cargo, funcionario.Usuario_ID],
                 (error) => {
                   if (error) {
-                    console.log(
-                      "Erro ao Trocar o cargo do funcionario"
-                    );
+                    console.log("Erro ao Trocar o cargo do funcionario");
                     console.log(error);
                     reject(error);
                   } else {
@@ -79,6 +77,38 @@ module.exports = {
         (error, results) => {
           if (error) {
             console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        }
+      );
+    });
+  },
+  consultarTodos: () => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        `
+        SELECT
+          U.ID AS ID_Usuario,
+          F.ID AS ID_Funcionario,
+          P.ID AS ID_Posto,
+          U.Nome AS Nome_Pessoa,
+          F.Cargo AS Cargo,
+          P.Nome AS Nome_Posto
+        FROM
+            Usuario U
+        JOIN
+            Funcionario F ON U.ID = F.Usuario_ID
+        JOIN
+            Funcionario_tem_Posto FTP ON F.ID = FTP.Funcionario_ID
+        JOIN
+            Posto P ON FTP.Posto_ID = P.ID;
+        `,
+        (error, results) => {
+          if (error) {
+            console.log("Erro Consultar Usuarios de postos " + error);
             rejeitado(error);
             return;
           } else {
