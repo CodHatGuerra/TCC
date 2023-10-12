@@ -1,88 +1,61 @@
 main {
-    width: 70vw;
-    height: auto ;
-    text-align: center;
-    display: grid;
-    margin: 0 auto;
-    margin-top: 34px;
+  display: grid;
+  width: 90vw;
+  height: auto;
+  margin-top: 34px;
+  margin: 0 auto;
 }
 
 .employee {
-    max-width: 55vw;
-    margin-top: 30px;
-    height: 50vh;
-    gap: 40px;
-    padding-left: 20px;
-    background-color: #ebebeb;
-    border: 1px solid black;
-    margin-bottom: 50px;
+  min-width: 90vw !important;
+  height: 50vh;
+  gap: 40px;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  margin-bottom: 50px;
 }
 
-.employee > span{
-    align-items: center;
-    display: flex;
-    height: 50px;
-    justify-content: space-around;
-    width:  100%;  
-    border: 2px solid red;
+.employee > span {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  width: 100%;
 }
 
-.search {
-    max-width: 100%;
-    display: flex;
-    gap: 40px;
-    margin-bottom: 40px;
+span {
+  display: flex;
+  max-width: 100%;
+  justify-content: space-around;
+  gap: 40px;
+  margin-top: 100px;
 }
 
-.searchEmployee {
-    width: 400px;
-}
-
-
-.formField 
-{
-    max-width: 100%;
-    display: flex !important;
-}
 
 table {
-    background-color: #d4d4d4 !important;
-    width: auto;
+  background-color: #d4d4d4 !important;
+  width: auto;
 }
 
 .registerEmployee {
-    width: 50px;
-    background-color: #529fc0;
-    color: white !important;
+  width: 50px;
+  background-color: #529fc0;
+  color: white !important;
 }
 
-input {
-    width: 30vw;
-    padding: 5px;
-    height: 70px;
-    border-radius: 4px;
-    padding: 13px;
-    background-color: #ececec;
-    font-size: 14px;
-    margin-left: 0;
-    border: 2px solid #45a4cc;
-    outline: none;
-} 
-
 .icons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .add {
-    font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 .delete {
-    color: rgb(192, 21, 21);
+  color: rgb(192, 21, 21);
 }
 
 .edit {
-    color: rgb(233, 154, 36);
+  color: rgb(233, 154, 36);
 }
-
