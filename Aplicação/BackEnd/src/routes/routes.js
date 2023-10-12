@@ -19,7 +19,7 @@ router.get("/usuario/:id", UsuarioController.consultarID); //
 //CONSULTAR USUARIO POR CPF                                //
 router.get("/usuario/cpf/:cpf", UsuarioController.consultarCPF); //
 //ALTERAR USUARIO                                         //
-router.post("/usuario", UsuarioController.cadastrar); //
+router.put("/usuario/:id", UsuarioController.alterar);      //
 //DELETAR USUARIO                                         //
 router.delete("/usuario/:id", UsuarioController.deletar); //
 //--------------------------------------------------------//

@@ -5,8 +5,8 @@ module.exports = {
   alterar: async (req, res) => {
     let json = { error: "", result: {} };
     const usuario = req.body.usuario;
-    const endereco = req.body.endereco;
     const telefone = req.body.telefone;
+    const id = req.params.id;
 
     const usuarioPreenchido =
       usuario.nome &&
@@ -18,18 +18,10 @@ module.exports = {
       usuario.data_Criada &&
       usuario.senha;
 
-    const enderecoPreenchido =
-      endereco.cep &&
-      endereco.uf &&
-      endereco.localidade &&
-      endereco.bairro &&
-      endereco.logradouro &&
-      endereco.numero;
-
     const telefonePreenchido = telefone.numero;
 
-    if (usuarioPreenchido && enderecoPreenchido && telefonePreenchido) {
-      await UsuarioService.inserir(usuario, endereco, telefone)
+    if (usuarioPreenchido && telefonePreenchido && id) {
+      await UsuarioService.alterar(usuario, telefone, id)
         .then((resultado) => {
           json.result = {
             codigo: resultado,
@@ -61,7 +53,6 @@ module.exports = {
   cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
     const usuario = req.body.usuario;
-    const endereco = req.body.endereco;
     const telefone = req.body.telefone;
 
     const usuarioPreenchido =
@@ -74,18 +65,10 @@ module.exports = {
       usuario.data_Criada &&
       usuario.senha;
 
-    const enderecoPreenchido =
-      endereco.cep &&
-      endereco.uf &&
-      endereco.localidade &&
-      endereco.bairro &&
-      endereco.logradouro &&
-      endereco.numero;
-
     const telefonePreenchido = telefone.numero;
 
-    if (usuarioPreenchido && enderecoPreenchido && telefonePreenchido) {
-      await UsuarioService.inserir(usuario, endereco, telefone)
+    if (usuarioPreenchido && telefonePreenchido) {
+      await UsuarioService.inserir(usuario,telefone)
         .then((resultado) => {
           json.result = {
             codigo: resultado,
@@ -101,10 +84,6 @@ module.exports = {
           console.log("ID : " + resultado);
           for (let prop in usuario) {
             console.log(`${prop} : ${usuario[prop]}`);
-          }
-          console.log("--------------------------------------------");
-          for (let prop in endereco) {
-            console.log(`${prop} : ${endereco[prop]}`);
           }
           console.log("--------------------------------------------");
           for (let prop in telefone) {

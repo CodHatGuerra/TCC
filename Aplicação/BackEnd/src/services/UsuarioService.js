@@ -1,67 +1,43 @@
 const db = require("../db");
 
 module.exports = {
-  alterar: (usuario, endereco, telefone) => {
-    let ID_Endereco = null;
-    let Posto_ID = null;
+  alterar: (usuario, telefone, id) => {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Usuario (Nome) VALUES (?)",
-        [posto.nome],
+        "UPDATE Usuario SET Nome = ?, Cpf = ?, Rg = ?, Sexo = ?, Data_Nascimento = ?, Email = ?, Senha = ? WHERE ID = ?"
+        ,
+        [
+          usuario.nome,
+          usuario.cpf,
+          usuario.rg,
+          usuario.sexo,
+          usuario.data_Nascimento,
+          usuario.email,
+          usuario.senha,
+          usuario.id
+        ],
         (error, results) => {
           if (error) {
-            console.log("Erro Cadastrar Posto" + error);
+            console.log("Erro ao Alterar Usuario" + error);
             rejeitado(error);
             return;
           } else {
-            Posto_ID = results.insertId;
 
-            new Promise((resolve, reject) => {
+            return new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Posto_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                [
-                  endereco.cep,
-                  endereco.uf,
-                  endereco.localidade,
-                  endereco.bairro,
-                  endereco.logradouro,
-                  endereco.numero,
-                  Posto_ID,
-                ],
-                (error, result) => {
+                "UPDATE Telefone SET Numero = ? WHERE Usuario_ID = ?",
+                [telefone.numero, id],
+                (error) => {
                   if (error) {
-                    console.log("ERRO ENDEREÇO");
-                    console.log(error);
                     reject(error);
                   } else {
-                    ID_Endereco = result.insertId;
-                    console.log(
-                      "Execução com sucesso do insert Endereco: " + ID_Endereco
-                    );
                     resolve();
                   }
                 }
               );
             })
-              .then(() => {
-                return new Promise((resolve, reject) => {
-                  db.query(
-                    "INSERT INTO Telefone (Numero, Posto_ID) VALUES (?, ?)",
-                    [telefone.numero, Posto_ID],
-                    (error) => {
-                      if (error) {
-                        console.log("ERRO NUMERO");
-                        console.log(error);
-                        reject(error);
-                      } else {
-                        resolve();
-                      }
-                    }
-                  );
-                });
-              })
-              .then(() => aceito(Posto_ID))
+              .then(() => aceito())
               .catch((error) => {
                 console.log(error);
                 rejeitado(error);
@@ -113,7 +89,7 @@ module.exports = {
         console.log("Erro Cadastrar Posto" + error);
         rejeitado(error);
         return;
-      } 
+      }
     }
   },
   consultarCPF: (CPF) => {
@@ -236,8 +212,7 @@ module.exports = {
       );
     });
   },
-  inserir: (usuario, endereco, telefone) => {
-    let ID_Endereco = null;
+  inserir: (usuario, telefone) => {
     let ID_Usuario = null;
 
     return new Promise((aceito, rejeitado) => {
@@ -262,51 +237,21 @@ module.exports = {
           } else {
             ID_Usuario = results.insertId;
 
-            new Promise((resolve, reject) => {
+            return new Promise((resolve, reject) => {
               db.query(
-                "INSERT INTO Endereco (Cep, Uf, Localidade, Bairro, Logradouro, Numero, Usuario_ID) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                [
-                  endereco.cep,
-                  endereco.uf,
-                  endereco.localidade,
-                  endereco.bairro,
-                  endereco.logradouro,
-                  endereco.numero,
-                  ID_Usuario,
-                ],
-                (error, result) => {
+                "INSERT INTO Telefone (Numero, Usuario_ID) VALUES (?, ?)",
+                [telefone.numero, ID_Usuario],
+                (error) => {
                   if (error) {
-                    console.log("ERRO ENDEREÇO");
+                    console.log("ERRO NUMERO");
                     console.log(error);
                     reject(error);
                   } else {
-                    ID_Endereco = result.insertId;
-                    console.log(
-                      "Execução com sucesso do insert TB_Endereco: " +
-                        ID_Endereco
-                    );
                     resolve();
                   }
                 }
               );
             })
-              .then(() => {
-                return new Promise((resolve, reject) => {
-                  db.query(
-                    "INSERT INTO Telefone (Numero, Usuario_ID) VALUES (?, ?)",
-                    [telefone.numero, ID_Usuario],
-                    (error) => {
-                      if (error) {
-                        console.log("ERRO NUMERO");
-                        console.log(error);
-                        reject(error);
-                      } else {
-                        resolve();
-                      }
-                    }
-                  );
-                });
-              })
               .then(() => aceito(ID_Usuario))
               .catch((error) => {
                 console.log(error);
