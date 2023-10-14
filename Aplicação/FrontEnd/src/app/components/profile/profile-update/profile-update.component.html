@@ -1,0 +1,30 @@
+<div class="div">
+  <h2>Aualizar novo funcionário</h2>
+  <form class="form">
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput name="nome" type="text" [(ngModel)]="profile.Nome"/>
+    </mat-form-field>
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Cpf</mat-label>
+      <input matInput name="cpf" [(ngModel)]="profile.Cpf" type="number"/>
+    </mat-form-field>
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Rg</mat-label>
+      <input matInput name="rg" type="number" [(ngModel)]="profile.Rg" />
+    </mat-form-field>
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" type="email" [(ngModel)]="profile.Email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sexo</mat-label>
+      <mat-select>
+        <mat-option value="Masculino">Masculino</mat-option>
+        <mat-option value="Feminino">Feminino</mat-option>
+        <mat-option value="Outros">Outros</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="updateProfile()" appWhite>Atualizar</button>
+  </form>
+</div>

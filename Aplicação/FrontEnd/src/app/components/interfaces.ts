@@ -15,3 +15,19 @@ export interface Posto  {
       numero: number
     }
 }
+
+export interface Profile {
+  usuario: {
+	  nome: string,
+	  cpf: number,
+	  rg: number,
+	  data_Nascimento: string,
+	  sexo: string,
+	  email: string,
+	  data_Criada: string,
+	  senha: number
+	},
+  telefone: {
+    numero: number
+  }
+}

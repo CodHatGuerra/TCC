@@ -24,12 +24,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Data de nascimento</mat-label>
-          <input
-            matInput
-            type="date"
-            placeholder="Selecione uma data"
-            formControlName="data_Nascimento"
-          />
+          <input matInput type="date" placeholder="Selecione uma data" formControlName="data_Nascimento"/>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Sexo</mat-label>
@@ -47,7 +42,6 @@
           <mat-label>Celular</mat-label>
           <input matInput type="number" formControlName="telefone" />
         </mat-form-field>
-
         <p class="upForm">Crie sua senha</p>
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
@@ -57,76 +51,6 @@
           <mat-label>Confirmar senha</mat-label>
           <input matInput type="password" formControlName="confirmarSenha" />
         </mat-form-field>
-      </form>
-      <form class="adressForm" [formGroup]="adressForm">
-        <p class="upForm">Endereço</p>
-        <mat-form-field appearance="outline">
-          <mat-label>Cep</mat-label>
-          <input
-            matInput
-            type="number"
-            (blur)="DadosCep()"
-            formControlName="cep"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Uf</mat-label>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="endereco.uf"
-            formControlName="uf"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Localidade</mat-label>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="endereco.localidade"
-            formControlName="localidade"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Bairro</mat-label>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="endereco.bairro"
-            formControlName="bairro"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Logradouro</mat-label>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="endereco.logradouro"
-            formControlName="logradouro"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Número</mat-label>
-          <input matInput type="number" formControlName="numero" />
-        </mat-form-field>
-        <input
-          type="file"
-          class="file-input"
-          (change)="onFileSelected($event)"
-          #fileUpload
-        />
-
-        <div class="file-upload">
-
-          <button
-            mat-mini-fab
-            color="primary"
-            class="upload-btn"
-            (click)="fileUpload.click()"
-          >
-            <mat-icon>attach_file</mat-icon>
-          </button>
-        </div>
       </form>
       <button class="buttonRegister" mat-button (click)="Submit()">
         Cadastrar

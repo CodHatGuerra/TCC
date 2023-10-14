@@ -1,0 +1,17 @@
+.div {
+    display: grid;
+    text-align: center;
+    width: 40vw;
+    padding: 20px;
+    height: auto;
+}
+
+button {
+    color: white;
+    background-color:  #78C0E0;
+}
+
+form {
+    display: grid;
+    padding: 20px;
+}

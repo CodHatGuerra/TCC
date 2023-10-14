@@ -45,9 +45,11 @@ import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddVaccinessComponent } from './components/add-vacciness/add-vacciness.component';
 import { EmployeesCreateComponent } from './components/employees/employees-create/employees-create.component';
-import { EmployeesDeleteComponent } from './components/employees/employees-delete/employees-delete.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeeUpdateComponent } from './components/employees/employee-update/employee-update.component';
+import { EmployeeDeleteComponent } from './components/employees/employee-delete/employee-delete.component';
+import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 
 
 @NgModule({
@@ -71,9 +73,11 @@ import { EmployeesComponent } from './components/employees/employees.component';
     PostoUpdateComponent,
     AddVaccinessComponent,
     EmployeesCreateComponent,
-    EmployeesDeleteComponent,
     PostosComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    EmployeeUpdateComponent,
+    EmployeeDeleteComponent,
+    ProfileUpdateComponent
   ],
   imports: [
     BrowserModule,

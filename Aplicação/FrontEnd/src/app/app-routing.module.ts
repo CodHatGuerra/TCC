@@ -12,6 +12,7 @@ import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
+import { EmployeeUpdateComponent } from './components/employees/employee-update/employee-update.component';
 
 const routes: Routes = [
   {
@@ -74,7 +75,13 @@ const routes: Routes = [
       },
       {
         path: 'employee',
-        component: EmployeesComponent
+        component: EmployeesComponent,
+        children: [
+          {
+            path: 'update/id',
+            component: EmployeeUpdateComponent
+          }
+        ]
       },
       {
         path: 'profile',

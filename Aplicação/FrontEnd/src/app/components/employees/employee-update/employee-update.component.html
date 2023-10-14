@@ -1,0 +1,19 @@
+<main>
+    <h2>Aualizar novo funcionário</h2>
+    <form class="form" >
+      <mat-form-field class="MR" appearance="outline">
+        <mat-label>Cpf</mat-label>
+        <input matInput name="cpf" [(ngModel)]="employee.Cpf" type="text"/>
+      </mat-form-field>
+      <mat-form-field class="MR" appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <input matInput name="cargo"  [(ngModel)]="employee.Cargo" type="text" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label></mat-label>
+        <input matInput readonly  type="text">
+      </mat-form-field>
+      <button mat-button appWhite>Cadastrar</button>
+    </form>
+  </main>
+    

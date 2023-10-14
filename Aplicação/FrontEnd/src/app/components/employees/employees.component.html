@@ -1,59 +1,64 @@
 <main>
-  <span>
-    <mat-form-field>
-      <mat-label>Postos Registrados</mat-label>
-      <mat-select (selectionChange)="onSelectionChange($event)">
-        <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
-          {{ posto.Nome_do_Posto }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
+  <span class="search">
+    <div>
+      <h2>Selecione um posto</h2>
+      <mat-form-field>
+        <mat-label>Postos Registrados</mat-label>
+        <mat-select (selectionChange)="onSelectionChange($event)">
+          <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
+            {{ posto.Nome_do_Posto }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
     <mat-form-field appearance="outline">
-      <input matInput placeholder="Pesquise aqui." type="text" />
+      <input
+        matInput
+        placeholder="Pesquise aqui."
+        type="search"
+        (keyup)="search($event)"
+      />
       <mat-icon matSuffix> search </mat-icon>
     </mat-form-field>
   </span>
 
   <mat-card class="employee">
     <span>
-      <mat-card-title>Funcionários</mat-card-title>
-      <button mat-button class="searchEmployee">
-        Buscar
-        <mat-icon> search </mat-icon>
-      </button>
-      <button mat-button class="registerEmployee" (click)="openSigUn()">
+      <mat-card-title>Funcionários ativos</mat-card-title>
+      <button
+        class="addEmployee"
+        mat-button
+        class="registerEmployee"
+        (click)="openSigUn()"
+      >
+        Vincular um funcionario
         <mat-icon class="add"> add </mat-icon>
       </button>
     </span>
     <table mat-table class="table-posto" [dataSource]="dataSource">
       <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
       <tr mat-row *matRowDef="let row; columns: columnEmployee"></tr>
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let row">{{ row }}</td>
-      </ng-container>
-      <ng-container matColumnDef="city">
-        <th mat-header-cell *matHeaderCellDef>Cidade</th>
-        <td mat-cell *matCellDef="let row">{{ row }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.Nome_Pessoa }}</td>
       </ng-container>
       <ng-container matColumnDef="cargo">
-        <th mat-header-cell *matHeaderCellDef>Bairro</th>
-        <td mat-cell *matCellDef="let row">{{ row }}</td>
+        <th mat-header-cell *matHeaderCellDef>Cargo</th>
+        <td mat-cell *matCellDef="let row">{{ row.Cargo }}</td>
       </ng-container>
       <ng-container matColumnDef="nomePosto">
         <th mat-header-cell *matHeaderCellDef>Posto</th>
-        <td mat-cell *matCellDef="let row">{{ row }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.Nome_Posto }}</td>
       </ng-container>
-      <ng-container matColumnDef="actions">
+      <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
           <div class="icons">
             <a class="edit">
-              <mat-icon class="mat-18"> edit </mat-icon>
+              <mat-icon class="mat-18" (click)="employeeUpdate(row.ID_Usuario)"> edit </mat-icon>
             </a>
             <a class="delete" class="delete">
-              <mat-icon class="mat-18"> delete </mat-icon>
+              <mat-icon class="mat-18" (click)="employeeDelete(row.ID_Funcionario)"> delete </mat-icon>
             </a>
           </div>
         </td>

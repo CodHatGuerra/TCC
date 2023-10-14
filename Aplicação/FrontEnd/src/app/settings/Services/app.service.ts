@@ -81,9 +81,8 @@ export class AppService {
   GetIdPosto(): number {
     return this.id_Posto!;
   }
-
+  
   //retorna todos os postos
-
   DeletePosto(id: number): Observable<any> {
     return this.http.delete<any>(
       `${environment.baseUrl}/${environment.Posto}/${id}`,

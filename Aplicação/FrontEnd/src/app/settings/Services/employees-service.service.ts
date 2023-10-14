@@ -20,9 +20,26 @@ export class EmployeeService {
 
   postoId: number = 0;
 
-  getEmployee(idPosto: number): Observable<any> {
+  userId: number = 0;
+
+  setIdFuncionario(id: number){
+    this.userId = id;
+  }
+
+  getIdFuncionario(){
+    return this.userId;
+  }
+
+  getEmployeeByPosto(idPosto: number): Observable<any> {
     return this.http.get<any>(
       `http://localhost:8080/api/funcionario/posto/${idPosto}`,
+      { headers: this.httpHeaders }
+    );
+  }
+
+  getAllEmployee(): Observable<any> {
+    return this.http.get<any>(
+      `http://localhost:8080/api/funcionario`,
       { headers: this.httpHeaders }
     );
   }
@@ -41,6 +58,12 @@ export class EmployeeService {
         headers: this.httpHeaders,
       }) ?? this.service.AlertMessage("Não foi possível encontrar um usuário");
     return user;
+  }
+
+  deleteEmployee(id: number): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/api/funcionario/${id}`, {
+      headers: this.httpHeaders,
+    });
   }
 
   postEmployee(obj: any): Observable<any> {

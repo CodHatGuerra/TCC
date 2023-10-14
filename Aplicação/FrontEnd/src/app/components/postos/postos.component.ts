@@ -5,7 +5,7 @@ import { AppService } from 'src/app/settings/Services/app.service';
 import { PostoUpdateComponent } from './posto-update/posto-update.component';
 import { PostoDeleteComponent } from './posto-delete/posto-delete.component';
 import { PostoCreateComponent } from './posto-create/posto-create.component';
-import { PostosService } from './postos.service';
+import { PostosService } from '../../settings/Services/postos.service';
 
 @Component({
   selector: 'app-postos',

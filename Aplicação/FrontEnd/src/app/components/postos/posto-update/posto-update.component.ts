@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Posto } from '../../interfaces';
-import { PostosService } from '../postos.service';
+import { PostosService } from '../../../settings/Services/postos.service';
 
 @Component({
   selector: 'app-posto-update',

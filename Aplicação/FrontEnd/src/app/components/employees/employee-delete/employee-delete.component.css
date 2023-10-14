@@ -1,0 +1,10 @@
+div{
+   display: grid;
+   justify-content: center;
+    width: 200px;
+    height: 300px;
+}
+
+button{
+    background-color: rgb(168, 37, 37);
+}

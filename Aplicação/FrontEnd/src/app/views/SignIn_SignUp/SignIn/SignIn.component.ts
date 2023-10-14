@@ -31,6 +31,14 @@ form: FormGroup;
     return this.http.post<LoginModel>(`${environment.baseUrl}${environment.SignIn}`, login);
   }
 
+  PrimaryName(nome: string){
+    const palavras = nome.split(' ');
+    if (palavras.length > 0) {
+      return palavras[0];
+    }
+    return '';
+  }
+
    Register() :void {
     if(this.form.valid){
       this.FormLogin = this.form.value 
@@ -39,7 +47,8 @@ form: FormGroup;
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm', 'application']);
-          this.appService.Message('Bem vindo!')
+         const name =  this.PrimaryName(response.result.resposta[0].Nome)
+          this.appService.Message(`Bem vindo ${name} !`)
         } else {
           this.appService.AlertMessage('Usuário não encontrado.')
         }
