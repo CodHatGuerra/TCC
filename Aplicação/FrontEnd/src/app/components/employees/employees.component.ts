@@ -37,9 +37,45 @@ export class EmployeesComponent implements OnInit {
     this.getPosto();
   }
 
-  search(e: Event): void {
-    const target = e.target as HTMLInputElement;
-    const value = target.value;
+  employeeDelete(id: number) {
+    this.employeeService.setIdFuncionario(id);
+    const dialog = this.dialog.open(EmployeeDeleteComponent);
+    dialog.afterClosed().subscribe((a) => {
+      this.getAllEmployee();
+    });
+  }
+
+  getPosto() {
+    this.postoService.GetPosto().subscribe((response) => {
+      this.postos = response.result.postos;
+    });
+  }
+
+  onSelectionChange(event: any) {
+    this.idPosto = event.value;
+    this.employeeService.setIdPosto(event.value);
+    this.getEmployeesByPosto(this.idPosto);
+  }
+
+  getEmployeesByPosto(idPosto: number) {
+    this.employeeService.getEmployeeByPosto(idPosto).subscribe((response) => {
+      this.dataSource = response.result.postos; 
+      console.log(response);
+      // Atualize a fonte de dados com os funcionários retornados
+    });
+  }
+
+  search(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const searchTerm = target.value.toLowerCase();
+
+    // Use o método filter para criar uma nova lista de funcionários filtrados com base no nome
+    this.dataSource = this.dataSource.filter((funcionario: any) => {
+      if (funcionario && funcionario.Nome_Pessoa) {
+        return funcionario.Nome_Pessoa.toLowerCase().includes(searchTerm);
+      }
+      return false;
+    })
   }
 
   getAllEmployee() {
@@ -58,11 +94,6 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
-  onSelectionChange(event: any) {
-    this.idPosto = event.value;
-    this.employeeService.setIdPosto(event.value);
-  }
-
   getEmployeeByPosto() {
     this.employeeService
       .getEmployeeByPosto(this.idPosto)
@@ -75,20 +106,6 @@ export class EmployeesComponent implements OnInit {
   employeeUpdate(id: number) {
     // this.employeeService.setIdUser(id);
     // this.dialog.open(EmployeeUpdateComponent);
-  }
-
-  employeeDelete(id: number) {
-     this.employeeService.setIdFuncionario(id);
-     const dialog = this.dialog.open(EmployeeDeleteComponent);
-     dialog.afterClosed().subscribe(a => {
-      this.getAllEmployee();
-    });
-  }
-
-  getPosto() {
-    this.postoService.GetPosto().subscribe((response) => {
-      this.postos = response.result.postos;
-    });
   }
 
   onSearchKeyUp() {

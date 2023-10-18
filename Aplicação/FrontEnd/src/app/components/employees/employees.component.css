@@ -68,3 +68,7 @@ span > button {
 .edit {
   color: rgb(233, 154, 36);
 }
+
+a {
+  cursor: pointer;
+}

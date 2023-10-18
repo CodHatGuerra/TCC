@@ -22,6 +22,13 @@ export class EmployeeService {
 
   userId: number = 0;
 
+  getEmployeeByPosto(idPosto: number): Observable<any> {
+    return this.http.get<any>(
+      `http://localhost:8080/api/funcionario/posto/${idPosto}`,
+      { headers: this.httpHeaders }
+    );
+  }
+  
   setIdFuncionario(id: number){
     this.userId = id;
   }
@@ -30,12 +37,6 @@ export class EmployeeService {
     return this.userId;
   }
 
-  getEmployeeByPosto(idPosto: number): Observable<any> {
-    return this.http.get<any>(
-      `http://localhost:8080/api/funcionario/posto/${idPosto}`,
-      { headers: this.httpHeaders }
-    );
-  }
 
   getAllEmployee(): Observable<any> {
     return this.http.get<any>(
