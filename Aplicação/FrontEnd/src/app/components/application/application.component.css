@@ -85,6 +85,7 @@ mat-card {
 
 .DIV:hover {
   background-color: #449dd1;
+  transition: 0.7s;
   cursor: pointer;
 }
 

@@ -23,6 +23,8 @@ export class ProfileUpdateComponent implements OnInit {
 
     this.profileService.getUserById(id).subscribe((response) => {
       this.profile = response.result.postos[0];
+      console.log(response);
+      
     });
   }
 

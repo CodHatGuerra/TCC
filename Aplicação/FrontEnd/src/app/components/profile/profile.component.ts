@@ -25,6 +25,7 @@ export class ProfileComponent {
 
   Profile() {
     const user = this.service.GetUser();
+    
     if (user) {
       this.infoUser = user;
       const dataNascimento = new Date(user[0].Data_Nascimento);
@@ -40,7 +41,7 @@ export class ProfileComponent {
   }
 
   updateProfile(id: number) {
-    this.profileService.setIdProfile(id)
+    this.profileService.setIdProfile(id);
     this.dialog.open(ProfileUpdateComponent);
   }
   columns: string[] = ["name", "actions"];

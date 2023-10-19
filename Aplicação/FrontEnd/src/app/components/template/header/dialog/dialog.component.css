@@ -11,7 +11,7 @@ h1 {
 
 .No {
     width: 100px;
-    background-color: #1B998B;
+    background-color: #186ff3;
 }
 
 .Yes {
@@ -23,7 +23,7 @@ h1 {
 .dialog {
     padding: 9px;
     height: 200px;
-    border-color: #02C39A;
+    border-color: #186ff3;
 }
 
 .buttons {
