@@ -1,25 +1,32 @@
 .main {
    padding: 25px;
    text-align: center; 
-}
+      }
 
 form {
-   height: 50vh;
-   width: 50vw;
+   height: 46vh;
+   width: 40vw;
    display: grid;
-   margin: 0 auto;
+   text-align: center;
+   justify-content: center;
    grid-template-columns: 1fr 1fr;
    margin-top: 20px;
    margin-bottom: 20px;
    background-color: transparent;
 }
 
-form>button {
+.buttonRegister {
    width: 140px;
    margin: 0 auto;
-   background-color: #21a4f0;
+   background-color: #21a4f0 !important;
 }
 
 .MR {
    margin-right: 20px;
+}
+
+.localIcon {
+   width: 80px;
+   height: 80px;
+   grid-area: icon;
 }

@@ -12,7 +12,6 @@ body {
     margin-top: 20px;
 }
 
-
 h4 {
     font-size: 20px;
     font-weight: 700;
@@ -24,7 +23,6 @@ h4 {
     display: flex;
     margin-top: 4px;
 }
-
 
 .header {
     justify-content: space-between;
@@ -60,26 +58,16 @@ form {
     background-color: rgb(242, 243, 243);
 }
 
-.formInfo {
-    grid-area: formInfo;
-}
-
-.adressForm {
-    grid-area: adressForm;
-}
-
-.buttonRegister {
-    grid-area: buttonRegister;
-}
-
 .adressForm {
     width: 30vw;
     margin: 0 auto;
     height: 400px;
+    grid-area: adressForm;
 }
 
 .formInfo {
     width: 30vw;
+    grid-area: formInfo;
     margin: 0 auto;
 }
 
@@ -99,6 +87,7 @@ h1 {
 
 .buttonRegister {
     width: 200px;
+    grid-area: buttonRegister;
     height: 40px;
     color: white !important;
     background-color: #449DD1 !important;
