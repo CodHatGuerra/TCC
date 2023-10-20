@@ -1,9 +1,10 @@
 .div {
     display: grid;
     text-align: center;
-    width: 4   0vw;
-    padding: 20px;
+    width: 25vw;
+    padding: 13px;
     height: auto;
+    justify-items: center;
 }
 
 button {
@@ -13,5 +14,6 @@ button {
 
 form {
     display: grid;
+    width: 20vw;
     padding: 20px;
 }

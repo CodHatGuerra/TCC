@@ -11,6 +11,7 @@ import { Profile } from "../../interfaces";
 })
 export class ProfileUpdateComponent implements OnInit {
   profile: any;
+  sexo: string ="Masculino";
 
   constructor(
     private dialog: MatDialog,
@@ -20,10 +21,10 @@ export class ProfileUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.profileService.getIdProfile();
-
     this.profileService.getUserById(id).subscribe((response) => {
       this.profile = response.result.postos[0];
       console.log(response);
+      this.sexo = this.profile.sexo; 
       
     });
   }

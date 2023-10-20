@@ -1,5 +1,5 @@
 <div class="div">
-  <h2>Aualizar novo funcionário</h2>
+  <h3>Atualize suas informações</h3>
   <form class="form">
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Nome</mat-label>
@@ -19,7 +19,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Sexo</mat-label>
-      <mat-select>
+      <mat-select  [(ngModel)]="sexo" name="sexo">
         <mat-option value="Masculino">Masculino</mat-option>
         <mat-option value="Feminino">Feminino</mat-option>
         <mat-option value="Outros">Outros</mat-option>

@@ -1,6 +1,7 @@
 main {
-    width: 50vw;
+    width: 29vw;
     height: 70vh;
+    padding: 15px;
     text-align: center;
     display: grid;
     justify-items: center;
@@ -8,5 +9,15 @@ main {
 
 form {
     display: grid;  
-    width: 30vw;
+    width: 23vw;
+}
+
+button {
+    color: white;
+    background-color:   #449dd1;
+    margin-bottom: 20px !important  ;
+}
+
+h2 {
+    margin-bottom: 0 !important;
 }
