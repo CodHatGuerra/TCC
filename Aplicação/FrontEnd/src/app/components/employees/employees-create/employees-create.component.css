@@ -1,13 +1,13 @@
 main {
-  width: 50vw;
-  height: 50vh;
-  padding: 25px;
+  width: 20vw;
+  height: 55vh;
+  padding: 30px;
   text-align: center;
   background-color: rgb(214, 214, 214);
 }
 
 form {
-  height: 40vh;
+  height: 28vh;
   width: 20vw;
   display: grid;
   margin: 0 auto;
@@ -16,7 +16,12 @@ form {
   background-color: transparent;
 }
 
-form > button {
+.icon {
+  width: 100px;
+  height: 100px; 
+}
+
+.buttonRegister {
   width: 140px;
   margin: 0 auto;
   background-color: #21a4f0;
