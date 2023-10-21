@@ -1,15 +1,21 @@
 main {
-    width: 29vw;
-    height: 70vh;
-    padding: 15px;
+    width: 22vw;
+    height: 74vh;
+    padding: 25px;
     text-align: center;
-    display: grid;
-    justify-items: center;
 }
 
 form {
     display: grid;  
-    width: 23vw;
+    width: 20vw;
+    margin-top: 25px !important;
+    margin: 0 auto;
+    height: 30vh;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
 }
 
 button {

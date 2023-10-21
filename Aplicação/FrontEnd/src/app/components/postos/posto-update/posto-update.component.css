@@ -1,8 +1,9 @@
 div {
-    width: 600px;
+    width: 37vw;
     height: auto;
+    margin-bottom: 0px;
     text-align: center;
-    padding: 10px;
+    padding:  29px;
 }
 
 h1 {
@@ -11,15 +12,15 @@ h1 {
 
 form {
     display: grid;
-    margin: 25px;
+    margin-top: 20px;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
 .buttonUpdate {
     width: 180px;
+    margin-top: 10px;
     height: 40px;
     background-color: #78C0E0;
-    margin-bottom: 50px;
     color: #FFF !important;
 }
