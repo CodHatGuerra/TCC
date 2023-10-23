@@ -20,6 +20,7 @@ export class PostosComponent implements OnInit {
     private postoService: PostosService 
   ) { }
   dataSource: any[] = [];
+
   ngOnInit(): void {
     this.getPosto();
   }
@@ -34,6 +35,7 @@ export class PostosComponent implements OnInit {
   getPosto() {
     this.postoService.GetPosto().subscribe((response: any) => {
       this.dataSource = response.result.postos;
+      console.log(this.dataSource);
     });
   }
 

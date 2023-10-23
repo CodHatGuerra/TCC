@@ -8,13 +8,22 @@ main{
 span {
   display: flex;
   width: 80vw;
-  justify-content: end;
+  justify-content: space-between;
   margin: 0 auto;
 }
+
 ::ng-deep .highlight{
   color: white;
   background: #673AB7;
 }
+
+mat-card {
+  min-height: 30vh;
+  padding: 20px;
+  height: auto;
+  margin-top: 20px;
+}
+
 .postos {
   background-color: #359fcc !important;
   margin-top: 30px !important;
@@ -27,6 +36,7 @@ span {
 table {
   width: 500px;
   margin-top: 20px;
+  border-radius: 50%;
   background-color: rgba(231, 231, 231, 0.952);
 }
 

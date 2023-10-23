@@ -1,11 +1,11 @@
 .main {
    padding: 25px;
-   text-align: center; 
-      }
+   text-align: center;
+}
 
 form {
-   height: 46vh;
-   width: 40vw;
+   height: 42vh;
+   width: 36vw;
    display: grid;
    text-align: center;
    justify-content: center;

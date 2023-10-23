@@ -70,8 +70,7 @@ export class PostoCreateComponent {
   }
 
    SubmitPosto(): void {
- 
-    const formData = {
+     const formData = {
       posto: {
         nome: this.formPosto.value.nome,
       },
@@ -87,6 +86,12 @@ export class PostoCreateComponent {
         numero: this.formPosto.value.telefone,
       },
     };
+
+    const isEmpty = this.isObjectEmpty(formData)
+    if(isEmpty){
+      this.appService.AlertMessage("Ocorreu um erro ao registrar um posto.")
+      throw new Error();
+    }
 
     const userToken = localStorage.getItem("Token");
     const headers = new HttpHeaders({
