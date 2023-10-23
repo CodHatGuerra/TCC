@@ -7,12 +7,10 @@ main {
 }
 
 form {
-  height: 28vh;
   width: 20vw;
+  height: auto;
   display: grid;
   margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
   background-color: transparent;
 }
 
