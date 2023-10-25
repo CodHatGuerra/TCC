@@ -12,10 +12,8 @@ import { environment } from "src/environments/environments";
   templateUrl: "./create-password.component.html",
   styleUrls: ["./create-password.component.css"],
 })
-export class CreatePassWordComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+export class CreatePassWordComponent {
+
   form: FormGroup;
 
   constructor(
@@ -39,7 +37,7 @@ export class CreatePassWordComponent implements OnInit {
   }
 
   submit(): void {
-    if (this.form.value.senha! == this.form.value.confirmarSenha)
+    if (this.form.value.senha! != this.form.value.confirmarSenha)
       throw this.appService.AlertMessage("As senhas não coincidem");
 
     const Info = {
@@ -51,6 +49,7 @@ export class CreatePassWordComponent implements OnInit {
         sexo: this.signUpService.Info.usuario.sexo,
         email: this.signUpService.Info.usuario.email,
         data_Criada: this.signUpService.Info.usuario.data_Criada,
+        senha: this.form.value.senha
       },
       endereco: {
         cep: this.signUpService.Info.endereco.cep,
@@ -62,9 +61,10 @@ export class CreatePassWordComponent implements OnInit {
       },
       telefone: {
         numero:  this.signUpService.Info.telefone.numero,
-      },
+      }
     };
 
+    console.log(Info);
     this.SignUp(Info).subscribe((response) => {
       if (response.error) {
         console.log("Erro ao cadastrar:", response.error);
