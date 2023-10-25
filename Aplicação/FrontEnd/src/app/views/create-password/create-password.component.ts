@@ -51,14 +51,6 @@ export class CreatePassWordComponent {
         data_Criada: this.signUpService.Info.usuario.data_Criada,
         senha: this.form.value.senha
       },
-      endereco: {
-        cep: this.signUpService.Info.endereco.cep,
-        uf:  this.signUpService.Info.endereco.uf,
-        localidade:  this.signUpService.Info.endereco.localidade,
-        bairro:  this.signUpService.Info.endereco.logradouro,
-        logradouro: this.signUpService.Info.endereco.logradouro,
-        numero:  this.signUpService.Info.endereco.numero,
-      },
       telefone: {
         numero:  this.signUpService.Info.telefone.numero,
       }
