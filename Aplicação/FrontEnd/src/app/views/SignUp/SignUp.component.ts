@@ -5,6 +5,7 @@ import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environments';
 import { Observable } from 'rxjs';
+import { SignUpService } from '../sign-up.service';
 
 @Component({
   selector: 'app-signup ',
@@ -25,6 +26,7 @@ export class SignUpComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
+    private signUpService : SignUpService,
     private fb: FormBuilder,
     private appService: AppService
 
@@ -102,13 +104,6 @@ export class SignUpComponent {
     return null;
   }
 
-  SignUp(date: any): Observable<any> {
-    if (date == null)
-      console.log("Contém informações nulas");
-
-    return this.http.post<any>(`${environment.baseUrl}${environment.SignUp}`, date);
-  }
-
   DadosCep() {
     this.cep = this.adressForm.get('cep')?.value;
     const url = `http://viacep.com.br/ws/${this.cep}/json/`;
@@ -124,6 +119,7 @@ export class SignUpComponent {
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
     const newDate = new Date()
+   
     const Info = {
       usuario: {
         nome: this.form.value.nome,
@@ -132,8 +128,7 @@ export class SignUpComponent {
         data_Nascimento: this.form.value.data_Nascimento,
         sexo: this.form.value.sexo,
         email: this.form.value.email,
-        data_Criada: newDate.toISOString().split('T')[0],
-        senha: this.form.value.senha
+        data_Criada: newDate.toISOString().split('T')[0]
       },
       endereco: {
         cep: this.adressForm.value.cep,
@@ -149,22 +144,23 @@ export class SignUpComponent {
     }
 
     if (this.form.invalid)
-      throw this.appService.AlertMessage('Complete o formulário.');
+    throw this.appService.AlertMessage('Complete o formulário.');
 
-    if (this.form.value.senha !== this.form.value.confirmarSenha)
-      throw this.appService.AlertMessage('As senhas não coincidem');
+    this.signUpService.Info.usuario.nome = this.form.value.nome;
+    this.signUpService.Info.usuario.cpf = this.form.value.cpf;
+    this.signUpService.Info.usuario.rg = this.form.value.rg,
+    this.signUpService.Info.usuario.data_Nascimento = this.form.value.data_Nascimento;
+    this.signUpService.Info.usuario.sexo = this.form.value.sexo;
+    this.signUpService.Info.usuario.email = this.form.value.email;
+    this.signUpService.Info.usuario.data_Criada = newDate.toISOString().split('T')[0];
+    this.signUpService.Info.endereco.cep = this.adressForm.value.cep;
+    this.signUpService.Info.endereco.uf = this.adressForm.value.uf,
+    this.signUpService.Info.endereco.localidade = this.adressForm.value.localidade;
+    this.signUpService.Info.endereco.logradouro = this.adressForm.value.logradouro,
+    this.signUpService.Info.endereco.numero = this.adressForm.value.numero
+    this.signUpService.Info.endereco.numero = this.form.value.telefone
 
-    this.SignUp(Info).subscribe(
-      (response) => {
-        if (response.error) {
-          console.log('Erro ao cadastrar:', response.error);
-          this.appService.AlertMessage('Erro ao cadastrar. Verifique os campos e tente novamente.');
-
-        } else {
-          this.appService.SuccessMessage('Cadastro Concluído!');
-          this.router.navigate(['']);
-        }
-      });
+   
   }
 }
 

@@ -6,13 +6,14 @@ import { ApplicationComponent } from './components/application/application.compo
 import { SchedulindComponent } from './components/schedulind/schedulind.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './settings/auth.guard';
-import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
+import { SignInComponent } from './views/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
-import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { SignUpComponent } from './views/SignUp/SignUp.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
 import { EmployeeUpdateComponent } from './components/employees/employee-update/employee-update.component';
+import { CreatePassWordComponent } from './views/create-password/create-password.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,10 @@ const routes: Routes = [
         component: ProfileComponent
       }
     ]
+  },
+  {
+    path: 'create-passWord',
+    component: CreatePassWordComponent
   }
 ];
 

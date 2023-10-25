@@ -37,11 +37,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserComponent } from './views/user/user.component';
-import { SignInComponent } from './views/SignIn_SignUp/SignIn/SignIn.component';
+import { SignInComponent } from './views/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/header/dialog/dialog.component';
-import { SignUpComponent } from './views/SignIn_SignUp/SignUp/SignUp.component';
+import { SignUpComponent } from './views/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddVaccinessComponent } from './components/add-vacciness/add-vacciness.component';
 import { EmployeesCreateComponent } from './components/employees/employees-create/employees-create.component';
@@ -50,6 +50,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeeUpdateComponent } from './components/employees/employee-update/employee-update.component';
 import { EmployeeDeleteComponent } from './components/employees/employee-delete/employee-delete.component';
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
+import { CreatePassWordComponent } from './views/create-password/create-password.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { ProfileUpdateComponent } from './components/profile/profile-update/prof
     EmployeesComponent,
     EmployeeUpdateComponent,
     EmployeeDeleteComponent,
-    ProfileUpdateComponent
+    ProfileUpdateComponent,
+    CreatePassWordComponent
   ],
   imports: [
     BrowserModule,
