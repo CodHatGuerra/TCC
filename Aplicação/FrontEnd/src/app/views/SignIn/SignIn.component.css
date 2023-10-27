@@ -28,7 +28,6 @@ main {
 
 h4 {
     font-size: 23px;
-    font-weight: 700;
     cursor: pointer;
     color: white;
     font-family: 'dancing script' !important;
@@ -39,7 +38,7 @@ h4 {
 }
 
 .header p > a {
-    font-size: 16px;
+    font-size: 14px;
     color: white;
     padding: 4px;
     display: flex;
@@ -48,14 +47,16 @@ h4 {
 .login {
     width: 28%;
     height: 55vh;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
     display: grid;
     background-color: rgb(235, 235, 235);
     margin: 0 auto;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 100px;
     align-items: center;
+    padding: 18px 20px 0px 20px;
     border-radius: 6px;
-    padding: 30px;
 }
 
 .login .title {
@@ -72,42 +73,24 @@ h4 {
     color:#449DD1;
 }
 
-.login .form {
+.form {
     display: grid;
-    width: auto;
 }
 
 form > div {
     margin-bottom: 10px ;
 }
 
-.continue {
+button {
     width: 100%;
     margin: 0 auto;
+    height: 40px !important;
+    margin-top: 0;
     color: rgb(255, 255, 255) !important;
     background-color:#449DD1 !important;
-}
-
-.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 a {
     margin-top: 15px;
 }
 
-@media screen and (max-width:1300px) {
-
-    .login {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        width: 49vw;
-        border-radius: 6px;
-        padding: 30px;
-    }
-}

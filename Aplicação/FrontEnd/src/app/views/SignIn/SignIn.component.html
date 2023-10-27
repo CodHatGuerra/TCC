@@ -3,15 +3,13 @@
         <div>
             <h4>Vacina_Facil</h4>
         </div>
-        <p>
-            <a routerLink="/signUp">Não tem uma conta ? Cadastre-se </a>
-        </p>
+        <p> <a routerLink="/signUp">Não tem uma conta ? Cadastre-se </a> </p>
     </mat-toolbar>
 
     <div class="login mat-elevation-z3">
         <h1 class="title">Vacina_Fácil.</h1>
-        <p>Digite seus dados de acesso nos campos abaixo</p>
         <form class="form" [formGroup]="form">
+            <p>Digite seus dados de acesso nos campos abaixo:</p>
             <mat-form-field appearance="outline">
                 <mat-label>CPF</mat-label>
                 <input matInput type="number" formControlName="cpf" ngModel required>
@@ -21,7 +19,7 @@
                 <input type="password" matInput formControlName="senha" ngModel required>
             </mat-form-field>
             <div class="DF">
-                <button class="continue" mat-button (click)="Register()">Continuar</button>
+                <button mat-button (click)="Register()">Continuar</button>
             </div>
         </form>
     </div>
