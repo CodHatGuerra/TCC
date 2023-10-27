@@ -1,4 +1,9 @@
-body {
+main {
+    background: url("./../../../assets/img/backgroud.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
     height: auto;
     width: auto;
 }
@@ -6,14 +11,54 @@ body {
 .main {
     display: grid;
     text-align: center;
+    height: 100vh;
+    align-items: center;
+    position: static;
+}
+
+.header {
+    justify-content: space-between;
+    position: absolute;
+}
+
+.header .logo {
+    width: 35px;
+    height: 35px;
+    border: 3px solid white;
+}
+
+.header>a {
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+mat-card {
+    width: 34vw;
+    justify-content: center;
+    display: grid;
+    height: 85vh;
     margin: 0 auto;
-    width:  80vw;
-    gap: 50px;
-    margin-top: 20px;
+    margin-top: 60px;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: rgb(242, 243, 243);
+}
+
+.formInfo {
+    display: grid;
+    width: 30vw;
+    height: auto;
+}
+
+h1 {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 600;
+    color: #050505;
 }
 
 h4 {
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 700;
     cursor: pointer;
     color: white;
@@ -24,61 +69,7 @@ h4 {
     margin-top: 4px;
 }
 
-.header {
-    justify-content: space-between;
-}
-
-.header .logo {
-    width: 35px;
-    height: 35px;
-    border: 3px solid white;
-}
-
-.header > a{
-    font-size: 14px;
-    margin-right: 20px;
-}
-
-form {
-    display: grid;
-}
-
-.formSignUp {
-    display: grid;
-    margin: 0 auto;
-    grid-template-areas: 
-        'formInfo adressForm'
-        'buttonRegister buttonRegister';
-        justify-items: center;
-    margin-bottom: 100px;
-    border-radius: 6px;
-    padding: 40px;
-    gap: 30px;
-    text-align: center;
-    background-color: rgb(242, 243, 243);
-}
-
-.adressForm {
-    width: 30vw;
-    margin: 0 auto;
-    height: 400px;
-    grid-area: adressForm;
-}
-
-.formInfo {
-    width: 30vw;
-    grid-area: formInfo;
-    margin: 0 auto;
-}
-
-h1 {
-    font-family: 'Open Sans';
-    font-size: 24px;
-    font-weight: 600;
-    color: #050505 ;
-}
-
-.upForm{
+.upForm {
     font-family: 'Open Sans';
     font-size: 16px;
     font-weight: 600;
@@ -87,7 +78,6 @@ h1 {
 
 .buttonRegister {
     width: 200px;
-    grid-area: buttonRegister;
     height: 40px;
     color: white !important;
     background-color: #449DD1 !important;
@@ -104,14 +94,3 @@ input[type=number]::-webkit-outer-spin-button {
     color: white !important;
 } */
 
-@media screen and (max-width:1300px) {
-    .formSignUp {
-        margin-top: 0px;
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .buttonRegister {
-        margin-top: 80px;
-    }
-}

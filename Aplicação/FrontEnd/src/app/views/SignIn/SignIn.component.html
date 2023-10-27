@@ -1,24 +1,28 @@
-<mat-toolbar class="header mat-elevation-z2">
-    <img class="logo" src="./../../../assets/img/LogoMDP.png" alt="">
-    <p>Login</p>
-</mat-toolbar>
-
-<div class="login mat-elevation-z3">
-    <h1 class="title">Vacina_Fácil.</h1>
-    <p>Digite seus dados de acesso nos campos abaixo</p>
-    <form class="form" [formGroup]="form">
-        <mat-form-field appearance="outline">
-            <mat-label>Cpf</mat-label>
-            <input matInput type="number" formControlName="cpf" ngModel required>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Senha</mat-label>
-            <input type="password" matInput formControlName="senha" ngModel required>
-        </mat-form-field>
-        <div class="DF">
-            <button class="continue" mat-button (click)="Register()">Continuar</button>
+<main>
+    <mat-toolbar class="header mat-elevation-z2">
+        <div>
+            <h4>Vacina_Facil</h4>
         </div>
-        <a routerLink="/signUp">Não tem uma conta ? Cadastre-se agora.</a>
-    </form>
-</div>
+        <p>
+            <a routerLink="/signUp">Não tem uma conta ? Cadastre-se </a>
+        </p>
+    </mat-toolbar>
 
+    <div class="login mat-elevation-z3">
+        <h1 class="title">Vacina_Fácil.</h1>
+        <p>Digite seus dados de acesso nos campos abaixo</p>
+        <form class="form" [formGroup]="form">
+            <mat-form-field appearance="outline">
+                <mat-label>CPF</mat-label>
+                <input matInput type="number" formControlName="cpf" ngModel required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input type="password" matInput formControlName="senha" ngModel required>
+            </mat-form-field>
+            <div class="DF">
+                <button class="continue" mat-button (click)="Register()">Continuar</button>
+            </div>
+        </form>
+    </div>
+</main>

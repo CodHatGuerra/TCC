@@ -80,6 +80,7 @@ import { CreatePassWordComponent } from './views/create-password/create-password
     EmployeeDeleteComponent,
     ProfileUpdateComponent,
     CreatePassWordComponent
+    
   ],
   imports: [
     BrowserModule,

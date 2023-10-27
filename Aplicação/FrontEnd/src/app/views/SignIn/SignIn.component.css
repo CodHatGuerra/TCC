@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
 
+main {
+    background: url("./../../../assets/img/backgroud.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 .header {
     width: 100%;
-    gap: 30px
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header .logo {
@@ -15,23 +26,35 @@
     font-weight: 600;
 }
 
-.header p {
+h4 {
+    font-size: 23px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    font-family: 'dancing script' !important;
+    padding: 4px;
+    margin: 0px;
+    display: flex;
+    margin-top: 4px;
+}
+
+.header p > a {
     font-size: 16px;
     color: white;
     padding: 4px;
-    margin: 0px;
     display: flex;
 }
 
 .login {
     width: 28%;
+    height: 55vh;
     display: grid;
+    background-color: rgb(235, 235, 235);
     margin: 0 auto;
     text-align: center;
     margin-top: 70px;
     align-items: center;
     border-radius: 6px;
-    height: 65vh;
     padding: 30px;
 }
 
@@ -71,10 +94,6 @@ form > div {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.class {
-    padding: 40px;
 }
 
 a {
