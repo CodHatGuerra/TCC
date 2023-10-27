@@ -7,8 +7,8 @@
   </mat-toolbar>
   <div class="main">
     <mat-card class="mat-elevation-z8">
+      <p class="upForm">Dados pessoais</p>
       <form class="formInfo" [formGroup]="form">
-        <p class="upForm">Dados pessoais</p>
         <mat-form-field appearance="outline">
           <mat-label>Nome Completo</mat-label>
           <input type="text" matInput formControlName="nome" />
@@ -16,10 +16,6 @@
         <mat-form-field appearance="outline">
           <mat-label>CPF</mat-label>
           <input matInput type="number" formControlName="cpf" />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>RG</mat-label>
-          <input matInput type="number" formControlName="rg" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Data de nascimento</mat-label>

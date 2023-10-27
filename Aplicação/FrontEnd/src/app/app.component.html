@@ -1,1 +1,1 @@
-<router-outlet  [@pageTransition]="prepareRoute(outlet)"></router-outlet>
+<router-outlet  #outlet="outlet" [@pageTransition]="outlet.isActivated ? outlet.activatedRoute : ''"></router-outlet>
