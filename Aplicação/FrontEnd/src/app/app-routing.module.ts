@@ -18,18 +18,15 @@ import { CreatePassWordComponent } from './views/create-password/create-password
 const routes: Routes = [
   {
     path: '',
-    component: SignInComponent,
-    data: { animation: 'createPasswordPage' }
+    component: SignInComponent
   },
   {
     path: 'signUp',
-    component: SignUpComponent,
-    data: { animation: 'createPasswordPage' }
+    component: SignUpComponent
   },
   {
     path: 'user',
     component: UserComponent,
-    data: { animation: 'createPasswordPage' },
     canActivate: [AuthGuard],
     children: [
       {
@@ -49,7 +46,6 @@ const routes: Routes = [
   {
     path: 'adm',
     component: AdmComponent,
-    data: { animation: 'createPasswordPage' },
     canActivate: [AuthGuard],
     children: [
       {
@@ -97,7 +93,6 @@ const routes: Routes = [
   {
     path: 'create-passWord',
     component: CreatePassWordComponent,
-    data: { animation: 'createPasswordPage' }
   }
 ];
 

@@ -6,7 +6,7 @@
         <p> <a routerLink="/signUp">Não tem uma conta ? Cadastre-se </a> </p>
     </mat-toolbar>
 
-    <div class="login mat-elevation-z3">
+    <mat-card class="login">
         <h1 class="title">Vacina_Fácil.</h1>
         <form class="form" [formGroup]="form">
             <p>Digite seus dados de acesso nos campos abaixo:</p>
@@ -22,5 +22,5 @@
                 <button mat-button (click)="Register()">Continuar</button>
             </div>
         </form>
-    </div>
+    </mat-card>
 </main>

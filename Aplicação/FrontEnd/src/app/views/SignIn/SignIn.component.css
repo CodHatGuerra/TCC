@@ -45,22 +45,20 @@ h4 {
 }
 
 .login {
-    width: 28%;
-    height: 55vh;
-    flex-wrap: nowrap;
-    box-sizing: border-box;
+    width: 30%;
+    height: 57vh;
     display: grid;
-    background-color: rgb(235, 235, 235);
     margin: 0 auto;
     text-align: center;
     margin-top: 100px;
     align-items: center;
-    padding: 18px 20px 0px 20px;
+    border-radius: 2px !important;
+    padding: 20px 20px 10px 20px;
     border-radius: 6px;
 }
 
 .login .title {
-    font-size: 60px;
+    font-size: 57px;
     font-weight: 600;
     font-family: 'dancing script';
     margin-bottom: 50px;

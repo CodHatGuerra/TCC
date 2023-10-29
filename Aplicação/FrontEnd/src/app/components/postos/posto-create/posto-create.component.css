@@ -17,6 +17,7 @@ form {
 
 .buttonRegister {
    width: 140px;
+   margin-top: 17px !important;
    margin: 0 auto;
    background-color: #21a4f0 !important;
 }
