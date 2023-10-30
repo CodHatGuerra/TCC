@@ -56,5 +56,5 @@ export class PostosComponent implements OnInit {
       this.getPosto()
     });
   }
-  columnPosto: string[] = ["name", "city", "rua", "actions"];
+  columnPosto: string[] = ["name", "city", "rua", "bairro","actions"];
 }

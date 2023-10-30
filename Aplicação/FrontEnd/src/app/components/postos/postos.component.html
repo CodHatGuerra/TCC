@@ -17,8 +17,12 @@
         <th mat-header-cell *matHeaderCellDef>Cidade</th>
         <td mat-cell *matCellDef="let row">{{ row.Localidade }}</td>
       </ng-container>
-      <ng-container matColumnDef="rua">
+      <ng-container matColumnDef="bairro">
         <th mat-header-cell *matHeaderCellDef>Bairro</th>
+        <td mat-cell *matCellDef="let row">{{ row.Bairro }}</td>
+      </ng-container>
+      <ng-container matColumnDef="rua">
+        <th mat-header-cell *matHeaderCellDef>Rua</th>
         <td mat-cell *matCellDef="let row">{{ row.Logradouro }}</td>
       </ng-container>
       <ng-container matColumnDef="actions">
