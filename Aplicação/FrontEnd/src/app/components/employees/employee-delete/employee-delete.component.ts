@@ -20,8 +20,6 @@ export class EmployeeDeleteComponent implements OnInit {
   
   delete(): void {
     let id = this.employeeService.getIdFuncionario();
-    console.log(id);
-    
     this.employeeService.deleteEmployee(id).subscribe((result) => {
       if (result) {
         this.dialogRef.close();

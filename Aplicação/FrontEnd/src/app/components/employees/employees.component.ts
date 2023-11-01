@@ -1,14 +1,13 @@
 import { Component, ElementRef, OnInit } from "@angular/core";
 import { EmployeesCreateComponent } from "./employees-create/employees-create.component";
 import { MatDialog } from "@angular/material/dialog";
-import { Router } from "@angular/router";
 import { EmployeeService } from "../../settings/Services/employees-service.service";
 import { PostosService } from "../../settings/Services/postos.service";
 import { AppService } from "src/app/settings/Services/app.service";
 import { FormControl } from "@angular/forms";
 import { Subject, debounceTime } from "rxjs";
-import { EmployeeUpdateComponent } from "./employee-update/employee-update.component";
 import { EmployeeDeleteComponent } from "./employee-delete/employee-delete.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-employees",
@@ -20,14 +19,15 @@ export class EmployeesComponent implements OnInit {
     private dialog: MatDialog,
     private employeeService: EmployeeService,
     private service: AppService,
-    private postoService: PostosService
+    private postoService: PostosService,
+    private router: Router
   ) {}
 
   input: string = "";
   postos: any;
   postoControl = new FormControl();
   dataSource: any[] = [];
-  columnEmployee: string[] = ["cargo", "nome", "nomePosto", "acoes"];
+  columnEmployee: string[] = ["cargo", "nome", "acoes"];
 
   idPosto: number = 0;
   private searchInput: Subject<string> = new Subject<string>();
@@ -112,20 +112,22 @@ export class EmployeesComponent implements OnInit {
     this.searchInput.next(this.input);
   }
 
-  // openUpdateEmployee(id: number) {
-  //   this.service.SetIdPosto(id);
-  //   this.router.navigate(["adm", "postos", "update", id]);
-  //   const dialog = this.dialog.open(PostoUpdateComponent);
-  //   dialog.afterClosed().subscribe(a => {
-  //     this.buscarDados()
-  //   });
-  // }
+  openUpdateEmployee(id: number) {
+    this.employeeService.setIdFuncionario(id);
+    this.router.navigate(["adm", "postos", "update", id]);
+    const dialog = this.dialog.open(EmployeeDeleteComponent);
+    dialog.afterClosed().subscribe(a => {
+      this.getAllEmployee();
+      this.getPosto();
+    });
+  }
 
   // openSigOutDelete(id: number) {
   //   this.service.SetIdPosto(id);
   //   this.router.navigate(["adm", "postos", "delete", id]);
   //   const dialog = this.dialog.open(PostoDeleteComponent);
   //   dialog.afterClosed().subscribe(a => {
-  //     this.buscarDados()
+  //     this.getAllEmployee();
+  //     this.getPosto();
   //   });
 }

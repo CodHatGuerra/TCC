@@ -1,8 +1,9 @@
 .main {
+  display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 35px;
   width: 90%;
-  height: 100%;
   margin-bottom: 100px;
 }
 

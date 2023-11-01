@@ -1,10 +1,15 @@
-div{
-   display: grid;
-   justify-content: center;
-    width: 200px;
-    height: 300px;
+div {
+    width: 300px;
+    height: 180px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
-button{
-    background-color: rgb(168, 37, 37);
+button {
+    width: 180px;
+    height: 40px;
+    color: #FFF !important;
+    background-color: rgb(252, 38, 38);
+    margin: 0 auto;
 }

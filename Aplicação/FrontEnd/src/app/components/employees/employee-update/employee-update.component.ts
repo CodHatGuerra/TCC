@@ -13,7 +13,7 @@ import { AppService } from "src/app/settings/Services/app.service";
 export class EmployeeUpdateComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<EmployeeUpdateComponent>,
-    private service: AppService,
+    private service: EmployeeService,
     private employeeService: EmployeeService,
     private router: Router
   ) {}
@@ -21,8 +21,8 @@ export class EmployeeUpdateComponent implements OnInit {
     employee: any;
 
   ngOnInit(): void {
-    // const id = this.employeeService.();
-    // this.service.getUserById(id).subscribe((result)=>{
+    // const id = this.employeeService.getIdFuncionario();
+    // this.service.(id).subscribe((result)=>{
     //   console.log(result);
     //    this.employee = result.postos[0]
     // });

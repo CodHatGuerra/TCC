@@ -3,26 +3,22 @@ main {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 100vh;
-    height: auto;
+    height: 100%;
     width: auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
 }
 
 .teste {
     display: flex;
     margin: 0 auto;
-}
-
-.main {
-    display: flex;
-    text-align: center;
-    height: 100vh;
-    align-items: center;
-    position: static;
+    border-radius: 4px !important;
 }
 
 .back {
-    width: 85vw;
+    height: 40vh;
+    justify-content: center;
     padding: 30px;
     display: flex !important;
     margin-top: 70px !important;
