@@ -20,6 +20,7 @@ span {
 mat-card {
   min-height: 30vh;
   padding: 20px;
+  margin-bottom: 50px !important;
   height: auto;
   margin-top: 20px;
 }

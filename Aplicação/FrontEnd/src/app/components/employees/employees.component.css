@@ -10,10 +10,16 @@ main {
 .search {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 80vw;
+  margin-bottom: 100px;
   gap: 20px;
   margin-top: 34px;
+}
+
+.vinculo {
+  width: 30vw;
+  display: flex;
+  gap: 20px;
 }
 
 .employee {
@@ -30,7 +36,6 @@ main {
   height: 50px;
   justify-content: space-between;
   width: 100%;
-  margin-top: 10px;
   margin-bottom: 0;
 }
 
@@ -41,8 +46,8 @@ table {
   border-radius: 2px !important;
 }
 
-span > button {
-  height: 40px !important;
+ button {
+  height: 48px !important;
   width: 230px !important;
 }
 
@@ -50,6 +55,10 @@ span > button {
   width: 50px;
   background-color: #529fc0;
   color: white !important;
+}
+
+h2 {
+  margin-bottom: 0;
 }
 
 .icons {

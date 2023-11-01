@@ -1,18 +1,7 @@
 <main>
   <span class="search">
-    <div>
-      <h2>Selecione um posto</h2>
-      <mat-form-field>
-        <mat-label>Postos Registrados</mat-label>
-        <mat-select (selectionChange)="onSelectionChange($event)">
-          <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
-            {{ posto.Nome_do_Posto }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="Pesquise aqui." type="search" (keyup)="search($event)"/>
+    <mat-form-field style="width: 60vh; height: 70px;" appearance="outline">
+      <input matInput placeholder="Pesquise aqui um Funcionário" type="search" (keyup)="search($event)"/>
       <mat-icon matSuffix> search </mat-icon>
     </mat-form-field>
   </span>
@@ -20,10 +9,19 @@
   <mat-card class="employee">
     <span>
       <mat-card-title>Funcionários ativos</mat-card-title>
+      <div class="vinculo">
+        <mat-form-field style="height: 70px !important; ">
+          <mat-label>Selecione um Posto</mat-label>
+          <mat-select (selectionChange)="onSelectionChange($event)">
+            <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
+              {{ posto.Nome_do_Posto }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       <button class="addEmployee" mat-button class="registerEmployee" (click)="openSigUn()">
-        Vincular um funcionario
-        <mat-icon class="add"> add </mat-icon>
+        Vincule um Funcionário
       </button>
+    </div>
     </span>
     <table mat-table class="table-posto" [dataSource]="dataSource">
       <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
