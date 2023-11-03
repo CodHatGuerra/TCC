@@ -3,20 +3,11 @@
   justify-content: center;
   margin-top: 35px;
   margin: 20px  ;
-  width: 100%;
   height: auto;
-}
-
-.div {
-  display: flex;
-  width: auto;
-  height: auto;
-  gap: 90px;
 }
 
 .vaccine {
-  width: 80vw;
-  height: auto;
+  width: 90vw;
   padding: 20px;
   background-color: #ececec !important;
   box-sizing: border-box;
@@ -25,6 +16,7 @@
 }
 
 table {
+  height: 50vh !important;
   background-color: #c9c9c9 !important;
 }
 

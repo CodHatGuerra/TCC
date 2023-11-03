@@ -1,15 +1,14 @@
 main{
   margin: 0 auto;
-  max-width: 80vw;
+  max-width: 90vw;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 span {
   display: flex;
-  width: 80vw;
   justify-content: space-between;
-  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 ::ng-deep .highlight{
@@ -23,6 +22,7 @@ mat-card {
   margin-bottom: 50px !important;
   height: auto;
   margin-top: 20px;
+  background-color: #ebebeb;
 }
 
 .postos {
@@ -36,15 +36,13 @@ mat-card {
 
 table {
   width: 500px;
-  margin-top: 20px;
   border-radius: 50%;
-  background-color: rgba(231, 231, 231, 0.952);
+  background-color: #eceaea !important;
 }
 
 .registerPosto {
   width: 180px;
   height: 40px;
-  margin-top: 30px;
   background-color: #359fcc;
   color: #fff !important;
 }
@@ -62,4 +60,8 @@ table {
 .edit {
   color: rgb(233, 154, 36);
   cursor: pointer;
+}
+
+h1 {
+  margin: 0 !important;
 }

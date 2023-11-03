@@ -27,11 +27,24 @@ export class EmployeesComponent implements OnInit {
   postos: any;
   postoControl = new FormControl();
   dataSource: any[] = [];
-  columnEmployee: string[] = ["cargo", "nome", "acoes"];
-
+  columnEmployee: string[] = [ "nome", "cargo", "acoes"];
+  allEmployees: any[] = [];
   idPosto: number = 0;
   private searchInput: Subject<string> = new Subject<string>();
 
+
+  searchTerm: string = '';
+  search(event: Event): void {
+    if (this.searchTerm.trim() === '') {
+      // Se a caixa de pesquisa estiver vazia, exiba todos os funcionários
+      this.dataSource = this.allEmployees;
+    } else {
+      // Realize a pesquisa nos funcionários com base no searchTerm
+      this.dataSource = this.allEmployees.filter((employee) =>
+        employee.Nome_Pessoa.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  }
   ngOnInit(): void {
     this.getAllEmployee();
     this.getPosto();
@@ -59,29 +72,17 @@ export class EmployeesComponent implements OnInit {
 
   getEmployeesByPosto(idPosto: number) {
     this.employeeService.getEmployeeByPosto(idPosto).subscribe((response) => {
+      this.allEmployees = response.result.funcionario;
       this.dataSource = response.result.postos; 
       console.log(response);
-      // Atualize a fonte de dados com os funcionários retornados
+      
     });
-  }
-
-  search(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    const searchTerm = target.value.toLowerCase();
-
-    // Use o método filter para criar uma nova lista de funcionários filtrados com base no nome
-    this.dataSource = this.dataSource.filter((funcionario: any) => {
-      if (funcionario && funcionario.Nome_Pessoa) {
-        return funcionario.Nome_Pessoa.toLowerCase().includes(searchTerm);
-      }
-      return false;
-    })
   }
 
   getAllEmployee() {
     this.employeeService.getAllEmployee().subscribe((response: any) => {
       this.dataSource = response.result.funcionario;
-      console.log(response.result.funcionario);
+      this.allEmployees = response.result.funcionario;
     });
   }
 
@@ -98,8 +99,8 @@ export class EmployeesComponent implements OnInit {
     this.employeeService
       .getEmployeeByPosto(this.idPosto)
       .subscribe((response: any) => {
+        this.dataSource = response.result.funcionario;
         this.dataSource = response.postos;
-        console.log(response);
       });
   }
 

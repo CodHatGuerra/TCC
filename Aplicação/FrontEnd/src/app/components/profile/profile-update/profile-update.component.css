@@ -1,19 +1,18 @@
 .div {
     display: grid;
     text-align: center;
-    width: 25vw;
-    padding: 13px;
+    width: 30vw;
+    padding:  10px 30px 20px 30px;
     height: auto;
     justify-items: center;
 }
 
 button {
     color: white;
-    background-color:  #78C0E0;
+    background-color:  #21a4f0;
 }
 
 form {
     display: grid;
-    width: 20vw;
-    padding: 20px;
+    width: 100%;
 }

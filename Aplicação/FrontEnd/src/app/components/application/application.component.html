@@ -1,5 +1,4 @@
 <main class="main DF">
-  <div class="div DG">
     <mat-card class="vaccine">
       <div class="age">
         <div>
@@ -29,7 +28,7 @@
           <mat-icon>add</mat-icon>Vacinas
         </button>
       </div>
-      <table mat-table class="table" [dataSource]="vaccines">
+      <table style="height: 60vw !important;" mat-table class="table" [dataSource]="vaccines">
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>
 
@@ -44,5 +43,4 @@
         </ng-container>
       </table>
     </mat-card>
-  </div>
 </main>

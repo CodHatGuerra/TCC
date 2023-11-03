@@ -46,7 +46,9 @@ h4 {
 
 .login {
     width: 30%;
+    min-width: 400px !important;
     height: 57vh;
+    min-height: 370px;
     display: grid;
     margin: 0 auto;
     text-align: center;
