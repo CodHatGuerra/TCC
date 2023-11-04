@@ -11,19 +11,20 @@ module.exports = {
 
     if (cpf && senha) {
       let usuarioResposta = await LoginService.login(cpf, senha);
-      json.result = {
-        resposta: usuarioResposta,
-        autenticado: usuarioResposta.autenticado,
-        token: jwtService.gerarToken({
-          id: usuarioResposta.insertId,
-          cpf: usuarioResposta.Cpf,
-        }),
-      };
 
       if (usuarioResposta.autenticado) {
         console.log(
           `Usuario: ${usuarioResposta[0].Nome} CPF: ${usuarioResposta[0].Cpf} Logado com Sucesso !`
         );
+        json.result = {
+          resposta: usuarioResposta,
+          autenticado: usuarioResposta.autenticado,
+          token: jwtService.gerarToken({
+            id: usuarioResposta.insertId,
+            cpf: usuarioResposta.Cpf,
+          }),
+        };
+        console.log(req.session.id);
       } else {
         console.log("Tentativa de Login com informações incorretas.");
       }
@@ -34,6 +35,5 @@ module.exports = {
       );
     }
     res.json(json);
-    console.log(req.session.id);
   },
 };

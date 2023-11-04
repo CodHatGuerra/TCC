@@ -58,7 +58,7 @@ module.exports = {
       db.query(
         `
         SELECT 
-          F.ID AS Funcionario_ID, U.Nome AS Nome_Funcionario, F.Cargo
+          F.ID AS Funcionario_ID, U.Nome AS Nome_Pessoa, F.Cargo
         FROM 
           Funcionario AS F
         INNER JOIN 

@@ -2,7 +2,6 @@ const db = require("../db");
 
 module.exports = {
   alterar: (posto, endereco, telefone) => {
-
     return new Promise((aceito, rejeitado) => {
       db.query(
         "UPDATE Posto SET Nome = ? WHERE ID = ?;",
@@ -29,8 +28,7 @@ module.exports = {
                   Numero = ?
                 WHERE
                   Posto_ID = ?;
-                `
-                ,
+                `,
                 [
                   endereco.cep,
                   endereco.uf,
@@ -42,7 +40,9 @@ module.exports = {
                 ],
                 (error, result) => {
                   if (error) {
-                    console.log("ERRO NA REQUISIÇÃO PARA ALTERAR O ENDEREÇO DO POSTO !");
+                    console.log(
+                      "ERRO NA REQUISIÇÃO PARA ALTERAR O ENDEREÇO DO POSTO !"
+                    );
                     console.log(error);
                     reject(error);
                   } else {
@@ -118,21 +118,24 @@ module.exports = {
       return new Promise((aceito, rejeitado) => {
         db.query(
           `
-            SELECT
-              P.ID AS Posto_ID,
-              P.Nome AS Nome_do_Posto,
-              E.Cep,
-              E.Uf,
-              E.Localidade,
-              E.Bairro,
-              E.Logradouro,
-              E.Numero
-            FROM
-              Posto AS P
-            LEFT JOIN
-              Endereco AS E ON P.ID = E.Posto_ID
-            WHERE
-              P.ID = ?;
+          SELECT
+          P.ID AS Posto_ID,
+          P.Nome AS Nome_do_Posto,
+          E.Cep,
+          E.Uf,
+          E.Localidade,
+          E.Bairro,
+          E.Logradouro,
+          E.Numero,
+          T.Numero AS Numero_do_Telefone
+        FROM
+          Posto AS P
+        LEFT JOIN
+          Endereco AS E ON P.ID = E.Posto_ID
+        LEFT JOIN
+          Telefone AS T ON P.ID = T.Posto_ID
+        WHERE
+          P.ID = ?;        
           `,
           [ID],
           (error, results) => {

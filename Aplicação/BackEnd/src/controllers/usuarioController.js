@@ -1,7 +1,6 @@
 const UsuarioService = require("../services/UsuarioService.js");
 
 module.exports = {
-
   alterar: async (req, res) => {
     let json = { error: "", result: {} };
     const usuario = req.body.usuario;
@@ -11,12 +10,12 @@ module.exports = {
     const usuarioPreenchido =
       usuario.nome &&
       usuario.cpf &&
-      usuario.rg &&
       usuario.data_Nascimento &&
       usuario.sexo &&
       usuario.email &&
       usuario.data_Criada &&
-      usuario.senha;
+      usuario.senha &&
+      usuario.imagem;
 
     const telefonePreenchido = telefone.numero;
 
@@ -27,11 +26,11 @@ module.exports = {
             codigo: resultado,
             nome: usuario.nome,
             cpf: usuario.cpf,
-            rg: usuario.rg,
             data_Nascimento: usuario.data_Nascimento,
             sexo: usuario.sexo,
             email: usuario.email,
             data_Criada: usuario.data_Criada,
+            imagem: usuario.imagem,
           };
           console.log("-----USUARIO ALTERADO COM SUCESSO !-------");
           console.log("NOME:  : " + usuario.nome);
@@ -58,23 +57,22 @@ module.exports = {
     const usuarioPreenchido =
       usuario.nome &&
       usuario.cpf &&
-      usuario.rg &&
       usuario.data_Nascimento &&
       usuario.sexo &&
       usuario.email &&
       usuario.data_Criada &&
-      usuario.senha;
+      usuario.senha &&
+      usuario.imagem;
 
     const telefonePreenchido = telefone.numero;
 
     if (usuarioPreenchido && telefonePreenchido) {
-      await UsuarioService.inserir(usuario,telefone)
+      await UsuarioService.inserir(usuario, telefone)
         .then((resultado) => {
           json.result = {
             codigo: resultado,
             nome: usuario.nome,
             cpf: usuario.cpf,
-            rg: usuario.rg,
             data_Nascimento: usuario.data_Nascimento,
             sexo: usuario.sexo,
             email: usuario.email,

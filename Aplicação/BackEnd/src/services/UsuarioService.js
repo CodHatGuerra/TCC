@@ -4,15 +4,15 @@ module.exports = {
   alterar: (usuario, telefone, id) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "UPDATE Usuario SET Nome = ?, Cpf = ?, Rg = ?, Sexo = ?, Data_Nascimento = ?, Email = ?, Senha = ? WHERE ID = ?",
+        "UPDATE Usuario SET Nome = ?, Cpf = ?, Sexo = ?, Data_Nascimento = ?, Email = ?, Senha = ?, Imagem = ? WHERE ID = ?",
         [
           usuario.nome,
           usuario.cpf,
-          usuario.rg,
           usuario.sexo,
           usuario.data_Nascimento,
           usuario.email,
           usuario.senha,
+          usuario.imagem,
           id,
         ],
         (error, results) => {
@@ -67,7 +67,12 @@ module.exports = {
       return new Promise((aceito, rejeitado) => {
         db.query(
           `
-            SELECT * FROM Usuario WHERE ID = ?;
+        SELECT U.*,
+          T.Numero AS Numero_do_Telefone
+        FROM Usuario AS U
+          LEFT JOIN Telefone AS T ON U.ID = T.Usuario_ID
+        WHERE 
+          U.ID = ?;
           `,
           [ID],
           (error, results) => {
@@ -197,17 +202,16 @@ module.exports = {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Usuario (Nome, Cpf, Rg, Sexo, Data_Nascimento, Email, Senha, Data_Criada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Usuario (Nome, Cpf, Sexo, Data_Nascimento, Email, Senha, Data_Criada, Imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
         [
           usuario.nome,
           usuario.cpf,
-          usuario.rg,
           usuario.sexo,
           usuario.data_Nascimento,
           usuario.email,
           usuario.senha,
           usuario.data_Criada,
-          telefone.numero,
+          usuario.imagem,
         ],
         (error, results) => {
           if (error) {
