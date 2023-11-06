@@ -108,7 +108,7 @@ export class EmployeesComponent implements OnInit {
   employeeUpdate(id: number) {
      this.employeeService.setIdFuncionario(id);
      this.dialog.open(EmployeeUpdateComponent);
-  }
+  } 
 
   onSearchKeyUp() {
     this.searchInput.next(this.input);

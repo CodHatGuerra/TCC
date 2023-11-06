@@ -19,12 +19,12 @@ export class EmployeeUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.employeeService.getIdFuncionario();
+    console.log(id);
     this.employeeService.getByIdEmployee(id).subscribe((result)=>{
       console.log(result);
-       this.employee = result.postos[0]
+       this.employee = result.result.funcionario
     });
   }
-
 
   // UpdateEmployee() {
   //   this.employeeService.updateEmployee();

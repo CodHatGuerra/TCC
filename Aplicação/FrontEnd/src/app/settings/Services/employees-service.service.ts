@@ -19,7 +19,7 @@ export class EmployeeService {
   });
 
   postoId: number = 0;
-  userId: number = 0;
+  employeeId: number = 0;
 
   getEmployeeByPosto(idPosto: number): Observable<any> {
     return this.http.get<any>(
@@ -29,11 +29,11 @@ export class EmployeeService {
   }
   
   setIdFuncionario(id: number){
-    this.userId = id;
+    this.employeeId = id;
   }
 
   getIdFuncionario(){
-    return this.userId;
+    return this.employeeId;
   }
 
   getAllEmployee(): Observable<any> {
