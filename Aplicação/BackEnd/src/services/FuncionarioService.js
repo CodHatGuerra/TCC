@@ -118,7 +118,7 @@ module.exports = {
       );
     });
   },
-  consultarID: (CPF) => {
+  consultarCPF: (CPF) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
         `
@@ -136,6 +136,36 @@ module.exports = {
             U.Cpf = ?;
           `,
         [CPF],
+        (error, results) => {
+          if (error) {
+            console.log("Erro Cadastrar Posto" + error);
+            rejeitado(error);
+            return;
+          } else {
+            aceito(results);
+          }
+        }
+      );
+    });
+  },
+  consultarID: (ID) => {
+    return new Promise((aceito, rejeitado) => {
+      db.query(
+        `
+          SELECT 
+            U.Nome AS Nome_Funcionario, F.ID AS Funcionario_ID, F.Cargo, P.Nome AS Nome_Posto, P.ID AS Posto_ID
+          FROM 
+            Funcionario AS F
+          INNER JOIN 
+            Usuario AS U ON F.Usuario_ID = U.ID
+          INNER JOIN 
+            Funcionario_tem_Posto AS FP ON F.ID = FP.Funcionario_ID
+          INNER JOIN 
+            Posto AS P ON FP.Posto_ID = P.ID
+          WHERE 
+            U.ID = ?;
+          `,
+        [ID],
         (error, results) => {
           if (error) {
             console.log("Erro Cadastrar Posto" + error);

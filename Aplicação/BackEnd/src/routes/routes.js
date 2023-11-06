@@ -7,6 +7,7 @@ const UsuarioController = require("../controllers/usuarioController");
 const LoginController = require("../controllers/loginController");
 const PostoController = require("../controllers/postoController");
 const FuncionarioController = require("../controllers/FuncionarioController");
+const VacinaController = require("../controllers/vacinaController")
 
 // ROTAS USUARIO
 //--------------------------------------------------------//
@@ -51,13 +52,29 @@ router.post("/funcionario", authMiddleware, FuncionarioController.cadastrar);
 //ALTERAR FUNCIONARIO
 router.put("/funcionario", authMiddleware, FuncionarioController.alterar);
 //CONSULTAR TODOS FUNCIONARIO DE TODOS OS POSTOS
-router.get("/funcionario/", authMiddleware, FuncionarioController.consultarTodos);
+router.get("/funcionario/",authMiddleware,FuncionarioController.consultarTodos);
 //CONSULTAR TODOS FUNCIONARIO DE UM POSTO
-router.get("/funcionario/posto/:id", authMiddleware, FuncionarioController.consultar);
+router.get("/funcionario/posto/:id",authMiddleware,FuncionarioController.consultar);
 //CONSULTAR UM FUNCIONARIO PELO CPF
-router.get("/funcionario/cpf/:cpf", authMiddleware, FuncionarioController.consultarID);
+router.get("/funcionario/cpf/:cpf",authMiddleware,FuncionarioController.consultarCPF);
+//CONSULTAR UM FUNCIONARIO PELO ID
+router.get("/funcionario/id/:id",authMiddleware,FuncionarioController.consultarID);
 //DELETAR FUNCIONARIO PELO ID
-router.delete("/funcionario/:id", authMiddleware, FuncionarioController.deletar);
+router.delete("/funcionario/:id",authMiddleware,FuncionarioController.deletar);
+//--------------------------------------------------------//
+
+//ROTAS VACINA
+//--------------------------------------------------------//
+// CADASTRAR VACINA
+router.post("/vacina", authMiddleware, VacinaController.cadastrar);
+//CONSULTAR UMA VACINA
+router.get("/vacina/:id", authMiddleware, VacinaController.consultarID);
+//CONSULTAR TODAS AS VACINA
+router.get("/vacina", authMiddleware, VacinaController.consultar);
+//DELETAR VACINA
+router.delete("/vacina/:id", authMiddleware, VacinaController.deletar);
+//EDITAR VACINA
+router.put("/vacina", authMiddleware, VacinaController.alterar);
 //--------------------------------------------------------//
 
 // Rota protegida que requer autenticação

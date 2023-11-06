@@ -87,10 +87,31 @@ module.exports = {
       });
     res.json(json);
   },
+  consultarCPF: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    let cpf = req.params.cpf;
+
+    await FuncionarioService.consultarCPF(cpf)
+      .then((resultado) => {
+        json.result = {
+          funcionario: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+    res.json(json);
+  },
   consultarID: async (req, res) => {
     let json = { error: "", result: {} };
 
-    let ID = req.params.cpf;
+    let ID = req.params.id;
 
     await FuncionarioService.consultarID(ID)
       .then((resultado) => {
