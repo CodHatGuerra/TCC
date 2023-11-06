@@ -43,6 +43,14 @@ export class EmployeeService {
     );
   }
 
+  
+  getByIdEmployee(id: number): Observable<any> {
+    return this.http.get<any>(
+      `http://localhost:8080/api/funcionario/id/${id}`,
+      { headers: this.httpHeaders }
+    );
+  }
+
   setIdPosto(idPosto: number) {
     this.postoId = idPosto;
   }
@@ -57,6 +65,10 @@ export class EmployeeService {
         headers: this.httpHeaders,
       }) ?? this.service.AlertMessage("Não foi possível encontrar um usuário");
     return user;
+  }
+
+  updateEmployee(obj: any): Observable<any>{
+    return this.http.put(`http://localhost:8080/api/funcionario`, obj,{ headers: this.httpHeaders })
   }
 
   deleteEmployee(id: number): Observable<any>{

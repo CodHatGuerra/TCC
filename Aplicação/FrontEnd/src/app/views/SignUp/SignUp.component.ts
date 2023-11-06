@@ -34,7 +34,6 @@ export class SignUpComponent {
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      rg: ['', [Validators.required, Validators.pattern('[0-9]*')]],
       data_Nascimento: ['', Validators.required],
       sexo: ['', Validators.required],
       telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
@@ -120,7 +119,6 @@ export class SignUpComponent {
       usuario: {
         nome: this.form.value.nome,
         cpf: this.form.value.cpf,
-        rg: this.form.value.rg,
         data_Nascimento: this.form.value.data_Nascimento,
         sexo: this.form.value.sexo,
         email: this.form.value.email,
@@ -145,7 +143,6 @@ export class SignUpComponent {
       this.DadosCep() ;
     this.signUpService.Info.usuario.nome = this.form.value.nome;
     this.signUpService.Info.usuario.cpf = this.form.value.cpf;
-    this.signUpService.Info.usuario.rg = this.form.value.rg;
     this.signUpService.Info.usuario.data_Nascimento = this.form.value.data_Nascimento;
     this.signUpService.Info.usuario.sexo = this.form.value.sexo;
     this.signUpService.Info.usuario.email = this.form.value.email;

@@ -8,6 +8,7 @@ import { FormControl } from "@angular/forms";
 import { Subject, debounceTime } from "rxjs";
 import { EmployeeDeleteComponent } from "./employee-delete/employee-delete.component";
 import { Router } from "@angular/router";
+import { EmployeeUpdateComponent } from "./employee-update/employee-update.component";
 
 @Component({
   selector: "app-employees",
@@ -37,10 +38,8 @@ export class EmployeesComponent implements OnInit {
 
   search(event: Event): void {
     if (this.searchTerm.trim() === '') {
-      // Se a caixa de pesquisa estiver vazia, exiba todos os funcionários
       this.dataSource = this.allEmployees;
     } else {
-      // Realize a pesquisa nos funcionários com base no searchTerm
       this.dataSource = this.allEmployees.filter((employee) =>
         employee.Nome_Pessoa.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
@@ -107,8 +106,8 @@ export class EmployeesComponent implements OnInit {
   }
 
   employeeUpdate(id: number) {
-    // this.employeeService.setIdUser(id);
-    // this.dialog.open(EmployeeUpdateComponent);
+     this.employeeService.setIdFuncionario(id);
+     this.dialog.open(EmployeeUpdateComponent);
   }
 
   onSearchKeyUp() {
