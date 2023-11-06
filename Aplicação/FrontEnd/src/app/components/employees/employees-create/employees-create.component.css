@@ -1,14 +1,18 @@
 main {
+  display: grid;
+  justify-content: center;
   width: 20vw;
-  height: 55vh;
-  padding: 30px;
+  min-width: 20vh;
+  min-height: 64vh;
+  height: 64vh;
+  padding: 20px;
   text-align: center;
   background-color: rgb(236, 236, 236);
 }
 
 form {
   width: 20vw;
-  height: auto;
+  min-width: 20vh;
   display: grid;
   margin: 0 auto;
   background-color: transparent;

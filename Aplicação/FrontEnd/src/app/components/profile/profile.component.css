@@ -33,8 +33,21 @@ h4 {
 }
 
 mat-card {
-  background-color: rgb(214, 214, 214) !important;
+  background-color: #ebebeb;
   box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
+}
+
+.editImg{
+  display: flex;
+  flex-direction: column;
+}
+
+.teste {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 0px !important;
+  margin-bottom: 30px;
 }
 
 .buttonEdit {
@@ -49,13 +62,13 @@ mat-card {
 
 .edit {
   color: white !important;
-  font-size: 20px !important; 
+  font-size: 20px !important;
 }
 
 .img {
   width: 160px;
   height: 160px;
-  border-radius: 20%;
+  border-radius: 10%;
   border: 3px solid rgb(31, 132, 226);
   background-image: url(../../../assets/img/user.jpg);
   background-size: contain;

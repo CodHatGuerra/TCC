@@ -18,11 +18,28 @@ export class PostosComponent implements OnInit {
     private service: AppService,
     private router: Router,
     private postoService: PostosService 
-  ) { }
+  ) { 
+    this.getPosto();
+  }
   dataSource: any[] = [];
 
   ngOnInit(): void {
     this.getPosto();
+  }
+
+  allPostos: any[] = [];
+  searchTerm: string = '';
+
+  search(event: Event): void {
+    if (this.searchTerm.trim() === '') {
+      // Se a caixa de pesquisa estiver vazia, exiba todos os funcionários
+      this.dataSource = this.allPostos;
+    } else {
+      // Realize a pesquisa nos funcionários com base no searchTerm
+      this.dataSource = this.allPostos.filter((Posto) =>
+        Posto.Nome_do_Posto.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
   }
 
   openSigUn(): void {
@@ -34,6 +51,7 @@ export class PostosComponent implements OnInit {
 
   getPosto() {
     this.postoService.GetPosto().subscribe((response: any) => {
+      this.allPostos = response.result.postos;
       this.dataSource = response.result.postos;
       console.log(this.dataSource);
     });

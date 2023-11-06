@@ -1,19 +1,15 @@
 <main class="main" *ngFor="let user of infoUser">
   <mat-card class="info">
     <div class="data">
-      <div class="nome">
-        <h4>Nome:</h4>
-        <p>{{ user.Nome }}</p>
-      </div>
       <div class="rg">
         <h4>Rg:</h4>
         <p>{{ user.Rg }}</p>
-      </div>
+      </div>  
       <div class="cpf">
         <h4>Cpf:</h4>
         <p>{{ user.Cpf }}</p>
       </div>
-      <div class="email">A
+      <div class="email">
         <h4>E-mail:</h4>
         <p>{{ user.Email }}</p>
       </div>
@@ -27,8 +23,12 @@
       </div>
     </div>
     <div class="profile">
-      <div class="img" src="../../../assets/img/user.jpg"></div>
-      <p>{{ idade }} Anos</p>
+      <div class="editImg">
+        <div class="img" src="../../../assets/img/user.jpg"> </div>
+        <div class="teste"></div>
+      </div>
+      <p style="margin-top: 9px; font-size: 19px; font-family: Montserrat;" ><strong>{{ user.Nome }}</strong></p>
+      <p >{{ idade }} Anos</p>
       <button mat-button (click)="updateProfile(user.ID)" class="buttonEdit">
         <mat-icon class="edit">edit</mat-icon>
       </button>

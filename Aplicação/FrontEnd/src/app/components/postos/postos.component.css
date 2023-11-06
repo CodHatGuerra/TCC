@@ -1,15 +1,12 @@
 main{
   margin: 0 auto;
   max-width: 90vw;
-  text-align: center;
   margin-top: 35px;
 }
 
-span {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-}
+.even-row { background-color: #eee; }
+
+.odd-row { background-color: white; }
 
 ::ng-deep .highlight{
   color: white;
@@ -21,17 +18,13 @@ mat-card {
   padding: 20px;
   margin-bottom: 50px !important;
   height: auto;
-  margin-top: 20px;
   background-color: #ebebeb;
 }
 
-.postos {
-  background-color: #359fcc !important;
-  margin-top: 30px !important;
-  margin: 0 auto;
-  border: 1px solid red;
-  margin-bottom: 100px !important;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0.3, 0.3) !important;
+span {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
 table {
@@ -40,11 +33,12 @@ table {
   background-color: #eceaea !important;
 }
 
-.registerPosto {
-  width: 180px;
-  height: 40px;
-  background-color: #359fcc;
-  color: #fff !important;
+.add {
+  font-size: 30px; color: blue;
+  margin-right: 13px;
+  margin-top: 17px;
+  cursor: pointer;  
+  margin-bottom: 0;
 }
 
 .icons {

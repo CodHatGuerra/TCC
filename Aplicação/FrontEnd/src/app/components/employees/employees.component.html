@@ -7,40 +7,39 @@
         <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
       <div class="div">
-        <mat-form-field style="height: 76px !important; width: 20vw;">
+        <mat-form-field style="height: 76px !important; width: 20vw; margin-top: 18px !important;">
           <mat-label style="font-family: Montserrat !important; width: 90px;">Selecione um Posto</mat-label>
-          <mat-select (selectionChange)="onSelectionChange($event)">
+          <mat-select  (selectionChange)="onSelectionChange($event)">
             <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
               {{ posto.Nome_do_Posto }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button style="font-family: Montserrat;" mat-button 
-          (click)="openSigUn()">
-         <mat-icon style="font-size: 20px;">add</mat-icon>
+        <button style="font-family: Montserrat;" mat-button (click)="openSigUn()">
+          Vincule um Funcionário
         </button>
       </div>
   </span>
 
     <table mat-table [dataSource]="dataSource">
-      <tr mat-header-row *matHeaderRowDef="columnEmployee"></tr>
+      <tr style="background-color: rgb(197, 197, 197);" mat-header-row *matHeaderRowDef="columnEmployee"></tr>
       <tr mat-row *matRowDef="let row; columns: columnEmployee; let i = index;"
       [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
       
       <ng-container  matColumnDef="nome">
-        <th style="background-color: rgb(197, 197, 197); border-radius:  5px 0 0 5px   !important;" mat-header-cell *matHeaderCellDef>Nome</th>
+        <th style="border-radius:  5px 0 0 5px   !important;" mat-header-cell *matHeaderCellDef>Nome</th>
         <td mat-cell *matCellDef="let row">{{ row.Nome_Pessoa }}</td>
       </ng-container>
       
       <ng-container matColumnDef="cargo">
-        <th style="background-color: rgb(197, 197, 197);" style="background-color: rgb(197, 197, 197);" mat-header-cell *matHeaderCellDef>Cargo</th>
+        <th   mat-header-cell *matHeaderCellDef>Cargo</th>
         <td mat-cell *matCellDef="let row">{{ row.Cargo }}</td>
       </ng-container>
       <ng-container matColumnDef="acoes">
-        <th style="background-color: rgb(197, 197, 197); border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
+        <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
         <td  mat-cell *matCellDef="let row">
           <div class="icons">
-            <a class="edit" (click)="employeeUpdate(row.ID_Usuario)">
+            <a class="edit" (click)="employeeUpdate(row.ID_Funcionario)">
               <mat-icon class="mat-18"> edit </mat-icon>
             </a>
             <a class="delete" (click)="employeeDelete(row.ID_Funcionario)">

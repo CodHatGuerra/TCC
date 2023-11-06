@@ -28,12 +28,13 @@ export class EmployeesComponent implements OnInit {
   postoControl = new FormControl();
   dataSource: any[] = [];
   columnEmployee: string[] = [ "nome", "cargo", "acoes"];
-  allEmployees: any[] = [];
   idPosto: number = 0;
   private searchInput: Subject<string> = new Subject<string>();
-
-
+  
+  
+  allEmployees: any[] = [];
   searchTerm: string = '';
+
   search(event: Event): void {
     if (this.searchTerm.trim() === '') {
       // Se a caixa de pesquisa estiver vazia, exiba todos os funcionários
@@ -45,6 +46,7 @@ export class EmployeesComponent implements OnInit {
       );
     }
   }
+  
   ngOnInit(): void {
     this.getAllEmployee();
     this.getPosto();

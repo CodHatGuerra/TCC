@@ -1,6 +1,6 @@
 main {
   display: grid;
-  height: 100% !important; 
+  height: 100% !important;
   justify-items: center;
 }
 
@@ -8,21 +8,27 @@ main {
   min-width: 50vw;
   gap: 20px;
   width: 90vw;
-  margin-top: 40px;
-  padding: 15px;
-  background-color: #f8f7f7;
+  margin-top: 35px;
+  padding: 20px;
+  background-color: #ebebeb;
   margin-bottom: 50px;
 }
+
 .div {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   gap: 10px;
   width: 50vw;
 }
 
-.even-row { background-color: #eee; }
+.even-row {
+  background-color: #eee;
+}
 
-.odd-row { background-color: white; }
+.odd-row {
+  background-color: white;
+}
 
 .vinculo {
   width: 100%;
@@ -33,10 +39,11 @@ main {
 
 .employee > span {
   display: flex;
+  margin-top: 28px;
   height: 50px;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: 9px;
 }
 
 table {
@@ -52,8 +59,11 @@ h2 {
   gap: 10px;
 }
 
-.add {
-  font-size: 20px !important;
+button {
+  width: 200px !important;
+  color: white !important;
+  height : 50px !important;
+  background-color: #186ff3 !important;
 }
 
 .delete {
