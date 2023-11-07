@@ -1,5 +1,21 @@
 main {
-    width: 500px;
-    height: 600px;
+    width: 30vw;
+    height: 60vh;
+    display: grid;
+    padding: 20px 20px 0 20px;
     text-align: center;
+}
+
+form {
+    width: auto;
+    height: auto;
+    display: grid;
+    margin-top: 50px !important;
+}
+
+button {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #21a4f0;
 }
