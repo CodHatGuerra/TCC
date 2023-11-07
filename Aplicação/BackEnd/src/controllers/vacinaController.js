@@ -4,39 +4,19 @@ module.exports = {
   alterar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    const posto = req.body.posto;
-    const endereco = req.body.endereco;
-    const telefone = req.body.telefone;
+    const vacina = req.body.vacina;
 
-    const postoPreenchido = posto.nome && posto.id;
+    const vacinaPreenchida = vacina.ID && vacina.Nome;
 
-    const enderecoPreenchido =
-      endereco.cep &&
-      endereco.uf &&
-      endereco.localidade &&
-      endereco.bairro &&
-      endereco.logradouro &&
-      endereco.numero;
-
-    const telefonePreenchido = telefone.numero;
-
-    if (postoPreenchido && enderecoPreenchido && telefonePreenchido) {
-      await PostoService.alterar(posto, endereco, telefone)
-        .then((resultado) => {
+    if (vacinaPreenchida) {
+      await VacinaService.alterar(vacina)
+        .then(() => {
           json.result = {
-            msg: "Posto Alterado com Sucesso !",
+            msg: "Vacina Alterada com Sucesso !",
           };
-          console.log("-----POSTO ALTERADO SUCESSO !-------");
-          for (let prop in posto) {
-            console.log(`${prop} : ${posto[prop]}`);
-          }
-          console.log("--------------------------------------------");
-          for (let prop in endereco) {
-            console.log(`${prop} : ${endereco[prop]}`);
-          }
-          console.log("--------------------------------------------");
-          for (let prop in telefone) {
-            console.log(`${prop} : ${telefone[prop]}`);
+          console.log("-----Vacina ALTERADa SUCESSO !-------");
+          for (let prop in vacina) {
+            console.log(`${prop} : ${vacina[prop]}`);
           }
           console.log("--------------------------------------------");
         })
@@ -105,7 +85,7 @@ module.exports = {
 
     let ID = req.params.id;
 
-    await PostoService.consultarID(ID)
+    await VacinaService.consultarID(ID)
       .then((resultado) => {
         json.result = {
           postos: resultado,
@@ -127,14 +107,14 @@ module.exports = {
 
     const id = req.params.id;
 
-    await PostoService.deletar(id)
+    await VacinaService.deletar(id)
       .then(() => {
-        console.log("-----POSTO DELETADO COM SUCESSO ! !-------");
-        console.log("ID POSTO DELETADO: " + id);
+        console.log("-----Vacina DELETADA COM SUCESSO ! !-------");
+        console.log("ID Vacina DELETADA: " + id);
       })
       .catch((error) => {
         console.log(
-          "Erro na requisição para o Banco !  ROTA DELETE POSTO" + error
+          "Erro na requisição para o Banco !  ROTA DELETE Vacina" + error
         );
         json.error = {
           msg: "Erro na requisição para o banco !",

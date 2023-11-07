@@ -8,6 +8,7 @@ const LoginController = require("../controllers/loginController");
 const PostoController = require("../controllers/postoController");
 const FuncionarioController = require("../controllers/FuncionarioController");
 const VacinaController = require("../controllers/vacinaController")
+const CarteiraController = require("../controllers/carteiraController")
 
 // ROTAS USUARIO
 //--------------------------------------------------------//
@@ -75,6 +76,16 @@ router.get("/vacina", authMiddleware, VacinaController.consultar);
 router.delete("/vacina/:id", authMiddleware, VacinaController.deletar);
 //EDITAR VACINA
 router.put("/vacina", authMiddleware, VacinaController.alterar);
+//--------------------------------------------------------//
+
+//ROTAS CARTEIRA de Vacina
+//--------------------------------------------------------//
+// CADASTRAR VINCULO VACINA CARTEIRA
+router.post("/carteira", authMiddleware, CarteiraController.cadastrar);
+//CONSULTAR TODAS VACINAS DE UMA CARTEIRA
+router.get("/carteira/:id", authMiddleware, CarteiraController.consultarID);
+//DELETAR VINCULO VACINA CARTEIRA
+router.delete("/carteira/:idcarteira/:idvacina", authMiddleware, CarteiraController.deletar);
 //--------------------------------------------------------//
 
 // Rota protegida que requer autenticação

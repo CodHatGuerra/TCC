@@ -1,0 +1,83 @@
+const CarteiraService = require("../services/CarteiraService.js");
+
+module.exports = {
+  cadastrar: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    const CarteiraUsuario = req.body.carteiraUsuario;
+
+    const CarteiraUsuarioPreenchida =
+      CarteiraUsuario.Usuario_ID && CarteiraUsuario.Vacina_ID;
+
+    if (CarteiraUsuarioPreenchida) {
+      await CarteiraService.inserir(CarteiraUsuario)
+        .then((result) => {
+          json.result = {
+            msg: "Cadastrado com Sucesso !",
+          };
+          console.log(
+            "-----Cadastro em CARTEIRA REGISTRADo COM SUCESSO !-------"
+          );
+          console.log("ID :  VACINA " + CarteiraUsuario.Vacina_ID);
+          console.log(`ID CARTEIRA: ${CarteiraUsuario.Usuario_ID}`);
+          console.log(`ID DE REGISTRO DA COMBINAÇÃO: ` + result);
+          console.log("--------------------------------------------");
+        })
+        .catch((error) => {
+          console.log("Erro na requisição para o Banco ! " + error);
+          json.error = {
+            msg: "Erro na requisição para o banco !",
+            error: error.sqlMessage,
+          };
+        });
+    } else {
+      json.error = "Objeto e propriedades não correspondem ao esperado.";
+    }
+    res.json(json);
+  },
+  consultarID: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    let ID = req.params.id;
+
+    await CarteiraService.consultarID(ID)
+      .then((resultado) => {
+        json.result = {
+          Vacinas: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+
+    res.json(json);
+  },
+  deletar: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    const ID_Carteira = req.params.idcarteira;
+    const ID_Vacina = req.params.idvacina
+
+    await CarteiraService.deletar(ID_Carteira, ID_Vacina)
+      .then(() => {
+        console.log("-----Vacina DELETADA COM SUCESSO ! !-------");
+        console.log("ID Carteira : " + ID_Carteira);
+        console.log("ID Vacina : " + ID_Vacina);
+      })
+      .catch((error) => {
+        console.log(
+          "Erro na requisição para o Banco !  ROTA DELETE Vacina Vinculada" + error
+        );
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+    res.json(json);
+  },
+};

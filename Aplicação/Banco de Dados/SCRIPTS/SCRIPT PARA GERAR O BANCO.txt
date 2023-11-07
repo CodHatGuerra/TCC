@@ -66,13 +66,7 @@ CREATE TABLE IF NOT EXISTS Telefone (
 -- Tabela Vacina
 CREATE TABLE IF NOT EXISTS Vacina (
   ID INT AUTO_INCREMENT PRIMARY KEY,
-  Nome VARCHAR(150) NOT NULL,
-  Fabrica VARCHAR(150) NOT NULL,
-  Data_Fabricacao DATE NOT NULL,
-  Lote VARCHAR(20) NOT NULL,
-  Data_Aplicacao DATE NOT NULL,
-  Dose VARCHAR(45) NOT NULL,
-  Data_Vinculada DATE NOT NULL
+  Nome VARCHAR(150) NOT NULL
 );
 
 -- Tabela Funcionario
@@ -88,24 +82,13 @@ CREATE TABLE IF NOT EXISTS Funcionario (
     ON UPDATE NO ACTION
 );
 
--- Tabela Carteira_vacina (renomeada para Carteira)
-CREATE TABLE IF NOT EXISTS Carteira (
-  ID INT AUTO_INCREMENT PRIMARY KEY,
-  Data_Registrada DATE NOT NULL,
-  Usuario_ID INT,
+-- Tabela Usuario_tem_Vacina
+CREATE TABLE IF NOT EXISTS Usuario_tem_Vacina (
+  Usuario_ID INT NOT NULL,
+  Vacina_ID INT NOT NULL,
+  PRIMARY KEY (Usuario_ID, Vacina_ID),
   FOREIGN KEY (Usuario_ID)
     REFERENCES Usuario (ID)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-);
-
--- Tabela Carteira_tem_Vacina
-CREATE TABLE IF NOT EXISTS Carteira_tem_Vacina (
-  Carteira_ID INT NOT NULL,
-  Vacina_ID INT NOT NULL,
-  PRIMARY KEY (Carteira_ID, Vacina_ID),
-  FOREIGN KEY (Carteira_ID)
-    REFERENCES Carteira (ID)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   FOREIGN KEY (Vacina_ID)

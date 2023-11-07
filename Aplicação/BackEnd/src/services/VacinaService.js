@@ -1,81 +1,19 @@
 const db = require("../db");
 
 module.exports = {
-  alterar: (posto, endereco, telefone) => {
+  alterar: (vacina) => {
+    console.log(vacina);
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "UPDATE Posto SET Nome = ? WHERE ID = ?;",
-        [posto.nome, posto.id],
+        "UPDATE vacina SET nome = ? WHERE ID = ?;",
+        [vacina.Nome, vacina.ID],
         (error, results) => {
           if (error) {
-            console.log("Erro na alteração de dados do Posto" + error);
+            console.log("Erro na alteração de dados da Vacuna" + error);
             rejeitado(error);
             return;
           } else {
-            Posto_ID = results.insertId;
-
-            new Promise((resolve, reject) => {
-              db.query(
-                `
-                UPDATE 
-                  Endereco
-                SET
-                  Cep = ?,
-                  Uf = ?,
-                  Localidade = ?,
-                  Bairro = ?,
-                  Logradouro = ?,
-                  Numero = ?
-                WHERE
-                  Posto_ID = ?;
-                `,
-                [
-                  endereco.cep,
-                  endereco.uf,
-                  endereco.localidade,
-                  endereco.bairro,
-                  endereco.logradouro,
-                  endereco.numero,
-                  posto.id,
-                ],
-                (error, result) => {
-                  if (error) {
-                    console.log(
-                      "ERRO NA REQUISIÇÃO PARA ALTERAR O ENDEREÇO DO POSTO !"
-                    );
-                    console.log(error);
-                    reject(error);
-                  } else {
-                    console.log(
-                      "Execução com sucesso do update do posto: " + posto.id
-                    );
-                    resolve();
-                  }
-                }
-              );
-            })
-              .then(() => {
-                return new Promise((resolve, reject) => {
-                  db.query(
-                    "UPDATE Telefone SET Numero = ?  WHERE Posto_ID = ?;",
-                    [telefone.numero, posto.id],
-                    (error) => {
-                      if (error) {
-                        console.log("ERRO AO ALTERAR O NUMERO DO POSTO !");
-                        console.log(error);
-                        reject(error);
-                      } else {
-                        resolve();
-                      }
-                    }
-                  );
-                });
-              })
-              .then(() => aceito(Posto_ID))
-              .catch((error) => {
-                console.log(error);
-                rejeitado(error);
-              });
+            aceito();
           }
         }
       );
@@ -106,24 +44,10 @@ module.exports = {
       return new Promise((aceito, rejeitado) => {
         db.query(
           `
-          SELECT
-          P.ID AS Posto_ID,
-          P.Nome AS Nome_do_Posto,
-          E.Cep,
-          E.Uf,
-          E.Localidade,
-          E.Bairro,
-          E.Logradouro,
-          E.Numero,
-          T.Numero AS Numero_do_Telefone
-        FROM
-          Posto AS P
-        LEFT JOIN
-          Endereco AS E ON P.ID = E.Posto_ID
-        LEFT JOIN
-          Telefone AS T ON P.ID = T.Posto_ID
-        WHERE
-          P.ID = ?;        
+            SELECT * FROM
+              Vacina
+            WHERE
+              ID = ?;        
           `,
           [ID],
           (error, results) => {
@@ -154,49 +78,16 @@ module.exports = {
 
   deletar: (id) => {
     return new Promise((aceito, rejeitado) => {
-      db.query(
-        "DELETE FROM Endereco WHERE Posto_ID = ?",
-        [id],
-        (error, results) => {
-          if (error) {
-            console.log("Erro DELETAR Endereco" + error);
-            rejeitado(error);
-            return;
-          } else {
-            Posto_ID = results.insertId;
-          }
-        }
-      );
-
-      new Promise((resolve, reject) => {
-        db.query("DELETE FROM Telefone WHERE Posto_ID = ?", [id], (error) => {
-          if (error) {
-            console.log("ERRO DELETAR Telefone");
-            console.log(error);
-            reject(error);
-          } else {
-            resolve();
-          }
-        });
-      })
-        .then(() => {
-          new Promise((resolve, reject) => {
-            db.query("DELETE FROM Posto WHERE ID = ?", [id], (error) => {
-              if (error) {
-                console.log("ERRO AO DELETAR POSTO");
-                console.log(error);
-                reject(error);
-              } else {
-                resolve();
-              }
-            });
-          });
-        })
-        .then(() => aceito(Posto_ID))
-        .catch((error) => {
-          console.log(error);
+      db.query("DELETE FROM Vacina WHERE ID = ?", [id], (error, results) => {
+        if (error) {
+          console.log("Erro DELETAR Vacina" + error);
           rejeitado(error);
-        });
+          return;
+        } else {
+          Vacina = results.insertId;
+          aceito(Vacina);
+        }
+      });
     });
   },
 
@@ -214,7 +105,7 @@ module.exports = {
             return;
           } else {
             ID_Vacina = results.insertId;
-            aceito(ID_Vacina)
+            aceito(ID_Vacina);
           }
         }
       );
