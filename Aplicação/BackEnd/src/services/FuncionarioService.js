@@ -150,6 +150,8 @@ module.exports = {
   },
   consultarID: (ID) => {
     return new Promise((aceito, rejeitado) => {
+
+      console.log(ID);
       db.query(
         `
           SELECT 
@@ -163,7 +165,7 @@ module.exports = {
           INNER JOIN 
             Posto AS P ON FP.Posto_ID = P.ID
           WHERE 
-            U.ID = ?;
+            F.ID = ?;
           `,
         [ID],
         (error, results) => {

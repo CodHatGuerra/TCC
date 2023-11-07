@@ -105,19 +105,13 @@ export class EmployeesComponent implements OnInit {
       });
   }
 
-  employeeUpdate(id: number) {
-     this.employeeService.setIdFuncionario(id);
-     this.dialog.open(EmployeeUpdateComponent);
-  } 
-
   onSearchKeyUp() {
     this.searchInput.next(this.input);
   }
 
   openUpdateEmployee(id: number) {
     this.employeeService.setIdFuncionario(id);
-    this.router.navigate(["adm", "postos", "update", id]);
-    const dialog = this.dialog.open(EmployeeDeleteComponent);
+    const dialog = this.dialog.open(EmployeeUpdateComponent);
     dialog.afterClosed().subscribe(a => {
       this.getAllEmployee();
       this.getPosto();

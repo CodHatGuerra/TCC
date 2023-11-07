@@ -1,6 +1,6 @@
 <main>
   <img style="margin: 0 auto;" src="./../../../../assets/img/employe.png" class="icon" >
-  <h2 style="font-family: Montserrat;">Registre um funcionário</h2>
+  <h2 style="font-family: Montserrat; margin: 0 !important;">Registre um funcionário</h2>
   <form [formGroup]="formEmployee" class="form" *ngFor="let proper of posto">
     <mat-form-field appearance="outline">
       <mat-label>Cpf</mat-label>
@@ -11,7 +11,6 @@
       <input matInput formControlName="cargo" type="text" />
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>{{proper.Nome_do_Posto}}</mat-label>
       <input matInput readonly [placeholder]="proper.Nome_do_Posto" type="text">
     </mat-form-field>
   </form>

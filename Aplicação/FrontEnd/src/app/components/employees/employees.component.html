@@ -39,7 +39,7 @@
         <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
         <td  mat-cell *matCellDef="let row">
           <div class="icons">
-            <a class="edit" (click)="employeeUpdate(row.ID_Funcionario)">
+            <a class="edit" (click)="openUpdateEmployee(row.ID_Funcionario)">
               <mat-icon class="mat-18"> edit </mat-icon>
             </a>
             <a class="delete" (click)="employeeDelete(row.ID_Funcionario)">

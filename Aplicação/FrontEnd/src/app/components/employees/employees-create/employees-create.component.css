@@ -1,20 +1,20 @@
 main {
   display: grid;
   justify-content: center;
-  width: 20vw;
+  width: 28vw;
   min-width: 20vh;
   min-height: 64vh;
-  height: 64vh;
-  padding: 20px;
+  height: 46vh;
+  padding: 20px 20px 0 20px;
   text-align: center;
   background-color: rgb(236, 236, 236);
 }
 
 form {
-  width: 20vw;
-  min-width: 20vh;
+  width: 28vw;
+  min-width: 30vh;
   display: grid;
-  margin: 0 auto;
+  height: 20vh !important;
   background-color: transparent;
 }
 
@@ -26,6 +26,7 @@ form {
 .buttonRegister {
   width: 140px;
   margin: 0 auto;
+  margin-top: 60px;
   background-color: #21a4f0;
 }
 
