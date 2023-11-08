@@ -20,7 +20,6 @@ export interface Profile {
   usuario: {
 	  nome: string,
 	  cpf: number,
-	  rg: number,
 	  data_Nascimento: string,
 	  sexo: string,
 	  email: string,

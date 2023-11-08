@@ -33,7 +33,6 @@ export class ProfileUpdateComponent implements OnInit {
     usuario: {
       nome: "",
       cpf: 0,
-      rg: 0,
       data_Nascimento: "",
       sexo: "",
       email: "",
@@ -50,7 +49,6 @@ export class ProfileUpdateComponent implements OnInit {
       usuario: {
         nome: this.profile.Nome,
         cpf: this.profile.Cpf,
-        rg: this.profile.Rg,
         data_Nascimento: this.profile.data_Nascimento,
         sexo: "Masculino",
         email: this.profile.Email,

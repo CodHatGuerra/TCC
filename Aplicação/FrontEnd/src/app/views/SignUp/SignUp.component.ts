@@ -80,6 +80,7 @@ export class SignUpComponent {
       // após a leitura do arquivo.
     }
 }
+
   validateDate(control: any) {
     const inputDate = control;
     console.log(inputDate);
@@ -147,12 +148,6 @@ export class SignUpComponent {
     this.signUpService.Info.usuario.sexo = this.form.value.sexo;
     this.signUpService.Info.usuario.email = this.form.value.email;
     this.signUpService.Info.usuario.data_Criada = newDate.toISOString().split('T')[0];
-    this.signUpService.Info.endereco.cep = this.adressForm.value.cep;
-    this.signUpService.Info.endereco.uf = this.endereco.uf;
-    this.signUpService.Info.endereco.localidade = this.endereco.localidade;
-    this.signUpService.Info.endereco.logradouro = this.adressForm.value.logradouro;
-    this.signUpService.Info.endereco.bairro = this.endereco.bairro;
-    this.signUpService.Info.endereco.numero = this.adressForm.value.numero;
     this.signUpService.Info.telefone.numero = this.form.value.telefone;
 
     this.router.navigate(["create-passWord"])

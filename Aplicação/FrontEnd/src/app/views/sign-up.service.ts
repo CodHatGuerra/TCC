@@ -15,16 +15,9 @@ export class SignUpService {
       data_Nascimento: '',
       sexo: '',
       email: '',
-      data_Criada: ''
+      data_Criada: '',
+      imagem: null 
       
-    },
-    endereco: {
-      cep: 0,
-      uf: '',
-      localidade: '',
-      bairro: '',
-      logradouro: '',
-      numero: ''
     },
     telefone: {
       numero: 0

@@ -39,6 +39,9 @@
             <mat-label>Celular</mat-label>
             <input matInput type="number" formControlName="telefone" />
           </mat-form-field>
+            <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+            <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+
           <button class="buttonRegister" mat-button (click)="Submit()"> Próximo </button>
         </form>
       </mat-card>
