@@ -1,22 +1,22 @@
 <main>
-  <h2 style="font-family: Montserrat;">Atualizar Funcionário</h2>
-  <form class="form">
+  <h2 style="font-family: Montserrat; margin: 0px !important;">Atualizar Funcionário</h2>
+  <form>
     <mat-form-field appearance="outline">
       <mat-label>Funcionário</mat-label>
       <input matInput readonly [(ngModel)]="employee.Nome_Funcionario" name="Funcionario" type="text">
     </mat-form-field>
-    <mat-form-field class="MR" appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Cargo</mat-label>
       <input matInput [(ngModel)]="employee.Cargo" name="Cargo" type="text"/>
     </mat-form-field>
     <mat-form-field style="height: 76px !important; width: 30vw;">
       <mat-label style="font-family: Montserrat !important;">Selecione um Posto</mat-label>
-      <mat-select  (selectionChange)="onSelectionChange($event)">
+      <mat-select (selectionChange)="onSelectionChange($event)">
         <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
           {{ posto.Nome_do_Posto }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button appWhite>Atualizar</button>
   </form>
+  <button mat-button appWhite>Atualizar</button>
 </main>
