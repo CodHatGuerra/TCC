@@ -61,5 +61,18 @@ export class ProfileUpdateComponent implements OnInit {
     };
     console.log(this.profileObj);
   }
-    
+ 
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsBinaryString(file);
+    reader.onload = () => {
+      const base64 = btoa(reader.result as string);
+      // aqui você pode usar a string base64 como quiser
+      this.imageBase64 = base64; // atribui a uma variável do componente
+      this.apiService.uploadImage(base64); // envia para uma API
+      this.snackBar.open('Imagem convertida com sucesso!'); // mostra uma mensagem na tela
+    };
+  }
+
 }
