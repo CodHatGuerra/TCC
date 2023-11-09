@@ -1,7 +1,6 @@
 main{
   margin: 0 auto;
   max-width: 90vw;
-  margin-top: 35px;
 }
 
 .even-row { background-color: #eee; }
@@ -16,6 +15,8 @@ main{
 mat-card {
   min-height: 30vh;
   padding: 20px;
+  margin-top: 35px;
+  margin-left: 20px;
   margin-bottom: 50px !important;
   height: auto;
   background-color: #ebebeb;

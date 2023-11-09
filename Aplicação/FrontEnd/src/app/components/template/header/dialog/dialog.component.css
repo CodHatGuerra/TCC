@@ -11,21 +11,23 @@ h1 {
 
 .No {
     width: 100px;
-    background-color: #186ff3 !important;
+    background-color: #21a4f0 !important;
 }
 
 .Yes {
     width: 95px;
-    color:  #186ff3 !important; 
+    color:  #21a4f0 !important; 
     background-color: white;
 }
 
 .dialog {
     padding: 9px;
     height: 200px;
-    border-color: #186ff3;
+    border-color: #21a4f0;
 }
 
 .buttons {
     margin-top: 40px;
+    display: flex;
+    gap: 10px
 }

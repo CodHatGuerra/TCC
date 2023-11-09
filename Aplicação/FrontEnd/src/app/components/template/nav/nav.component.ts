@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
+import { DialogComponent } from '../header/dialog/dialog.component';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +12,7 @@ import { AppService } from 'src/app/settings/Services/app.service';
 
 export class NavComponent  {
   opened = true;
-  constructor(private service: AppService, private router: Router) {
+  constructor(private service: AppService, public dialog: MatDialog, private router: Router) {
     this.teste()
   }
   isSublistVisible = false;
@@ -42,5 +44,18 @@ export class NavComponent  {
       this.router.navigate([''])
     }
   }
+
+  openLogoutDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        localStorage.removeItem('Token');
+        this.router.navigate(['']);
+      }
+    })
+  };
 }
 

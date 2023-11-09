@@ -24,8 +24,9 @@
     </div>
     <div class="profile">
       <div class="editImg">
-        <div class="img" src="../../../assets/img/user.jpg"> </div>
-        <div class="teste"></div>
+        <div class="img" src="../../../assets/img/user.jpg"></div>
+        <button type="button" class="teste" mat-raised-button (click)="fileInput.click()">Choose File</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
       </div>
       <p style="margin-top: 9px; font-size: 19px; font-family: Montserrat;" ><strong>{{ user.Nome }}</strong></p>
       <p >{{ idade }} Anos</p>

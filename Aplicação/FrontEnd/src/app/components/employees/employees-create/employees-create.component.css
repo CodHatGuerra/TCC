@@ -2,9 +2,8 @@ main {
   display: grid;
   justify-content: center;
   width: 28vw;
-  min-width: 20vh;
+  min-width: 28vh !important;
   min-height: 64vh;
-  height: 46vh;
   padding: 20px 20px 0 20px;
   text-align: center;
   background-color: rgb(236, 236, 236);
@@ -12,14 +11,13 @@ main {
 
 form {
   width: 28vw;
-  min-width: 30vh;
+  min-width: 28vh !important;
   display: grid;
   height: 20vh !important;
   background-color: transparent;
 }
 
 .icon {
-  width: 6vw;
   height: 12vh; 
 }
 

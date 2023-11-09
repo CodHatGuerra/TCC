@@ -1,8 +1,8 @@
 .sidenav {
   position: fixed;
   margin-top: 100px !important;
-  width: 60px;
-  height: 126px;
+  width: 200px;
+  height: 80vh;
   border-radius: 0px 6px 6px 0px;
   background-color: #1376f7;
   transition: width 0.3s;
@@ -12,7 +12,26 @@
   width: 200px;
 }
 
+.teste {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around !important;
+}
+
+::ng-deep a:hover {
+  background-color: white;
+}
+
+a:hover mat-icon {
+  color: #1376f7 !important;
+}
+
+a:hover span{
+  color: #1376f7 !important;
+}
+
 .container {
+  width: auto;
   background-color: rgba(255, 255, 255, 0.048);
 }
 
@@ -28,10 +47,6 @@
 
 .arrow-icon.rotated {
   transform: rotate(360deg);
-}
-
-.expanded-sidenav {
-  height: 235px;
 }
 
 .fade-in {

@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../../../settings/Services/employees-service.service";
 import { Router } from "@angular/router";
 import { PostosService } from "src/app/settings/Services/postos.service";
+import { AppService } from "src/app/settings/Services/app.service";
 
 @Component({
   selector: "app-employee-update",
@@ -14,21 +15,29 @@ export class EmployeeUpdateComponent implements OnInit {
     private dialogRef: MatDialogRef<EmployeeUpdateComponent>,
     private employeeService: EmployeeService,
     private postoService: PostosService,
+    private service: AppService,
     private router: Router
   ) {
     this.getPosto();
   }
 
-    employee: any;
-    idPosto: number = 0;
-    postos: any;
+  employee: any;
+  idPosto: number = 0;
+  postos: any;
+
+
+  funcionario = {
+    Data_Inicio: "",
+    Usuario_ID: 0,
+    Posto_ID: 2,
+    Cargo: ""
+  }
 
   ngOnInit(): void {
     const id = this.employeeService.getIdFuncionario();
     console.log(id);
-    this.employeeService.getByIdEmployee(id).subscribe((response)=>{
+    this.employeeService.getByIdEmployee(id).subscribe((response) => {
       this.employee = response.result.funcionario[0]
-      console.log(this.employee);
     });
     this.getPosto();
   }
@@ -45,10 +54,14 @@ export class EmployeeUpdateComponent implements OnInit {
     });
   }
 
+  UpdateEmployee() {
+    console.log(this.employee);
+    
+    if(this.employee == null)
+      throw this.service.AlertMessage("Complete o formulário!")
 
-  // UpdateEmployee() {
-  //   this.employeeService.updateEmployee();
-  //   //this.router.navigate(["adm", "employee", "update", cpf]);
-  //   this.dialogRef.close();
-  // }
+    this.employeeService.updateEmployee(this.employee);
+    //this.router.navigate(["adm", "employee", "update", cpf]);
+    this.dialogRef.close();
+  }
 }

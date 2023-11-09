@@ -2,20 +2,18 @@ div {
     width: 37vw;
     height: auto;
     min-height: 60vh;
+    display: grid;
     height: 68vh;
-    margin-bottom: 0px;
     text-align: center;
-    padding:  20px;
+    padding:  20px 20px 0px 20px;
 }
 
 h1 {
-    margin: 0px !important;
-    font-size: 20px;
+    font-size: 24px !important;
 }
 
 form {
     display: grid;
-    margin-top: 20px;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
@@ -23,6 +21,7 @@ form {
 .buttonUpdate {
     width: 180px;
     margin-top: 10px;
+    margin: 0 auto;
     height: 40px;
     background-color:  #186ff3;
     color: #FFF !important;

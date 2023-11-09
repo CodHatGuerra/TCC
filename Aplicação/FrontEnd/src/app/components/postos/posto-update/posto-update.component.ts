@@ -41,8 +41,6 @@ export class PostoUpdateComponent implements OnInit {
     const id = this.service.GetIdPosto();
     this.postoService.GetByIdPosto(id).subscribe((response) => {
       this.result = response.result!;
-      console.log(response);
-      
     });
   }
 

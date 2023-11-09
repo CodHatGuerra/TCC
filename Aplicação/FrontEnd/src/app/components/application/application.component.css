@@ -9,10 +9,11 @@
 .vaccine {
   width: 90vw;
   padding: 20px;
+  border-radius: 5px;
   background-color: #ececec !important;
   box-sizing: border-box;
   text-align: center;
-  margin-top: 18px;
+  margin-top: 15px;
 }
 
 table {
