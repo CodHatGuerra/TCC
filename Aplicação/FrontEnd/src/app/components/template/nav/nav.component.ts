@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
-import { DialogComponent } from '../header/dialog/dialog.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-nav',

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Vacinas } from '../vacciness';
 import { MatDialog } from '@angular/material/dialog';
-import { AddVaccinessComponent } from '../add-vacciness/add-vacciness.component';
+import { AddVaccinessComponent } from '../vacinas/add-vacciness/add-vacciness.component';
 
 @Component({
   selector: 'app-home',

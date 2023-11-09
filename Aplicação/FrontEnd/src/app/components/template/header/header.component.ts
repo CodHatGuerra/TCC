@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from '../nav/dialog/dialog.component';
 import { AppService } from 'src/app/settings/Services/app.service';
 
 @Component({

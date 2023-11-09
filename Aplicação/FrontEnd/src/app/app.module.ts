@@ -40,10 +40,10 @@ import { UserComponent } from './views/user/user.component';
 import { SignInComponent } from './views/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from './components/template/header/dialog/dialog.component';
+import { DialogComponent } from './components/template/nav/dialog/dialog.component';
 import { SignUpComponent } from './views/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { AddVaccinessComponent } from './components/add-vacciness/add-vacciness.component';
+import { AddVaccinessComponent } from './components/vacinas/add-vacciness/add-vacciness.component';
 import { EmployeesCreateComponent } from './components/employees/employees-create/employees-create.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { EmployeesComponent } from './components/employees/employees.component';
@@ -51,6 +51,7 @@ import { EmployeeUpdateComponent } from './components/employees/employee-update/
 import { EmployeeDeleteComponent } from './components/employees/employee-delete/employee-delete.component';
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 import { CreatePassWordComponent } from './views/create-password/create-password.component';
+import { VacinasDeleteComponent } from './components/vacinas/vacinas-delete/vacinas-delete.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { CreatePassWordComponent } from './views/create-password/create-password
     EmployeeUpdateComponent,
     EmployeeDeleteComponent,
     ProfileUpdateComponent,
-    CreatePassWordComponent
+    CreatePassWordComponent,
+    VacinasDeleteComponent
     
   ],
   imports: [

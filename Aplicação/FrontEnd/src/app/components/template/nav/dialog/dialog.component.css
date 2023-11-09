@@ -5,29 +5,22 @@ h1 {
 .dialog {
     display: grid;
     justify-content: center;
+    padding: 9px;
     background-color: #F8F1FF;
-    gap: 30px;
 }
 
 .No {
-    width: 100px;
+    width: 120px;
     background-color: #21a4f0 !important;
 }
 
 .Yes {
-    width: 95px;
+    width: 120px;
     color:  #21a4f0 !important; 
     background-color: white;
 }
 
-.dialog {
-    padding: 9px;
-    height: 200px;
-    border-color: #21a4f0;
-}
-
 .buttons {
-    margin-top: 40px;
     display: flex;
-    gap: 10px
+    gap: 17px
 }

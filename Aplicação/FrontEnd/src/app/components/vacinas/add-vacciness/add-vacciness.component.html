@@ -1,0 +1,11 @@
+<main>
+    <img src="../../../assets/img/seringa.png" class="icon" alt="">
+    <h2  style="font-family: Montserrat;">Registre uma nova vacina</h2>
+    <form  [formGroup]="formVacina" class="form">
+        <mat-form-field class="MR" appearance="outline">
+            <mat-label>Vacina</mat-label>
+            <input matInput type="text" formControlName="nome">
+        </mat-form-field>
+        <button mat-button (click)="createVacina()" appWhite>Registrar</button>
+    </form>
+</main>
