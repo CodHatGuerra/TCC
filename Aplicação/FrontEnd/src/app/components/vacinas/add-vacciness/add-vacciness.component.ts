@@ -28,11 +28,12 @@ export class AddVaccinessComponent {
 
   createVacina() {
      const nome = { nome: this.formVacina.value.nome }
-    console.log(nome);
-    this.service.AlertMessage("Ocorreu um erro ao tentar registrar uma vacina.");
-
-    if(nome.nome == null)
-    this.http.post('http://localhost:8080/api/vacina', nome, { headers: this.headers }).subscribe((response)=> {
+    
+     
+     if(nome.nome == null)
+     this.service.AlertMessage("Ocorreu um erro ao tentar registrar uma vacina.");
+     
+     this.http.post('http://localhost:8080/api/vacina', nome, { headers: this.headers }).subscribe((response)=> {
       if(response == null)  
         this.service.AlertMessage("Ocorreu um erro ao tentar registrar uma vacina.");
       

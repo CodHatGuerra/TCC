@@ -1,7 +1,7 @@
 .main {
     display: flex;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 35px !important;
     padding: 20px;
     margin: 20px;
     height: auto;
@@ -14,7 +14,6 @@
     background-color: #449dd1;
     margin-bottom: 10px;
 }
-
 
 .icons {
     display: flex;

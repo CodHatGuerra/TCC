@@ -100,5 +100,8 @@ export class AppService {
     );
   }
 
+  GetAllVacinas(): Observable<any>{
+   return this.http.get<any>('http://localhost:8080/api/vacina', { headers: this.httpHeaders })
+  }
 
 }

@@ -32,17 +32,15 @@ export class PostosComponent implements OnInit {
 
   search(event: Event): void {
     if (this.searchTerm.trim() === '') {
-      // Se a caixa de pesquisa estiver vazia, exiba todos os funcionários
       this.dataSource = this.allPostos;
     } else {
-      // Realize a pesquisa nos funcionários com base no searchTerm
       this.dataSource = this.allPostos.filter((Posto) =>
-        Posto.Nome_do_Posto.toLowerCase().includes(this.searchTerm.toLowerCase())
+        Posto.Nome_do_Posto.toLowerCase().includes(this.searchTerm.toLowerCase() )
       );
     }
   }
 
-  openSigUn(): void {
+  openSigUn(): void { 
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed().subscribe(a => {
       this.getPosto()
