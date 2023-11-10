@@ -17,9 +17,6 @@ export class ApplicationComponent {
   columns: string[] = ['name', 'actions'];
   input: string = '';
 
-  OpenDialogRegisterVacciness() {
-    this.dialog.open(AddVaccinessComponent)
-  }
 
   onSearchKeyUp(){
     

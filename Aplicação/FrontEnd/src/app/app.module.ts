@@ -52,6 +52,7 @@ import { EmployeeDeleteComponent } from './components/employees/employee-delete/
 import { ProfileUpdateComponent } from './components/profile/profile-update/profile-update.component';
 import { CreatePassWordComponent } from './views/create-password/create-password.component';
 import { VacinasDeleteComponent } from './components/vacinas/vacinas-delete/vacinas-delete.component';
+import { VacinasAppComponent } from './components/vacinas/vacinas.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { VacinasDeleteComponent } from './components/vacinas/vacinas-delete/vaci
     EmployeeDeleteComponent,
     ProfileUpdateComponent,
     CreatePassWordComponent,
-    VacinasDeleteComponent
+    VacinasDeleteComponent,
+    VacinasAppComponent
     
   ],
   imports: [

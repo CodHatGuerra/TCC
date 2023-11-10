@@ -1,0 +1,32 @@
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    padding: 20px;
+    margin: 20px;
+    height: auto;
+}
+
+.addVaccines {
+    width: 140px;
+    height: 30px;
+    color: #FFF !important;
+    background-color: #449dd1;
+    margin-bottom: 10px;
+}
+
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.delete {
+    color: rgb(192, 21, 21);
+    cursor: pointer;
+}
+
+.edit {
+    color: rgb(233, 154, 36);
+    cursor: pointer;
+}

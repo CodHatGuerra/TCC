@@ -5,10 +5,7 @@ main {
 }
 
 .employee {
-  min-width: 50vw;
   gap: 20px;
-  width: 90vw;
-  margin-left: 20px;
   margin-top: 35px;
   padding: 20px;
   background-color: #ebebeb;
@@ -77,4 +74,13 @@ button {
 
 a {
   cursor: pointer;
+}
+
+@media screen and (max-width > 1300px) {
+  span {
+    display: grid;
+    height: 30vh;
+    justify-content: center;
+  }
+
 }

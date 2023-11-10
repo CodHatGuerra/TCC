@@ -1,14 +1,14 @@
 main {
     width: 22vw;
-    height: 54vh;
-    padding: 25px;
+    height: 44vh;
+    padding: 15px;
     text-align: center;
 }
 
 form {
     display: grid;  
     width: 20vw;
-    margin-top: 95px !important;
+    margin-top: 65px !important;
     margin: 0 auto;
     height: 20vh;
 }

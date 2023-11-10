@@ -14,6 +14,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
 import { EmployeeUpdateComponent } from './components/employees/employee-update/employee-update.component';
 import { CreatePassWordComponent } from './views/create-password/create-password.component';
+import { VacinasAppComponent } from './components/vacinas/vacinas.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path: 'application',
         component: ApplicationComponent
+      },
+      {
+        path: 'vacinas',
+        component: VacinasAppComponent
       },
       {
         path: 'schedulind',
