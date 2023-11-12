@@ -1,6 +1,6 @@
 main {
     width: 22vw;
-    height: 44vh;
+    height: 40%;
     padding: 15px;
     text-align: center;
 }
@@ -8,9 +8,10 @@ main {
 form {
     display: grid;  
     width: 20vw;
+    margin-top: 0 auto;
     margin-top: 65px !important;
-    margin: 0 auto;
-    height: 20vh;
+    justify-content: center;
+    height: auto;
 }
 
 .icon {

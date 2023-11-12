@@ -20,10 +20,10 @@
         <ng-container matColumnDef="acoes">
             <th mat-header-cell *matHeaderCellDef>Ações</th>
             <td mat-cell *matCellDef="let vaccine">   <div class="icons">
-                <a class="edit">
+                <a class="edit" (click)="UpdateVacina(vaccine.ID)">
                   <mat-icon class="mat-18"> edit </mat-icon>
                 </a>
-                <a class="delete">
+                <a class="delete" (click)="deleteVacina(vaccine.ID)">
                   <mat-icon class="mat-18"> delete </mat-icon>
                 </a>
               </div></td>

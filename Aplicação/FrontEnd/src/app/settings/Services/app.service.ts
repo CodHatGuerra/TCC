@@ -18,6 +18,7 @@ export class AppService {
 
   //variáveis
   id_Posto: any;
+  id_Vacina: any;
   userInfo: any;
 
   AlertMessage(msg: string): void {
@@ -90,7 +91,13 @@ export class AppService {
     );
   }
 
-  //faz a requisição para retornar um posto
+  getIdVacina(){
+    return this.id_Vacina
+  }
+
+  setIdVacina(id: number){
+    this.id_Vacina = id;
+  }
  
   UpdatePosto(posto: Posto): Observable<any> {
     return this.http.put<Posto>(
@@ -102,6 +109,18 @@ export class AppService {
 
   GetAllVacinas(): Observable<any>{
    return this.http.get<any>('http://localhost:8080/api/vacina', { headers: this.httpHeaders })
+  }
+
+  GetByVacinas(id: number): Observable<any>{
+   return this.http.get<any>(`http://localhost:8080/api/vacina/${id}`, { headers: this.httpHeaders })
+  }
+
+  DeleteVacinas(id: number): Observable<any>{
+   return this.http.delete<any>(`http://localhost:8080/api/vacina/${id}`, { headers: this.httpHeaders })
+  }
+
+  UpdateVacina(obj: any): Observable<any>{
+    return this.http.put<any>(`http://localhost:8080/api/vacina`, obj, { headers: this.httpHeaders })
   }
 
 }

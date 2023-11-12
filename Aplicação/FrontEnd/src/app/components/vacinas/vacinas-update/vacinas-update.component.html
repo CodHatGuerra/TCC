@@ -1,0 +1,11 @@
+<main>
+    <h1 style="font-family: Montserrat;">Altere o campo abaixo:</h1>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo da Vacina</mat-label>
+            <input matInput [(ngModel)]="vacina.Nome" type="text" name="Nome_da_Vacina">
+        </mat-form-field>
+    </form>
+    <button mat-button appWhite style="font-family: Montserrat;" class="buttonUpdate" 
+    (click)="updateVacina()">Atualize</button>
+</main>
