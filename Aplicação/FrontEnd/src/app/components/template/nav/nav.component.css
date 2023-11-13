@@ -4,8 +4,8 @@
   width: 200px;
   height: 80vh;
   border-radius: 0px 6px 6px 0px;
-  background: rgb(9,9,121);
-background: linear-gradient(360deg, rgba(9,9,121,1) 5%, rgba(9,9,121,1) 13%, rgba(0,134,255,1) 100%);
+  background: rgb(42, 42, 235);
+background: linear-gradient(360deg, rgb(13, 13, 240) 5%,   rgb(18, 18, 230)13%, rgba(0,134,255,1) 100%);
   transition: width 0.3s;
 }
 

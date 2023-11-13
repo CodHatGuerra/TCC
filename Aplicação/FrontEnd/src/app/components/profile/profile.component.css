@@ -33,7 +33,7 @@ h4 {
 }
 
 mat-card {
-  background-color: #ebebeb;
+  background-color: rgba(255, 255, 255, 0.842) !important;
   box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
 }
 

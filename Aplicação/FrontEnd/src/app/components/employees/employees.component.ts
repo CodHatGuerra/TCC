@@ -1,11 +1,11 @@
-import { Component, ElementRef, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { EmployeesCreateComponent } from "./employees-create/employees-create.component";
 import { MatDialog } from "@angular/material/dialog";
 import { EmployeeService } from "../../settings/Services/employees-service.service";
 import { PostosService } from "../../settings/Services/postos.service";
 import { AppService } from "src/app/settings/Services/app.service";
 import { FormControl } from "@angular/forms";
-import { Subject, debounceTime } from "rxjs";
+import { Subject } from "rxjs";
 import { EmployeeDeleteComponent } from "./employee-delete/employee-delete.component";
 import { Router } from "@angular/router";
 import { EmployeeUpdateComponent } from "./employee-update/employee-update.component";
@@ -28,7 +28,7 @@ export class EmployeesComponent implements OnInit {
   postos: any;
   postoControl = new FormControl();
   dataSource: any[] = [];
-  columnEmployee: string[] = [ "nome", "cargo", "acoes"];
+  columnEmployee: string[] = [ "nome", "cargo", "posto","acoes"];
   idPosto: number = 0;
   private searchInput: Subject<string> = new Subject<string>();
   
@@ -83,6 +83,8 @@ export class EmployeesComponent implements OnInit {
   getAllEmployee() {
     this.employeeService.getAllEmployee().subscribe((response: any) => {
       this.dataSource = response.result.funcionario;
+      console.log(this.dataSource);
+      
       this.allEmployees = response.result.funcionario;
     });
   }
