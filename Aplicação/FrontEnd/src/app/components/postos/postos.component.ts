@@ -19,12 +19,12 @@ export class PostosComponent implements OnInit {
     private router: Router,
     private postoService: PostosService 
   ) { 
-    this.getPosto();
+    this.GetPosto();
   }
   dataSource: any[] = [];
 
   ngOnInit(): void {
-    this.getPosto();
+    this.GetPosto();
   }
 
   allPostos: any[] = [];
@@ -40,14 +40,14 @@ export class PostosComponent implements OnInit {
     }
   }
 
-  openSigUn(): void { 
+  CreatePosto(): void { 
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed().subscribe(a => {
-      this.getPosto()
+      this.GetPosto()
     });
   }
 
-  getPosto() {
+  GetPosto() {
     this.postoService.GetPosto().subscribe((response: any) => {
       this.allPostos = response.result.postos;
       this.dataSource = response.result.postos;
@@ -55,21 +55,21 @@ export class PostosComponent implements OnInit {
     });
   }
 
-  openUpdatePosto(id: number) {
+  UpdatePosto(id: number) {
     this.service.SetIdPosto(id);
     this.router.navigate(["adm", "postos", "update", id]);
     const dialog = this.dialog.open(PostoUpdateComponent);
     dialog.afterClosed().subscribe(a => {
-      this.getPosto()
+      this.GetPosto()
     });
   }
 
-  openSigOutDelete(id: number) {
+  DeletePosto(id: number) {
     this.service.SetIdPosto(id);
     this.router.navigate(["adm", "postos", "delete", id]);
     const dialog = this.dialog.open(PostoDeleteComponent);
     dialog.afterClosed().subscribe(a => {
-      this.getPosto()
+      this.GetPosto()
     });
   }
   columnPosto: string[] = ["name", "city", "rua", "bairro","actions"];

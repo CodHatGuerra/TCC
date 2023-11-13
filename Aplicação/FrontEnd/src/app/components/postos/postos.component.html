@@ -3,18 +3,18 @@
     <h1 style="font-family: Montserrat;">Postos</h1>
     <span>
       <mat-form-field style="width: 80vh; align-content: center;" appearance="outline">
-        <input matInput placeholder="Pesquise aqui um Posto" [(ngModel)]="searchTerm"  type="search" (keyup)="search($event)"/>
+        <input matInput placeholder="Procure um Posto" type="search" (keyup)="search($event)"/>
         <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
-        <mat-icon class="add" (click)="openSigUn()"> add </mat-icon> 
+        <mat-icon class="add" (click)="CreatePosto()"> add </mat-icon> 
     </span>
     <table mat-table [dataSource]="dataSource">
       <tr  style="background-color: rgb(197, 197, 197);"  mat-header-row *matHeaderRowDef="columnPosto"></tr>
-      <tr mat-row *matRowDef="let row; columns: columnPosto; let i = index;"
+      <tr mat-row style="font-family: Montserrat;" *matRowDef="let row; columns: columnPosto; let i = index;"
       [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
       <ng-container matColumnDef="name">
         <th style="border-radius:  5px 0 0 5px   !important;" mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let row">{{ row.Nome_do_Posto }}</td>
+        <td mat-cell *matCellDef="let row" >{{ row.Nome_do_Posto }}</td>
       </ng-container>
       <ng-container matColumnDef="city">
         <th mat-header-cell *matHeaderCellDef>Cidade</th>
@@ -32,10 +32,10 @@
         <th  style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
           <div class="icons">
-            <a class="edit" (click)="openUpdatePosto(row.Posto_ID)">
+            <a class="edit" (click)="UpdatePosto(row.Posto_ID)">
               <mat-icon class="mat-18"> edit </mat-icon>
             </a>
-            <a class="delete" (click)="openSigOutDelete(row.Posto_ID)">
+            <a class="delete" (click)="DeletePosto(row.Posto_ID)">
               <mat-icon class="mat-18"> delete </mat-icon>
             </a>
           </div>

@@ -22,6 +22,20 @@ export class VacinasAppComponent implements OnInit{
   columns: string[] = ['name', 'acoes'];
 
   
+  searchTerm: string = '';
+  allVacinas: number = 0;
+
+
+  search(event: Event): void {
+    if (this.searchTerm.trim() === '') 
+      this.vaccines = this.allVacinas;
+     else {
+      //this.vaccines = this.allVacinas.filter((Posto) =>
+        //.toLowerCase().includes(this.searchTerm.toLowerCase() )
+      //);
+    }
+  }
+  
   OpenDialogRegisterVacciness() {
     this.dialog.open(AddVaccinessComponent).afterClosed().subscribe(a => {
       this.GetVacinas();

@@ -1,34 +1,46 @@
 <mat-card class="main">
-    <button
-    mat-button class="addVaccines" (click)="OpenDialogRegisterVacciness()">
-    <mat-icon>add</mat-icon>Vacinas
-  </button>
-    <table style="height: auto !important;" mat-table class="table" [dataSource]="vaccines">
-        <tr mat-header-row *matHeaderRowDef="columns"></tr>
-        <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>
+  <header>
+    <h1 style="font-family: Montserrat;">Vacinas</h1>
+    <mat-form-field style="width: 80vh; align-content: center;" appearance="outline">
+      <input matInput placeholder="Procure uma vacina" [(ngModel)]="searchTerm"  type="search" (keyup)="search($event)"/>
+      <mat-icon matSuffix> search </mat-icon>
+    </mat-form-field>
 
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>
-            <td mat-cell *matCellDef="let vaccine">{{ vaccine.Nome }}</td>
-        </ng-container>
+    <button mat-button class="addVaccines" (click)="OpenDialogRegisterVacciness()">
+      <mat-icon>add</mat-icon>Vacinas
+    </button>
+  </header>
+  <table
+    style="height: auto !important"
+    mat-table
+    class="table"
+    [dataSource]="vaccines"
+  >
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>
 
-        <!-- <ng-container matColumnDef="doses">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>
+      <td mat-cell *matCellDef="let vaccine">{{ vaccine.Nome }}</td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="doses">
             <th mat-header-cell *matHeaderCellDef>Doses</th>
             <td mat-cell *matCellDef="let vaccine">{{ vaccine.doses }}</td>
         </ng-container> -->
 
-        <ng-container matColumnDef="acoes">
-            <th mat-header-cell *matHeaderCellDef>Ações</th>
-            <td mat-cell *matCellDef="let vaccine">   <div class="icons">
-                <a class="edit" (click)="UpdateVacina(vaccine.ID)">
-                  <mat-icon class="mat-18"> edit </mat-icon>
-                </a>
-                <a class="delete" (click)="deleteVacina(vaccine.ID)">
-                  <mat-icon class="mat-18"> delete </mat-icon>
-                </a>
-              </div></td>
-         
-        </ng-container>
-    </table>
-
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let vaccine">
+        <div class="icons">
+          <a class="edit" (click)="UpdateVacina(vaccine.ID)">
+            <mat-icon class="mat-18"> edit </mat-icon>
+          </a>
+          <a class="delete" (click)="deleteVacina(vaccine.ID)">
+            <mat-icon class="mat-18"> delete </mat-icon>
+          </a>
+        </div>
+      </td>
+    </ng-container>
+  </table>
 </mat-card>

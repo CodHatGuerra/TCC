@@ -4,7 +4,8 @@
   width: 200px;
   height: 80vh;
   border-radius: 0px 6px 6px 0px;
-  background-color: #1376f7;
+  background: rgb(9,9,121);
+background: linear-gradient(360deg, rgba(9,9,121,1) 5%, rgba(9,9,121,1) 13%, rgba(0,134,255,1) 100%);
   transition: width 0.3s;
 }
 
@@ -26,7 +27,7 @@ a:hover mat-icon {
   color: #1376f7 !important;
 }
 
-a:hover span{
+a:hover span {
   color: #1376f7 !important;
 }
 
@@ -51,7 +52,7 @@ a:hover span{
 
 .fade-in {
   opacity: 0;
-  transition: opacity 0.3s ease-in-out
+  transition: opacity 0.3s ease-in-out;
 }
 
 .icon {

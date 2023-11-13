@@ -65,8 +65,8 @@ a {
 .header {
   display: flex;
   top: 0;
-  z-index: 1000;
-  background-color: #186ff3;
+  z-index: 1000;background: rgb(9,9,121);
+  background: linear-gradient(90deg, rgba(9,9,121,1) 5%, rgba(9,9,121,1) 13%, rgba(0,134,255,1) 100%);
 }
 
 .footer {

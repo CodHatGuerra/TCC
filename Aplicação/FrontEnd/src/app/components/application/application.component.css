@@ -9,9 +9,7 @@
 
 .vaccine {
   width: 100%;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #ececec !important;
+  background-color: rgba(255, 255, 255, 0.842) !important;
   box-sizing: border-box;
   text-align: center;
   margin-top: 15px;
@@ -24,35 +22,16 @@ mat-card {
   padding: 20px;
 }
 
-.profile {
-  display: grid;
-  justify-items: center;
-  margin-bottom: 50px;
-  width: 300px;
-  height: 450px;
-  padding: 15px;
-}
+.even-row { background-color: #eee; }
 
-.title {
-  margin-bottom: 30px;
-}
+.odd-row { background-color: white; }
 
-.vaccine > .addV {
-  justify-content: end;
-}
-
-.addVaccines {
-  width: 140px;
-  height: 30px;
-  color: #FFF !important;
-  background-color:  #449dd1;
-  margin-bottom: 10px;
-}
 
 .age {
   display: flex;
+  align-items: center !important;
   gap: 70px;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 30px;
   justify-content: center;
 }
@@ -78,13 +57,6 @@ mat-card {
   background-color: #449dd1;
   transition: 0.7s;
   cursor: pointer;
-}
-
-.name {
-  text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
-  border-bottom: 2px solid #26bd7e;
 }
 
 .img {
