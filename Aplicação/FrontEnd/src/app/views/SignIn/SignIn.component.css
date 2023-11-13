@@ -55,18 +55,17 @@ h4 {
     margin-top: 100px;
     align-items: center;
     border-radius: 2px !important;
-    padding: 20px 20px 10px 20px;
+    padding: 8px 20px 10px 20px;
     border-radius: 6px;
 }
 
-.login .title {
-    font-size: 57px;
-    font-weight: 600;
-    font-family: 'dancing script';
-    margin-bottom: 50px;
+img {
+    margin: 0 auto;
+    width: 240px;
+    height: 170px;
 }
 
-.login p {
+p {
     font-family: 'Open Sans';
     font-size: 15px;
     font-weight: 600;
