@@ -2,14 +2,14 @@
   <mat-card class="mat-elevation-z4">
     <h1 style="font-family: Montserrat;">Postos</h1>
     <span>
-      <mat-form-field style="width: 80vh; align-content: center;" appearance="outline">
-        <input matInput placeholder="Procure um Posto" type="search" (keyup)="search($event)"/>
+      <mat-form-field style="width: 98vh; align-content: center;" appearance="outline">
+        <input matInput placeholder="Procure um Posto" [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>
         <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
         <mat-icon class="add" (click)="CreatePosto()"> add </mat-icon> 
     </span>
     <table mat-table [dataSource]="dataSource">
-      <tr  style="background-color: rgb(197, 197, 197);"  mat-header-row *matHeaderRowDef="columnPosto"></tr>
+      <tr style="background-color: rgb(197, 197, 197);"  mat-header-row *matHeaderRowDef="columnPosto"></tr>
       <tr mat-row style="font-family: Montserrat;" *matRowDef="let row; columns: columnPosto; let i = index;"
       [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
       <ng-container matColumnDef="name">

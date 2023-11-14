@@ -18,7 +18,7 @@
             <img src="../../../assets/img/adult.png" />
           </div>
           <p style="font-family: Montserrat;">Adulto</p>
-        </div>
+        </div>  
       </div>
     </mat-card>
        
@@ -29,7 +29,7 @@
       <mat-card-content>
           
         <table mat-table [dataSource]="dataSource">
-          <tr style="background-color: rgb(197, 197, 197);" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
+          <tr style="background-color: rgb(238, 238, 238);" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
           <tr mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
           [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
 

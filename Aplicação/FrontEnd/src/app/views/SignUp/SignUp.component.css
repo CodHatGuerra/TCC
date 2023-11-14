@@ -86,6 +86,15 @@ h4 {
     margin-top: 4px;
 }
 
+h3 {
+    color: white;
+    padding: 4px;
+    padding-right: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    display: flex;
+}
+
 .upForm {
     font-family: 'Open Sans';
     font-size: 16px;
@@ -97,7 +106,7 @@ h4 {
     width: 100%;
     height: 40px;
     color: white !important;
-    background-color: #449DD1 !important;
+    background-color: rgba(0,134,255,1) !important;
     margin: 0 auto;
 }
 

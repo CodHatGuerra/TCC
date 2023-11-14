@@ -28,7 +28,6 @@ export class AddVaccinessComponent {
 
   createVacina() {
      const nome = { nome: this.formVacina.value.nome }
-    
      
      if(this.formVacina.invalid)
        this.service.AlertMessage("Ocorreu um erro ao tentar registrar uma vacina.");

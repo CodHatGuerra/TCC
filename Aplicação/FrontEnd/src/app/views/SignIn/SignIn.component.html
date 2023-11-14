@@ -3,7 +3,7 @@
         <div>
             <h4>Vacina_Facil</h4>
         </div>
-        <p> <a routerLink="/signUp">Não tem uma conta ? Cadastre-se </a> </p>
+            <h3 routerLink="/signUp">Não tem uma conta ? Cadastre-se </h3>
     </mat-toolbar>
 
     <mat-card class="login">
@@ -18,9 +18,7 @@
                 <mat-label>Senha</mat-label>
                 <input type="password" matInput formControlName="senha" ngModel required>
             </mat-form-field>
-            <div class="DF">
-                <button mat-button (click)="Register()">Continuar</button>
-            </div>
         </form>
+        <button mat-button (click)="Register()">Continuar</button>
     </mat-card>
 </main>
