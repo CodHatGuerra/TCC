@@ -8,17 +8,23 @@
     height: auto;
 }
 
-.addVaccines {
-    width: 140px;
-    height: 30px;
-    color: #FFF !important;
-    background-color: #449dd1;
-    margin-bottom: 10px;
-}
-
 .icons {
     display: flex;
     gap: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.add {
+    cursor: pointer;
+    margin-right: 13px;
+    font-size: 30px !important ;
+    color:  blue;
 }
 
 .delete {

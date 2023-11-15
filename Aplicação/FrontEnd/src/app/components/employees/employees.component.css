@@ -9,7 +9,7 @@ main {
   width: 97%;
   margin-top: 35px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.842) ;
+  background-color: rgba(255, 255, 255, 0.842);
   margin-bottom: 50px;
 }
 
@@ -36,9 +36,9 @@ main {
   gap: 20px;
 }
 
-.employee > span {
+span {
   display: flex;
-  margin-top: 28px;
+  margin-top: 16px;
   height: 50px;
   justify-content: space-between;
   width: 100%;

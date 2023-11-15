@@ -9,7 +9,7 @@
       <mat-label>Cargo</mat-label>
       <input matInput [(ngModel)]="employee.Cargo" name="Cargo" type="text"/>
     </mat-form-field>
-    <mat-form-field style="height: 76px !important; width: 30vw;">
+    <mat-form-field style="background-color: rgba(255, 255, 255, 0.842); height: 76px !important; width: 30vw;">
       <mat-label style="font-family: Montserrat !important;">Selecione um Posto</mat-label>
       <mat-select (selectionChange)="onSelectionChange($event)">
         <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
@@ -17,6 +17,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <button style="font-family: Montserrat;" mat-button appWhite (click)="UpdateEmployee()">Atualizar</button>
   </form>
-  <button style="font-family: Montserrat;" mat-button appWhite (click)="UpdateEmployee()">Atualizar</button>
 </main>

@@ -1,21 +1,14 @@
 <mat-card class="main">
+  <h1 style="font-family: Montserrat;">Vacinas</h1>
   <header>
-    <h1 style="font-family: Montserrat;">Vacinas</h1>
-    <mat-form-field style="width: 80vh; align-content: center;" appearance="outline">
-      <input matInput placeholder="Procure uma vacina" [(ngModel)]="searchTerm"  type="search" (keyup)="search($event)"/>
+    <mat-form-field style="width: 100vh; align-content: center;" appearance="outline">
+      <input matInput placeholder="Procure uma vacina" [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>
       <mat-icon matSuffix> search </mat-icon>
     </mat-form-field>
 
-    <button mat-button class="addVaccines" (click)="OpenDialogRegisterVacciness()">
-      <mat-icon>add</mat-icon>Vacinas
-    </button>
+    <mat-icon class="add" (click)="OpenDialogRegisterVacciness()">add</mat-icon>
   </header>
-  <table
-    style="height: auto !important"
-    mat-table
-    class="table"
-    [dataSource]="vaccines"
-  >
+  <table style="height: auto !important" style="background-color: rgb(238, 238, 238);" mat-table class="table" [dataSource]="vaccines" >
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>
 

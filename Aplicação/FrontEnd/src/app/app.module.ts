@@ -1,3 +1,4 @@
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -98,10 +99,12 @@ import { VacinasUpdateComponent } from './components/vacinas/vacinas-update/vaci
     MatCardModule,
     MatButtonModule,
     RouterModule,
+    CommonModule,
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    DatePipe,
     MatIconModule,
     MatDialogModule,
     MatSnackBarModule,

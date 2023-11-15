@@ -49,7 +49,7 @@ h4 {
     width: 30%;
     min-width: 400px !important;
     height: 57vh;
-    min-height: 370px;
+    min-height: 65vh !important;
     display: grid;
     margin: 0 auto;
     text-align: center;
@@ -74,6 +74,7 @@ p {
 }
 
 .form {
+    min-height: 19vh;
     display: grid;
 }
 

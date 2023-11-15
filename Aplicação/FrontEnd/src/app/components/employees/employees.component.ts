@@ -28,24 +28,25 @@ export class EmployeesComponent implements OnInit {
   postos: any;
   postoControl = new FormControl();
   dataSource: any[] = [];
-  columnEmployee: string[] = [ "nome", "cargo", "posto","acoes"];
+  columnEmployee: string[] = ["nome", "cargo", "posto", "acoes"];
   idPosto: number = 0;
   private searchInput: Subject<string> = new Subject<string>();
-  
-  
+
   allEmployees: any[] = [];
-  searchTerm: string = '';
+  searchTerm: string = "";
 
   search(event: Event): void {
-    if (this.searchTerm.trim() === '') {
+    if (this.searchTerm.trim() === "") {
       this.dataSource = this.allEmployees;
     } else {
-      this.dataSource = this.allEmployees.filter((employee) =>
-        employee.Nome_Pessoa.toLowerCase().includes(this.searchTerm.toLowerCase())
+      this.dataSource = this.allEmployees.filter((employee) => 
+        employee.Nome_Pessoa.toLowerCase().includes(
+          this.searchTerm.toLowerCase()
+        )
       );
     }
   }
-  
+
   ngOnInit(): void {
     this.getAllEmployee();
     this.getPosto();
@@ -74,17 +75,14 @@ export class EmployeesComponent implements OnInit {
   getEmployeesByPosto(idPosto: number) {
     this.employeeService.getEmployeeByPosto(idPosto).subscribe((response) => {
       this.allEmployees = response.result.funcionario;
-      this.dataSource = response.result.postos; 
+      this.dataSource = response.result.funcionario;
       console.log(response);
-      
     });
   }
 
   getAllEmployee() {
     this.employeeService.getAllEmployee().subscribe((response: any) => {
       this.dataSource = response.result.funcionario;
-      console.log(this.dataSource);
-      
       this.allEmployees = response.result.funcionario;
     });
   }
@@ -107,14 +105,10 @@ export class EmployeesComponent implements OnInit {
       });
   }
 
-  onSearchKeyUp() {
-    this.searchInput.next(this.input);
-  }
-
   openUpdateEmployee(id: number) {
     this.employeeService.setIdFuncionario(id);
     const dialog = this.dialog.open(EmployeeUpdateComponent);
-    dialog.afterClosed().subscribe(a => {
+    dialog.afterClosed().subscribe((a) => {
       this.getAllEmployee();
       this.getPosto();
     });

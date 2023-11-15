@@ -19,7 +19,7 @@ background: linear-gradient(360deg, rgb(13, 13, 240) 5%,   rgb(18, 18, 230)13%, 
   justify-content: space-around !important;
 }
 
-::ng-deep a:hover {
+a:hover {
   background-color: white;
 }
 

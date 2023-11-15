@@ -1,17 +1,20 @@
 .main {
    padding: 25px;
+   width: 50vw;
    text-align: center;
 }
 
 form {
    height: 42vh;
-   width: 36vw;
+   width: 46vw;
    display: grid;
    text-align: center;
    justify-content: center;
    grid-template-columns: 1fr 1fr;
-   margin-top: 20px;
+   margin-top: 25px;
+   margin: 0 auto;
    margin-bottom: 20px;
+   
    background-color: transparent;
 }
 
@@ -22,8 +25,8 @@ form {
    background-color: #21a4f0 !important;
 }
 
-.MR {
-   margin-right: 20px;
+mat-form-field {
+   width: 30% !important;
 }
 
 .localIcon {

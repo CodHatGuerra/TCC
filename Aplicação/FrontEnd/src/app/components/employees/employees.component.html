@@ -3,7 +3,7 @@
     <h1 style="font-family: Montserrat;">Funcionários ativos</h1>
     <span>
       <mat-form-field style="width: 60vh;" appearance="outline">
-        <input matInput placeholder="Procure um Funcionário" [(ngModel)]="searchTerm"  type="search" (keyup)="search($event)"/>
+        <input matInput placeholder="Procure um Funcionário" [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>
         <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
       <div class="div">
@@ -22,7 +22,7 @@
   </span>
 
     <table mat-table [dataSource]="dataSource">
-      <tr style="background-color: rgb(197, 197, 197);" mat-header-row *matHeaderRowDef="columnEmployee"></tr>
+      <tr style="background-color: rgb(238, 238, 238);" mat-header-row *matHeaderRowDef="columnEmployee"></tr>
       <tr mat-row *matRowDef="let row; columns: columnEmployee; let i = index;"
       [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
       
