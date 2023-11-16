@@ -86,6 +86,9 @@ CREATE TABLE IF NOT EXISTS Funcionario (
 CREATE TABLE IF NOT EXISTS Usuario_tem_Vacina (
   Usuario_ID INT NOT NULL,
   Vacina_ID INT NOT NULL,
+  Dose_01 BOOLEAN,
+  Dose_02 BOOLEAN,
+  Dose_03 BOOLEAN,
   PRIMARY KEY (Usuario_ID, Vacina_ID),
   FOREIGN KEY (Usuario_ID)
     REFERENCES Usuario (ID)
@@ -96,6 +99,7 @@ CREATE TABLE IF NOT EXISTS Usuario_tem_Vacina (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
+
 
 -- Tabela Funcionario_tem_Posto
 CREATE TABLE IF NOT EXISTS Funcionario_tem_Posto (
