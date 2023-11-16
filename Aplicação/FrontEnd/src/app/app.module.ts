@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//Components
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { ApplicationComponent } from './components/application/application.component';
@@ -19,10 +18,7 @@ import { PostoCreateComponent } from './components/postos/posto-create/posto-cre
 import { PostoDeleteComponent } from './components/postos/posto-delete/posto-delete.component';
 import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
 
-//diretiva
 import { WhiteDirective } from './settings/directives/white.directive';
-
-//Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card' 
@@ -55,6 +51,7 @@ import { CreatePassWordComponent } from './views/create-password/create-password
 import { VacinasDeleteComponent } from './components/vacinas/vacinas-delete/vacinas-delete.component';
 import { VacinasAppComponent } from './components/vacinas/vacinas.component';
 import { VacinasUpdateComponent } from './components/vacinas/vacinas-update/vacinas-update.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 
 @NgModule({
@@ -109,12 +106,13 @@ import { VacinasUpdateComponent } from './components/vacinas/vacinas-update/vaci
     MatDialogModule,
     MatSnackBarModule,
     MatTableModule,
+    NgxMaskDirective, NgxMaskPipe,
     MatSelectModule,
     MatDatepickerModule,
     MatMenuModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [ provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

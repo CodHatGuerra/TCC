@@ -6,27 +6,26 @@
 
 form {
    height: 42vh;
-   width: 46vw;
+   width: 50vw;
    display: grid;
    text-align: center;
-   justify-content: center;
    grid-template-columns: 1fr 1fr;
    margin-top: 25px;
    margin: 0 auto;
    margin-bottom: 20px;
-   
    background-color: transparent;
 }
 
 .buttonRegister {
    width: 140px;
-   margin-top: 17px !important;
+   height: 50px;
    margin: 0 auto;
    background-color: #21a4f0 !important;
 }
 
 mat-form-field {
-   width: 30% !important;
+   width: 93% !important;
+   margin: 0 auto;
 }
 
 .localIcon {

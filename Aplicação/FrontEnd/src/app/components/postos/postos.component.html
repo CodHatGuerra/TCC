@@ -3,7 +3,7 @@
     <h1 style="font-family: Montserrat;">Postos</h1>
     <span>
       <mat-form-field style="width: 98vh; align-content: center;" appearance="outline">
-        <input matInput placeholder="Procure um Posto" [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>
+        <input matInput placeholder="Procure um Posto"  [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>
         <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
         <mat-icon class="add" (click)="CreatePosto()"> add </mat-icon> 
