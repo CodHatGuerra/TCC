@@ -1,6 +1,38 @@
 const CarteiraService = require("../services/CarteiraService.js");
 
 module.exports = {
+  alterar: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    const CarteiraUsuario = req.body.carteiraUsuario;
+
+    const CarteiraUsuarioPreenchida =
+      CarteiraUsuario.Usuario_ID && CarteiraUsuario.Vacina_ID;
+
+    if (CarteiraUsuarioPreenchida) {
+      await CarteiraService.alterar(CarteiraUsuario)
+        .then(() => {
+          json.result = {
+            msg: "Vacina Alterada com Sucesso !",
+          };
+          console.log("-----Carteira de Vacina ALTERADA Com SUCESSO !-------");
+          for (let prop in CarteiraUsuario) {
+            console.log(`${prop} : ${CarteiraUsuario[prop]}`);
+          }
+          console.log("--------------------------------------------");
+        })
+        .catch((error) => {
+          console.log("Erro na requisição para o Banco ! " + error);
+          json.error = {
+            msg: "Erro na requisição para o banco !",
+            error: error.sqlMessage,
+          };
+        });
+    } else {
+      json.error = "Objeto e propriedades não correspondem ao esperado.";
+    }
+    res.json(json);
+  },
   cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
 
@@ -20,6 +52,9 @@ module.exports = {
           );
           console.log("ID :  VACINA " + CarteiraUsuario.Vacina_ID);
           console.log(`ID CARTEIRA: ${CarteiraUsuario.Usuario_ID}`);
+          console.log(`DOSE 1: ${CarteiraUsuario.Dose_01}`);
+          console.log(`DOSE 2:  ${CarteiraUsuario.Dose_02}`);
+          console.log(`DOSE 3:  ${CarteiraUsuario.Dose_03}`);
           console.log(`ID DE REGISTRO DA COMBINAÇÃO: ` + result);
           console.log("--------------------------------------------");
         })
@@ -61,7 +96,7 @@ module.exports = {
     let json = { error: "", result: {} };
 
     const ID_Carteira = req.params.idcarteira;
-    const ID_Vacina = req.params.idvacina
+    const ID_Vacina = req.params.idvacina;
 
     await CarteiraService.deletar(ID_Carteira, ID_Vacina)
       .then(() => {
@@ -71,7 +106,8 @@ module.exports = {
       })
       .catch((error) => {
         console.log(
-          "Erro na requisição para o Banco !  ROTA DELETE Vacina Vinculada" + error
+          "Erro na requisição para o Banco !  ROTA DELETE Vacina Vinculada" +
+            error
         );
         json.error = {
           msg: "Erro na requisição para o banco !",

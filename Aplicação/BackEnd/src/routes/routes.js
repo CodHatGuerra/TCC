@@ -86,6 +86,8 @@ router.post("/carteira", authMiddleware, CarteiraController.cadastrar);
 router.get("/carteira/:id", authMiddleware, CarteiraController.consultarID);
 //DELETAR VINCULO VACINA CARTEIRA
 router.delete("/carteira/:idcarteira/:idvacina", authMiddleware, CarteiraController.deletar);
+//EDITAR VINCULO DA VACINA NA CARTEIRA
+router.put("/carteira", authMiddleware, CarteiraController.alterar);
 //--------------------------------------------------------//
 
 // Rota protegida que requer autenticação
