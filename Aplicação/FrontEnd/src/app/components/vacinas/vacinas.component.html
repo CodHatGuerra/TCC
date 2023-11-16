@@ -10,9 +10,14 @@
   </header>
   <table style="height: auto !important" style="background-color: rgb(238, 238, 238);" mat-table class="table" [dataSource]="vaccines" >
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row *matRowDef="let vaccine; columns: columns"></tr>
+    <tr mat-row  [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"  *matRowDef="let vaccine; columns: columns; let i = index"></tr>
 
     <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>
+      <td mat-cell *matCellDef="let vaccine">{{ vaccine.Nome }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="doses">
       <th mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>
       <td mat-cell *matCellDef="let vaccine">{{ vaccine.Nome }}</td>
     </ng-container>

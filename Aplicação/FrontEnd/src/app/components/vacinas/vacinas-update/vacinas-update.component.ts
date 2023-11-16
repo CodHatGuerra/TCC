@@ -24,15 +24,17 @@ export class VacinasUpdateComponent implements OnInit {
     });
   }
 
-  updateVacina(){
-    const vacina = {
+  updateVacina() {
+    const obj = {
+      vacina: {
       ID: this.vacina.ID,
       Nome: this.vacina.Nome
     }
+  }
 
-    console.log(vacina);
+    console.log(obj);
     
-    this.service.UpdateVacina(vacina).subscribe((res)=>{
+    this.service.UpdateVacina(obj).subscribe((res)=>{
       if(res)
        this.service.SuccessMessage("Vacina Atualizada !")
         this.dialog.close()

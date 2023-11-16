@@ -1,4 +1,3 @@
-import { Vacinas } from './../vacciness';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -18,21 +17,21 @@ export class VacinasAppComponent implements OnInit{
     this.GetVacinas()
   }
 
-  vaccines: any;
-  columns: string[] = ['name', 'acoes'];
+  vaccines: any[] = [];
+  columns: string[] = ['name', 'doses','acoes'];
 
   
   searchTerm: string = '';
-  allVacinas: number = 0;
+  allVacinas: any[] = [];
 
 
   search(event: Event): void {
     if (this.searchTerm.trim() === '') 
       this.vaccines = this.allVacinas;
      else {
-      //this.vaccines = this.allVacinas.filter((Posto) =>
-        //.toLowerCase().includes(this.searchTerm.toLowerCase() )
-      //);
+      this.vaccines = this.allVacinas.filter((vacinas) =>
+       vacinas.Nome.toLowerCase().includes(this.searchTerm.toLowerCase() )
+      );
     }
   }
   
@@ -44,9 +43,8 @@ export class VacinasAppComponent implements OnInit{
 
   GetVacinas(){
     this.service.GetAllVacinas().subscribe((response)=> {
+      this.allVacinas = response.result.Vacinas 
       this.vaccines = response.result.Vacinas
-      console.log(this.vaccines);
-      
     })
   }
 

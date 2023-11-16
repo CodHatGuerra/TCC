@@ -1,17 +1,14 @@
 main {
-    width: 22vw;
-    height: 40%;
-    padding: 15px;
+    width: 29vw !important;
+    height: 48%;
     text-align: center;
+    padding: 15px 15px 0px 15px;
 }
 
 form {
     display: grid;  
-    width: 20vw;
-    margin-top: 0 auto;
-    margin-top: 65px !important;
-    justify-content: center;
-    height: auto;
+    width: 29vw;
+    margin-top: 39px !important;
 }
 
 .icon {
@@ -27,4 +24,5 @@ button {
 
 h2 {
     margin-bottom: 0 !important;
+    margin-top: 25px;
 }

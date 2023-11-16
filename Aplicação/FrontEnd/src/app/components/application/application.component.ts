@@ -13,7 +13,7 @@ export class ApplicationComponent {
   constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
 
   vaccines = Vacinas;
-  columnCarteira: string[] = ['nome', 'doses', 'acoes'];
+  columnCarteira: string[] = ['vacinas', 'doses', 'acoes'];
   input: string = '';
 
   dataSource: any;

@@ -1,62 +1,56 @@
 <main class="main">
-    <mat-card class="vaccine">
-      <div class="age">
-        <div>
-          <div class="DIV">
-            <img class="imgBaby" src="../../../assets/img/baby.png" />
-          </div>
-          <p style="font-family: Montserrat;">Bebê</p>
+
+  <mat-card>
+    <mat-card-title style="font-family: Montserrat;"><strong>Sua Cateira</strong></mat-card-title>
+    <div class="age">
+      <div>
+        <div class="DIV">
+          <img class="imgBaby" src="../../../assets/img/baby.png" />
         </div>
-        <div>
-          <div class="DIV">
-            <img class="teenager" src="../../../assets/img/teenager.png" />
-          </div>
-          <p style="font-family: Montserrat;">Adolecente</p>
-        </div>
-        <div>
-          <div class="DIV">
-            <img src="../../../assets/img/adult.png" />
-          </div>
-          <p style="font-family: Montserrat;">Adulto</p>
-        </div>  
+        <p style="font-family: Montserrat;">Bebê</p>
       </div>
-    </mat-card>
-       
-    <mat-card>
-      <mat-card-header>
-          <mat-card-title>Cateira</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-          
-        <table mat-table [dataSource]="dataSource">
-          <tr style="background-color: rgb(238, 238, 238);" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
-          <tr mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
+      <div>
+        <div class="DIV">
+          <img class="teenager" src="../../../assets/img/teenager.png" />
+        </div>
+        <p style="font-family: Montserrat;">Adolecente</p>
+      </div>
+      <div>
+        <div class="DIV">
+          <img src="../../../assets/img/adult.png" />
+        </div>
+        <p style="font-family: Montserrat;">Adulto</p>
+      </div>
+    </div>
+
+      <table mat-table [dataSource]="dataSource">
+        <tr style="background-color: rgb(238, 238, 238); display: flex; justify-content: space-around; align-items: center;" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
           [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
 
-          <ng-container  matColumnDef="nome">
-            <th style="border-radius:  5px 0 0 5px   !important;" mat-header-cell *matHeaderCellDef>Nome</th>
-            <td mat-cell *matCellDef="let row"></td>
-          </ng-container>
+        <ng-container matColumnDef="vacinas">
+          <th style="border-radius:  5px 0 0 5px !important;" mat-header-cell *matHeaderCellDef>Vacinas</th>
+          <td mat-cell *matCellDef="let row"></td>
+        </ng-container>
 
-          <ng-container matColumnDef="doses">
-            <th   mat-header-cell *matHeaderCellDef>Doses</th>
-            <td mat-cell *matCellDef="let row"></td>
-          </ng-container>
-          <ng-container matColumnDef="acoes">
-            <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
-            <td  mat-cell *matCellDef="let row">
-              <div class="icons">
-                <a class="edit">
-                  <mat-icon class="mat-18"> edit </mat-icon>
-                </a>
-                <a class="delete">
-                  <mat-icon class="mat-18"> delete </mat-icon>
-                </a>
-              </div>
-            </td>
-          </ng-container>
-        </table>
-      </mat-card-content>
+        <ng-container matColumnDef="doses">
+          <th mat-header-cell *matHeaderCellDef>Doses</th>
+          <td mat-cell *matCellDef="let row"></td>
+        </ng-container>
+        <ng-container matColumnDef="acoes">
+          <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="icons">
+              <a class="edit">
+                <mat-icon class="mat-18"> edit </mat-icon>
+              </a>
+              <a class="delete">
+                <mat-icon class="mat-18"> delete </mat-icon>
+              </a>
+            </div>
+          </td>
+        </ng-container>
+      </table>
   </mat-card>
-    
+
 </main>

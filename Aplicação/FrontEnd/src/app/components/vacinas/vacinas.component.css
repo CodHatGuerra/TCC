@@ -8,6 +8,10 @@
     height: auto;
 }
 
+.even-row { background-color: #eee; }
+
+.odd-row { background-color: white; }
+
 .icons {
     display: flex;
     gap: 10px;
@@ -17,12 +21,12 @@ header {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    align-items: center;
 }
 
 .add {
     cursor: pointer;
     margin-right: 13px;
+    margin-top: 15px;
     font-size: 30px !important ;
     color:  blue;
 }

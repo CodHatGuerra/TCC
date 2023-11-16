@@ -11,9 +11,9 @@
     <table mat-table [dataSource]="dataSource">
       <tr style="background-color: rgb(238, 238, 238);"  mat-header-row *matHeaderRowDef="columnPosto"></tr>
       <tr mat-row style="font-family: Montserrat;" *matRowDef="let row; columns: columnPosto; let i = index;"
-      [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
+      [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}" ></tr>
       <ng-container matColumnDef="name">
-        <th style="border-radius:  5px 0 0 5px   !important;" mat-header-cell *matHeaderCellDef>Nome</th>
+        <th style="border-radius:  5px 0 0 5px !important;" mat-header-cell *matHeaderCellDef>Nome</th>
         <td mat-cell *matCellDef="let row" >{{ row.Nome_do_Posto }}</td>
       </ng-container>
       <ng-container matColumnDef="city">
@@ -25,7 +25,7 @@
         <td mat-cell *matCellDef="let row">{{ row.Bairro }}</td>
       </ng-container>
       <ng-container matColumnDef="rua">
-        <th mat-header-cell *matHeaderCellDef>Rua</th>
+        <th mat-header-cell *matHeaderCellDef>Logradouro</th>
         <td mat-cell *matCellDef="let row">{{ row.Logradouro }}</td>
       </ng-container>
       <ng-container matColumnDef="actions">

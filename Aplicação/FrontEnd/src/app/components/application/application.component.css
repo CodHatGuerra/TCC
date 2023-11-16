@@ -13,25 +13,33 @@
   box-sizing: border-box;
   text-align: center;
   margin-top: 15px;
-  height: 26vh;
+  height: 24vh;
 }
 
 mat-card {
   margin-top: 20px;
+  text-align: center;
   width: 100% !important;
-  padding: 20px;
+  padding: 10px;
+}
+
+mdc-data-table__cell, .mdc-data-table__header-cell {
+  border-bottom: 0;
 }
 
 .even-row { background-color: #eee; }
 
 .odd-row { background-color: white; }
 
+table {
+  margin-top: 30px;
+}
 
 .age {
   display: flex;
   align-items: center !important;
   gap: 70px;
-  margin-top: 15px;
+  margin-top: 35px;
   margin-bottom: 30px;
   justify-content: center;
 }
