@@ -202,7 +202,7 @@ module.exports = {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Usuario (Nome, Cpf, Sexo, Data_Nascimento, Email, Senha, Data_Criada, Imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Usuario (Nome, Cpf, Sexo, Data_Nascimento, Email, Senha, Imagem) VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
           usuario.nome,
           usuario.cpf,
@@ -210,7 +210,6 @@ module.exports = {
           usuario.data_Nascimento,
           usuario.email,
           usuario.senha,
-          usuario.data_Criada,
           usuario.imagem,
         ],
         (error, results) => {

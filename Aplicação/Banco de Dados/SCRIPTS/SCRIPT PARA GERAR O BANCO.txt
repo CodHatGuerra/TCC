@@ -16,7 +16,6 @@ CREATE TABLE IF NOT EXISTS Usuario (
   Data_Nascimento DATE NOT NULL,
   Email VARCHAR(120) NOT NULL,
   Senha VARCHAR(45) NOT NULL,
-  Data_Criada DATE NOT NULL,
   Imagem LONGTEXT NOT NULL
 );
 

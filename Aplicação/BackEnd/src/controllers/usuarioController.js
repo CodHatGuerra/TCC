@@ -13,7 +13,6 @@ module.exports = {
       usuario.data_Nascimento &&
       usuario.sexo &&
       usuario.email &&
-      usuario.data_Criada &&
       usuario.senha &&
       usuario.imagem;
 
@@ -60,7 +59,6 @@ module.exports = {
       usuario.data_Nascimento &&
       usuario.sexo &&
       usuario.email &&
-      usuario.data_Criada &&
       usuario.senha &&
       usuario.imagem;
 
@@ -76,7 +74,6 @@ module.exports = {
             data_Nascimento: usuario.data_Nascimento,
             sexo: usuario.sexo,
             email: usuario.email,
-            data_Criada: usuario.data_Criada,
           };
           console.log("-----USUARIO REGISTRADO COM SUCESSO !-------");
           console.log("ID : " + resultado);
