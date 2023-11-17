@@ -6,6 +6,7 @@ main {
     background-position: center center;
     background-repeat: no-repeat;
     height: 100vh;
+    align-content: center;
 }
 
 .header {
@@ -48,8 +49,7 @@ h4 {
 .login {
     width: 30%;
     min-width: 400px !important;
-    height: 57vh;
-    min-height: 65vh !important;
+    min-height: 59vh !important;
     display: grid;
     margin: 0 auto;
     text-align: center;
