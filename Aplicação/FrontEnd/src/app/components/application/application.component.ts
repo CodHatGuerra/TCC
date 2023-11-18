@@ -4,7 +4,6 @@ import { AppService } from 'src/app/settings/Services/app.service';
 import { Vacinas } from '../vacciness';
 import { MatDialog } from '@angular/material/dialog';
 import { CarteiraAddComponent } from './carteira-add/carteira-add.component';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +14,11 @@ export class ApplicationComponent implements OnInit{
   constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    const user = this.service.GetUser();
+    this.service.GetVacinasCarteira(user.ID).subscribe((res)=> {
+      this.dataSource = res.result.Vacinas
+      console.log(res.result.Vacinas);
+    });
   }
 
   vaccines = Vacinas;
@@ -27,6 +30,5 @@ export class ApplicationComponent implements OnInit{
   CreateCarteira(){
     this.dialog.open(CarteiraAddComponent)
   }
-
  
 }

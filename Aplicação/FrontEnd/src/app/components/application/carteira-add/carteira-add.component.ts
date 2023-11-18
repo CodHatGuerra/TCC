@@ -9,7 +9,7 @@ import { AppService } from 'src/app/settings/Services/app.service';
 export class CarteiraAddComponent implements OnInit {
 
   allVacinas: any;
-  idVacinas: number = 0;
+  idVacina: number = 0;
   constructor(private service: AppService) {
   }
 
@@ -21,6 +21,17 @@ export class CarteiraAddComponent implements OnInit {
   }
 
   onSelectionChange(event: any) { 
-    this.idVacinas = event.value;
+    this.idVacina = event.value;
+    const user = this.service.GetUser();
+    const carteira ={
+    carteiraUsuario: 
+    {
+      Usuario_ID: user.Id,
+      Vacina_ID: this.idVacina,
+      Dose_01: true,
+      Dose_02: true,
+      Dose_03: false
+    }
+  }
   }
 }
