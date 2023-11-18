@@ -7,9 +7,9 @@
         <mat-icon matSuffix> search </mat-icon>
       </mat-form-field>
       <div class="div">
-        <mat-form-field style="height: 76px !important; width: 20vw; margin-top: 18px !important;">
+        <mat-form-field appearance="outline" style="height: 76px !important; width: 20vw; margin-top: 18px !important;">
           <mat-label style="font-family: Montserrat !important; width: 90px;">Selecione um Posto</mat-label>
-          <mat-select  (selectionChange)="onSelectionChange($event)">
+          <mat-select (selectionChange)="onSelectionChange($event)">
             <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
               {{ posto.Nome_do_Posto }}
             </mat-option>

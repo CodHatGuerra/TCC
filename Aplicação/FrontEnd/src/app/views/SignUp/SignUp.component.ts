@@ -48,9 +48,6 @@ export class SignUpComponent {
     const currentDate = new Date();
     const selectedDate = new Date(inputDate);
 
-    if (selectedDate > currentDate)
-      return { futureDate: true };
-
     if (selectedDate.getFullYear() < 1900)
       throw this.appService.AlertMessage('Data inválida');
 
@@ -61,9 +58,13 @@ export class SignUpComponent {
   }
 
   private parseDate(dateString: string): Date {
-    const day = parseInt(dateString.substring(0, 2), 10);
-    const month = parseInt(dateString.substring(3, 5), 10) - 1;
-    const year = parseInt(dateString.substring(6, 10), 10);
+    const day = parseInt(dateString.substring(0, 2));
+    let month = parseInt(dateString.substring(2, 4));
+    const year = parseInt(dateString.slice(-4));
+    
+  console.log('Day:', day);
+  console.log('Month:', month);
+  console.log('Year:', year);
     return new Date(year, month, day);
   }
 
@@ -76,6 +77,7 @@ export class SignUpComponent {
 
   onInputChange(): void {
     const dateWithoutMask = this.form.get('data_Nascimento')!.value.replace(/\//g, '');
+    console.log('Input Value:', dateWithoutMask);
     const dateObject = this.parseDate(dateWithoutMask);
 
     const formattedDate = this.formatDate(dateObject);
@@ -87,7 +89,7 @@ export class SignUpComponent {
 
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
-   
+   this.onInputChange();
     if (this.form.invalid)
       throw this.appService.AlertMessage('Complete o formulário.');
 

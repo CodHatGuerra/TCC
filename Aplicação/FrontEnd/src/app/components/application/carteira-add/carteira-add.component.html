@@ -1,14 +1,28 @@
 <main>
-    <h1>Registre uma Vacina</h1>
+    <h1 style="font-family: Montserrat;">Registre uma Vacina</h1>
 
-    <form action="">
-        <mat-form-field style="height: 76px !important; margin-top: 18px !important;">
+        <mat-form-field style="width: 35vw !important; margin-top: 28px !important;" appearance="outline">
             <mat-label style="font-family: Montserrat !important;">Selecione um Posto</mat-label>
-            <mat-select  (selectionChange)="onSelectionChange($event)">
-                <mat-option *ngFor="let vacina of allVacinas" [value]="allVacinas.Id">
+            <mat-select (selectionChange)="onSelectionChange($event)">
+                <mat-option *ngFor="let vacina of allVacinas" [value]="vacina.ID">
                     {{ vacina.Nome }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-    </form>
+        <div style="display: flex; 
+                    gap: 70px; 
+                    justify-content: center; margin-top: 17px;">
+            <mat-checkbox [(ngModel)]="dose01">Dose 01</mat-checkbox>
+            <mat-checkbox [(ngModel)]="dose02">Dose 02</mat-checkbox>
+            <mat-checkbox [(ngModel)]="dose03">Dose 03</mat-checkbox>
+        </div>
 </main>
+
+<!-- <mat-form-field appearance="outline" style="height: 76px !important; width: 20vw; margin-top: 18px !important;">
+    <mat-label style="font-family: Montserrat !important; width: 90px;">Selecione um Posto</mat-label>
+    <mat-select  (selectionChange)="onSelectionChange($event)">
+      <mat-option *ngFor="let posto of postos" [value]="posto.Posto_ID">
+        {{ posto.Nome_do_Posto }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> -->

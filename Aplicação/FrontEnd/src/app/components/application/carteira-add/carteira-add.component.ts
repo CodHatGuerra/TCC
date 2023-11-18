@@ -8,6 +8,10 @@ import { AppService } from 'src/app/settings/Services/app.service';
 })
 export class CarteiraAddComponent implements OnInit {
 
+  dose01: boolean = false;
+  dose02: boolean = false;
+  dose03: boolean = false;
+
   allVacinas: any;
   idVacina: number = 0;
   constructor(private service: AppService) {
@@ -28,9 +32,9 @@ export class CarteiraAddComponent implements OnInit {
     {
       Usuario_ID: user.Id,
       Vacina_ID: this.idVacina,
-      Dose_01: true,
-      Dose_02: true,
-      Dose_03: false
+      Dose_01: this.dose01,
+      Dose_02: this.dose02,
+      Dose_03: this.dose03
     }
   }
   }

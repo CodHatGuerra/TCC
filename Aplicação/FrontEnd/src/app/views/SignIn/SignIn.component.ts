@@ -47,6 +47,7 @@ export class SignInComponent {
       this.FormLogin = this.form.value
       this.SignIn(this.FormLogin).subscribe((response: any) => {
         if (response.result.autenticado == true) {
+          console.log(response);
           this.appService.SetUser(response.result.resposta);
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm', 'application']);

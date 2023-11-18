@@ -22,6 +22,7 @@ import { WhiteDirective } from './settings/directives/white.directive';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon'
 import { MatCardModule } from '@angular/material/card' 
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatListModule } from '@angular/material/list';
@@ -114,6 +115,7 @@ import { CarteiraDeleteComponent } from './components/application/carteira-delet
     MatSelectModule,
     MatDatepickerModule,
     MatMenuModule,
+    MatCheckboxModule, 
     MatFormFieldModule
   ],
   providers: [ provideNgxMask()],

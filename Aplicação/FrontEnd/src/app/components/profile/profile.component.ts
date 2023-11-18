@@ -30,6 +30,8 @@ export class ProfileComponent {
     if (user) {
       this.infoUser = user;
       const dataNascimento = new Date(user[0].Data_Nascimento);
+      console.log(user);
+      
       const hoje = new Date();
       const diffMilissegundos = hoje.getTime() - dataNascimento.getTime();
       const diffAnos = Math.floor(
