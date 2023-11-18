@@ -21,8 +21,8 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Data de Nascimento</mat-label>
-            <input matInput mask="00/00/0000" [(ngModel)]="formData.data_Nascimento" (ngModelChange)="formatDate($event)" 
-            placeholder="00/00/0000" formControlName="data_Nascimento"/>
+            <input matInput mask="00/00/0000" 
+            placeholder="00/00/0000" formControlName="data_Nascimento" (blur)="onInputChange()"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Sexo</mat-label>

@@ -48,7 +48,6 @@ export class CreatePassWordComponent {
         data_Nascimento: this.signUpService.Info.usuario.data_Nascimento,
         sexo: this.signUpService.Info.usuario.sexo,
         email: this.signUpService.Info.usuario.email,
-        data_Criada: this.signUpService.Info.usuario.data_Criada,
         senha: this.form.value.senha, 
         imagem: "../../../assets/img/user.jpg"
       },

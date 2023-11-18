@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 import { SignUpService } from '../sign-up.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-signup ',
@@ -12,23 +13,20 @@ import { SignUpService } from '../sign-up.service';
 })
 export class SignUpComponent {
 
-  adressForm: FormGroup;
   form: FormGroup;
   usuario: any = {}
   endereco: any = {}
   telefone: any = {}
   cep: number = 0;
   passWord: number = 0;
-  confimPassWord!: string ;
-  formData = { data_Nascimento: null as Date | null };
+  confimPassWord!: string;
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private signUpService : SignUpService,
+    private signUpService: SignUpService,
     private fb: FormBuilder,
     private appService: AppService
-
   ) {
 
     this.form = this.fb.group({
@@ -40,19 +38,11 @@ export class SignUpComponent {
       telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
     });
 
-    this.adressForm = this.fb.group({
-      uf: ['', Validators.required],
-      cep: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      localidade: ['', Validators.required],
-      logradouro: ['', Validators.required],
-      bairro: ['', Validators.required],
-      numero: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-    });
   }
 
   fileName = '';
-  
-   validateDate(control: any) {
+
+  validateDate(control: any) {
     const inputDate = control;
 
     const currentDate = new Date();
@@ -70,52 +60,42 @@ export class SignUpComponent {
     return null;
   }
 
-  DadosCep() {
-    this.cep = this.adressForm.get('cep')?.value;
-    const url = `http://viacep.com.br/ws/${this.cep}/json/`;
-    this.http.get<any>(url).subscribe(
-      response => {
-        this.endereco.uf = response.uf;
-        this.endereco.localidade = response.localidade,
-          this.endereco.bairro = response.bairro,
-          this.endereco.logradouro = response.logradouro
-      });
+  private parseDate(dateString: string): Date {
+    const day = parseInt(dateString.substring(0, 2), 10);
+    const month = parseInt(dateString.substring(3, 5), 10) - 1;
+    const year = parseInt(dateString.substring(6, 10), 10);
+    return new Date(year, month, day);
   }
-  
-  formatDate(value: string | null | undefined): void {
 
-    if (value === null || value === undefined) {
-      this.formData.data_Nascimento = null;
-      return;
-    }
-    if (typeof value !== 'string') {
-      // Se for uma data, use-a diretamente
-      this.formData.data_Nascimento = value;
-      return;
-    }
-    
-    const numericValue = value.replace(/\D/g, '');
+  private formatDate(date: Date): string {
+    const day = ('0' + date.getDate()).slice(-2);
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const year = date.getFullYear().toString();
+    return `${year}-${month}-${day}`;
+  }
 
-    const formattedDate = `${numericValue.slice(4, 8)}/${numericValue.slice(0, 2)}/${numericValue.slice(2, 4)}`;
+  onInputChange(): void {
+    const dateWithoutMask = this.form.get('data_Nascimento')!.value.replace(/\//g, '');
+    const dateObject = this.parseDate(dateWithoutMask);
 
-    this.formData.data_Nascimento = new Date(formattedDate);
-    console.log('Data Nascimento formatada:', this.formData.data_Nascimento);
+    const formattedDate = this.formatDate(dateObject);
+
+    this.form.patchValue({
+      data_Nascimento: formattedDate,
+    });
   }
 
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
-    const newDate = new Date()
    
     if (this.form.invalid)
       throw this.appService.AlertMessage('Complete o formulário.');
 
-      this.DadosCep() ;
     this.signUpService.Info.usuario.nome = this.form.value.nome;
     this.signUpService.Info.usuario.cpf = this.form.value.cpf;
     this.signUpService.Info.usuario.data_Nascimento = this.form.value.data_Nascimento;
     this.signUpService.Info.usuario.sexo = this.form.value.sexo;
     this.signUpService.Info.usuario.email = this.form.value.email;
-    this.signUpService.Info.usuario.data_Criada = newDate.toISOString().split('T')[0];
     this.signUpService.Info.telefone.numero = this.form.value.telefone;
 
     console.log(this.form.value.data_Nascimento);
@@ -123,4 +103,3 @@ export class SignUpComponent {
     this.router.navigate(["create-passWord"])
   }
 }
-
