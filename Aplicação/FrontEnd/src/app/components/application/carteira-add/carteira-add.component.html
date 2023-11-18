@@ -1,0 +1,14 @@
+<main>
+    <h1>Registre uma Vacina</h1>
+
+    <form action="">
+        <mat-form-field style="height: 76px !important; width: 20vw; margin-top: 18px !important;">
+            <mat-label style="font-family: Montserrat !important; width: 90px;">Selecione um Posto</mat-label>
+            <mat-select  (selectionChange)="onSelectionChange($event)">
+                <mat-option *ngFor="let vacina of allVacinas" [value]="allVacinas.Id">
+                    {{ vacina.Nome }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</main>

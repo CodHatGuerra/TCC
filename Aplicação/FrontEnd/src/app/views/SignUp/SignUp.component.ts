@@ -20,6 +20,7 @@ export class SignUpComponent {
   cep: number = 0;
   passWord: number = 0;
   confimPassWord!: string ;
+  formData = { data_Nascimento: null as Date | null };
 
   constructor(
     private http: HttpClient,
@@ -33,8 +34,8 @@ export class SignUpComponent {
     this.form = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      data_Nascimento: [null, Validators.required],
       cpf: ['', [Validators.required, Validators.pattern('[0-9]*')]],
-      data_Nascimento: ['', Validators.required],
       sexo: ['', Validators.required],
       telefone: ['', [Validators.required, Validators.pattern('[0-9]*')]]
     });
@@ -53,7 +54,6 @@ export class SignUpComponent {
   
    validateDate(control: any) {
     const inputDate = control;
-    console.log(inputDate);
 
     const currentDate = new Date();
     const selectedDate = new Date(inputDate);
@@ -81,33 +81,31 @@ export class SignUpComponent {
           this.endereco.logradouro = response.logradouro
       });
   }
+  
+  formatDate(value: string | null | undefined): void {
+
+    if (value === null || value === undefined) {
+      this.formData.data_Nascimento = null;
+      return;
+    }
+    if (typeof value !== 'string') {
+      // Se for uma data, use-a diretamente
+      this.formData.data_Nascimento = value;
+      return;
+    }
+    
+    const numericValue = value.replace(/\D/g, '');
+
+    const formattedDate = `${numericValue.slice(4, 8)}/${numericValue.slice(0, 2)}/${numericValue.slice(2, 4)}`;
+
+    this.formData.data_Nascimento = new Date(formattedDate);
+    console.log('Data Nascimento formatada:', this.formData.data_Nascimento);
+  }
 
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
     const newDate = new Date()
    
-    const Info = {
-      usuario: {
-        nome: this.form.value.nome,
-        cpf: this.form.value.cpf,
-        data_Nascimento: this.form.value.data_Nascimento,
-        sexo: this.form.value.sexo,
-        email: this.form.value.email,
-        data_Criada: newDate.toISOString().split('T')[0]
-      },
-      endereco: {
-        cep: this.adressForm.value.cep,
-        uf: this.adressForm.value.uf,
-        localidade: this.adressForm.value.localidade,
-        bairro: this.adressForm.value.logradouro,
-        logradouro: this.adressForm.value.logradouro,
-        numero: this.adressForm.value.numero
-      },
-      telefone: {
-        numero: this.form.value.telefone
-      }
-    }
-
     if (this.form.invalid)
       throw this.appService.AlertMessage('Complete o formulário.');
 
@@ -120,6 +118,8 @@ export class SignUpComponent {
     this.signUpService.Info.usuario.data_Criada = newDate.toISOString().split('T')[0];
     this.signUpService.Info.telefone.numero = this.form.value.telefone;
 
+    console.log(this.form.value.data_Nascimento);
+    
     this.router.navigate(["create-passWord"])
   }
 }

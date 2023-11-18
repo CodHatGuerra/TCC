@@ -123,4 +123,8 @@ export class AppService {
     return this.http.put<any>(`http://localhost:8080/api/vacina`, obj, { headers: this.httpHeaders })
   }
 
+  GetVacinasCarteira(id: number): Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/api/carteira/${id}` , { headers: this.httpHeaders }) 
+  }
+
 }

@@ -7,18 +7,8 @@
   height: auto;
 }
 
-.vaccine {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.842) !important;
-  box-sizing: border-box;
-  text-align: center;
-  margin-top: 15px;
-  height: 24vh;
-}
-
 mat-card {
   margin-top: 20px;
-  text-align: center;
   width: 100% !important;
   padding: 10px;
 }
@@ -49,6 +39,7 @@ table {
   justify-content: center;
   width: 80px;
   height: 80px;
+  text-align: center;
   align-items: center;
   border-radius: 100%;
   border: 1px solid #449dd1;
@@ -65,6 +56,14 @@ table {
   background-color: #449dd1;
   transition: 0.7s;
   cursor: pointer;
+}
+
+.add {
+  cursor: pointer;
+  margin-right: 13px;
+  margin-top: 15px;
+  font-size: 30px !important ;
+  color:  blue;
 }
 
 .img {
