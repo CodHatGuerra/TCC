@@ -11,53 +11,53 @@ import { VacinasUpdateComponent } from './vacinas-update/vacinas-update.componen
   templateUrl: './vacinas.component.html',
   styleUrls: ['./vacinas.component.css']
 })
-export class VacinasAppComponent implements OnInit{
-  constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
+export class VacinasAppComponent implements OnInit {
+  constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { this.GetVacinas() }
   ngOnInit(): void {
     this.GetVacinas()
   }
 
   vaccines: any[] = [];
-  columns: string[] = ['name', 'doses','acoes'];
+  columns: string[] = ['name','acoes'];
 
-  
+
   searchTerm: string = '';
   allVacinas: any[] = [];
 
 
   search(event: Event): void {
-    if (this.searchTerm.trim() === '') 
+    if (this.searchTerm.trim() === '')
       this.vaccines = this.allVacinas;
-     else {
+    else {
       this.vaccines = this.allVacinas.filter((vacinas) =>
-       vacinas.Nome.toLowerCase().includes(this.searchTerm.toLowerCase() )
+        vacinas.Nome.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     }
   }
-  
+
   OpenDialogRegisterVacciness() {
     this.dialog.open(AddVaccinessComponent).afterClosed().subscribe(a => {
       this.GetVacinas();
     });
   }
 
-  GetVacinas(){
-    this.service.GetAllVacinas().subscribe((response)=> {
-      this.allVacinas = response.result.Vacinas 
+  GetVacinas() {
+    this.service.GetAllVacinas().subscribe((response) => {
+      this.allVacinas = response.result.Vacinas
       this.vaccines = response.result.Vacinas
     })
   }
 
-  UpdateVacina(id: number){
+  UpdateVacina(id: number) {
     this.service.setIdVacina(id);
-    this.dialog.open(VacinasUpdateComponent).afterClosed().subscribe(a=>{
+    this.dialog.open(VacinasUpdateComponent).afterClosed().subscribe(a => {
       this.GetVacinas()
     })
   }
 
   deleteVacina(id: number) {
     this.service.setIdVacina(id);
-    this.dialog.open(VacinasDeleteComponent).afterClosed().subscribe(a=>{
+    this.dialog.open(VacinasDeleteComponent).afterClosed().subscribe(a => {
       this.GetVacinas()
     })
   }

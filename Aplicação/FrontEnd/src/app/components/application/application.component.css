@@ -71,7 +71,20 @@ table {
   height: 160px;
   border-radius: 100%;
 }
+.icons {
+  display: flex;
+  gap: 10px;
+}
 
+.delete {
+  color: rgb(192, 21, 21);
+  cursor: pointer;
+}
+
+.edit {
+  color: rgb(233, 154, 36);
+  cursor: pointer;
+}
 .teenager {
     padding-left: 5px;
 }

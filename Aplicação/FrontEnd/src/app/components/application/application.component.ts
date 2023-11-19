@@ -15,9 +15,10 @@ export class ApplicationComponent implements OnInit{
   
   ngOnInit(): void {
     const user = this.service.GetUser();
-    this.service.GetVacinasCarteira(user.ID).subscribe((res)=> {
+    this.service.GetVacinasCarteira(user[0].ID).subscribe((res)=> {
       this.dataSource = res.result.Vacinas
-      console.log(res.result.Vacinas);
+      console.log(this.dataSource);
+      
     });
   }
 

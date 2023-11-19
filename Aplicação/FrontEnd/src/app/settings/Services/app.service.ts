@@ -111,6 +111,11 @@ export class AppService {
    return this.http.get<any>('http://localhost:8080/api/vacina', { headers: this.httpHeaders })
   }
 
+  
+  CreateCarteira(obj: any): Observable<any>{
+    return this.http.post<any>('http://localhost:8080/api/carteira', obj ,{ headers: this.httpHeaders })
+   }
+
   GetByVacinas(id: number): Observable<any>{
    return this.http.get<any>(`http://localhost:8080/api/vacina/${id}`, { headers: this.httpHeaders })
   }
