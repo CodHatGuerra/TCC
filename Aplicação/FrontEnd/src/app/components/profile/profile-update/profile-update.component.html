@@ -1,6 +1,7 @@
 <div class="div">
   <h3  style="font-family: Montserrat;">Atualize suas informações</h3>
   <form class="form">
+    <img [src]="imageUrl" style="width: 50px; height: 50px;">
     <button type="button" class="teste" mat-raised-button (click)="fileInput.click()" style="margin-bottom: 20px;">Choose File</button>
     <input hidden (change)="onFileSelected($event)"  #fileInput type="file">
     <mat-form-field class="MR" appearance="outline">

@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { AppService } from "src/app/settings/Services/app.service";
 import { ProfileService } from "src/app/settings/Services/profile.service";
 import { Profile } from "../../interfaces";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: "app-profile-update",
@@ -12,11 +13,13 @@ import { Profile } from "../../interfaces";
 export class ProfileUpdateComponent implements OnInit {
   profile: any;
   sexo: string = "Masculino";
+  imageUrl: any;  
 
   constructor(
     private dialog: MatDialog,
     private service: AppService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -38,12 +41,10 @@ export class ProfileUpdateComponent implements OnInit {
         const fileContent: string | ArrayBuffer | null = reader.result;
 
         if (typeof fileContent === 'string') {
+          this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(`${fileContent}`);
+          console.log(this.imageUrl);
           
-
-
-          console.log('Conteúdo do arquivo como string (base64):', fileContent);
         } else if (fileContent instanceof ArrayBuffer) {
-          // Se você quiser o ArrayBuffer diretamente (também pode ser útil)
           const buffer = new Uint8Array(fileContent);
           const base64String = btoa(String.fromCharCode.apply(null, Array.from(buffer)));
           console.log('Conteúdo do arquivo como ArrayBuffer (base64):', base64String);
