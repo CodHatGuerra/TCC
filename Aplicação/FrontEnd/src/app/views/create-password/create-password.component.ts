@@ -49,7 +49,7 @@ export class CreatePassWordComponent {
         sexo: this.signUpService.Info.usuario.sexo,
         email: this.signUpService.Info.usuario.email,
         senha: this.form.value.senha, 
-        imagem: "../../../assets/img/user.jpg"
+        imagem: "../../../assets/img/perfil.png"
       },
       telefone: {
         numero:  this.signUpService.Info.telefone.numero,

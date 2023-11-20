@@ -36,7 +36,8 @@ export class VacinasAppComponent implements OnInit {
   }
 
   OpenDialogRegisterVacciness() {
-    this.dialog.open(AddVaccinessComponent).afterClosed().subscribe(a => {
+  var form = this.dialog.open(AddVaccinessComponent)
+  form.afterClosed().subscribe(a => {
       this.GetVacinas();
     });
   }

@@ -1,6 +1,8 @@
 <div class="div">
   <h3  style="font-family: Montserrat;">Atualize suas informações</h3>
   <form class="form">
+    <button type="button" class="teste" mat-raised-button (click)="fileInput.click()" style="margin-bottom: 20px;">Choose File</button>
+    <input hidden (change)="onFileSelected($event)"  #fileInput type="file">
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Nome</mat-label>
       <input matInput name="nome" type="text" [(ngModel)]="profile.Nome"/>
@@ -21,6 +23,7 @@
         <mat-option value="Outros">Outros</mat-option>
       </mat-select>
     </mat-form-field>
+    <div class="teste" style="width: 30px; height: 30px;"></div>
     <button mat-button (click)="updateProfile()" appWhite>Atualizar</button>
   </form>
 </div>

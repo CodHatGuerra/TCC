@@ -48,27 +48,6 @@ export class ProfileComponent {
     this.dialog.open(ProfileUpdateComponent);
   }
 
-  onFileSelected(event: any) {
-
-    const file: File = event.target.files[0];
-
-    if (file) {
-      const formData = new FormData();
-      formData.append("thumbnail", file);
-
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        const fileContent: string | ArrayBuffer | null = reader.result;
-
-        if (typeof fileContent === 'string')
-          console.log('Conteúdo do arquivo como string:', fileContent);
-
-      };
-
-      reader.readAsText(file);
-    }
-  }
 
   // onFileChange(event: any) {
   //   const file = event.target.files[0];

@@ -11,22 +11,47 @@ import { Profile } from "../../interfaces";
 })
 export class ProfileUpdateComponent implements OnInit {
   profile: any;
-  sexo: string ="Masculino";
+  sexo: string = "Masculino";
 
   constructor(
     private dialog: MatDialog,
     private service: AppService,
     private profileService: ProfileService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = this.profileService.getIdProfile();
     this.profileService.getUserById(id).subscribe((response) => {
       this.profile = response.result.postos[0];
       console.log(response);
-      this.sexo = this.profile.sexo; 
-      
+      this.sexo = this.profile.sexo;
+
     });
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const fileContent: string | ArrayBuffer | null = reader.result;
+
+        if (typeof fileContent === 'string') {
+          
+
+
+          console.log('Conteúdo do arquivo como string (base64):', fileContent);
+        } else if (fileContent instanceof ArrayBuffer) {
+          // Se você quiser o ArrayBuffer diretamente (também pode ser útil)
+          const buffer = new Uint8Array(fileContent);
+          const base64String = btoa(String.fromCharCode.apply(null, Array.from(buffer)));
+          console.log('Conteúdo do arquivo como ArrayBuffer (base64):', base64String);
+        }
+      };
+
+      reader.readAsDataURL(file);
+    }
   }
 
   profileObj: Profile = {
@@ -43,7 +68,7 @@ export class ProfileUpdateComponent implements OnInit {
       numero: 0,
     },
   };
- 
+
   updateProfile() {
     this.profileObj = {
       usuario: {

@@ -65,12 +65,10 @@ mat-card {
   font-size: 20px !important;
 }
 
-.img {
+img {
   width: 160px;
   height: 160px;
   border-radius: 10%;
-  border: 3px solid rgb(31, 132, 226);
-  background-image: url(../../../assets/img/user.jpg);
   background-size: contain;
   background-position: center;
   align-items: center;

@@ -13,13 +13,11 @@ import { CarteiraAddComponent } from './carteira-add/carteira-add.component';
 export class ApplicationComponent implements OnInit{
   constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
   
+  user = this.service.GetUser();
+
+  
   ngOnInit(): void {
-    const user = this.service.GetUser();
-    this.service.GetVacinasCarteira(user[0].ID).subscribe((res)=> {
-      this.dataSource = res.result.Vacinas
-      console.log(this.dataSource);
-      
-    });
+    this.getCarteira(this.user[0].ID)
   }
 
   vaccines = Vacinas;
@@ -28,8 +26,17 @@ export class ApplicationComponent implements OnInit{
 
   dataSource: any;
 
+  getCarteira(id: number){
+    this.service.GetVacinasCarteira(id).subscribe((res)=> {
+      this.dataSource = res.result.Vacinas
+    });
+  }
+
   CreateCarteira(){
-    this.dialog.open(CarteiraAddComponent)
+    const dialog = this.dialog.open(CarteiraAddComponent);
+    dialog.afterClosed().subscribe(()=>{
+      this.getCarteira(this.user[0].ID)
+    })
   }
  
 }
