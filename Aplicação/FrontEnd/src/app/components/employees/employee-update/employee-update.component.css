@@ -1,8 +1,8 @@
 main {
     width: 30vw;
-    height: 55vh;
+    height: 40vh;
     justify-content: center;
-    min-height: 26vh;
+    min-height: 40vh;
     padding: 10px 20px 0 20px;
     text-align: center;
 }
@@ -10,12 +10,14 @@ main {
 form {
     margin-top: 29px;
     height: 20vh;
+    min-height: 20vh;
     display: grid;
 }
 
 button {
-    width: 200px;
-    height: 30px;
+    margin-top: 20px !important;
+    width: 100%;
+    height: 40px !important;
     margin: 0 auto;
     background-color: #21a4f0;
 }

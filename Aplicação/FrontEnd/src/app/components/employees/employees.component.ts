@@ -22,7 +22,7 @@ export class EmployeesComponent implements OnInit {
     private service: AppService,
     private postoService: PostosService,
     private router: Router
-  ) {}
+  ) { }
 
   input: string = "";
   postos: any;
@@ -39,7 +39,7 @@ export class EmployeesComponent implements OnInit {
     if (this.searchTerm.trim() === "") {
       this.dataSource = this.allEmployees;
     } else {
-      this.dataSource = this.allEmployees.filter((employee) => 
+      this.dataSource = this.allEmployees.filter((employee) =>
         employee.Nome_Pessoa.toLowerCase().includes(
           this.searchTerm.toLowerCase()
         )
@@ -69,15 +69,11 @@ export class EmployeesComponent implements OnInit {
   onSelectionChange(event: any) {
     this.idPosto = event.value;
     this.employeeService.setIdPosto(event.value);
-    this.getEmployeesByPosto(this.idPosto);
-  }
-
-  getEmployeesByPosto(idPosto: number) {
-    this.employeeService.getEmployeeByPosto(idPosto).subscribe((response) => {
-      this.allEmployees = response.result.funcionario;
-      this.dataSource = response.result.funcionario;
+    this.employeeService.getEmployeeByPosto(this.idPosto).subscribe((response) => {
+      this.allEmployees = response.result.postos;
+      this.dataSource = response.result.postos;
       console.log(response);
-    });
+    })
   }
 
   getAllEmployee() {

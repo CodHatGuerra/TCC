@@ -4,7 +4,7 @@
   <form [formGroup]="formEmployee" class="form" *ngFor="let proper of posto">
     <mat-form-field appearance="outline">
       <mat-label>Cpf</mat-label>
-      <input matInput formControlName="cpf" type="text"/>
+      <input matInput formControlName="cpf" mask="000.000.000-00"/>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Cargo</mat-label>
