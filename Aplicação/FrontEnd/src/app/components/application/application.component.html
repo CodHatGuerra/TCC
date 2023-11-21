@@ -24,7 +24,7 @@
     </div>
 
     <span>
-      <mat-icon class="add" (click)="CreateCarteira()">add</mat-icon>
+      <mat-icon *ngIf="isFuncionario" class="add" (click)="CreateCarteira()">add</mat-icon>
     </span>
     <table mat-table [dataSource]="dataSource">
       <tr style="background-color: rgb(238, 238, 238);"

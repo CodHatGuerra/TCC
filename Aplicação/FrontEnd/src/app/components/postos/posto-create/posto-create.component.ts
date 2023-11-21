@@ -89,7 +89,7 @@ export class PostoCreateComponent {
 
     const isEmpty = this.isObjectEmpty(formData)
     if(isEmpty){
-      this.appService.AlertMessage("Ocorreu um erro ao registrar um posto.")
+      this.appService.AlertMessage("Formulário incompleto")
       throw new Error();
     }
 

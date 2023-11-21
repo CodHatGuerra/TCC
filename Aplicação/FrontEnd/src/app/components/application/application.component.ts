@@ -14,10 +14,18 @@ export class ApplicationComponent implements OnInit{
   constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
   
   user = this.service.GetUser();
-
+  isFuncionario: boolean = false
   
   ngOnInit(): void {
     this.getCarteira(this.user[0].ID)
+    if(this.user[0].Funcionario == 1)
+      this.isFuncionario = true
+    
+    else 
+    this.isFuncionario = false
+
+    console.log(this.user);
+    
   }
 
   vaccines = Vacinas;
