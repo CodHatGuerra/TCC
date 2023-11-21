@@ -6,8 +6,8 @@ module.exports = {
       db.query(
         `
           SELECT
-           Usuario.*,
-            IFNULL(Funcionario.ID, 0) AS Funcionario
+            Usuario.*,
+            IF(Funcionario.ID IS NOT NULL, TRUE, FALSE) AS Funcionario
           FROM
             Usuario
           LEFT JOIN
@@ -15,7 +15,7 @@ module.exports = {
           WHERE
             Usuario.Cpf = ? AND
             Usuario.Senha = ?
-            LIMIT 1;
+          LIMIT 1;
         `,
         [cpf, senha],
         (error, results) => {
