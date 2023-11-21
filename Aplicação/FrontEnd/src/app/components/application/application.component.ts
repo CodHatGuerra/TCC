@@ -37,6 +37,9 @@ export class ApplicationComponent implements OnInit{
   getCarteira(id: number){
     this.service.GetVacinasCarteira(id).subscribe((res)=> {
       this.dataSource = res.result.Vacinas
+
+      console.log(res.result.Vacinas);
+      
     });
   }
 

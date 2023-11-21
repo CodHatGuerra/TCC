@@ -10,7 +10,7 @@
 mat-card {
   margin-top: 20px;
   width: 100% !important;
-  padding: 10px;
+  padding: 20px;
 }
 
 mdc-data-table__cell, .mdc-data-table__header-cell {

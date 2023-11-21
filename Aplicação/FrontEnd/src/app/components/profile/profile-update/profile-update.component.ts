@@ -26,7 +26,7 @@ export class ProfileUpdateComponent implements OnInit {
     const id = this.profileService.getIdProfile();
     this.profileService.getUserById(id).subscribe((response) => {
       this.profile = response.result.postos[0];
-      console.log(response);
+     this.imageUrl = this.profile.Imagem
       this.sexo = this.profile.sexo;
 
     });
@@ -42,7 +42,6 @@ export class ProfileUpdateComponent implements OnInit {
 
         if (typeof fileContent === 'string') {
           this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(`${fileContent}`);
-          console.log(this.imageUrl);
           
         } else if (fileContent instanceof ArrayBuffer) {
           const buffer = new Uint8Array(fileContent);

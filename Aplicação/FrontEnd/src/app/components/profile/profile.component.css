@@ -1,14 +1,13 @@
 .main {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 35px;
   width: 90%;
   margin-bottom: 100px;
 }
 
 .info {
-  width: 50vw;
+  width: 100%;
   height: auto;
   padding: 20px;
   justify-content: space-between;

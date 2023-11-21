@@ -2,17 +2,28 @@
     display: grid;
     text-align: center;
     width: 30vw;
-    padding:  10px 30px 20px 30px;
+    padding:  10px 30px 0px 30px;
     height: auto;
     justify-items: center;
 }
 
 button {
     color: white;
+    height: 40px !important;
     background-color:  #21a4f0;
+    margin-bottom: 20px;
 }
 
 form {
     display: grid;
     width: 100%;
+}
+
+
+img {
+    width: 90px; 
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 10px !important;
+    margin: 0 auto;
 }

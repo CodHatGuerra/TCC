@@ -15,6 +15,8 @@ export class CarteiraAddComponent implements OnInit {
   userId: number = 0;
 
 
+  teste = true
+
   allVacinas: any;
   idVacina: number = 0;
   constructor(private service: AppService, private dialogRef: MatDialogRef<CarteiraAddComponent>) {
@@ -51,8 +53,12 @@ export class CarteiraAddComponent implements OnInit {
   }
 
   onSelectionChange(event: any) {
+    if(event.value == null || event.value == 0)
+    this.service.AlertMessage("Nenhuma vacina registrada!")
+
     this.idVacina = event.value;
     const user = this.service.GetUser();
     this.userId = user[0].ID
   }
+
 }
