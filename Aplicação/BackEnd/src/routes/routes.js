@@ -82,8 +82,8 @@ router.put("/vacina", authMiddleware, VacinaController.alterar);
 //--------------------------------------------------------//
 // CADASTRAR VINCULO VACINA CARTEIRA
 router.post("/carteira", authMiddleware, CarteiraController.cadastrar);
-//CONSULTAR TODAS VACINAS DE UMA CARTEIRA
-router.get("/carteira/:id", authMiddleware, CarteiraController.consultarID);
+//CONSULTAR TODAS VACINAS DE UMA CARTEIRA BY CPF
+router.get("/carteira/:cpf", authMiddleware, CarteiraController.consultarCPF);
 //DELETAR VINCULO VACINA CARTEIRA
 router.delete("/carteira/:idcarteira/:idvacina", authMiddleware, CarteiraController.deletar);
 //EDITAR VINCULO DA VACINA NA CARTEIRA

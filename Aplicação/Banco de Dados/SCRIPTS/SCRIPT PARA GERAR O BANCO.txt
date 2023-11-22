@@ -65,7 +65,8 @@ CREATE TABLE IF NOT EXISTS Telefone (
 -- Tabela Vacina
 CREATE TABLE IF NOT EXISTS Vacina (
   ID INT AUTO_INCREMENT PRIMARY KEY,
-  Nome VARCHAR(150) NOT NULL
+  Nome VARCHAR(150) NOT NULL,
+  Idade INTEGER(10)
 );
 
 -- Tabela Funcionario

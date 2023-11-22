@@ -96,8 +96,8 @@ module.exports = {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Vacina (Nome) VALUES (?)",
-        [vacina],
+        "INSERT INTO Vacina (Nome, Idade) VALUES (?, ?)",
+        [vacina.nome, vacina.idade],
         (error, results) => {
           if (error) {
             console.log("Erro Cadastrar Vacina" + error);

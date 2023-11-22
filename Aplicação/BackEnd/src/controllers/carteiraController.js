@@ -70,12 +70,12 @@ module.exports = {
     }
     res.json(json);
   },
-  consultarID: async (req, res) => {
+  consultarCPF: async (req, res) => {
     let json = { error: "", result: {} };
 
-    let ID = req.params.id;
+    let cpf = req.params.cpf;
 
-    await CarteiraService.consultarID(ID)
+    await CarteiraService.consultarCPF(cpf)
       .then((resultado) => {
         json.result = {
           Vacinas: resultado,

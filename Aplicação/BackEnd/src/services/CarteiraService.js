@@ -15,7 +15,13 @@ module.exports = {
           AND
             Vacina_ID = ?;  
         `,
-        [carteira.Dose_01, carteira.Dose_02, carteira.Dose_03, carteira.Usuario_ID, carteira.Vacina_ID],
+        [
+          carteira.Dose_01,
+          carteira.Dose_02,
+          carteira.Dose_03,
+          carteira.Usuario_ID,
+          carteira.Vacina_ID,
+        ],
         (error, results) => {
           if (error) {
             console.log("Erro na alteração de dados da Vacuna" + error);
@@ -28,35 +34,28 @@ module.exports = {
       );
     });
   },
-  consultarID: (ID) => {
-    if (ID) {
+  consultarCPF: (CPF) => {
+    if (CPF) {
       return new Promise((aceito, rejeitado) => {
         db.query(
           `
-            SELECT 
-               V.ID 
-              AS 
-                Vacina_ID,
-                V.Nome
-              AS 
-                Nome_Vacina,
-                Dose_01
-              AS
-                Dose_01,
-                Dose_02
-              AS
-                Dose_02,
-                Dose_03
-              AS
-                Dose_03        
-            FROM 
-              Usuario_tem_Vacina UV
-            JOIN 
-              Vacina V ON UV.Vacina_ID = V.ID
-            WHERE
-               UV.Usuario_ID = ?; 
+          SELECT
+          UV.Usuario_ID,
+          UV.Vacina_ID,
+          V.Nome AS NomeVacina,
+          UV.Dose_01,
+          UV.Dose_02,
+          UV.Dose_03
+      FROM
+          Usuario_tem_Vacina UV
+      JOIN
+          Vacina V ON UV.Vacina_ID = V.ID
+      JOIN
+          Usuario U ON UV.Usuario_ID = U.ID
+      WHERE
+          U.Cpf = ?;
           `,
-          [ID],
+          [CPF],
           (error, results) => {
             if (error) {
               console.log("Erro Cadastrar Posto" + error);

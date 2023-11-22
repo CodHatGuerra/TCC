@@ -35,17 +35,19 @@ module.exports = {
   cadastrar: async (req, res) => {
     let json = { error: "", result: {} };
 
-    const nomeVacina = req.body.nome;
+    const Vacina = req.body;
 
-    if (nomeVacina) {
-      await VacinaService.inserir(nomeVacina)
+    verificaVacina = Vacina.nome && Vacina.idade;
+
+    if (verificaVacina) {
+      await VacinaService.inserir(Vacina)
         .then((resultado) => {
           json.result = {
             msg: "Cadastrado com Sucesso !",
           };
           console.log("-----VACINA REGISTRADA COM SUCESSO !-------");
           console.log("ID : " + resultado);
-          console.log(`Nome Vacina : ${nomeVacina}`);
+          console.log(`Nome Vacina : ${Vacina.Nome}`);
           console.log("--------------------------------------------");
         })
         .catch((error) => {
