@@ -4,12 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { Router } from '@angular/router';
 import { SignUpService } from '../sign-up.service';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import * as moment from 'moment';
 
 @Component({
   selector: 'app-signup ',
   templateUrl: './SignUp.component.html',
-  styleUrls: ['./SignUp.component.css']
+  styleUrls: ['./SignUp.component.css'],
 })
 export class SignUpComponent {
 
@@ -20,6 +22,7 @@ export class SignUpComponent {
   cep: number = 0;
   passWord: number = 0;
   confimPassWord!: string;
+  picker: Date | undefined;
 
   constructor(
     private http: HttpClient,
