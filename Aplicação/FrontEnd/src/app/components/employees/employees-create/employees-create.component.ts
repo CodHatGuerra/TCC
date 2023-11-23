@@ -35,6 +35,8 @@ export class EmployeesCreateComponent implements OnInit {
   getPosto() {
     const id = this.employeeService.getIdPosto();
     this.postosService.GetByIdPosto(id).subscribe((response) => {
+      console.log(response);
+      
       this.posto = response.result.postos;
     });
   }
@@ -48,13 +50,16 @@ export class EmployeesCreateComponent implements OnInit {
         const newDate = new Date();
         const employee = {
           Funcionario: {
-            Data_Inicio: newDate.toISOString().split("T")[0],
             Usuario_ID: Usuario_ID,
             Posto_ID: this.posto[0].Posto_ID,
             Cargo: this.formEmployee.value.cargo,
           },
         };
+        console.log(employee);
+        
         this.employeeService.postEmployee(employee).subscribe((response)=>{
+          console.log(response);
+          
           this.service.SuccessMessage("Funcionário registrado com sucesso!");
           this.dialogRef.close();
         }) 

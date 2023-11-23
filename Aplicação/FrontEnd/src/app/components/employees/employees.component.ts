@@ -55,7 +55,7 @@ export class EmployeesComponent implements OnInit {
   employeeDelete(id: number) {
     this.employeeService.setIdFuncionario(id);
     const dialog = this.dialog.open(EmployeeDeleteComponent);
-    dialog.afterClosed().subscribe((a) => {
+    dialog.afterClosed().subscribe(() => {
       this.getAllEmployee();
     });
   }
