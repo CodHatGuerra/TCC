@@ -7,8 +7,8 @@ const UsuarioController = require("../controllers/usuarioController");
 const LoginController = require("../controllers/loginController");
 const PostoController = require("../controllers/postoController");
 const FuncionarioController = require("../controllers/FuncionarioController");
-const VacinaController = require("../controllers/vacinaController")
-const CarteiraController = require("../controllers/carteiraController")
+const VacinaController = require("../controllers/vacinaController");
+const CarteiraController = require("../controllers/carteiraController");
 
 // ROTAS USUARIO
 //--------------------------------------------------------//
@@ -53,15 +53,35 @@ router.post("/funcionario", authMiddleware, FuncionarioController.cadastrar);
 //ALTERAR FUNCIONARIO
 router.put("/funcionario", authMiddleware, FuncionarioController.alterar);
 //CONSULTAR TODOS FUNCIONARIO DE TODOS OS POSTOS
-router.get("/funcionario/",authMiddleware,FuncionarioController.consultarTodos);
+router.get(
+  "/funcionario/",
+  authMiddleware,
+  FuncionarioController.consultarTodos
+);
 //CONSULTAR TODOS FUNCIONARIO DE UM POSTO
-router.get("/funcionario/posto/:id",authMiddleware,FuncionarioController.consultar);
+router.get(
+  "/funcionario/posto/:id",
+  authMiddleware,
+  FuncionarioController.consultar
+);
 //CONSULTAR UM FUNCIONARIO PELO CPF
-router.get("/funcionario/cpf/:cpf",authMiddleware,FuncionarioController.consultarCPF);
+router.get(
+  "/funcionario/cpf/:cpf",
+  authMiddleware,
+  FuncionarioController.consultarCPF
+);
 //CONSULTAR UM FUNCIONARIO PELO ID
-router.get("/funcionario/id/:id",authMiddleware,FuncionarioController.consultarID);
+router.get(
+  "/funcionario/id/:id",
+  authMiddleware,
+  FuncionarioController.consultarID
+);
 //DELETAR FUNCIONARIO PELO ID
-router.delete("/funcionario/:id",authMiddleware,FuncionarioController.deletar);
+router.delete(
+  "/funcionario/:id",
+  authMiddleware,
+  FuncionarioController.deletar
+);
 //--------------------------------------------------------//
 
 //ROTAS VACINA
@@ -85,9 +105,17 @@ router.post("/carteira", authMiddleware, CarteiraController.cadastrar);
 //CONSULTAR TODAS VACINAS DE UMA CARTEIRA BY CPF
 router.get("/carteira/:cpf", authMiddleware, CarteiraController.consultarCPF);
 //CONSULTAR UMA COMBINAÇÃO DE VACINA E CARTEIRA
-router.get("/carteira/:IDCarteira/:IDVacina", authMiddleware, CarteiraController.consultarID);
+router.get(
+  "/carteira/:IDCarteira/:IDVacina",
+  authMiddleware,
+  CarteiraController.consultarID
+);
 //DELETAR VINCULO VACINA CARTEIRA
-router.delete("/carteira/:idcarteira/:idvacina", authMiddleware, CarteiraController.deletar);
+router.delete(
+  "/carteira/:idcarteira/:idvacina",
+  authMiddleware,
+  CarteiraController.deletar
+);
 //EDITAR VINCULO DA VACINA NA CARTEIRA
 router.put("/carteira", authMiddleware, CarteiraController.alterar);
 //--------------------------------------------------------//
