@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { ApplicationComponent } from './components/application/application.component';
@@ -17,7 +16,6 @@ import { DecoratorsComponent } from './settings/decorator/decorators.component';
 import { PostoCreateComponent } from './components/postos/posto-create/posto-create.component';
 import { PostoDeleteComponent } from './components/postos/posto-delete/posto-delete.component';
 import { PostoUpdateComponent } from './components/postos/posto-update/posto-update.component';
-
 import { WhiteDirective } from './settings/directives/white.directive';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon'
@@ -25,6 +23,8 @@ import { MatCardModule } from '@angular/material/card'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,13 +33,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserComponent } from './views/user/user.component';
 import { SignInComponent } from './views/SignIn/SignIn.component';
 import { AdmComponent } from './views/Adm/Adm.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/template/nav/dialog/dialog.component';
-import { SignUpComponent } from './views/SignUp/SignUp.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddVaccinessComponent } from './components/vacinas/add-vacciness/add-vacciness.component';
 import { EmployeesCreateComponent } from './components/employees/employees-create/employees-create.component';
@@ -56,13 +54,14 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CarteiraAddComponent } from './components/application/carteira-add/carteira-add.component';
 import { CarteiraDeleteComponent } from './components/application/carteira-delete/carteira-delete.component';
 import { CarteiraUpdateComponent } from './components/application/carteira-update/carteira-update.component';
+import { SignUpComponent } from './views/SignUp/SignUp.component';
 
 
 @NgModule({
   declarations: [
+    SignUpComponent,
     AppComponent,
     WhiteDirective,
-    SignUpComponent,
     ProfileComponent,
     SignInComponent,
     ApplicationComponent,
@@ -109,6 +108,7 @@ import { CarteiraUpdateComponent } from './components/application/carteira-updat
     FormsModule,
     HttpClientModule,
     DatePipe,
+    MatNativeDateModule,
     MatIconModule,
     MatDialogModule,
     MatSnackBarModule,
