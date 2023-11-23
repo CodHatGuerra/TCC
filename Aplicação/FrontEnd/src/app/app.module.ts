@@ -55,6 +55,7 @@ import { VacinasUpdateComponent } from './components/vacinas/vacinas-update/vaci
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CarteiraAddComponent } from './components/application/carteira-add/carteira-add.component';
 import { CarteiraDeleteComponent } from './components/application/carteira-delete/carteira-delete.component';
+import { CarteiraUpdateComponent } from './components/application/carteira-update/carteira-update.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { CarteiraDeleteComponent } from './components/application/carteira-delet
     VacinasUpdateComponent,
     CarteiraAddComponent,
     CarteiraDeleteComponent,
+    CarteiraUpdateComponent,
     
   ],
   imports: [

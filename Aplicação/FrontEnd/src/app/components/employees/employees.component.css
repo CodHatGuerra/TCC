@@ -7,10 +7,9 @@ main {
 .employee {
   gap: 20px;
   width: 97%;
-  margin-top: 35px;
+  margin: 35px 20px 50px 21px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.842);
-  margin-bottom: 50px;
 }
 
 .div {

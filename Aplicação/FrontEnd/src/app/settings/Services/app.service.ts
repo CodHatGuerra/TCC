@@ -20,6 +20,8 @@ export class AppService {
   id_Posto: any;
   id_Vacina: any;
   userInfo: any;
+  idVacinaCarteira: number = 0;
+  idCarteira: number = 0;
 
   AlertMessage(msg: string): void {
     this.snackBar.open(msg, "X", {
@@ -71,10 +73,6 @@ export class AppService {
     return user ? JSON.parse(user) : null;
   }
 
-  GetUserByCpf(cpf: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/usuario/${cpf}`,  { headers: this.httpHeaders })
-  }
-
   SetIdPosto(id: number) {
     this.id_Posto = id;
   }
@@ -89,6 +87,22 @@ export class AppService {
       `${environment.baseUrl}/${environment.Posto}/${id}`,
       { headers: this.httpHeaders }
     );
+  }
+
+  setVacinaCarteira(id: number){
+    this.idVacinaCarteira = id
+  }
+
+  getVacinaCarteira(){
+    return this.idVacinaCarteira
+  }
+
+  getCarteira(){
+    return this.idVacinaCarteira
+  }
+
+  setCarteira(id: number){
+    this.idCarteira = id
   }
 
   getIdVacina(){
@@ -107,10 +121,17 @@ export class AppService {
     );
   }
 
+  DeleteVacinaCarteira(idCateira: number, idVacina: number){
+    return this.http.delete<any>(`http://localhost:8080/api/carteira/${idCateira}/${idVacina}`, { headers: this.httpHeaders })
+  }
+
+  GetUserByCpf(cpf: number): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/usuario/${cpf}`,  { headers: this.httpHeaders })
+  }
+
   GetAllVacinas(): Observable<any>{
    return this.http.get<any>('http://localhost:8080/api/vacina', { headers: this.httpHeaders })
   }
-
   
   CreateCarteira(obj: any): Observable<any>{
     return this.http.post<any>('http://localhost:8080/api/carteira', obj ,{ headers: this.httpHeaders })

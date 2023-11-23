@@ -1,16 +1,17 @@
-.main {
+main {
   display: flex;
   justify-content: center;
-  margin-top: 35px;
-  width: 90%;
   margin-bottom: 100px;
 }
 
 .info {
   width: 100%;
+  margin: 35px 20px 0px 20px;
   height: auto;
   padding: 20px;
   justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.842) !important;
+  box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
 }
 
 .data {
@@ -29,11 +30,6 @@
 h4 {
   font-weight: 700;
   margin: 0;
-}
-
-mat-card {
-  background-color: rgba(255, 255, 255, 0.842) !important;
-  box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
 }
 
 .editImg{
