@@ -92,6 +92,28 @@ module.exports = {
 
     res.json(json);
   },
+  consultarID: async (req, res) => {
+    let json = { error: "", result: {} };
+
+    let ID_Carteira = req.params.IDCarteira;
+    let ID_Vacina = req.params.idvacina;
+
+    await CarteiraService.consultarID(ID_Carteira, ID_Vacina)
+      .then((resultado) => {
+        json.result = {
+          Vacinas: resultado,
+        };
+        console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
+      })
+      .catch((error) => {
+        console.log("Erro na requisição para o Banco ! " + error);
+        json.error = {
+          msg: "Erro na requisição para o banco !",
+          error: error.sqlMessage,
+        };
+      });
+    res.json(json);
+  },
   deletar: async (req, res) => {
     let json = { error: "", result: {} };
 

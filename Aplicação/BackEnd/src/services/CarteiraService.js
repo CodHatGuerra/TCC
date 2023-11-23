@@ -81,6 +81,41 @@ module.exports = {
       });
     }
   },
+  consultarID: (ID_Carteira, ID_Vacina) => {
+    if (true) {
+      return new Promise((aceito, rejeitado) => {
+        db.query(
+          `
+          SELECT
+          UTV.Usuario_ID,
+          UTV.Vacina_ID,
+          V.Nome AS Nome_Vacina,
+          UTV.Dose_01,
+          UTV.Dose_02,
+          UTV.Dose_03
+      FROM
+          Usuario_tem_Vacina UTV
+      JOIN
+          Vacina V ON UTV.Vacina_ID = V.ID
+      WHERE
+          UTV.Usuario_ID = ?
+          AND UTV.Vacina_ID = ?;
+          `,
+          [ID_Carteira, ID_Vacina],
+          (error, results) => {
+            if (error) {
+              console.log("Erro Cadastrar Posto" + error);
+              rejeitado(error);
+              return;
+            } else {
+              aceito(results);
+            }
+          }
+        );
+      });
+    } else {
+    }
+  },
   deletar: (ID_Carteira, ID_Vacina) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
