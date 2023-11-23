@@ -93,13 +93,13 @@ module.exports = {
           UTV.Dose_01,
           UTV.Dose_02,
           UTV.Dose_03
-      FROM
-          Usuario_tem_Vacina UTV
-      JOIN
-          Vacina V ON UTV.Vacina_ID = V.ID
-      WHERE
-          UTV.Usuario_ID = ?
-          AND UTV.Vacina_ID = ?;
+          FROM
+              Usuario_tem_Vacina UTV
+          JOIN
+              Vacina V ON UTV.Vacina_ID = V.ID
+          WHERE
+            UTV.Usuario_ID = ?
+            AND UTV.Vacina_ID = ?;
           `,
           [ID_Carteira, ID_Vacina],
           (error, results) => {
