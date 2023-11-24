@@ -1,6 +1,10 @@
 <main>
   <mat-card>
-    <h1 style="font-family: Montserrat;">Sua Cateira</h1>
+    
+    <mat-form-field style="width: 98vh; align-content: center;" appearance="outline">
+      <input matInput placeholder="Procure um Posto" type="search"/>
+      <mat-icon matSuffix> search </mat-icon>
+    </mat-form-field>
     <div class="age">
       <div style="text-align: center;">
         <div class="DIV">
@@ -23,6 +27,7 @@
     </div>
 
     <span>
+      <h2 style="font-family: Montserrat; margin: 0px;">Cateira</h2>
       <mat-icon *ngIf="isFuncionario" class="add" (click)="CreateCarteira()">add</mat-icon>
     </span>
     <table mat-table [dataSource]="dataSource">

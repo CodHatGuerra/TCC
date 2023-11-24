@@ -72,7 +72,6 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.getEmployeeByPosto(this.idPosto).subscribe((response) => {
       this.allEmployees = response.result.postos;
       this.dataSource = response.result.postos;
-      console.log(response);
     })
   }
 

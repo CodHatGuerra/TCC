@@ -29,12 +29,13 @@ export class AddVaccinessComponent {
   createVacina() {
      const nome = { nome: this.formVacina.value.nome }
      
-     if(this.formVacina.invalid)
-       this.service.AlertMessage("Ocorreu um erro ao tentar registrar uma vacina.");
+     if(this.formVacina.invalid || nome.nome == "")
+      throw this.service.AlertMessage("Ocorreu um erro ao tentar registrar uma vacina.");
      
      this.http.post('http://localhost:8080/api/vacina', nome, { headers: this.headers }).subscribe((response)=> {
-      
        this.service.SuccessMessage("Vacina registrada com sucesso!");
+       console.log(response);
+       
        this.dialogRef.close();
     })
   }

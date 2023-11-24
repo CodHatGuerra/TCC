@@ -50,6 +50,7 @@ export class EmployeesCreateComponent implements OnInit {
         const newDate = new Date();
         const employee = {
           Funcionario: {
+            Data_Inicio: newDate.toISOString().split("T")[0],
             Usuario_ID: Usuario_ID,
             Posto_ID: this.posto[0].Posto_ID,
             Cargo: this.formEmployee.value.cargo,

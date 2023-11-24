@@ -28,7 +28,7 @@ mat-card {
 span {
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-items: space-between;
 }
 
 table {

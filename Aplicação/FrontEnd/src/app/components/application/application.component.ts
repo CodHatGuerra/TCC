@@ -13,7 +13,7 @@ import { CarteiraDeleteComponent } from './carteira-delete/carteira-delete.compo
 })
 export class ApplicationComponent implements OnInit {
   constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
-
+  
   user = this.service.GetUser();
   isFuncionario: boolean = false
 

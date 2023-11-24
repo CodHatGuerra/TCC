@@ -56,7 +56,6 @@ export class SignUpComponent {
 
     if (selectedDate.getFullYear() > 2025)
       throw this.appService.AlertMessage('Data inválida');
-
     return null;
   }
 
@@ -92,7 +91,7 @@ export class SignUpComponent {
 
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
-   this.onInputChange();
+   // this.onInputChange();
     if (this.form.invalid)
       throw this.appService.AlertMessage('Complete o formulário.');
 
