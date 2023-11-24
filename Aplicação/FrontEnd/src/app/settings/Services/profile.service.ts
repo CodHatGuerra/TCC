@@ -12,12 +12,20 @@ export class ProfileService {
     ) { }
     
   idProfile: number = 0;
+  cpf: any; 
 
   userToken = localStorage.getItem("Token");
   httpHeaders = new HttpHeaders({
     Authorization: `${this.userToken}`,
   });
 
+  getCpf(){
+    return this.cpf
+  }
+
+  setCpf(cpf: any){
+    this.cpf = cpf
+  }
 
   getIdProfile(){
     return this.idProfile;

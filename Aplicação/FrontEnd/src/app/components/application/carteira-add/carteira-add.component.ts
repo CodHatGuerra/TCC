@@ -1,6 +1,9 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/Services/app.service';
+import { ProfileService } from 'src/app/settings/Services/profile.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-carteira-add',
@@ -19,7 +22,9 @@ export class CarteiraAddComponent implements OnInit {
 
   allVacinas: any;
   idVacina: number = 0;
-  constructor(private service: AppService, private dialogRef: MatDialogRef<CarteiraAddComponent>) {
+  constructor(private http: HttpClient,
+    private service: AppService, private dialogRef: MatDialogRef<CarteiraAddComponent>,
+    private profileService: ProfileService) {
   }
 
   ngOnInit(): void {
@@ -29,6 +34,7 @@ export class CarteiraAddComponent implements OnInit {
     })
   }
 
+  
   createVacina() {
     const carteira = {
       carteiraUsuario:

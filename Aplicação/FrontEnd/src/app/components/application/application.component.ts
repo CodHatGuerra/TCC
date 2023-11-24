@@ -5,6 +5,7 @@ import { Vacinas } from '../vacciness';
 import { MatDialog } from '@angular/material/dialog';
 import { CarteiraAddComponent } from './carteira-add/carteira-add.component';
 import { CarteiraDeleteComponent } from './carteira-delete/carteira-delete.component';
+import { ProfileService } from 'src/app/settings/Services/profile.service';
 
 @Component({
   selector: 'app-home',
@@ -12,32 +13,40 @@ import { CarteiraDeleteComponent } from './carteira-delete/carteira-delete.compo
   styleUrls: ['./application.component.css']
 })
 export class ApplicationComponent implements OnInit {
-  constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { }
-  
-  user = this.service.GetUser();
-  isFuncionario: boolean = false
+  constructor(
+    private service: AppService, private router: Router,
+    private dialog: MatDialog,
+    private profileService: ProfileService) { }
 
-  ngOnInit(): void {
-    this.getCarteira(this.user[0].ID)
-    if (this.user[0].Funcionario == 1)
-      this.isFuncionario = true
+  isFuncionario: boolean = true
+  idFuncionario: number = 0;
 
-    else
-      this.isFuncionario = false
-
-    console.log(this.user);
-  }
-
-  vaccines = Vacinas;
   columnCarteira: string[] = ['vacinas', 'doses', 'acoes'];
   input: string = '';
-
+  cpf: any;
   dataSource: any;
 
-  getCarteira(id: number) {
-    this.service.GetVacinasCarteira(id).subscribe((res) => {
-      this.dataSource = res.result.Vacinas
-      console.log(res.result.Vacinas);
+  ngOnInit(): void {
+    // this.getCarteira()
+
+    // if (uncionario == 1)
+    //   this.isFuncionario = true
+
+    // else
+    //   this.isFuncionario = false
+
+    console.log();
+  }
+
+  search() {
+    this.profileService.setCpf(this.cpf)
+    this.getCarteira(this.cpf)
+  }
+
+  getCarteira(cpf: number) {
+    this.service.GetVacinasCarteira(cpf).subscribe((res) => {
+      //  this.dataSource = res
+      console.log(res);
 
     });
   }
@@ -45,7 +54,7 @@ export class ApplicationComponent implements OnInit {
   CreateCarteira() {
     const dialog = this.dialog.open(CarteiraAddComponent);
     dialog.afterClosed().subscribe(() => {
-      this.getCarteira(this.user[0].ID)
+      //.getCarteira(this.user[0].ID)
     })
   }
 
@@ -54,7 +63,7 @@ export class ApplicationComponent implements OnInit {
     this.service.setVacinaCarteira(idVacina)
     const dialog = this.dialog.open(CarteiraDeleteComponent)
     return dialog.afterClosed().subscribe(() => {
-      this.getCarteira(this.user[0].ID)
+      //this.getCarteira(this.user[0].ID)
     })
   }
 }
