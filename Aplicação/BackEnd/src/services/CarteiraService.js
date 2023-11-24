@@ -9,7 +9,7 @@ module.exports = {
           UPDATE
             Usuario_tem_Vacina
           SET
-            Dose_01 = ?, Dose_02 = ?, Dose_03 = ?
+            Dose_01 = ?, Dose_02 = ?, Dose_03 = ?, Idade = ?
           WHERE
             Usuario_ID = ?
           AND
@@ -19,6 +19,7 @@ module.exports = {
           carteira.Dose_01,
           carteira.Dose_02,
           carteira.Dose_03,
+          carteira.Idade,
           carteira.Usuario_ID,
           carteira.Vacina_ID,
         ],
@@ -40,20 +41,21 @@ module.exports = {
         db.query(
           `
           SELECT
-          UV.Usuario_ID,
-          UV.Vacina_ID,
-          V.Nome AS NomeVacina,
-          UV.Dose_01,
-          UV.Dose_02,
-          UV.Dose_03
-      FROM
-          Usuario_tem_Vacina UV
-      JOIN
-          Vacina V ON UV.Vacina_ID = V.ID
-      JOIN
-          Usuario U ON UV.Usuario_ID = U.ID
-      WHERE
-          U.Cpf = ?;
+            UV.Usuario_ID,
+            UV.Vacina_ID,
+            V.Nome AS NomeVacina,
+            UV.Dose_01,
+            UV.Dose_02,
+            UV.Dose_03,
+            UV.Idade
+          FROM
+            Usuario_tem_Vacina UV
+          JOIN
+            Vacina V ON UV.Vacina_ID = V.ID
+          JOIN
+            Usuario U ON UV.Usuario_ID = U.ID
+          WHERE
+            U.Cpf = ?;
           `,
           [CPF],
           (error, results) => {
@@ -92,7 +94,8 @@ module.exports = {
           V.Nome AS Nome_Vacina,
           UTV.Dose_01,
           UTV.Dose_02,
-          UTV.Dose_03
+          UTV.Dose_03,
+          UTV.Idade
           FROM
               Usuario_tem_Vacina UTV
           JOIN
@@ -147,13 +150,14 @@ module.exports = {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Usuario_tem_Vacina (Usuario_ID, Vacina_ID, Dose_01, Dose_02, Dose_03) VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO Usuario_tem_Vacina (Usuario_ID, Vacina_ID, Dose_01, Dose_02, Dose_03, Idade) VALUES (?, ?, ?, ?, ?, ?)",
         [
           carteira.Usuario_ID,
           carteira.Vacina_ID,
           carteira.Dose_01,
           carteira.Dose_02,
           carteira.Dose_03,
+          carteira.Idade
         ],
         (error, results) => {
           if (error) {

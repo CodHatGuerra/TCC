@@ -5,8 +5,8 @@ module.exports = {
     console.log(vacina);
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "UPDATE vacina SET nome = ?, idade = ? WHERE ID = ?;",
-        [vacina.Nome, vacina.Idade, vacina.ID],
+        "UPDATE vacina SET nome = ? WHERE ID = ?;",
+        [vacina.Nome, vacina.ID],
         (error, results) => {
           if (error) {
             console.log("Erro na alteração de dados da Vacuna" + error);
@@ -96,7 +96,7 @@ module.exports = {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Vacina (Nome, Idade) VALUES (?, ?)",
+        "INSERT INTO Vacina (Nome) VALUES (?)",
         [vacina.nome, vacina.idade],
         (error, results) => {
           if (error) {

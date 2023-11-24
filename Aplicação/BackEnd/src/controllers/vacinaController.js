@@ -37,7 +37,7 @@ module.exports = {
 
     const Vacina = req.body;
 
-    verificaVacina = Vacina.nome && Vacina.idade;
+    verificaVacina = Vacina.nome;
 
     if (verificaVacina) {
       await VacinaService.inserir(Vacina)

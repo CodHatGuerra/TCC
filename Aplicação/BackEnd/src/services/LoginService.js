@@ -5,17 +5,20 @@ module.exports = {
     return new Promise((aceito, rejeitado) => {
       db.query(
         `
-          SELECT
-            Usuario.*,
-            IF(Funcionario.ID IS NOT NULL, TRUE, FALSE) AS Funcionario
-          FROM
+        SELECT
+          Usuario.*,
+          IF(Funcionario.ID IS NOT NULL, TRUE, FALSE) AS Funcionario,
+          Telefone.Numero AS Numero_Telefone
+        FROM
             Usuario
-          LEFT JOIN
+        LEFT JOIN
             Funcionario ON Usuario.ID = Funcionario.Usuario_ID
-          WHERE
+        LEFT JOIN
+            Telefone ON Usuario.ID = Telefone.Usuario_ID
+        WHERE
             Usuario.Cpf = ? AND
             Usuario.Senha = ?
-          LIMIT 1;
+        LIMIT 1;
         `,
         [cpf, senha],
         (error, results) => {
