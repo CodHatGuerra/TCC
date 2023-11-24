@@ -96,7 +96,7 @@ module.exports = {
     let json = { error: "", result: {} };
 
     let ID_Carteira = req.params.IDCarteira;
-    let ID_Vacina = req.params.idvacina;
+    let ID_Vacina = req.params.IDVacina;
 
     await CarteiraService.consultarID(ID_Carteira, ID_Vacina)
       .then((resultado) => {

@@ -58,19 +58,20 @@ module.exports = {
       db.query(
         `
         SELECT 
-          F.ID AS Funcionario_ID, U.Nome AS Nome_Pessoa, F.Cargo
+          F.ID AS Funcionario_ID, 
+          U.Nome AS Nome_Pessoa, 
+          F.Cargo,
+          P.Nome AS Nome_Posto
         FROM 
-          Funcionario AS F
+            Funcionario AS F
         INNER JOIN 
-          Usuario AS U 
+            Usuario AS U 
         ON 
-          F.Usuario_ID = U.ID
+            F.Usuario_ID = U.ID
         INNER JOIN 
-          Funcionario_tem_Posto 
-        AS FP ON
-           F.ID = FP.Funcionario_ID
+            Funcionario_tem_Posto AS FP ON F.ID = FP.Funcionario_ID
         INNER JOIN 
-          Posto AS P ON FP.Posto_ID = P.ID
+            Posto AS P ON FP.Posto_ID = P.ID
         WHERE P.ID = ?;
         `,
         [ID],

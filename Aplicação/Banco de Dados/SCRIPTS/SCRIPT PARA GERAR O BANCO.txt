@@ -65,8 +65,7 @@ CREATE TABLE IF NOT EXISTS Telefone (
 -- Tabela Vacina
 CREATE TABLE IF NOT EXISTS Vacina (
   ID INT AUTO_INCREMENT PRIMARY KEY,
-  Nome VARCHAR(150) NOT NULL,
-  Idade INTEGER(10)
+  Nome VARCHAR(150) NOT NULL
 );
 
 -- Tabela Funcionario
@@ -89,6 +88,7 @@ CREATE TABLE IF NOT EXISTS Usuario_tem_Vacina (
   Dose_01 BOOLEAN,
   Dose_02 BOOLEAN,
   Dose_03 BOOLEAN,
+  Idade INTEGER(10),
   PRIMARY KEY (Usuario_ID, Vacina_ID),
   FOREIGN KEY (Usuario_ID)
     REFERENCES Usuario (ID)
