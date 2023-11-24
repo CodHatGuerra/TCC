@@ -134,7 +134,7 @@ module.exports = {
     await FuncionarioService.consultarTodos()
       .then((resultado) => {
         json.result = {
-          funcionario: resultado,
+          postos: resultado,
         };
         console.log("-----PESQUISA REALIZADA COM SUCESSO !-------");
       })

@@ -52,7 +52,6 @@ module.exports = {
       );
     });
   },
-
   consultar: (ID) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
@@ -92,9 +91,7 @@ module.exports = {
       db.query(
         `
         SELECT
-          U.ID AS ID_Usuario,
-          F.ID AS ID_Funcionario,
-          P.ID AS ID_Posto,
+          F.ID AS Funcionario_ID,
           U.Nome AS Nome_Pessoa,
           F.Cargo AS Cargo,
           P.Nome AS Nome_Posto
@@ -181,7 +178,6 @@ module.exports = {
       );
     });
   },
-
   deletar: (ID) => {
     return new Promise((aceito, rejeitado) => {
       db.query(
@@ -230,7 +226,6 @@ module.exports = {
       );
     });
   },
-
   inserir: (funcionario) => {
     let ID_Funcionario = null;
 
