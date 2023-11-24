@@ -28,6 +28,7 @@ export class EmployeeUpdateComponent implements OnInit {
   ngOnInit(): void {
     const id = this.employeeService.getIdFuncionario();
     this.employeeService.getByIdEmployee(id).subscribe((response) => {
+      console.log(response);
       this.employee = response.result.funcionario[0]
     });
     this.getPosto();
@@ -47,19 +48,19 @@ export class EmployeeUpdateComponent implements OnInit {
 
   UpdateEmployee() {
 
-    if (this.employee == null) 
+    if (this.employee == null)
       throw this.service.AlertMessage("Complete o formulário!");
 
-      const dataInicio = new Date();
+    const dataInicio = new Date();
 
     const ano = dataInicio.getFullYear();
     const mes = (dataInicio.getMonth() + 1).toString().padStart(2, '0');
     const dia = dataInicio.getDate().toString().padStart(2, '0');
 
     console.log(this.employee);
-    
+
     const func = {
-       Funcionario: {
+      Funcionario: {
         Data_Inicio: `${ano}-${mes}-${dia}`,
         Usuario_ID: this.employee.Funcionario_ID,
         Posto_ID: this.employee.Posto_ID,
@@ -67,13 +68,13 @@ export class EmployeeUpdateComponent implements OnInit {
       }
     }
 
-    if(func.Funcionario.Cargo == null)
+    if (func.Funcionario.Cargo == null)
       throw this.service.AlertMessage("É necessário informar um cargo!")
-  
-   this.employeeService.updateEmployee(func).subscribe((response)=> {
-    console.log(response);
-    
-   });
+
+    this.employeeService.updateEmployee(func).subscribe((response) => {
+      console.log(response);
+
+    });
     console.log(func);
     //this.router.navigate(["adm", "employee", "update", cpf]);
     this.dialogRef.close();
