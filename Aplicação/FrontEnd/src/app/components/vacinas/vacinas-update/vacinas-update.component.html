@@ -5,7 +5,6 @@
             <mat-label>Tipo da Vacina</mat-label>
             <input matInput [(ngModel)]="vacina.Nome" type="text" name="Nome_da_Vacina">
         </mat-form-field>
+        <button mat-button appWhite style="font-family: Montserrat;" (click)="updateVacina()">Atualizar</button>
     </form>
-    <button mat-button appWhite style="font-family: Montserrat;" class="buttonUpdate" 
-    (click)="updateVacina()">Atualizar</button>
 </main>

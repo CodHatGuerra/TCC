@@ -88,7 +88,7 @@ button {
     height: 40px !important;
     margin-top: 0;
     color: rgb(255, 255, 255) !important;
-    background-color: rgb(78, 169, 255)!important;
+    background-color:rgba(0,134,255,1) !important;
 }
 
 a {

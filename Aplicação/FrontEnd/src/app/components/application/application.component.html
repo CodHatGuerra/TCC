@@ -1,20 +1,24 @@
 <main>
   <mat-card>
-    
-    <mat-form-field style="width: 98vh; align-content: center;" appearance="outline">
-      <input matInput placeholder="Procure um Posto" type="search"/>
-      <mat-icon matSuffix> search </mat-icon>
-    </mat-form-field>
+    <mat-card-header>
+      <h2 style="font-family: Montserrat; margin: 0px;">Cateira</h2>
+      <mat-form-field style="width: 50vh;" appearance="outline">
+        <mat-label>Procure um paciente</mat-label>
+        <input  mask="000.000.000-00" matInput placeholder="000.000.000-00"/>
+        <mat-icon matSuffix> search </mat-icon>
+      </mat-form-field>
+    </mat-card-header>
+
     <div class="age">
       <div style="text-align: center;">
         <div class="DIV">
-          <img class="imgBaby" src="../../../assets/img/baby.png"/>
+          <img class="imgBaby" src="../../../assets/img/baby.png" />
         </div>
         <p style="font-family: Montserrat;">Bebê</p>
       </div>
       <div style="text-align: center;">
         <div class="DIV">
-          <img class="teenager" src="../../../assets/img/teenager.png"/>
+          <img class="teenager" src="../../../assets/img/teenager.png" />
         </div>
         <p style="font-family: Montserrat;">Adolescente</p>
       </div>
@@ -27,12 +31,11 @@
     </div>
 
     <span style="margin-top: 10px;">
-      <h2 style="font-family: Montserrat; margin: 0px;">Cateira</h2>
+     
       <mat-icon *ngIf="isFuncionario" class="add" (click)="CreateCarteira()">add</mat-icon>
     </span>
     <table mat-table [dataSource]="dataSource">
-      <tr style="background-color: rgb(238, 238, 238);"
-          mat-header-row *matHeaderRowDef="columnCarteira"></tr>
+      <tr style="background-color: rgb(238, 238, 238);" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
       <tr mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
         [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
 
@@ -53,7 +56,7 @@
             <a class="edit">
               <mat-icon class="mat-18"> edit </mat-icon>
             </a>
-            <a class="delete" >
+            <a class="delete">
               <mat-icon class="mat-18"> delete </mat-icon>
             </a>
           </div>

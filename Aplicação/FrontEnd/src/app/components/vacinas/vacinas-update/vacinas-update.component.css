@@ -1,5 +1,5 @@
 main {
-    width: 35vw;
+    width: 30vw;
     height: 40vh;
     text-align: center;
     padding:  20px ;
@@ -15,11 +15,11 @@ h1 {
     font-size: 24px !important;
 }
 
-.buttonUpdate {
-    width: 180px;
-    margin-top: 10px;
+button {
+    width: 100%;
+    margin-top: 20px !important;
     margin: 0 auto;
-    height: 40px;
+    height: 44px !important;
     background-color:  #186ff3;
     color: #FFF !important;
 }

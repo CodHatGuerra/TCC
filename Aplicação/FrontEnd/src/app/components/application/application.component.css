@@ -16,6 +16,12 @@ mdc-data-table__cell, .mdc-data-table__header-cell {
   border-bottom: 0;
 }
 
+mat-card-header {
+  display: flex;
+  width: 100% !important;
+  justify-content: space-between;
+}
+
 .even-row { background-color: #eee; }
 
 .odd-row { background-color: white; }

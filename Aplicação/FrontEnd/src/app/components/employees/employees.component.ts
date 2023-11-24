@@ -70,8 +70,6 @@ export class EmployeesComponent implements OnInit {
     this.idPosto = event.value;
     this.employeeService.setIdPosto(event.value);
     this.employeeService.getEmployeeByPosto(this.idPosto).subscribe((response) => {
-      console.log(response);
-      
       this.allEmployees = response.result.postos;
       this.dataSource = response.result.postos;
     })
@@ -79,9 +77,8 @@ export class EmployeesComponent implements OnInit {
 
   getAllEmployee() {
     this.employeeService.getAllEmployee().subscribe((response: any) => {
-      this.dataSource = response.result.funcionario;
-      console.log(response);
-      this.allEmployees = response.result.funcionario;
+      this.dataSource = response.result.postos;
+      this.allEmployees = response.result.postos;
     });
   }
 
