@@ -28,8 +28,9 @@ export class EmployeeUpdateComponent implements OnInit {
   ngOnInit(): void {
     const id = this.employeeService.getIdFuncionario();
     this.employeeService.getByIdEmployee(id).subscribe((response) => {
-      console.log(response);
       this.employee = response.result.funcionario[0]
+      this.idPosto = this.employee.Posto_ID
+      console.log(this.idPosto);
     });
     this.getPosto();
   }
@@ -52,18 +53,19 @@ export class EmployeeUpdateComponent implements OnInit {
       throw this.service.AlertMessage("Complete o formulário!");
 
     const dataInicio = new Date();
-
     const ano = dataInicio.getFullYear();
     const mes = (dataInicio.getMonth() + 1).toString().padStart(2, '0');
     const dia = dataInicio.getDate().toString().padStart(2, '0');
 
-    console.log(this.employee);
+    const idPosto = this.employeeService.getIdPosto()
 
+    console.log(idPosto);
+    
     const func = {
       Funcionario: {
         Data_Inicio: `${ano}-${mes}-${dia}`,
         Usuario_ID: this.employee.Funcionario_ID,
-        Posto_ID: this.employee.Posto_ID,
+        Posto_ID: idPosto,
         Cargo: this.employee.Cargo
       }
     }
@@ -73,7 +75,7 @@ export class EmployeeUpdateComponent implements OnInit {
 
     this.employeeService.updateEmployee(func).subscribe((response) => {
       console.log(response);
-
+      
     });
     console.log(func);
     //this.router.navigate(["adm", "employee", "update", cpf]);

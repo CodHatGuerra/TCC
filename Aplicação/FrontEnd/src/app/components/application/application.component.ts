@@ -17,7 +17,7 @@ export class ApplicationComponent implements OnInit {
     private dialog: MatDialog,
     private profileService: ProfileService) { }
 
-  isFuncionario: boolean = true
+  isFuncionario: boolean = false
   idFuncionario: number = 0;
 
   columnCarteira: string[] = ['vacinas', 'doses', 'acoes'];
@@ -27,14 +27,13 @@ export class ApplicationComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getCarteira()
+    const user = this.service.GetUser();
+    
+    if (user[0].Funcionario == 1)
+      this.isFuncionario = true
 
-    // if (uncionario == 1)
-    //   this.isFuncionario = true
-
-    // else
-    //   this.isFuncionario = false
-
-    console.log();
+    else
+      this.isFuncionario = false
   }
 
   search() {
@@ -50,6 +49,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   CreateCarteira() {
+    if(this.cpf == null || undefined)
+    throw this.service.AlertMessage("Nenhuma carteira selecionada !")
+  
     const dialog = this.dialog.open(CarteiraAddComponent);
     dialog.afterClosed().subscribe(() => {
       this.getCarteira(this.cpf)

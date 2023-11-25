@@ -91,15 +91,6 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
-  // getEmployeeByPosto() {
-  //   this.employeeService
-  //     .getEmployeeByPosto(this.idPosto).subscribe((response) => {
-  //       this.dataSource = response.result.funcionario;
-  //       console.log(response);
-  //       this.dataSource = response.postos;
-  //     });
-  // }
-
   openUpdateEmployee(id: number) {
     this.employeeService.setIdFuncionario(id);
     const dialog = this.dialog.open(EmployeeUpdateComponent);
@@ -117,4 +108,14 @@ export class EmployeesComponent implements OnInit {
   //     this.getAllEmployee();
   //     this.getPosto();
   //   });
+
+    // getEmployeeByPosto() {
+  //   this.employeeService
+  //     .getEmployeeByPosto(this.idPosto).subscribe((response) => {
+  //       this.dataSource = response.result.funcionario;
+  //       console.log(response);
+  //       this.dataSource = response.postos;
+  //     });
+  // }
+
 }

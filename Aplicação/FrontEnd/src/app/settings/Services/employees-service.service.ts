@@ -72,9 +72,7 @@ export class EmployeeService {
   }
 
   deleteEmployee(id: number): Observable<any>{
-    return this.http.delete<any>(`http://localhost:8080/api/funcionario/${id}`, {
-      headers: this.httpHeaders,
-    });
+    return this.http.delete<any>(`http://localhost:8080/api/funcionario/${id}`, { headers: this.httpHeaders });
   }
 
   postEmployee(obj: any): Observable<any> {

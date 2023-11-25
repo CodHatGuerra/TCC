@@ -78,20 +78,27 @@ export class SignUpComponent {
   }
 
   onInputChange(): void {
-    const dateWithoutMask = this.form.get('data_Nascimento')!.value.replace(/\//g, '');
-    console.log('Input Value:', dateWithoutMask);
-    const dateObject = this.parseDate(dateWithoutMask);
-
-    const formattedDate = this.formatDate(dateObject);
-
-    this.form.patchValue({
-      data_Nascimento: formattedDate,
-    });
+    const dateValue = this.form.get('data_Nascimento')!.value;
+  
+    if (dateValue instanceof Date) {
+      const dateWithoutMask = dateValue.toISOString().split('T')[0].replace(/-/g, '');
+      console.log('Input Value:', dateWithoutMask);
+      const dateObject = this.parseDate(dateWithoutMask);
+  
+      const formattedDate = this.formatDate(dateObject);
+  
+      this.form.patchValue({
+        data_Nascimento: formattedDate,
+      });
+    } else {
+      console.error('Invalid date value:', dateValue);
+    }
   }
-
+  
   Submit() {
     this.validateDate(this.form.value.data_Nascimento)
-   // this.onInputChange();
+    this.onInputChange()
+
     if (this.form.invalid)
       throw this.appService.AlertMessage('Complete o formulário.');
 

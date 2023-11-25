@@ -1,7 +1,7 @@
 <main>
   <img style="margin: 0 auto;" src="./../../../../assets/img/employe.png" class="icon" >
-  <h2 style="font-family: Montserrat; margin: 0 !important;">Registre um funcionário</h2>
-  <form [formGroup]="formEmployee" class="form" *ngFor="let proper of posto">
+  <form [formGroup]="formEmployee" *ngFor="let proper of posto">
+    <p style="font-family: Montserrat;">Infome os dados do funcionário a seguir:</p>
     <mat-form-field appearance="outline">
       <mat-label>Cpf</mat-label>
       <input matInput formControlName="cpf" mask="000.000.000-00"/>
@@ -13,7 +13,7 @@
     <mat-form-field appearance="outline">
       <input matInput readonly [placeholder]="proper.Nome_do_Posto" type="text">
     </mat-form-field>
+    <button class="buttonRegister" mat-button appWhite (click)="SubmitEmployee()">Cadastrar</button>
   </form>
-  <button class="buttonRegister" mat-button appWhite (click)="SubmitEmployee()">Cadastrar</button>
 </main>
   
