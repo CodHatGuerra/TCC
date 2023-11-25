@@ -126,7 +126,7 @@ export class AppService {
   }
 
   GetUserByCpf(cpf: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/usuario/${cpf}`,  { headers: this.httpHeaders })
+    return this.http.get<any>(`http://localhost:8080/api/usuario/cpf/${cpf}`,  { headers: this.httpHeaders })
   }
 
   GetAllVacinas(): Observable<any>{

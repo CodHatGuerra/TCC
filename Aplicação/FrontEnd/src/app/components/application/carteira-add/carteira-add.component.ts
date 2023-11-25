@@ -16,9 +16,9 @@ export class CarteiraAddComponent implements OnInit {
   dose02: boolean = false;
   dose03: boolean = false;
   userId: number = 0;
-
-
   teste = true
+  dataNascimento: any;
+  cpf: any;
 
   allVacinas: any;
   idVacina: number = 0;
@@ -30,12 +30,24 @@ export class CarteiraAddComponent implements OnInit {
   ngOnInit(): void {
     this.service.GetAllVacinas().subscribe((res) => {
       this.allVacinas = res.result.Vacinas
-      console.log(this.allVacinas);
     })
+
+    this.userCpf()
   }
 
+  userCpf(){
+    const cpfUser = this.profileService.getCpf()
+    this.cpf = cpfUser;
+    this.service.GetUserByCpf(this.cpf).subscribe((res)=>{
+      console.log(res);
+      this.dataNascimento = res.result.Usuario[0].Data_Nascimento
+      this.userId = res.result.Usuario[0].ID
+    });
+  }
   
   createVacina() {
+      const idade = this.profileService.idadeCalculo(this.dataNascimento);
+     
     const carteira = {
       carteiraUsuario:
       {
@@ -43,13 +55,14 @@ export class CarteiraAddComponent implements OnInit {
         Vacina_ID: this.idVacina,
         Dose_01: this.dose01,
         Dose_02: this.dose02,
-        Dose_03: this.dose03
+        Dose_03: this.dose03,
+        Idade: idade
       }
     }
     console.log(carteira);
 
-    if(carteira.carteiraUsuario.Vacina_ID == null)
-    this.service.AlertMessage("É necessário adicionar uma vacina!")
+    if(this.userId == undefined || this.userId == null)
+      throw this.service.AlertMessage("É necessário adicionar uma vacina!")
 
     this.service.CreateCarteira(carteira).subscribe((res) => {
       console.log(res);
@@ -60,11 +73,8 @@ export class CarteiraAddComponent implements OnInit {
 
   onSelectionChange(event: any) {
     if(event.value == null || event.value == 0)
-    this.service.AlertMessage("Nenhuma vacina registrada!")
+      this.service.AlertMessage("Nenhuma vacina registrada!")
 
     this.idVacina = event.value;
-    const user = this.service.GetUser();
-    this.userId = user[0].ID
   }
-
 }

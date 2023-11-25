@@ -26,22 +26,13 @@ export class ProfileComponent {
 
   Profile() {
     const user = this.service.GetUser();
+    this.infoUser = user;
 
-    if (user) {
-      this.infoUser = user;
-      const dataNascimento = new Date(user[0].Data_Nascimento);
-      console.log(user);
-      
-      const hoje = new Date();
-      const diffMilissegundos = hoje.getTime() - dataNascimento.getTime();
-      const diffAnos = Math.floor(
-        diffMilissegundos / (365 * 24 * 60 * 60 * 1000)
-      );
-      this.idade = diffAnos;
-    } else {
-      this.router.navigate([""]);
-    }
+    const dataNascimento = new Date(user[0].Data_Nascimento);
+    this.idade = this.profileService.idadeCalculo(dataNascimento)
+    console.log(this.idade);
   }
+
 
   updateProfile(id: number) {
     this.profileService.setIdProfile(id);

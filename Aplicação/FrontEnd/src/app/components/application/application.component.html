@@ -2,9 +2,9 @@
   <mat-card>
     <div class="DF" style="justify-content: space-between;">
       <h2 style="font-family: Montserrat;">Cateira</h2>
-      <mat-form-field style="width: 50vh;" appearance="outline">
+      <mat-form-field style="width: 50vh;" appearance="outline" >
         <mat-label>Procure um paciente</mat-label>
-        <input  mask="000.000.000-00" [(ngModel)]="cpf" matInput placeholder="000.000.000-00"/>
+        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00"/>
         <mat-icon matSuffix style="cursor: pointer;" (click)="search()"> search </mat-icon>
       </mat-form-field>
     </div>
