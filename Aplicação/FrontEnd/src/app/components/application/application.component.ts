@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/settings/Services/app.service';
-import { Vacinas } from '../vacciness';
 import { MatDialog } from '@angular/material/dialog';
 import { CarteiraAddComponent } from './carteira-add/carteira-add.component';
 import { CarteiraDeleteComponent } from './carteira-delete/carteira-delete.component';
@@ -45,14 +44,15 @@ export class ApplicationComponent implements OnInit {
 
   getCarteira(cpf: number) {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
-      console.log(res);
+    this.dataSource = res.result.Vacinas
+    console.log(res);
     });
   }
 
   CreateCarteira() {
     const dialog = this.dialog.open(CarteiraAddComponent);
     dialog.afterClosed().subscribe(() => {
-      //.getCarteira(this.user[0].ID)
+      this.getCarteira(this.cpf)
     })
   }
 
@@ -61,7 +61,7 @@ export class ApplicationComponent implements OnInit {
     this.service.setVacinaCarteira(idVacina)
     const dialog = this.dialog.open(CarteiraDeleteComponent)
     return dialog.afterClosed().subscribe(() => {
-      //this.getCarteira(this.user[0].ID)
+      this.getCarteira(this.cpf)
     })
   }
 }

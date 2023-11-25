@@ -59,7 +59,6 @@ export class CarteiraAddComponent implements OnInit {
         Idade: idade
       }
     }
-    console.log(carteira);
 
     if(this.userId == undefined || this.userId == null)
       throw this.service.AlertMessage("É necessário adicionar uma vacina!")
