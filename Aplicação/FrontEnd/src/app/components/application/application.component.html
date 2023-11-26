@@ -39,7 +39,7 @@
       <tr mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
         [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
 
-      <ng-container matColumnDef="vacinas">
+      <ng-container style="display: flex; justify-content: center; margin: 0 auto;" matColumnDef="vacinas">
         <th style="border-radius:  5px 0 0 5px !important;" mat-header-cell *matHeaderCellDef>Vacinas</th>
         <td mat-cell *matCellDef="let row"> {{row.NomeVacina}}</td>
       </ng-container>
@@ -47,7 +47,9 @@
       <ng-container matColumnDef="doses">
         <th mat-header-cell *matHeaderCellDef>Doses</th>
         <td mat-cell *matCellDef="let row"> 
-          <mat-checkbox *ngIf="dose01">Dose 01</mat-checkbox>
+          <mat-checkbox [checked]="dose01" disabled>Dose 01</mat-checkbox>
+          <mat-checkbox [checked]="dose02" disabled>Dose 02</mat-checkbox>
+          <mat-checkbox [checked]="dose03" disabled>Dose 03</mat-checkbox>
       </ng-container>
 
       <ng-container matColumnDef="acoes">

@@ -20,11 +20,14 @@ export class ApplicationComponent implements OnInit {
 
   isFuncionario: boolean = false
   idFuncionario: number = 0;
-  readonly  dose01: boolean = true 
   columnCarteira: string[] = ['vacinas', 'doses', 'acoes'];
   input: string = '';
   cpf: any;
   dataSource: any;
+
+  dose01: boolean = false;
+  dose02: boolean = false;
+  dose03: boolean = false;
 
   ngOnInit(): void {
     // this.getCarteira()
@@ -39,14 +42,28 @@ export class ApplicationComponent implements OnInit {
 
   search() {
     this.profileService.setCpf(this.cpf)
-   // this.dialog.open(SppinerComponent)
+    // this.dialog.open(SppinerComponent)
     this.getCarteira(this.cpf)
   }
 
   getCarteira(cpf: number) {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
       this.dataSource = res.result.Vacinas
-      console.log(this.dataSource);
+
+      if (this.dataSource[0].Dose_01 == 1)
+        this.dose01 = true
+      else
+        this.dose01 = false
+
+      if (this.dataSource[0].Dose_02 == 1)
+        this.dose02 = true
+      else
+        this.dose02 = false
+
+      if (this.dataSource[0].Dose_03 == 1)
+        this.dose03 = true  
+      else
+        this.dose03 = false
 
     });
   }
@@ -70,7 +87,7 @@ export class ApplicationComponent implements OnInit {
     })
   }
 
-  updateVacinaCarteira(idCarteira: number, idVacina: number){
+  updateVacinaCarteira(idCarteira: number, idVacina: number) {
     this.service.setCarteira(idCarteira)
     this.service.setVacinaCarteira(idVacina)
     const dialog = this.dialog.open(CarteiraUpdateComponent)

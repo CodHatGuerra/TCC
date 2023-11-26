@@ -38,15 +38,15 @@ export class ProfileService {
 
   getUserById(id: number): Observable<any> {
     const user = this.http.get<any>(`http://localhost:8080/api/usuario/${id}`, {
-        headers: this.httpHeaders,
-      }) ?? this.service.AlertMessage("Não foi possível encontrar um funcionário");
+      headers: this.httpHeaders,
+    }) ?? this.service.AlertMessage("Não foi possível encontrar um funcionário");
     return user;
   }
 
-  updateProfile(id: number,obj: any):Observable<any>{
-    return this.http.put<any>(`http://localhost:8080/api/usuario/${id}`, obj , {
+  updateProfile(id: number, obj: any): Observable<any> {
+    return this.http.put<any>(`http://localhost:8080/api/usuario/${id}`, obj, {
       headers: this.httpHeaders,
-    }) 
+    })
   }
 
   setIdadeUser(id: any) {
@@ -65,5 +65,11 @@ export class ProfileService {
       diffMilissegundos / (365 * 24 * 60 * 60 * 1000)
     );
     return diffAnos;
+  }
+
+  updateCarteira(obj: any): Observable<any> {
+    return this.http.put<any>(`http://localhost:8080/api/carteira`, obj, {
+      headers: this.httpHeaders,
+    })
   }
 }

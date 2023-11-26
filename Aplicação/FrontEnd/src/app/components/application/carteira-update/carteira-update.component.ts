@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { AppService } from 'src/app/settings/Services/app.service';
 import { ProfileService } from 'src/app/settings/Services/profile.service';
 
@@ -9,7 +10,8 @@ import { ProfileService } from 'src/app/settings/Services/profile.service';
 })
 export class CarteiraUpdateComponent implements OnInit{
 
-constructor( private service: AppService, private profileService: ProfileService){}
+constructor( private service: AppService, private profileService: ProfileService,
+  private dialogRef: MatDialogRef<CarteiraUpdateComponent>){}
 
   allVacinas: any;
   dose01: boolean = false;
@@ -27,13 +29,14 @@ constructor( private service: AppService, private profileService: ProfileService
     this.service.GetByVacinas(idVacina).subscribe((res)=>{
       this.vacinaNome = res.result.postos[0].Nome
     })
-
   }
 
   updateVacina(){
     const idCarteira = this.service.getCarteira()
-    const idade = this.profileService.getIdadeUser()
-    console.log(idade);
+    const user = this.service.GetUser()
+    const dataNascimento = new Date(user[0].Data_Nascimento);
+    const idade = this.profileService.idadeCalculo(dataNascimento)
+    
     
     const carteira = {
       carteiraUsuario:
@@ -46,5 +49,13 @@ constructor( private service: AppService, private profileService: ProfileService
         Idade: idade
       }
     }
+
+    console.log(carteira);
+    
+    this.profileService.updateCarteira(carteira).subscribe((res)=>{
+      console.log(res);
+      this.dialogRef.close()
+      this.service.SuccessMessage("Doses atualizadas!")
+    })
   }
 }

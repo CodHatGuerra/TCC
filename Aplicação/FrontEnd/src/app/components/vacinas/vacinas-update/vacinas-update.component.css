@@ -1,14 +1,14 @@
 main {
     width: 30vw;
-    height: 40vh;
+    height: 30vh;
     text-align: center;
-    padding:  20px ;
+    padding:  20px;
 }
 
 form {
     display: grid;
     width: 100% !important;
-    margin-top: 90px;
+    margin-top: 65px;
 }
 
 h1 {
@@ -17,9 +17,9 @@ h1 {
 
 button {
     width: 100%;
-    margin-top: 20px !important;
+    margin-top: 5px !important;
     margin: 0 auto;
     height: 44px !important;
-    background-color:  #186ff3;
+    background-color:  #21a4f0 !important;
     color: #FFF !important;
 }
