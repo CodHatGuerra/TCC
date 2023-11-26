@@ -29,7 +29,6 @@ export class ProfileUpdateComponent implements OnInit {
     const id = this.profileService.getIdProfile();
     this.profileService.getUserById(id).subscribe((response) => {
       this.profile = response.result.postos[0];
-      console.log(this.profile);
       this.profile.Data_Nascimento = this.ajusteData(this.profile.Data_Nascimento);
       this.imageUrl = this.profile.Imagem
       this.sexo = this.profile.sexo;
@@ -39,9 +38,9 @@ export class ProfileUpdateComponent implements OnInit {
   ajusteData(dataNascimentoString: any) {
     const dataNascimento = new Date(dataNascimentoString);
     const ano = dataNascimento.getFullYear();
-    const mes = (dataNascimento.getMonth() + 1).toString().padStart(2, '0'); 
+    const mes = (dataNascimento.getMonth() + 1).toString().padStart(2, '0');
     const dia = dataNascimento.getDate().toString().padStart(2, '0');
-  
+
     return new Date(`${ano}-${mes}-${dia}`);
   }
 
@@ -58,7 +57,7 @@ export class ProfileUpdateComponent implements OnInit {
         } else if (fileContent instanceof ArrayBuffer) {
           const buffer = new Uint8Array(fileContent);
           const base64String = btoa(String.fromCharCode.apply(null, Array.from(buffer)));
-        console.log('Conteúdo do arquivo como ArrayBuffer (base64):', base64String);
+          console.log('Conteúdo do arquivo como ArrayBuffer (base64):', base64String);
         }
       };
 
@@ -87,13 +86,28 @@ export class ProfileUpdateComponent implements OnInit {
     const year = date.getFullYear().toString();
     return `${year}-${month}-${day}`;
   }
-
+ 
 
   updateProfile() {
-    const date =  this.formatDate(this.profile.Data_Nascimento) 
-    console.log(this.profile.Nome);
-    if(this.base64 == null || this.base64 == undefined)
-      this.base64 == this.imageUrl
+    const date = this.formatDate(this.profile.Data_Nascimento)
+    
+    if (this.base64 == null || this.base64 == undefined)
+      this.base64 = this.profile.Imagem
+    
+      console.log(this.profile.Imagem);
+    
+    const user = this.service.GetUser();
+    user[0].Cpf = this.profile.Cpf;
+    user[0].Nome = this.profile.Nome
+    user[0].Sexo = this.profile.Sexo,
+    user[0].Email = this.profile.Email
+    user[0].Imagem = this.base64
+    user[0].Numero_Telefone = this.profile.Numero_do_Telefone,
+    user[0].Data_Nascimento = date
+
+    console.log(user);
+    
+    localStorage.setItem('user', JSON.stringify(user))
 
     this.profileObj = {
       usuario: {
@@ -106,13 +120,14 @@ export class ProfileUpdateComponent implements OnInit {
         imagem: this.base64
       },
       telefone: {
-        numero: this.profile.Numero_do_Telefone,
+        numero: this.profile.Numero_do_Telefone
       },
     };
-    console.log(this.profileObj);
-    this.profileService.updateProfile(this.profile.ID, this.profileObj).subscribe((res)=>{
+
+    this.profileService.updateProfile(this.profile.ID, this.profileObj).subscribe((res) => {
       this.dialogRef.close()
       this.service.SuccessMessage("Seu perfil foi atualizado!")
-    })
+      console.log(this.service.GetUser());
+    })  
   }
 }

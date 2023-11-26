@@ -57,7 +57,7 @@ import { CarteiraUpdateComponent } from './components/application/carteira-updat
 import { SignUpComponent } from './views/SignUp/SignUp.component';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SppinerComponent } from './component/application/sppiner/sppiner.component';
+import { SppinerComponent } from './components/application/sppiner/sppiner.component';
 @NgModule({
   declarations: [
     SignUpComponent,

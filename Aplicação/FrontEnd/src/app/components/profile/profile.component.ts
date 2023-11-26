@@ -31,9 +31,9 @@ export class ProfileComponent {
   getUser() {
     const user = this.service.GetUser();
     this.infoUser = user;
+    
     const dataNascimento = new Date(user[0].Data_Nascimento);
     this.idade = this.profileService.idadeCalculo(dataNascimento)
-    console.log(user);
   }
 
   updateProfile(id: number) {

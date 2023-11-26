@@ -15,7 +15,7 @@
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Cpf</mat-label>
-      <input matInput name="cpf" [(ngModel)]="profile.Cpf" type="number"/>
+      <input matInput name="cpf" mask="000.000.000-00" [(ngModel)]="profile.Cpf"/>
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Email</mat-label>
@@ -23,7 +23,7 @@
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Telefone</mat-label>
-      <input matInput name="telefone" mask="(00) 0000-0000" [(ngModel)]="profile.Numero_do_Telefone"/>
+      <input matInput name="telefone" mask="(00) 00000-0000" [(ngModel)]="profile.Numero_do_Telefone"/>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
