@@ -6,6 +6,7 @@ import { AppService } from 'src/app/settings/Services/app.service';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { HttpClient } from '@angular/common/http';
+import { ProfileService } from 'src/app/settings/Services/profile.service';
 
 
 @Component({
@@ -20,10 +21,12 @@ export class SignInComponent {
     cpf: 0,
     senha: ''
   }
+  idade: any;
 
   //mask: string = '';
 
-  constructor(private http: HttpClient, private appService: AppService, private fb: FormBuilder, private router: Router) {
+  constructor(private http: HttpClient, private appService: AppService, 
+    private fb: FormBuilder, private router: Router, private profileService: ProfileService) {
     this.form = fb.group({
       cpf: ['', [Validators.required, Validators.pattern(`[0-9]*`)]],
       senha: ['', Validators.required]
@@ -47,12 +50,14 @@ export class SignInComponent {
       this.FormLogin = this.form.value
       this.SignIn(this.FormLogin).subscribe((response: any) => {
         if (response.result.autenticado == true) {
-          console.log(response);
           this.appService.SetUser(response.result.resposta);
+          console.log(response.result.resposta);
+          
           localStorage.setItem('Token', response.result.token);
           this.router.navigate(['adm', 'application']);
           const name = this.PrimaryName(response.result.resposta[0].Nome)
           this.appService.Message(`Bem vindo ${name} !`)
+         
         } else {
           this.appService.AlertMessage('Usuário não encontrado.')
         }

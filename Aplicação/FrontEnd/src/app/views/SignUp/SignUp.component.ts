@@ -81,14 +81,14 @@ export class SignUpComponent {
     const dateValue = this.form.get('data_Nascimento')!.value;
   
     if (dateValue instanceof Date) {
-      const dateWithoutMask = dateValue.toISOString().split('T')[0].replace(/-/g, '');
+      const year = dateValue.getUTCFullYear();
+      const month = dateValue.getUTCMonth() + 1; // Lembrando que os meses são de 0 a 11
+      const day = dateValue.getUTCDate();
+  
+      const dateWithoutMask = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
       console.log('Input Value:', dateWithoutMask);
-      const dateObject = this.parseDate(dateWithoutMask);
-  
-      const formattedDate = this.formatDate(dateObject);
-  
       this.form.patchValue({
-        data_Nascimento: formattedDate,
+        data_Nascimento: dateWithoutMask,
       });
     } else {
       console.error('Invalid date value:', dateValue);
@@ -96,8 +96,8 @@ export class SignUpComponent {
   }
   
   Submit() {
-    this.validateDate(this.form.value.data_Nascimento)
     this.onInputChange()
+    this.validateDate(this.form.value.data_Nascimento)
 
     if (this.form.invalid)
       throw this.appService.AlertMessage('Complete o formulário.');

@@ -37,14 +37,19 @@ export class ProfileService {
   }
 
   getUserById(id: number): Observable<any> {
-    const user =
-      this.http.get<any>(`http://localhost:8080/api/usuario/${id}`, {
+    const user = this.http.get<any>(`http://localhost:8080/api/usuario/${id}`, {
         headers: this.httpHeaders,
       }) ?? this.service.AlertMessage("Não foi possível encontrar um funcionário");
     return user;
   }
 
-  setidadeUser(id: any) {
+  updateProfile(id: number,obj: any):Observable<any>{
+    return this.http.put<any>(`http://localhost:8080/api/usuario/${id}`, obj , {
+      headers: this.httpHeaders,
+    }) 
+  }
+
+  setIdadeUser(id: any) {
     this.idadeUser = id
   }
 

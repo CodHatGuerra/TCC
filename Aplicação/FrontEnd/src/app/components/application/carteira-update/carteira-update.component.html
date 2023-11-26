@@ -1,1 +1,14 @@
-<p>carteira-update works!</p>
+<main>
+    <h1 style="font-family: Montserrat;">Você pode alterar as doses</h1>
+
+    <mat-form-field style="width: 100% !important; margin-top: 28px !important;" appearance="outline">
+        <mat-label>Vacina</mat-label>
+        <input matInput readonly [value]="vacinaNome" type="text" />
+    </mat-form-field>
+    <div>
+        <mat-checkbox [(ngModel)]="dose01">Dose 01</mat-checkbox>
+        <mat-checkbox [(ngModel)]="dose02">Dose 02</mat-checkbox>
+        <mat-checkbox [(ngModel)]="dose03">Dose 03</mat-checkbox>
+    </div>
+    <button mat-button appWhite (click)="updateVacina()">Atualizar</button>
+</main>

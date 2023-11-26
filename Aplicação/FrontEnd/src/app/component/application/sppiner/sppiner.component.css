@@ -1,0 +1,13 @@
+div {
+    width: 250px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-spinner {
+    height: 80px !important;
+    width: 80px !important;
+    background-color: transparent !important;
+}

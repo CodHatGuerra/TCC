@@ -26,6 +26,7 @@ a {
     --mdc-snackbar-container-color: #26bd7e;
     --mat-mdc-snack-bar-button-color: #fff;
     --mdc-snackbar-supporting-text-color: #fff;
+    font-family: Montserrat;
   }
 }
 
@@ -34,6 +35,7 @@ a {
     --mdc-snackbar-container-color: #fd1100d8;
     --mat-mdc-snack-bar-button-color: #fff;
     --mdc-snackbar-supporting-text-color: #fff;
+    font-family: Montserrat;
   }
 }
 
@@ -41,6 +43,7 @@ a {
   &.info {
     --mdc-snackbar-container-color: #ff9100;
     --mat-mdc-snack-bar-button-color: #fff;
+    font-family: Montserrat;
     --mdc-snackbar-supporting-text-color: #fff;
   }
 }
@@ -49,6 +52,7 @@ a {
   &.common {
     --mdc-snackbar-container-color: #26bd7e;
     --mat-mdc-snack-bar-button-color: #fff;
+    font-family: Montserrat;
     --mdc-snackbar-supporting-text-color: #fff;
   }
 }

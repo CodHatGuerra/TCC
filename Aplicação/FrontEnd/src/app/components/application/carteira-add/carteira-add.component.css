@@ -12,5 +12,11 @@ main {
     margin: 0 auto;
     margin-top: 25px;
     background-color: #21a4f0 !important;
- }
- 
+}
+
+div {
+    display: flex;
+    gap: 70px;
+    justify-content: space-between;
+    margin-top: 17px;
+}

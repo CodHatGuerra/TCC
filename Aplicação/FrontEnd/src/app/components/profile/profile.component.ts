@@ -25,20 +25,24 @@ export class ProfileComponent {
   columns: string[] = ["name", "actions"];
 
   Profile() {
-    const user = this.service.GetUser();
-    this.infoUser = user;
-
-    const dataNascimento = new Date(user[0].Data_Nascimento);
-    this.idade = this.profileService.idadeCalculo(dataNascimento)
-    console.log(this.idade);
+    this.getUser()
   }
 
+  getUser() {
+    const user = this.service.GetUser();
+    this.infoUser = user;
+    const dataNascimento = new Date(user[0].Data_Nascimento);
+    this.idade = this.profileService.idadeCalculo(dataNascimento)
+    console.log(user);
+  }
 
   updateProfile(id: number) {
     this.profileService.setIdProfile(id);
-    this.dialog.open(ProfileUpdateComponent);
+    const dialog = this.dialog.open(ProfileUpdateComponent);
+    dialog.afterClosed().subscribe(() => {
+      this.getUser()
+    })
   }
-
 
   // onFileChange(event: any) {
   //   const file = event.target.files[0];

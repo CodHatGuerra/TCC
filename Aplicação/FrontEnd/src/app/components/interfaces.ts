@@ -23,8 +23,8 @@ export interface Profile {
 	  data_Nascimento: string,
 	  sexo: string,
 	  email: string,
-	  data_Criada: string,
-	  senha: number
+	  senha: string,
+    imagem: string
 	},
   telefone: {
     numero: number

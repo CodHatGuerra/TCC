@@ -98,7 +98,7 @@ export class AppService {
   }
 
   getCarteira(){
-    return this.idVacinaCarteira
+    return this.idCarteira
   }
 
   setCarteira(id: number){

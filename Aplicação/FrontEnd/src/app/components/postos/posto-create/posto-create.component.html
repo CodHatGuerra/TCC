@@ -2,7 +2,7 @@
   <img src="../.././../../assets/img/local_icon.png" class="localIcon">
   <h2 style="font-family: Montserrat;">Registre um posto</h2>
 
-  <form [formGroup]="formPosto" class="form">
+  <form [formGroup]="formPosto" >
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Nome</mat-label>
       <input matInput formControlName="nome" type="text"/>
@@ -13,13 +13,13 @@
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Uf</mat-label>
-      <input matInput  mask="AA" readonly formControlName="uf" type="text" [value]="uf"/>
+      <input matInput mask="AA" readonly formControlName="uf" type="text" [value]="uf"/>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Localidade</mat-label>
       <input matInput readonly formControlName="localidade" type="text" [value]="localidade"/>
     </mat-form-field>
-    <mat-form-field class="MR" appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Bairro</mat-label>
       <input matInput readonly formControlName="bairro" type="text" [value]="bairro"/>
     </mat-form-field>

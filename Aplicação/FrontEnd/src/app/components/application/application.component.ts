@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CarteiraAddComponent } from './carteira-add/carteira-add.component';
 import { CarteiraDeleteComponent } from './carteira-delete/carteira-delete.component';
 import { ProfileService } from 'src/app/settings/Services/profile.service';
+import { CarteiraUpdateComponent } from './carteira-update/carteira-update.component';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class ApplicationComponent implements OnInit {
 
   isFuncionario: boolean = false
   idFuncionario: number = 0;
-
+  readonly  dose01: boolean = true 
   columnCarteira: string[] = ['vacinas', 'doses', 'acoes'];
   input: string = '';
   cpf: any;
@@ -28,7 +29,7 @@ export class ApplicationComponent implements OnInit {
   ngOnInit(): void {
     // this.getCarteira()
     const user = this.service.GetUser();
-    
+
     if (user[0].Funcionario == 1)
       this.isFuncionario = true
 
@@ -38,31 +39,42 @@ export class ApplicationComponent implements OnInit {
 
   search() {
     this.profileService.setCpf(this.cpf)
+   // this.dialog.open(SppinerComponent)
     this.getCarteira(this.cpf)
   }
 
   getCarteira(cpf: number) {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
-    this.dataSource = res.result.Vacinas
-    console.log(res);
+      this.dataSource = res.result.Vacinas
+      console.log(this.dataSource);
+
     });
   }
 
   CreateCarteira() {
-    if(this.cpf == null || undefined)
-    throw this.service.AlertMessage("Nenhuma carteira selecionada !")
-  
+    if (this.cpf == null || undefined)
+      throw this.service.AlertMessage("Nenhuma carteira selecionada !")
+
     const dialog = this.dialog.open(CarteiraAddComponent);
     dialog.afterClosed().subscribe(() => {
       this.getCarteira(this.cpf)
     })
   }
 
-  deleteVacinaCarteira(idVacina: number, idCarteira: number) {
+  deleteVacinaCarteira(idCarteira: number, idVacina: number) {
     this.service.setCarteira(idCarteira)
     this.service.setVacinaCarteira(idVacina)
     const dialog = this.dialog.open(CarteiraDeleteComponent)
-    return dialog.afterClosed().subscribe(() => {
+    dialog.afterClosed().subscribe(() => {
+      this.getCarteira(this.cpf)
+    })
+  }
+
+  updateVacinaCarteira(idCarteira: number, idVacina: number){
+    this.service.setCarteira(idCarteira)
+    this.service.setVacinaCarteira(idVacina)
+    const dialog = this.dialog.open(CarteiraUpdateComponent)
+    dialog.afterClosed().subscribe(() => {
       this.getCarteira(this.cpf)
     })
   }

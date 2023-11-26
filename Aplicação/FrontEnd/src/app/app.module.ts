@@ -56,7 +56,8 @@ import { CarteiraDeleteComponent } from './components/application/carteira-delet
 import { CarteiraUpdateComponent } from './components/application/carteira-update/carteira-update.component';
 import { SignUpComponent } from './views/SignUp/SignUp.component';
 
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SppinerComponent } from './component/application/sppiner/sppiner.component';
 @NgModule({
   declarations: [
     SignUpComponent,
@@ -90,6 +91,7 @@ import { SignUpComponent } from './views/SignUp/SignUp.component';
     CarteiraAddComponent,
     CarteiraDeleteComponent,
     CarteiraUpdateComponent,
+    SppinerComponent,
     
   ],
   imports: [
@@ -118,7 +120,8 @@ import { SignUpComponent } from './views/SignUp/SignUp.component';
     MatDatepickerModule,
     MatMenuModule,
     MatCheckboxModule, 
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressSpinnerModule
   ],
   providers: [ provideNgxMask()],
   bootstrap: [AppComponent]

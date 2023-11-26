@@ -1,9 +1,14 @@
 <div class="div">
   <h1 style="font-family: Montserrat;">Atualize suas informações</h1>
-  <form class="form">
-    <img [src]="imageUrl">
-    <button type="button" class="teste" mat-raised-button (click)="fileInput.click()" style="margin-bottom: 20px;">Atualizar imagem</button>
-    <input hidden (change)="onFileSelected($event)"  #fileInput type="file">
+  <div style="margin-bottom: 40px !important">
+    <img [src]="imageUrl" style="position: absolute;">
+    <button class="editImg" mat-icon-button (click)="fileInput.click()">
+        <mat-icon class="mat-18" appWhite>edit</mat-icon>
+    </button>
+    
+  </div>
+  <input hidden (change)="onFileSelected($event)"  #fileInput type="file">
+  <form>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Nome</mat-label>
       <input matInput name="nome" type="text" [(ngModel)]="profile.Nome"/>
@@ -14,8 +19,20 @@
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput name="email" type="email" [(ngModel)]="profile.Email" />
+      <input matInput name="email" type="email" [(ngModel)]="profile.Email"/>
     </mat-form-field>
+    <mat-form-field class="MR" appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input matInput name="telefone" mask="(00) 0000-0000" [(ngModel)]="profile.Numero_do_Telefone"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="00/00/0000" [(ngModel)]="profile.Data_Nascimento" [ngModelOptions]="{standalone: true}"/>
+      <mat-datepicker-toggle matIconSuffix [for]="picker" style="color: #449DD1 !important;"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
     <mat-form-field appearance="outline">
       <mat-label>Sexo</mat-label>
       <mat-select  [(ngModel)]="profile.sexo" name="sexo">
@@ -24,7 +41,6 @@
         <mat-option value="Outros">Outros</mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="teste" style="width: 30px; height: 30px;"></div>
-    <button mat-button (click)="updateProfile()" appWhite>Atualizar</button>
   </form>
+  <button class="atualizar" mat-button (click)="updateProfile()" appWhite>Atualizar</button>
 </div>

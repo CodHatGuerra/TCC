@@ -19,7 +19,6 @@ export class CarteiraAddComponent implements OnInit {
   teste = true
   dataNascimento: any;
   cpf: any;
-
   allVacinas: any;
   idVacina: number = 0;
   constructor(private http: HttpClient,
@@ -35,19 +34,20 @@ export class CarteiraAddComponent implements OnInit {
     this.userCpf()
   }
 
-  userCpf(){
+  userCpf() {
     const cpfUser = this.profileService.getCpf()
     this.cpf = cpfUser;
-    this.service.GetUserByCpf(this.cpf).subscribe((res)=>{
-      console.log(res);
+    this.service.GetUserByCpf(this.cpf).subscribe((res) => {
       this.dataNascimento = res.result.Usuario[0].Data_Nascimento
       this.userId = res.result.Usuario[0].ID
     });
   }
-  
+
   createVacina() {
-      const idade = this.profileService.idadeCalculo(this.dataNascimento);
-     
+    const idade = this.profileService.idadeCalculo(this.dataNascimento);
+
+    console.log(idade);
+    
     const carteira = {
       carteiraUsuario:
       {
@@ -60,18 +60,17 @@ export class CarteiraAddComponent implements OnInit {
       }
     }
 
-    if(this.userId == undefined || this.userId == null)
+    if (this.userId == undefined || this.userId == null)
       throw this.service.AlertMessage("É necessário adicionar uma vacina!")
 
     this.service.CreateCarteira(carteira).subscribe((res) => {
-      console.log(res);
-        this.dialogRef.close()
-        this.service.SuccessMessage("Vacina registrada com sucesso!")
+      this.dialogRef.close()
+      this.service.SuccessMessage("Vacina registrada com sucesso!")
     })
   }
 
   onSelectionChange(event: any) {
-    if(event.value == null || event.value == 0)
+    if (event.value == null || event.value == 0)
       this.service.AlertMessage("Nenhuma vacina registrada!")
 
     this.idVacina = event.value;
