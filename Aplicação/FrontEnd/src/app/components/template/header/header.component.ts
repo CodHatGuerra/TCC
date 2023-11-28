@@ -9,11 +9,14 @@ import { AppService } from 'src/app/settings/Services/app.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, public dialog: MatDialog, private service: AppService) 
   { 
     this.User()    
+  }
+  ngOnInit(): void {
+    this.User();
   }
 
   user: any;

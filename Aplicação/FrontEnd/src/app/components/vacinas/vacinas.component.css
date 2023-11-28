@@ -4,18 +4,30 @@
     margin-top: 35px !important;
     padding: 20px;
     margin: 20px;
-    background-color:  rgba(255, 255, 255, 0.842);
+    background-color: rgba(255, 255, 255, 0.842);
     height: auto;
 }
 
-.even-row { background-color: #eee; }
+.even-row {
+    background-color: #eee;
+}
 
-.odd-row { background-color: white; }
+.odd-row {
+    background-color: white;
+}
 
 .icons {
     display: flex;
     gap: 10px;
 }
+
+.alin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
 
 header {
     display: flex;
@@ -27,8 +39,8 @@ header {
     cursor: pointer;
     margin-right: 13px;
     margin-top: 15px;
-    font-size: 30px !important ;
-    color:  blue;
+    font-size: 30px !important;
+    color: blue;
 }
 
 .delete {

@@ -16,7 +16,6 @@ mdc-data-table__cell, .mdc-data-table__header-cell {
   border-bottom: 0;
 }
 
-
 .even-row { background-color: #eee; }
 
 .odd-row { background-color: white; }
