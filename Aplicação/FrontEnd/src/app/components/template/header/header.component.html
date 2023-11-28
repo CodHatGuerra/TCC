@@ -4,9 +4,8 @@
   </div>
   <span class="end">
     <div routerLink="profile" class="profile">
-      <img class="img v-middle" src="../../../assets/img/user.jpg">
+      <img class="img v-middle" [src]="user[0].Imagem">
       <h3 class="name white"> {{ user[0].Nome }} </h3>
     </div>
-
   </span>
 </mat-toolbar>
