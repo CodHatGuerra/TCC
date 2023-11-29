@@ -6,6 +6,13 @@ main {
   height: auto;
 }
 
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  box-shadow: 0 1px#0000001a;
+}
+
 mat-card {
   margin-top: 20px;
   width: 100% !important;

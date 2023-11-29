@@ -1,6 +1,6 @@
 <main>
   <mat-card>
-    <div class="DF" style="justify-content: space-between;">
+    <div class="top">
       <h2 style="font-family: Montserrat;">Cateira</h2>
       <mat-form-field  *ngIf="isFuncionario" appearance="outline">
         <mat-label> Procure um paciente</mat-label>
@@ -36,7 +36,7 @@
         <mat-icon class="add" (click)="CreateCarteira()">add</mat-icon>
       </div>
     </div>
-    <table mat-table [dataSource]="dataSource">
+    <table *ngIf="!isNoCotent" mat-table [dataSource]="dataSource">
       <tr style="background-color: rgb(238, 238, 238); display: flex; justify-content: space-between; align-items: center;" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
       <tr style="display: flex; justify-content: space-between; align-items: center;" mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
         [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
@@ -57,7 +57,7 @@
         <th style="margin: 0 auto" mat-header-cell *matHeaderCellDef>Funcionário</th>
         <td mat-cell *matCellDef="let row">{{row.Funcionario}}</td> 
       </ng-container>
-      <ng-container matColumnDef="acoes" *ngIf="isFuncionario">
+      <ng-container matColumnDef="acoes">
         <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
           <div class="icons">
