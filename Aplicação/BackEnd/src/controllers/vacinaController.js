@@ -47,7 +47,7 @@ module.exports = {
           };
           console.log("-----VACINA REGISTRADA COM SUCESSO !-------");
           console.log("ID : " + resultado);
-          console.log(`Nome Vacina : ${Vacina.Nome}`);
+          console.log(`Nome Vacina : ${Vacina.nome}`);
           console.log("--------------------------------------------");
         })
         .catch((error) => {

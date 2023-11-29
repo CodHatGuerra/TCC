@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS Usuario_tem_Vacina (
   Dose_02 BOOLEAN,
   Dose_03 BOOLEAN,
   Idade INTEGER(10),
+  Funcionario VARCHAR(130) NOT NULL,
   PRIMARY KEY (Usuario_ID, Vacina_ID),
   FOREIGN KEY (Usuario_ID)
     REFERENCES Usuario (ID)

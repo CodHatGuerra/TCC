@@ -7,7 +7,7 @@ module.exports = {
     const CarteiraUsuario = req.body.carteiraUsuario;
 
     const CarteiraUsuarioPreenchida =
-      CarteiraUsuario.Usuario_ID && CarteiraUsuario.Vacina_ID;
+      CarteiraUsuario.Usuario_ID && CarteiraUsuario.Vacina_ID && CarteiraUsuario.Funcionario;
 
     if (CarteiraUsuarioPreenchida) {
       await CarteiraService.alterar(CarteiraUsuario)
@@ -39,7 +39,7 @@ module.exports = {
     const CarteiraUsuario = req.body.carteiraUsuario;
 
     const CarteiraUsuarioPreenchida =
-      CarteiraUsuario.Usuario_ID && CarteiraUsuario.Vacina_ID;
+      CarteiraUsuario.Usuario_ID && CarteiraUsuario.Vacina_ID && CarteiraUsuario.Funcionario;
 
     if (CarteiraUsuarioPreenchida) {
       await CarteiraService.inserir(CarteiraUsuario)

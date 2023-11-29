@@ -9,7 +9,7 @@ module.exports = {
           UPDATE
             Usuario_tem_Vacina
           SET
-            Dose_01 = ?, Dose_02 = ?, Dose_03 = ?, Idade = ?
+            Dose_01 = ?, Dose_02 = ?, Dose_03 = ?, Idade = ?, Funcionario = ?
           WHERE
             Usuario_ID = ?
           AND
@@ -20,6 +20,7 @@ module.exports = {
           carteira.Dose_02,
           carteira.Dose_03,
           carteira.Idade,
+          carteira.Funcionario,
           carteira.Usuario_ID,
           carteira.Vacina_ID,
         ],
@@ -47,7 +48,8 @@ module.exports = {
             UV.Dose_01,
             UV.Dose_02,
             UV.Dose_03,
-            UV.Idade
+            UV.Idade,
+            UV.Funcionario
           FROM
             Usuario_tem_Vacina UV
           JOIN
@@ -95,7 +97,8 @@ module.exports = {
           UTV.Dose_01,
           UTV.Dose_02,
           UTV.Dose_03,
-          UTV.Idade
+          UTV.Idade,
+          UTV.Funcionario
           FROM
               Usuario_tem_Vacina UTV
           JOIN
@@ -150,14 +153,15 @@ module.exports = {
 
     return new Promise((aceito, rejeitado) => {
       db.query(
-        "INSERT INTO Usuario_tem_Vacina (Usuario_ID, Vacina_ID, Dose_01, Dose_02, Dose_03, Idade) VALUES (?, ?, ?, ?, ?, ?)",
+        "INSERT INTO Usuario_tem_Vacina (Usuario_ID, Vacina_ID, Dose_01, Dose_02, Dose_03, Idade, Funcionario) VALUES (?, ?, ?, ?, ?, ?, ?)",
         [
           carteira.Usuario_ID,
           carteira.Vacina_ID,
           carteira.Dose_01,
           carteira.Dose_02,
           carteira.Dose_03,
-          carteira.Idade
+          carteira.Idade,
+          carteira.Funcionario
         ],
         (error, results) => {
           if (error) {
