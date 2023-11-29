@@ -2,15 +2,14 @@
   <mat-card>
     <div class="DF" style="justify-content: space-between;">
       <h2 style="font-family: Montserrat;">Cateira</h2>
-      <mat-form-field style="width: 50vh;" appearance="outline">
-        <mat-label>Procure um paciente</mat-label>
-        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00" />
+      <mat-form-field  *ngIf="isFuncionario">
+        <mat-label> Procure um paciente</mat-label>
+        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00"/>
         <mat-icon matSuffix style="cursor: pointer;" (click)="search()"> search </mat-icon>
       </mat-form-field>
     </div>
 
-    <div class="age">
-
+    <div class="age" *ngIf="!isNoCotent">
       <div style="text-align: center;">
         <div class="DIV">
           <img class="imgBaby" src="../../../assets/img/baby.png" />
@@ -31,10 +30,10 @@
       </div>
     </div>
 
-    <div class="addV">
+    <div class="addV" *ngIf="isFuncionario">
       <div class="register">
         <h2 style="font-family: Montserrat; margin-bottom: 0px;" >Anote uma vacina</h2>
-        <mat-icon *ngIf="isFuncionario" class="add" (click)="CreateCarteira()">add</mat-icon>
+        <mat-icon class="add" (click)="CreateCarteira()">add</mat-icon>
       </div>
     </div>
     <table mat-table [dataSource]="dataSource">

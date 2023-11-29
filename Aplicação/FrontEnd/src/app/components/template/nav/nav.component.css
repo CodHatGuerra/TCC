@@ -44,6 +44,11 @@ a:hover span {
   transform: rotate(360deg);
 }
 
+.teste{
+  transition: 0.8s;
+}
+
+
 .sair {
   display: grid;
   align-items: end;
