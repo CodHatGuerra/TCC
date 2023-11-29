@@ -24,6 +24,19 @@ table {
   margin-top: 30px;
 }
 
+.noContent {
+  width: 330px;
+  height: 260px;
+  min-height: 260px;
+  min-width: 280px;
+}
+
+.register {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .age {
   display: flex;
   align-items: center !important;
@@ -31,6 +44,11 @@ table {
   margin-top: 5px;
   margin-bottom: 5px;
   justify-content: center;
+}
+
+.addV {
+  display: flex;
+  justify-content: end;
 }
 
 .DIV {
@@ -69,6 +87,7 @@ table {
   height: 160px;
   border-radius: 100%;
 }
+
 .icons {
   display: flex;
   gap: 10px;

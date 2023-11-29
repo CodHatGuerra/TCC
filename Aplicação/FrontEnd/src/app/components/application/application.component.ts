@@ -29,6 +29,13 @@ export class ApplicationComponent implements OnInit {
   dose02: boolean = false;
   dose03: boolean = false;
 
+  bebes: any;
+  adolecente: any;  
+  adulto: any;
+
+
+  isNoCotent: boolean = false;
+
   ngOnInit(): void {
     // this.getCarteira()
     const user = this.service.GetUser();
@@ -48,8 +55,14 @@ export class ApplicationComponent implements OnInit {
 
   getCarteira(cpf: number) {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
+      if(res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
+        this.isNoCotent = true    
+
       this.dataSource = res.result.Vacinas
 
+      this.dataSource = res.result.Vacinas
+      console.log(this.dataSource);
+      
       if (this.dataSource[0].Dose_01 == 1)
         this.dose01 = true
       else
