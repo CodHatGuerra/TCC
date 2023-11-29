@@ -9,7 +9,9 @@
     <mat-card class="login">
         <img src="../../../assets/img/LogoMDP.png">
         <form class="form" [formGroup]="form">
-            <p>Digite seus dados de acesso nos campos abaixo:</p>
+            <div>
+                <p>Digite seus dados de acesso nos campos abaixo:</p>
+            </div>
             <mat-form-field appearance="outline">
                 <mat-label>CPF</mat-label>
                 <input matInput formControlName="cpf" mask="000.000.000-00" required>

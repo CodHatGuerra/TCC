@@ -2,7 +2,7 @@
   <mat-card>
     <div class="DF" style="justify-content: space-between;">
       <h2 style="font-family: Montserrat;">Cateira</h2>
-      <mat-form-field  *ngIf="isFuncionario">
+      <mat-form-field  *ngIf="isFuncionario" appearance="outline">
         <mat-label> Procure um paciente</mat-label>
         <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00"/>
         <mat-icon matSuffix style="cursor: pointer;" (click)="search()"> search </mat-icon>
@@ -53,8 +53,11 @@
           <mat-checkbox [checked]="dose02" disabled>Dose 02</mat-checkbox>
           <mat-checkbox [checked]="dose03" disabled>Dose 03</mat-checkbox>
       </ng-container>
-
-      <ng-container matColumnDef="acoes">
+      <ng-container matColumnDef="funcionario">
+        <th style="margin: 0 auto" mat-header-cell *matHeaderCellDef>Funcionário</th>
+        <td mat-cell *matCellDef="let row">{{row.Funcionario}}</td> 
+      </ng-container>
+      <ng-container matColumnDef="acoes" *ngIf="isFuncionario">
         <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
           <div class="icons">

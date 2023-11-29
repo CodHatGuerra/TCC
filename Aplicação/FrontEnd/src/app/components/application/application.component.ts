@@ -20,7 +20,7 @@ export class ApplicationComponent implements OnInit {
 
   isFuncionario: boolean = false
   idFuncionario: number = 0;
-  columnCarteira: string[] = ['vacinas', 'doses', 'acoes'];
+  columnCarteira: string[] = ['vacinas', 'doses', 'funcionario','acoes'];
   input: string = '';
   cpf: any;
   dataSource: any;
@@ -37,9 +37,8 @@ export class ApplicationComponent implements OnInit {
   isNoCotent: boolean = false;
 
   ngOnInit(): void {
-    // this.getCarteira()
     const user = this.service.GetUser();
-
+    this.getCarteira(user[0].Cpf)
     if (user[0].Funcionario == 1)
       this.isFuncionario = true
 
@@ -58,7 +57,8 @@ export class ApplicationComponent implements OnInit {
       if(res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
         this.isNoCotent = true    
 
-      this.dataSource = res.result.Vacinas
+      else
+        this.isNoCotent = false
 
       this.dataSource = res.result.Vacinas
       console.log(this.dataSource);

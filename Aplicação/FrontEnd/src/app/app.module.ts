@@ -91,6 +91,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CarteiraDeleteComponent,
     CarteiraUpdateComponent
     
+    
   ],
   imports: [
     BrowserModule,
@@ -119,7 +120,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatMenuModule,
     MatCheckboxModule, 
     MatFormFieldModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [ provideNgxMask()],
   bootstrap: [AppComponent]

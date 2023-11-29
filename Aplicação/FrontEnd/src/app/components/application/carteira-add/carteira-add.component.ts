@@ -46,8 +46,8 @@ export class CarteiraAddComponent implements OnInit {
   createVacina() {
     const idade = this.profileService.idadeCalculo(this.dataNascimento);
 
-    console.log(idade);
-    
+   const user = this.service.GetUser();
+
     const carteira = {
       carteiraUsuario:
       {
@@ -56,7 +56,8 @@ export class CarteiraAddComponent implements OnInit {
         Dose_01: this.dose01,
         Dose_02: this.dose02,
         Dose_03: this.dose03,
-        Idade: idade
+        Idade: idade,
+        Funcionario: user[0].Nome 
       }
     }
 

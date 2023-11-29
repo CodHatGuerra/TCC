@@ -46,7 +46,8 @@ constructor( private service: AppService, private profileService: ProfileService
         Dose_01: this.dose01,
         Dose_02: this.dose02,
         Dose_03: this.dose03,
-        Idade: idade
+        Idade: idade,
+        Funcionario: user[0].Nome
       }
     }
 

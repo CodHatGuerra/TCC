@@ -74,12 +74,13 @@ p {
 }
 
 .form {
+    margin-top: 10px;
     min-height: 19vh;
     display: grid;
 }
 
 form > div {
-    margin-bottom: 10px ;
+    display: flex;
 }
 
 button {
