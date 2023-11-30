@@ -1,9 +1,10 @@
 import { Router } from "@angular/router";
 import { AppService } from "src/app/settings/Services/app.service";
-import { Component } from "@angular/core";
+import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ProfileUpdateComponent } from "./profile-update/profile-update.component";
 import { ProfileService } from "src/app/settings/Services/profile.service";
+import { HeaderComponent } from "../template/header/header.component";
 
 @Component({
   selector: "app-profile",
@@ -23,6 +24,8 @@ export class ProfileComponent {
   infoUser: any[] = [];
   idade: number = 0;
   columns: string[] = ["name", "actions"];
+  isFuncionario: boolean = false;
+
 
   Profile() {
     this.getUser()
@@ -31,7 +34,12 @@ export class ProfileComponent {
   getUser() {
     const user = this.service.GetUser();
     this.infoUser = user;
-    
+
+    if (user[0].Funcionario == 1)
+      this.isFuncionario = true
+    else
+      this.isFuncionario = false
+
     const dataNascimento = new Date(user[0].Data_Nascimento);
     this.idade = this.profileService.idadeCalculo(dataNascimento)
   }
@@ -41,6 +49,7 @@ export class ProfileComponent {
     const dialog = this.dialog.open(ProfileUpdateComponent);
     dialog.afterClosed().subscribe(() => {
       this.getUser()
+      this.service.execuarUser()
     })
   }
 

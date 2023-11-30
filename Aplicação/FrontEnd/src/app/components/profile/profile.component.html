@@ -1,11 +1,43 @@
-<main *ngFor="let user of infoUser">
-  <mat-card class="info">
-    <div class="data">
-      <div class="cpf">
-        <h4>Cpf:</h4>
-        <p>{{ user.Cpf }}</p>
+<main>
+
+  <mat-card>
+    <div class="yourProfile">
+      <h3>Seu Perfil</h3>
+    </div>
+    <div class="infoUser">
+      <div class="profile">
+        <div class="editImg">
+          <img [src]="infoUser[0].Imagem">
+        </div>
+        <p style="margin-top: 9px; font-size: 19px; font-family: Montserrat;"><strong>{{ infoUser[0].Nome }}</strong>
+        </p>
+        <p>{{ idade }} Anos</p>
+        <h3 style="color: #20abfc;">Funcionário</h3>
       </div>
-      <div class="email">
+
+
+      <div class="data">
+        <label>Nome:</label>
+        <mat-form-field appearance="outline">
+          <input matInput readonly [(ngModel)]="infoUser[0].Nome" type="text" />
+        </mat-form-field>
+
+        <label>Cpf:</label>
+        <mat-form-field appearance="outline">
+          <input mask="000.000.000-00"  matInput readonly [(ngModel)]="infoUser[0].Cpf" name="cpf"/>
+        </mat-form-field>
+
+        <label>E-mail:</label>
+        <mat-form-field appearance="outline">
+          <input matInput readonly [(ngModel)]="infoUser[0].Cpf" type="text" />
+        </mat-form-field>
+
+        <label>Sexo:</label>
+        <mat-form-field appearance="outline">
+          <input matInput readonly [(ngModel)]="infoUser[0].Sexo" type="text" />
+        </mat-form-field>
+        
+        <!-- <div class="email">
         <h4>E-mail:</h4>
         <p>{{ user.Email }}</p>
       </div>
@@ -20,20 +52,13 @@
       <div class="dataNascimento">
         <h4>Data de Nascimento:</h4>
         <p>{{ user.Data_Nascimento | date }}</p>
+      </div> -->
+      <button appWhite mat-button (click)="updateProfile(infoUser[0].ID)" class="buttonEdit">
+        Editar
+      </button>
       </div>
+   
     </div>
-    <div class="profile">
-      <div class="editImg">
-        <img [src]="user.Imagem">
-      </div>
-      <p style="margin-top: 9px; font-size: 19px; font-family: Montserrat;" ><strong>{{ user.Nome }}</strong></p>
-      <div class="func">
-        <h3 appWhite>Funcionário</h3>
-      </div>
-      <p >{{ idade }} Anos</p>
-      <button mat-button (click)="updateProfile(user.ID)" class="buttonEdit">
-        <mat-icon class="edit">edit</mat-icon>
-      </button> 
-    </div>
+
   </mat-card>
 </main>

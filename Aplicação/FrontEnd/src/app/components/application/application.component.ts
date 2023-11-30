@@ -17,7 +17,6 @@ export class ApplicationComponent implements OnInit {
     private service: AppService, private router: Router,
     private dialog: MatDialog,
     private profileService: ProfileService) {
- 
   }
 
   isFuncionario: boolean = false
@@ -74,18 +73,11 @@ export class ApplicationComponent implements OnInit {
       else
         this.isNoCotent = false
 
-
       if(res.result.Vacinas[0].Idade < 3 && res.result.Vacinas[0].Idade >  10)
       this.crianca
       
       this.dataSource = res.result.Vacinas
       console.log(this.dataSource);
-
-
-
-
-
-
 
 
       if (this.dataSource[0].Dose_01 == 1)

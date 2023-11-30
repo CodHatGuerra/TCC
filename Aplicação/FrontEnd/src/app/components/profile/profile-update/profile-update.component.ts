@@ -108,7 +108,6 @@ export class ProfileUpdateComponent implements OnInit {
     console.log(user);
     
     localStorage.setItem('user', JSON.stringify(user))
-
     this.profileObj = {
       usuario: {
         nome: this.profile.Nome,

@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -15,6 +15,14 @@ export class AppService {
   httpHeaders = new HttpHeaders({
     Authorization: `${this.userToken}`,
   });
+
+  private metodoSubject = new Subject<void>();
+
+  metodoObservable$ = this.metodoSubject.asObservable();
+
+  execuarUser() {
+    this.metodoSubject.next();
+  }
 
   //variáveis
   id_Posto: any;

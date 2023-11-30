@@ -4,16 +4,32 @@ main {
   margin-bottom: 100px;
 }
 
-.info {
+mat-card {
   width: 100%;
-  margin: 35px 20px 0px 20px;
-  height: auto;
+  display: grid;
   padding: 20px;
-  justify-content: space-between;
+  margin: 35px 20px 0px 20px;
+}
+
+.yourProfile {
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 1px#0000001a;
+}
+
+.infoUser {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: flex;
+  padding: 20px;
 }
 
 .data {
+  width: 57%;
+  height: 400px;
   display: grid;
+  margin-bottom: 25px;
 }
 
 .func {
@@ -31,12 +47,10 @@ h3 {
 }
 
 .profile {
+  height: 34vh;
   display: grid;
   justify-items: center;
-}
-
-.mdc-card {
-  flex-direction: row;
+  margin-right: 150px
 }
 
 h4 {
@@ -49,27 +63,13 @@ h4 {
   flex-direction: column;
 }
 
-.teste {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 0px !important;
-  margin-bottom: 30px;
-}
-
 .buttonEdit {
-  width: 40px !important;
-  height: 65px;
+  width: 100px !important;
+  height: 45px;
   padding: 0px !important;
   justify-items: center;
-  border-radius: 40px;
-  background-color: rgb(52, 52, 255);
+  background-color: #21a4f0;
   box-shadow: 0 2px 4px #00000026, 0 4px 5px #0000001a, 0 1px 10px #0000001a;
-}
-
-.edit {
-  color: white !important;
-  font-size: 20px !important;
 }
 
 img {

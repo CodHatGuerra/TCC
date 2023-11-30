@@ -1,8 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../nav/dialog/dialog.component';
 import { AppService } from 'src/app/settings/Services/app.service';
+import { ProfileService } from 'src/app/settings/Services/profile.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,11 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, public dialog: MatDialog, private service: AppService) 
   { 
     this.User()    
+    this.service.metodoObservable$.subscribe(() => {
+      this.User();
+    });
   }
+  
   ngOnInit(): void {
     this.User();
   }
@@ -22,6 +27,8 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   User(){
+    console.log("Teste");
+    
     this.user = this.service.GetUser();
   }  
 }
