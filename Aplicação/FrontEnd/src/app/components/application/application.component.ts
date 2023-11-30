@@ -73,12 +73,27 @@ export class ApplicationComponent implements OnInit {
       else
         this.isNoCotent = false
 
-      if(res.result.Vacinas[0].Idade < 3 && res.result.Vacinas[0].Idade >  10)
-      this.crianca
-      
-      this.dataSource = res.result.Vacinas
-      console.log(this.dataSource);
+      if (res.result.Vacinas[0].Idade < 3)
+        this.bebe = res.result.Vacinas
 
+
+
+      if (res.result.Vacinas[0].Idade > 3 && res.result.Vacinas[0].Idade < 10)
+        this.crianca = res.result.Vacinas
+
+      if (res.result.Vacinas[0].Idade < 10 && res.result.Vacinas[0].Idade > 17)
+        this.crianca = res.result.Vacinas
+
+      if (res.result.Vacinas[0].Idade < 17 && res.result.Vacinas[0].Idade >= 59)
+        this.adolecente = res.result.Vacinas
+
+        if (res.result.Vacinas[0].Idade < 3 && res.result.Vacinas[0].Idade > 10)
+        this.adolecente = res.result.Vacinas
+
+
+
+
+      this.dataSource = res.result.Vacinas
 
       if (this.dataSource[0].Dose_01 == 1)
         this.dose01 = true
