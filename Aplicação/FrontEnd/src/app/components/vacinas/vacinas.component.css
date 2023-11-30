@@ -16,6 +16,12 @@
     background-color: white;
 }
 
+table {
+    height: auto !important;
+    background-color: rgb(238, 238, 238);
+}
+
+
 .icons {
     display: flex;
     gap: 10px;

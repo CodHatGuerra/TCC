@@ -2,79 +2,98 @@
   <mat-card>
     <div class="top">
       <h2 style="font-family: Montserrat;">Cateira</h2>
-      <mat-form-field  *ngIf="isFuncionario" appearance="outline">
+      <mat-form-field *ngIf="isFuncionario" appearance="outline">
         <mat-label> Procure um paciente</mat-label>
-        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00"/>
+        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00" />
         <mat-icon matSuffix style="cursor: pointer;" (click)="search()"> search </mat-icon>
       </mat-form-field>
     </div>
 
-    <div class="age" *ngIf="!isNoCotent">
-      <div style="text-align: center;">
-        <div class="DIV">
-          <img class="imgBaby" src="../../../assets/img/baby.png" />
-        </div>
-        <p style="font-family: Montserrat;">Bebê</p>
-      </div>
-      <div style="text-align: center;">
-        <div class="DIV">
-          <img class="teenager" src="../../../assets/img/teenager.png" />
-        </div>
-        <p style="font-family: Montserrat;">Adolescente</p>
-      </div>
-      <div style="text-align: center;">
-        <div class="DIV">
-          <img src="../../../assets/img/adult.png" />
-        </div>
-        <p style="font-family: Montserrat;">Adulto</p>
-      </div>
-    </div>
-
-    <div class="addV" *ngIf="isFuncionario">
-      <div class="register">
-        <h2 style="font-family: Montserrat; margin-bottom: 0px;" >Anote uma vacina</h2>
-        <mat-icon class="add" (click)="CreateCarteira()">add</mat-icon>
-      </div>
-    </div>
-    <table *ngIf="!isNoCotent" mat-table [dataSource]="dataSource">
-      <tr style="background-color: rgb(238, 238, 238); display: flex; justify-content: space-between; align-items: center;" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
-      <tr style="display: flex; justify-content: space-between; align-items: center;" mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
-        [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
-
-      <ng-container style="display: flex; justify-content: center; margin: 0 auto;" matColumnDef="vacinas">
-        <th style="border-radius:  5px 0 0 5px !important;" mat-header-cell *matHeaderCellDef>Vacinas</th>
-        <td mat-cell *matCellDef="let row"> {{row.NomeVacina}}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="doses">
-        <th style="margin: 0 auto" mat-header-cell *matHeaderCellDef>Doses</th>
-        <td mat-cell *matCellDef="let row"> 
-          <mat-checkbox [checked]="dose01" disabled>Dose 01</mat-checkbox>
-          <mat-checkbox [checked]="dose02" disabled>Dose 02</mat-checkbox>
-          <mat-checkbox [checked]="dose03" disabled>Dose 03</mat-checkbox>
-      </ng-container>
-      <ng-container matColumnDef="funcionario">
-        <th style="margin: 0 auto" mat-header-cell *matHeaderCellDef>Funcionário</th>
-        <td mat-cell *matCellDef="let row">{{row.Funcionario}}</td> 
-      </ng-container>
-      <ng-container matColumnDef="acoes">
-        <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
-        <td mat-cell *matCellDef="let row">
-          <div class="icons">
-            <a class="edit" (click)="updateVacinaCarteira(row.Usuario_ID, row.Vacina_ID)">
-              <mat-icon class="mat-18"> edit </mat-icon>
-            </a>
-            <a class="delete" (click)="deleteVacinaCarteira(row.Usuario_ID, row.Vacina_ID)">
-              <mat-icon class="mat-18"> delete </mat-icon>
-            </a>
+    <div *ngIf="!isCpf">
+      <div class="age" *ngIf="!isNoCotent">
+        <div class="teste">
+          <div class="DIV">
+            <img class="imgBaby" src="../../../assets/img/baby.png" />
           </div>
-        </td>
-      </ng-container>
-    </table>
+          <p style="font-family: Montserrat;">Ao nascer até 15 meses</p>
+        </div>
+        <div class="teste">
+          <div class="DIV">
+            <img class="teenager" src="../../../assets/img/teenager.png" />
+          </div>
+          <p style="font-family: Montserrat;">4 a 10 anos</p>
+        </div>
+        <div class="teste">
+          <div class="DIV">
+            <img class="teenager" src="../../../assets/img/teenager.png" />
+          </div>
+          <p style="font-family: Montserrat;">11 a 17 anos</p>
+        </div>
+        <div class="teste">
+          <div class="DIV">
+            <img src="../../../assets/img/adult.png" />
+          </div>
+          <p style="font-family: Montserrat;">18 a 59 anos</p>
+        </div>
+        <div class="teste">
+          <div class="DIV">
+            <img src="../../../assets/img/gestante.png" />
+          </div>
+          <p style="font-family: Montserrat;">Gestante</p>
+        </div>
+      </div>
 
-    <div *ngIf="isNoCotent" style="display: grid; justify-content: center; align-items: center; margin-top: 30px;">
+      <div class="addV" *ngIf="isFuncionario">
+        <div class="register">
+          <h2 style="font-family: Montserrat; margin-bottom: 0px;">Registre uma vacina</h2>
+          <mat-icon class="add" (click)="CreateCarteira()">add</mat-icon>
+        </div>
+      </div>
+
+      <table mat-table *ngIf="!isNoCotent" [dataSource]="dataSource">
+        <tr style="background-color: rgb(238, 238, 238);" mat-header-row *matHeaderRowDef="columnCarteira"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnCarteira; let i = index;"
+          [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"></tr>
+
+        <ng-container style="display: flex; justify-content: center; margin: 0 auto;" matColumnDef="vacinas">
+          <th style="border-radius:  5px 0 0 5px !important;" mat-header-cell *matHeaderCellDef>Vacinas</th>
+          <td class="vacinaTd" mat-cell *matCellDef="let row"> {{row.NomeVacina}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="doses">
+          <th mat-header-cell *matHeaderCellDef>Doses</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox [checked]="dose01" disabled>Dose 01</mat-checkbox>
+            <mat-checkbox [checked]="dose02" disabled>Dose 02</mat-checkbox>
+            <mat-checkbox [checked]="dose03" disabled>Dose 03</mat-checkbox>
+        </ng-container>
+        <ng-container matColumnDef="funcionario" sticky>
+          <th mat-header-cell *matHeaderCellDef>Funcionário</th>
+          <td mat-cell *matCellDef="let row">{{row.Funcionario}}</td>
+        </ng-container>
+        <ng-container matColumnDef="acoes">
+          <th style="border-radius: 0 5px 5px 0;" mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="icons">
+              <a class="edit" (click)="updateVacinaCarteira(row.Usuario_ID, row.Vacina_ID)">
+                <mat-icon class="mat-18"> edit </mat-icon>
+              </a>
+              <a class="delete" (click)="deleteVacinaCarteira(row.Usuario_ID, row.Vacina_ID)">
+                <mat-icon class="mat-18"> delete </mat-icon>
+              </a>
+            </div>
+          </td>
+        </ng-container>
+      </table>
+    </div>
+    <div *ngIf="isCpf" class="notVacina">
+      <img class="noContent" src="../../../assets/img/semCarteira.png">
+      <h3 style="margin: 0 auto;">Nenhuma carteira selecionada...</h3>
+    </div>
+
+    <div *ngIf="isNoCotent" class="notVacina">
       <img class="noContent" src="assets/img/noContent.jpg" alt="">
-      <h3 style="margin: 0 auto;">Nenhuma vacina registrada</h3>
+      <h3 style="margin: 0 auto;">Nenhuma vacina registrada...</h3>
     </div>
   </mat-card>
 

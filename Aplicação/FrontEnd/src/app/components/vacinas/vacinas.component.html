@@ -8,7 +8,7 @@
 
     <mat-icon class="add" (click)="OpenDialogRegisterVacciness()">add</mat-icon>
   </header>
-  <table style="height: auto !important; background-color: rgb(238, 238, 238);"  mat-table [dataSource]="vaccines" >
+  <table mat-table [dataSource]="vaccines">
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row  [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"  *matRowDef="let vaccine; columns: columns; let i = index"></tr>
 

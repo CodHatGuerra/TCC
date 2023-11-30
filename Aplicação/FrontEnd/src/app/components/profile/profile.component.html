@@ -27,6 +27,9 @@
         <img [src]="user.Imagem">
       </div>
       <p style="margin-top: 9px; font-size: 19px; font-family: Montserrat;" ><strong>{{ user.Nome }}</strong></p>
+      <div class="func">
+        <h3 appWhite>Funcionário</h3>
+      </div>
       <p >{{ idade }} Anos</p>
       <button mat-button (click)="updateProfile(user.ID)" class="buttonEdit">
         <mat-icon class="edit">edit</mat-icon>

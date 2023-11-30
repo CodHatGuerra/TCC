@@ -1,14 +1,14 @@
 mat-sidenav {
   position: fixed;
-  margin-top: 100px !important;
+  margin-top: 108px !important;
   width: 200px;
-  height: 80vh;
+  height: 76vh;
   display: flex;
+  margin-bottom: 0px;
   justify-content: space-between;
   border-radius: 0px 6px 6px 0px;
   background: rgb(42, 145, 235);
-  background: linear-gradient(360deg, rgb(0, 93, 232) 5%,   rgb(18, 96, 230))13%, rgba(0,134,255,1) 100%;
-  transition: width 0.3s;
+  background: linear-gradient(360deg, rgb(76, 144, 247) 5%,   rgb(18, 96, 230))13%, rgba(0,134,255,1) 100%;
 }
 
 a:hover {
@@ -30,8 +30,9 @@ a:hover span {
 
 .nav-list {
   width: 100%;
+  margin-bottom: 0px;
   display: grid;
-  height: 77vh;
+  height:  548px;
 }
 
 .arrow-icon {
@@ -44,14 +45,10 @@ a:hover span {
   transform: rotate(360deg);
 }
 
-.teste{
-  transition: 0.8s;
-}
-
-
 .sair {
   display: grid;
   align-items: end;
+  height: 100%;
 }
 
 .fade-in {

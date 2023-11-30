@@ -16,53 +16,78 @@ export class ApplicationComponent implements OnInit {
   constructor(
     private service: AppService, private router: Router,
     private dialog: MatDialog,
-    private profileService: ProfileService) { }
+    private profileService: ProfileService) {
+ 
+  }
 
   isFuncionario: boolean = false
   idFuncionario: number = 0;
-  columnCarteira: string[] = ['vacinas', 'doses', 'funcionario','acoes'];
+  columnCarteira: string[] = ['vacinas', 'doses', 'funcionario', 'acoes'];
   input: string = '';
   cpf: any;
   dataSource: any;
-
+  isCpf: boolean = false;
   dose01: boolean = false;
   dose02: boolean = false;
   dose03: boolean = false;
 
-  bebes: any;
-  adolecente: any;  
+  bebe: any;
+  crianca: any;
+  adolecente: any;
   adulto: any;
+  gestante: any;
 
 
   isNoCotent: boolean = false;
 
   ngOnInit(): void {
     const user = this.service.GetUser();
-    this.getCarteira(user[0].Cpf)
-    if (user[0].Funcionario == 1)
+    if (user[0].Funcionario == 1) {
+      this.search()
       this.isFuncionario = true
-
-    else
+    }
+    else {
       this.isFuncionario = false
+      this.getCarteira(user[0].Cpf)
+      this.columnCarteira = ['vacinas', 'doses', 'funcionario']
+    }
   }
 
-  search() {
-    this.profileService.setCpf(this.cpf)
-    // this.dialog.open(SppinerComponent)
-    this.getCarteira(this.cpf)
+  search(): any {
+    if (this.cpf == null || this.cpf == undefined || this.cpf == '') {
+      return this.isCpf = true
+    }
+
+    else {
+      this.isCpf = false
+
+      this.profileService.setCpf(this.cpf)
+      this.getCarteira(this.cpf)
+    }
   }
 
-  getCarteira(cpf: number) {
+  getCarteira(cpf: number): any {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
-      if(res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
-        this.isNoCotent = true    
+      if (res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
+        this.isNoCotent = true
 
       else
         this.isNoCotent = false
 
+
+      if(res.result.Vacinas[0].Idade < 3 && res.result.Vacinas[0].Idade >  10)
+      this.crianca
+      
       this.dataSource = res.result.Vacinas
       console.log(this.dataSource);
-      
+
+
+
+
+
+
+
+
       if (this.dataSource[0].Dose_01 == 1)
         this.dose01 = true
       else
@@ -74,7 +99,8 @@ export class ApplicationComponent implements OnInit {
         this.dose02 = false
 
       if (this.dataSource[0].Dose_03 == 1)
-        this.dose03 = true  
+        this.dose03 = true
+
       else
         this.dose03 = false
 

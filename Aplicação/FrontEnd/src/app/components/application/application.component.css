@@ -2,7 +2,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 16px 20px 0px 20px ;
+  margin: 16px 20px 0px 20px;
   height: auto;
 }
 
@@ -17,18 +17,25 @@ mat-card {
   margin-top: 20px;
   width: 100% !important;
   padding: 20px;
+  height: auto;
+  margin-bottom: 100px;
 }
 
-mdc-data-table__cell, .mdc-data-table__header-cell {
+mdc-data-table__cell,
+.mdc-data-table__header-cell {
   border-bottom: 0;
 }
 
-.even-row { background-color: #eee; }
+.even-row {
+  background-color: #eee;
+}
 
-.odd-row { background-color: white; }
+.odd-row {
+  background-color: white;
+}
 
 table {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .noContent {
@@ -44,6 +51,21 @@ table {
   align-items: center;
 }
 
+.alinC{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notVacina {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 170px;
+}
+
 .age {
   display: flex;
   align-items: center !important;
@@ -56,6 +78,14 @@ table {
 .addV {
   display: flex;
   justify-content: end;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.teste {
+  width: 100px;
+  display: grid;
+  justify-items: center;
 }
 
 .DIV {
@@ -70,7 +100,7 @@ table {
   margin-bottom: 7px;
 }
 
-.DIV > img {
+.DIV>img {
   width: 50px;
   height: 50px;
   display: grid;
@@ -85,8 +115,8 @@ table {
 .add {
   cursor: pointer;
   margin-right: 13px;
-  font-size: 30px !important ;
-  color:  blue !important;
+  font-size: 30px !important;
+  color: blue !important;
 }
 
 .img {
@@ -109,8 +139,9 @@ table {
   color: rgb(233, 154, 36);
   cursor: pointer;
 }
+
 .teenager {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 @media screen and (max-width: 1050px) {

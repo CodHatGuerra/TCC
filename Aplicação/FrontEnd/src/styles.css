@@ -70,7 +70,7 @@ a {
   display: flex;
   top: 0;
   z-index: 1000;background: rgb(78, 169, 255);
-  background: linear-gradient(90deg, rgb(51, 106, 225) 5%, rgb(47, 120, 229) 13%, rgb(60, 161, 249) 100%);
+  background: linear-gradient(90deg, rgb(51, 106, 225) 5%,  rgb(51, 106, 225) 13%, rgb(60, 161, 249) 100%);
 }
 
 .footer {
