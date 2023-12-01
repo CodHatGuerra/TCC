@@ -14,7 +14,9 @@ export class EmployeeDeleteComponent implements OnInit {
     private dialogRef: MatDialogRef<EmployeeUpdateComponent>,
     private employeeService: EmployeeService,
     private service: AppService
-  ) {}
+  ) {
+    this.dialogRef.disableClose = true
+  }
 
   ngOnInit(): void {}
   

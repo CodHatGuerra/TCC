@@ -11,7 +11,7 @@ import { ProfileService } from 'src/app/settings/Services/profile.service';
 export class CarteiraUpdateComponent implements OnInit{
 
 constructor( private service: AppService, private profileService: ProfileService,
-  private dialogRef: MatDialogRef<CarteiraUpdateComponent>){}
+  private dialogRef: MatDialogRef<CarteiraUpdateComponent>){this.dialogRef.disableClose = true}
 
   allVacinas: any;
   dose01: boolean = false;

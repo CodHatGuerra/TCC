@@ -19,6 +19,7 @@ export class EmployeeUpdateComponent implements OnInit {
     private router: Router
   ) {
     this.getPosto();
+    this.dialogRef.disableClose = true
   }
 
   employee: any;

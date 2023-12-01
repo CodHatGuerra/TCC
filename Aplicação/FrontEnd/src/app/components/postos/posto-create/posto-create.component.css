@@ -4,6 +4,17 @@
    text-align: center;
 }
 
+span {
+   width: 100%;
+   display: flex;
+   justify-content: end;
+}
+
+.close {
+   color: #1e3241 !important;
+   cursor: pointer;
+}
+
 form {
    height: 42vh;
    width: 50vw;

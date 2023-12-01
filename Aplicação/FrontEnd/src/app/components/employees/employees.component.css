@@ -51,10 +51,6 @@ table {
   background-color: #eceaea !important;
 }
 
-h2 {
-  margin-bottom: 0;
-}
-
 .icons {
   display: flex;
   gap: 10px;

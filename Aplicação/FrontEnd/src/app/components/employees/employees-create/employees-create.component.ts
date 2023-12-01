@@ -26,6 +26,7 @@ export class EmployeesCreateComponent implements OnInit {
       numero: ["", [Validators.required, Validators.pattern("[0-9]*")]],
       cpf: ["", [Validators.required, Validators.pattern("[0-9]*")]],
     });
+    this.dialogRef.disableClose = true
   }
 
   ngOnInit(): void {

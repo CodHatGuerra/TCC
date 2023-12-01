@@ -24,6 +24,12 @@ export class CarteiraAddComponent implements OnInit {
   constructor(private http: HttpClient,
     private service: AppService, private dialogRef: MatDialogRef<CarteiraAddComponent>,
     private profileService: ProfileService) {
+      this.dialogRef.disableClose = true
+  }
+
+  
+  close() {
+    this.dialogRef.close();
   }
 
   ngOnInit(): void {

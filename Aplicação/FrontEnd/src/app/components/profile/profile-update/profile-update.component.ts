@@ -23,7 +23,9 @@ export class ProfileUpdateComponent implements OnInit {
     private profileService: ProfileService,
     private sanitizer: DomSanitizer,
     private dialogRef: MatDialogRef<ProfileUpdateComponent>
-  ) { }
+  ) { 
+    this.dialogRef.disableClose = true
+  }
 
   ngOnInit(): void {
     const id = this.profileService.getIdProfile();

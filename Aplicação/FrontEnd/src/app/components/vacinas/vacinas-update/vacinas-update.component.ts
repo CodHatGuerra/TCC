@@ -12,7 +12,7 @@ export class VacinasUpdateComponent implements OnInit {
   constructor(
     private service: AppService,
     private dialog: MatDialogRef<VacinasUpdateComponent>
-  ) {}
+  ) {this.dialog.disableClose = true}
 
   vacina: any;
 

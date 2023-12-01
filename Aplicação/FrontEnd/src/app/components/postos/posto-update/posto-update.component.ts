@@ -16,7 +16,7 @@ export class PostoUpdateComponent implements OnInit {
     private dialogRef: MatDialogRef<PostoUpdateComponent>,
     private postoService: PostosService
   ) {
-    this.dialogRef.disableClose = false
+    this.dialogRef.disableClose = true
   }
   result: any = {};
 

@@ -1,6 +1,11 @@
 <div class="main">
-  <img src="../.././../../assets/img/local_icon.png" class="localIcon">
-  <h2 style="font-family: Montserrat;">Registre um posto</h2>
+  <span>
+       <mat-icon class="close" (click)="close()">close</mat-icon>
+  </span>
+  <div>
+    <img src="../.././../../assets/img/local_icon.png" class="localIcon">
+    <h2 style="font-family: Montserrat;">Registre um posto</h2>
+  </div>
 
   <form [formGroup]="formPosto" >
     <mat-form-field class="MR" appearance="outline">

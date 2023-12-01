@@ -13,7 +13,7 @@ export class PostoDeleteComponent implements OnInit {
     private service: AppService,
     private postoService: PostosService,
     private dialog: MatDialogRef<PostoDeleteComponent>
-  ) { }
+  ) {this.dialog.disableClose = true }
 
   pageReloaded = false;
   response: any = {};

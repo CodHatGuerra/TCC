@@ -27,6 +27,7 @@ export class PostoCreateComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
+    this.dialogRef.disableClose = true
     this.formPosto = this.fb.group({
       nome: ["", Validators.required],
       uf: ["", Validators.required],
@@ -69,6 +70,10 @@ export class PostoCreateComponent {
     return true;
   }
 
+  close() {
+    this.dialogRef.close();
+  }
+  
    SubmitPosto(): void {
      const formData = {
       posto: {

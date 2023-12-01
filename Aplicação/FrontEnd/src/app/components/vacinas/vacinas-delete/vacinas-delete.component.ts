@@ -11,7 +11,9 @@ export class VacinasDeleteComponent implements OnInit {
   constructor(
     private service: AppService,
     private dialog: MatDialogRef<VacinasDeleteComponent>
-  ) {}
+  ) {
+    this.dialog.disableClose = true
+  }
 
   vacina: any;
 

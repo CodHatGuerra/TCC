@@ -22,7 +22,9 @@ export class EmployeesComponent implements OnInit {
     private service: AppService,
     private postoService: PostosService,
     private router: Router
-  ) { }
+  ) {
+    
+   }
 
   input: string = "";
   postos: any;

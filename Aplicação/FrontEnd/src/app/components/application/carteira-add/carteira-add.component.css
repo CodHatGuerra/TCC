@@ -3,7 +3,7 @@ main {
     width: 36vw;
     min-height: 30vh;
     height: auto;
-    padding: 15px;
+    padding: 10px 20px 20px 20px;
 }
 
 .buttonRegister {
@@ -20,3 +20,14 @@ div {
     justify-content: space-between;
     margin-top: 17px;
 }
+
+span {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+ }
+ 
+ .close {
+    color: #1e3241 !important;
+    cursor: pointer;
+ }

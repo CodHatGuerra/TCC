@@ -24,6 +24,7 @@ export class AddVaccinessComponent {
     this.formVacina = this.fb.group({
       nome: ["", Validators.required],
     });
+    this.dialogRef.disableClose = true
   }
 
   createVacina() {

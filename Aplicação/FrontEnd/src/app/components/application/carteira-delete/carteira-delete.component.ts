@@ -8,7 +8,9 @@ import { AppService } from 'src/app/settings/Services/app.service';
   styleUrls: ['./carteira-delete.component.css']
 })
 export class CarteiraDeleteComponent {
-  constructor(private service: AppService, private dialog: MatDialogRef<CarteiraDeleteComponent>) { }
+  constructor(private service: AppService, private dialog: MatDialogRef<CarteiraDeleteComponent>) {
+    this.dialog.disableClose = true
+  }
 
   deleteVacina() {
     const idVacina = this.service.getVacinaCarteira()
@@ -16,8 +18,8 @@ export class CarteiraDeleteComponent {
 
     console.log(`id-carteira ${idCarteira}`);
     console.log(`id-Vacina ${idVacina}`);
-    
-    this.service.DeleteVacinaCarteira(idCarteira, idVacina).subscribe((res)=>{
+
+    this.service.DeleteVacinaCarteira(idCarteira, idVacina).subscribe((res) => {
       console.log(res);
       this.dialog.close()
       this.service.SuccessMessage("Vacina removida!")

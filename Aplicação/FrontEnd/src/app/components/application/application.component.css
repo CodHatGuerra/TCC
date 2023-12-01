@@ -13,6 +13,10 @@ main {
   box-shadow: 0 1px#0000001a;
 }
 
+mat-form-field {
+  width: 22vw !important;
+}
+
 mat-card {
   margin-top: 20px;
   width: 100% !important;

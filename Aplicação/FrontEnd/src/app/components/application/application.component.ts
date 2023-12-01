@@ -13,6 +13,7 @@ import { CarteiraUpdateComponent } from './carteira-update/carteira-update.compo
   styleUrls: ['./application.component.css']
 })
 export class ApplicationComponent implements OnInit {
+  originalDataSource: any;
   constructor(
     private service: AppService, private router: Router,
     private dialog: MatDialog,
@@ -26,6 +27,7 @@ export class ApplicationComponent implements OnInit {
   cpf: any;
   dataSource: any;
   isCpf: boolean = false;
+
   dose01: boolean = false;
   dose02: boolean = false;
   dose03: boolean = false;
@@ -73,7 +75,6 @@ export class ApplicationComponent implements OnInit {
     this.bebe = this.filtrarPorFaixaEtaria(0, 2);
     this.dataSource = this.bebe
     console.log(this.bebe);
-    
   }
   
   filterCrianca(){
@@ -95,16 +96,11 @@ export class ApplicationComponent implements OnInit {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
       if (res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
         this.isNoCotent = true
-
       else
         this.isNoCotent = false
 
-      if (res.result.Vacinas[0].Idade < 3)
-        this.bebe = res.result.Vacinas
-
-       // this.gestante = this.filtrarPorFaixaEtaria(60, 120); // Ajuste o valor máximo conforme necessário
-    
-      this.dataSource = res.result.Vacinas
+     this.originalDataSource = res.result.Vacinas;  
+      this.dataSource = this.originalDataSource.slice();
 
       if (this.dataSource[0].Dose_01 == 1)
         this.dose01 = true
@@ -118,7 +114,6 @@ export class ApplicationComponent implements OnInit {
 
       if (this.dataSource[0].Dose_03 == 1)
         this.dose03 = true
-
       else
         this.dose03 = false
 

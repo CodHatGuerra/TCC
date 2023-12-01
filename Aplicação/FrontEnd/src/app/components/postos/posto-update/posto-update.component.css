@@ -7,6 +7,17 @@ div {
     padding:  10px 20px 13px 20px;
 }
 
+span {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+ }
+ 
+ .close {
+    color: #1e3241 !important;
+    cursor: pointer;
+ }
+
 h1 {
     font-size: 24px !important;
 }
