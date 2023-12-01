@@ -6,7 +6,7 @@ main {
 }
 
 form {
-    display: grid;  
+    display: grid;
     width: 29vw;
     margin-top: 39px !important;
 }
@@ -18,11 +18,21 @@ form {
 
 button {
     color: white;
-    background-color:    #21a4f0;
-    margin-bottom: 20px !important  ;
+    background-color: #21a4f0;
+    margin-bottom: 20px !important;
 }
 
 h2 {
     margin-bottom: 0 !important;
     margin-top: 25px;
+}
+span {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+ }
+
+.close {
+    color: #1e3241 !important;
+    cursor: pointer;
 }

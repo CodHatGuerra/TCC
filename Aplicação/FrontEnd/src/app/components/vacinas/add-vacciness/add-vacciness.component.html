@@ -1,6 +1,11 @@
 <main>
-    <img src="../../../assets/img/seringa.png" class="icon" alt="">
-    <h2 style="font-family: Montserrat;">Registre uma nova vacina</h2>
+    <span>
+        <mat-icon class="close" (click)="close()">close</mat-icon>
+   </span>
+   <div>
+       <img src="../../../assets/img/seringa.png" class="icon" alt="">
+       <h2 style="font-family: Montserrat;">Registre uma nova vacina</h2>
+    </div>
     <form [formGroup]="formVacina">
         <mat-form-field appearance="outline">
             <mat-label>Vacina</mat-label>

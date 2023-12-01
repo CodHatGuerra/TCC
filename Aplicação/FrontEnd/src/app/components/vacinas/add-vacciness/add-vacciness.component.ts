@@ -27,6 +27,10 @@ export class AddVaccinessComponent {
     this.dialogRef.disableClose = true
   }
 
+  close() {
+    this.dialogRef.close();
+  }
+
   createVacina() {
      const nome = { nome: this.formVacina.value.nome }
      

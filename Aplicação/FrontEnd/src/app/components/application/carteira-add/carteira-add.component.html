@@ -13,9 +13,18 @@
     </mat-select>
   </mat-form-field>
   <div>
+    <label style="margin-left: 0; font-family: Montserrat;">Doses Aplicadas</label>
+  </div>
+  <div>
     <mat-checkbox [(ngModel)]="dose01">Dose 01</mat-checkbox>
     <mat-checkbox [(ngModel)]="dose02">Dose 02</mat-checkbox>
     <mat-checkbox [(ngModel)]="dose03">Dose 03</mat-checkbox>
   </div>
+  <mat-form-field class="data" appearance="outline">
+    <mat-label>Data da Próxima Aplicação</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="00/00/0000" formControlName="data_Nascimento"/>
+    <mat-datepicker-toggle matIconSuffix [for]="picker" style="color: #449DD1 !important;"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
   <button class="buttonRegister" mat-button appWhite (click)="createVacina()">Registrar</button>
 </main>

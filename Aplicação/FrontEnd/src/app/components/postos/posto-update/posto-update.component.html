@@ -31,7 +31,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Telefone</mat-label>
-            <input matInput [(ngModel)]="result.postos[0].Numero_do_Telefone" type="number" name="Telefone">
+            <input matInput [(ngModel)]="result.postos[0].Numero_do_Telefone"  mask="(00) 0000-0000"  name="Telefone">
         </mat-form-field>
     </form>
     <button mat-button appWhite style="font-family: Montserrat;" class="buttonUpdate" (click)="updatePosto()">Atualizar</button>
