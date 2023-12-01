@@ -14,6 +14,7 @@ import { CarteiraUpdateComponent } from './carteira-update/carteira-update.compo
 })
 export class ApplicationComponent implements OnInit {
   originalDataSource: any;
+  appliedFilters: ((data: any[]) => any)[] = [];
   constructor(
     private service: AppService, private router: Router,
     private dialog: MatDialog,
@@ -54,6 +55,17 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
+  
+  resetFilters() {
+    this.dataSource = this.originalDataSource.slice();
+    this.appliedFilters = [];
+  }
+
+  applyFilter(filter: (data: any[]) => any[]) {
+    this.dataSource = filter(this.dataSource);
+    this.appliedFilters.push(filter);
+  }
+
   search(): any {
     if (this.cpf == null || this.cpf == undefined || this.cpf == '') {
       return this.isCpf = true
@@ -67,29 +79,24 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
-  filtrarPorFaixaEtaria(inicio: number, fim: number): any[] {
-    return this.dataSource.filter((Vacina: any) => Vacina.Idade >= inicio && Vacina.Idade <= fim);
+  filterBebe() {
+    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 0, 2));
   }
 
-  filterBebe(){
-    this.bebe = this.filtrarPorFaixaEtaria(0, 2);
-    this.dataSource = this.bebe
-    console.log(this.bebe);
-  }
-  
-  filterCrianca(){
-    this.crianca = this.filtrarPorFaixaEtaria(3, 10);
-    this.dataSource = this.crianca
+  filterCrianca() {
+    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 3, 10));
   }
 
   filterAdolescente() {
-    this.adolecente = this.filtrarPorFaixaEtaria(11, 17);
-    this.dataSource = this.adolecente
+    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 11, 17));
   }
 
-  filterAdulto(){
-    this.adulto = this.filtrarPorFaixaEtaria(18, 59);
-    this.dataSource = this.adulto
+  filterAdulto() {
+    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 18, 59));
+  }
+
+  filtrarPorFaixaEtaria(data: any[], inicio: number, fim: number): any[] {
+    return data.filter((Vacina: any) => Vacina.Idade >= inicio && Vacina.Idade <= fim);
   }
 
   getCarteira(cpf: number): any {

@@ -55,7 +55,7 @@ table {
   align-items: center;
 }
 
-.alinC{
+.alinC {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -82,7 +82,7 @@ table {
 .addV {
   display: flex;
   justify-content: end;
-  margin-top: 50px;
+  margin-top: 35px;
   margin-bottom: 0;
 }
 
