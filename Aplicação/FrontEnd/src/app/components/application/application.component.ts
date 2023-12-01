@@ -65,6 +65,32 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
+  filtrarPorFaixaEtaria(inicio: number, fim: number): any[] {
+    return this.dataSource.filter((Vacina: any) => Vacina.Idade >= inicio && Vacina.Idade <= fim);
+  }
+
+  filterBebe(){
+    this.bebe = this.filtrarPorFaixaEtaria(0, 2);
+    this.dataSource = this.bebe
+    console.log(this.bebe);
+    
+  }
+  
+  filterCrianca(){
+    this.crianca = this.filtrarPorFaixaEtaria(3, 10);
+    this.dataSource = this.crianca
+  }
+
+  filterAdolescente() {
+    this.adolecente = this.filtrarPorFaixaEtaria(11, 17);
+    this.dataSource = this.adolecente
+  }
+
+  filterAdulto(){
+    this.adulto = this.filtrarPorFaixaEtaria(18, 59);
+    this.dataSource = this.adulto
+  }
+
   getCarteira(cpf: number): any {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
       if (res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
@@ -76,23 +102,8 @@ export class ApplicationComponent implements OnInit {
       if (res.result.Vacinas[0].Idade < 3)
         this.bebe = res.result.Vacinas
 
-
-
-      if (res.result.Vacinas[0].Idade > 3 && res.result.Vacinas[0].Idade < 10)
-        this.crianca = res.result.Vacinas
-
-      if (res.result.Vacinas[0].Idade < 10 && res.result.Vacinas[0].Idade > 17)
-        this.crianca = res.result.Vacinas
-
-      if (res.result.Vacinas[0].Idade < 17 && res.result.Vacinas[0].Idade >= 59)
-        this.adolecente = res.result.Vacinas
-
-        if (res.result.Vacinas[0].Idade < 3 && res.result.Vacinas[0].Idade > 10)
-        this.adolecente = res.result.Vacinas
-
-
-
-
+       // this.gestante = this.filtrarPorFaixaEtaria(60, 120); // Ajuste o valor máximo conforme necessário
+    
       this.dataSource = res.result.Vacinas
 
       if (this.dataSource[0].Dose_01 == 1)

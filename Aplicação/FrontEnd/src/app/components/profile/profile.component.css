@@ -6,6 +6,8 @@ main {
 mat-card {
   width: 100%;
   display: grid;
+  height: 87vh;
+  margin-bottom: 50px !important;
   padding: 20px;
   margin: 35px 20px 0px 20px;
 }
@@ -19,7 +21,7 @@ mat-card {
 .infoUser {
   width: 100%;
   height: auto;
-  margin-top: 20px;
+  justify-content: center;
   display: flex;
   padding: 20px;
 }

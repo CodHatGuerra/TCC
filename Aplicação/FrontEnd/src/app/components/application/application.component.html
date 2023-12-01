@@ -11,25 +11,25 @@
 
     <div *ngIf="!isCpf">
       <div class="age" *ngIf="!isNoCotent">
-        <div class="teste">
-          <div class="DIV">
+        <div class="teste" (click)="filterBebe()">
+          <div class="DIV" >
             <img class="imgBaby" src="../../../assets/img/baby.png" />
           </div>
           <p style="font-family: Montserrat;">Ao nascer até 15 meses</p>
         </div>
-        <div class="teste">
+        <div class="teste" (click)=" filterCrianca()">
           <div class="DIV">
             <img class="teenager" src="../../../assets/img/teenager.png" />
           </div>
           <p style="font-family: Montserrat;">4 a 10 anos</p>
         </div>
-        <div class="teste">
+        <div class="teste" (click)="filterAdolescente()">
           <div class="DIV">
             <img class="teenager" src="../../../assets/img/teenager.png" />
           </div>
           <p style="font-family: Montserrat;">11 a 17 anos</p>
         </div>
-        <div class="teste">
+        <div class="teste" (click)="filterAdulto()">
           <div class="DIV">
             <img src="../../../assets/img/adult.png" />
           </div>

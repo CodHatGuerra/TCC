@@ -1,6 +1,6 @@
 <mat-sidenav-container class="container">
-  <mat-sidenav *ngFor="let user of infoUser" mode="side" [(opened)]="opened" [ngClass]="{'expanded-sidenav': showOptions}">
-    <mat-nav-list class="nav-list">
+  <mat-sidenav  *ngIf="infoUser[0].Funcionario == 1"mode="side" [(opened)]="opened" [ngClass]="{'expanded-sidenav': showOptions}">
+    <mat-nav-list class="nav-list"  *ngFor="let user of infoUser">
       <div>
         <a mat-list-item routerLink="application">
           <div class="caderneta">
