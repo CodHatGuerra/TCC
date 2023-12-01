@@ -24,6 +24,19 @@ export class HeaderComponent implements OnInit {
     this.User();
   }
 
+  openLogoutDialog() {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '300px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'confirm') {
+        localStorage.removeItem('Token');
+        this.router.navigate(['']);
+      }
+    })
+  };
+
   user: any;
 
   User(){

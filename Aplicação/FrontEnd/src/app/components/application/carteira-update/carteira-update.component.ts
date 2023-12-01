@@ -37,6 +37,7 @@ constructor( private service: AppService, private profileService: ProfileService
     const dataNascimento = new Date(user[0].Data_Nascimento);
     const idade = this.profileService.idadeCalculo(dataNascimento)
     
+    //pagar o id da carteira e da vacina para enconstras as doses
     
     const carteira = {
       carteiraUsuario:

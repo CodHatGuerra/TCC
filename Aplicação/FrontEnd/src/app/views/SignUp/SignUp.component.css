@@ -40,6 +40,7 @@ main {
 .header {
     justify-content: space-between;
     position: absolute;
+    height: 71px;
 }
 
 .capa {
@@ -102,11 +103,16 @@ h3 {
     color: #449DD1
 }
 
+.logoHeader {
+    width: 114px;
+    height: 73px;
+}
+
 .buttonRegister {
     width: 100%;
     height: 40px;
     color: white !important;
-    background-color: rgba(0,134,255,1) !important;
+    background-color: rgba(0, 134, 255, 1) !important;
     margin: 0 auto;
 }
 

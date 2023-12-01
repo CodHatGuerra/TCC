@@ -9,8 +9,10 @@
     gap: 10px;
 }
 
-mat-nav-list {
-    width: 200px !important;
+.end {
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
 .mat-toolbar .mat-mdc-button-base.mat-unthemed {
@@ -18,7 +20,7 @@ mat-nav-list {
 }
 
 mat-icon {
-    font-size: 18px;
+    font-size: 23px;
 }
 
 .header > div {
@@ -45,8 +47,9 @@ p {
 
 .exit {
     cursor: pointer;
-    color: rgb(0, 0, 0) !important;
-    font-size: 20px;
+
+    display: flex;
+    align-items: center;
 }
 
 .img {
@@ -59,15 +62,10 @@ p {
     display: flex;
     cursor: pointer;
     gap: 10px;
-    margin-right: 20px;
+    margin-right: 30px;
     align-items: center;
 }
 
 button {
     margin-top: 4px;
-}
-
-.end {
-    display: flex;
-    justify-content: end;
 }
