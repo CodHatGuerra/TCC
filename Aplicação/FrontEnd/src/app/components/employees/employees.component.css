@@ -3,13 +3,16 @@ main {
   height: 100% !important;
   justify-items: center;
 }
+.boxShadow {
+  margin-bottom: 20px;
+  box-shadow: 0 1px#0000001a;
+}
 
 .employee {
   gap: 20px;
   width: 97%;
   margin: 35px 20px 50px 21px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.842);
 }
 
 .div {

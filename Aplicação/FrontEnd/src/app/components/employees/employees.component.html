@@ -1,6 +1,8 @@
 <main>
   <mat-card class="employee">
-    <h1 style="font-family: Montserrat;">Funcionários ativos</h1>
+    <div class="boxShadow">
+      <h1 style="font-family: Montserrat;">Funcionários ativos</h1>
+    </div>
     <span>
       <mat-form-field style="width: 60vh;" appearance="outline">
         <input matInput placeholder="Procure um Funcionário" [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>

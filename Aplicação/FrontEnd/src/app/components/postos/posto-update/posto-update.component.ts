@@ -13,9 +13,10 @@ export class PostoUpdateComponent implements OnInit {
 
   constructor(
     private service: AppService,
-     private dialogRef: MatDialogRef<PostoUpdateComponent>,
-     private postoService: PostosService
-     ) {
+    private dialogRef: MatDialogRef<PostoUpdateComponent>,
+    private postoService: PostosService
+  ) {
+    this.dialogRef.disableClose = false
   }
   result: any = {};
 
@@ -56,7 +57,7 @@ export class PostoUpdateComponent implements OnInit {
         localidade: this.result.postos[0].Localidade,
         bairro: this.result.postos[0].Bairro,
         logradouro: this.result.postos[0].Logradouro,
-        numero: this.result.postos[0].Numero 
+        numero: this.result.postos[0].Numero
       },
       telefone: {
         numero: 9

@@ -69,3 +69,7 @@ p {
 button {
     margin-top: 4px;
 }
+
+img{
+    cursor: pointer;
+}

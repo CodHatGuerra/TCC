@@ -4,14 +4,15 @@
     margin-top: 35px !important;
     padding: 20px;
     margin: 20px;
-    background-color: rgba(255, 255, 255, 0.842);
     height: auto;
 }
 
 .even-row {
     background-color: #eee;
 }
-
+.boxShadow {
+    box-shadow: 0 1px#0000001a;
+  }
 .odd-row {
     background-color: white;
 }

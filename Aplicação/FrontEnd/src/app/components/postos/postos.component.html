@@ -1,6 +1,8 @@
 <main>
   <mat-card class="mat-elevation-z4">
-    <h1 style="font-family: Montserrat;">Postos</h1>
+    <div class="boxShadow">
+      <h1 style="font-family: Montserrat;">Postos</h1>
+    </div>
     <span>
       <mat-form-field style="width: 98vh; align-content: center;" appearance="outline">
         <input matInput placeholder="Procure um Posto"  [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>

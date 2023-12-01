@@ -6,6 +6,11 @@ main {
   height: auto;
 }
 
+.boxShadow {
+  padding-bottom: 16px !important;
+  box-shadow: 0 1px#0000001a;
+}
+
 .even-row { background-color: #eee; }
 
 .odd-row { background-color: white; }
@@ -22,11 +27,10 @@ mat-card {
   margin-top: 35px;
   margin-bottom: 50px !important;
   height: auto;
-  background-color: rgba(255, 255, 255, 0.842) ;
 }
 
 span {
-  margin-top: 50px;
+  margin-top: 56px;
   display: flex;
   justify-content: space-between;
 }

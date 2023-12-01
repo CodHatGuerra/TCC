@@ -1,5 +1,8 @@
 <mat-card class="main">
-  <h1 style="font-family: Montserrat;">Vacinas</h1>
+  <div class="boxShadow">
+    <h1 style="font-family: Montserrat;">Vacinas</h1>
+  </div>
+
   <header>
     <mat-form-field style="width: 100vh; align-content: center;" appearance="outline">
       <input matInput placeholder="Procure uma vacina" [(ngModel)]="searchTerm" type="search" (keyup)="search($event)"/>
