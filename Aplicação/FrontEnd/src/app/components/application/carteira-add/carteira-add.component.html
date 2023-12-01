@@ -22,7 +22,7 @@
   </div>
   <mat-form-field class="data" appearance="outline">
     <mat-label>Data da Próxima Aplicação</mat-label>
-    <input matInput [matDatepicker]="picker" placeholder="00/00/0000" formControlName="data_Nascimento"/>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="ProximaDose" placeholder="00/00/0000"/>
     <mat-datepicker-toggle matIconSuffix [for]="picker" style="color: #449DD1 !important;"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

@@ -40,8 +40,6 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   User(){
-    console.log("Teste");
-    
     this.user = this.service.GetUser();
   }  
 }

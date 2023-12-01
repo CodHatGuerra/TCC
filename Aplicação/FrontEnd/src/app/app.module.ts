@@ -57,6 +57,7 @@ import { CarteiraUpdateComponent } from './components/application/carteira-updat
 import { SignUpComponent } from './views/SignUp/SignUp.component';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormatDatePipe } from './format-date.pipe';
 @NgModule({
   declarations: [
     SignUpComponent,
@@ -89,7 +90,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     VacinasUpdateComponent,
     CarteiraAddComponent,
     CarteiraDeleteComponent,
-    CarteiraUpdateComponent
+    CarteiraUpdateComponent,
+    FormatDatePipe
     
     
   ],

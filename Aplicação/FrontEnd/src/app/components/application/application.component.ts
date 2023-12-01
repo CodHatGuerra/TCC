@@ -23,7 +23,7 @@ export class ApplicationComponent implements OnInit {
 
   isFuncionario: boolean = false
   idFuncionario: number = 0;
-  columnCarteira: string[] = ['vacinas', 'doses', 'funcionario', 'acoes'];
+  columnCarteira: string[] = ['vacinas', 'doses', 'data', 'funcionario', 'acoes'];
   input: string = '';
   cpf: any;
   dataSource: any;
@@ -39,7 +39,7 @@ export class ApplicationComponent implements OnInit {
   adulto: any;
   gestante: any;
 
-
+  dataValidade: any;
   isNoCotent: boolean = false;
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class ApplicationComponent implements OnInit {
     }
   }
 
-  
+
   resetFilters() {
     this.dataSource = this.originalDataSource.slice();
     this.appliedFilters = [];
@@ -99,6 +99,15 @@ export class ApplicationComponent implements OnInit {
     return data.filter((Vacina: any) => Vacina.Idade >= inicio && Vacina.Idade <= fim);
   }
 
+  formatarData(dataString: string) {
+    const data = new Date(dataString);
+
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = String(data.getFullYear()).slice(-2);
+    return `${dia}/${mes}/${ano}`;
+  }
+
   getCarteira(cpf: number): any {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
       if (res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
@@ -106,7 +115,8 @@ export class ApplicationComponent implements OnInit {
       else
         this.isNoCotent = false
 
-     this.originalDataSource = res.result.Vacinas;  
+    
+      this.originalDataSource = res.result.Vacinas;
       this.dataSource = this.originalDataSource.slice();
 
       if (this.dataSource[0].Dose_01 == 1)

@@ -21,13 +21,13 @@ export class CarteiraAddComponent implements OnInit {
   cpf: any;
   allVacinas: any;
   idVacina: number = 0;
+  ProximaDose: any;
   constructor(private http: HttpClient,
     private service: AppService, private dialogRef: MatDialogRef<CarteiraAddComponent>,
     private profileService: ProfileService) {
-      this.dialogRef.disableClose = true
+    this.dialogRef.disableClose = true
   }
 
-  
   close() {
     this.dialogRef.close();
   }
@@ -52,7 +52,7 @@ export class CarteiraAddComponent implements OnInit {
   createVacina() {
     const idade = this.profileService.idadeCalculo(this.dataNascimento);
 
-   const user = this.service.GetUser();
+    const user = this.service.GetUser();
 
     const carteira = {
       carteiraUsuario:
@@ -63,9 +63,16 @@ export class CarteiraAddComponent implements OnInit {
         Dose_02: this.dose02,
         Dose_03: this.dose03,
         Idade: idade,
-        Funcionario: user[0].Nome 
+        Funcionario: user[0].Nome,
+        Validade: this.ProximaDose
       }
     }
+
+    if(carteira.carteiraUsuario.Validade == undefined)
+      throw this.service.AlertMessage("É necessário informar os campos.")
+    
+      console.log(carteira);
+    
 
     if (this.userId == undefined || this.userId == null)
       throw this.service.AlertMessage("É necessário adicionar uma vacina!")
