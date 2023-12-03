@@ -25,6 +25,10 @@ export class EmployeeUpdateComponent implements OnInit {
   employee: any;
   idPosto: number = 0;
   postos: any;
+  close() {
+    this.dialogRef.close();
+  }
+  
 
   ngOnInit(): void {
     const id = this.employeeService.getIdFuncionario();

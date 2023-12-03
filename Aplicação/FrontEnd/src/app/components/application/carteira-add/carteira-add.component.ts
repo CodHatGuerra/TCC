@@ -44,14 +44,23 @@ export class CarteiraAddComponent implements OnInit {
     const cpfUser = this.profileService.getCpf()
     this.cpf = cpfUser;
     this.service.GetUserByCpf(this.cpf).subscribe((res) => {
-      this.dataNascimento = res.result.Usuario[0].Data_Nascimento
+      console.log(res.result.Usuario[0].Data_Nascimento);
+      this.dataNascimento = res.result.Usuario[0].Data_Nascimento 
       this.userId = res.result.Usuario[0].ID
     });
   }
 
+   formatDate(date: Date): string {
+    const day = ('0' + date.getDate()).slice(-2);
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const year = date.getFullYear().toString();
+    return `${year}-${month}-${day}`;
+  }
+
   createVacina() {
     const idade = this.profileService.idadeCalculo(this.dataNascimento);
-
+    const dataNasc = this.formatDate(this.ProximaDose)
+    
     const user = this.service.GetUser();
 
     const carteira = {
@@ -64,7 +73,7 @@ export class CarteiraAddComponent implements OnInit {
         Dose_03: this.dose03,
         Idade: idade,
         Funcionario: user[0].Nome,
-        Validade: this.ProximaDose
+        Validade: dataNasc
       }
     }
 
@@ -72,7 +81,6 @@ export class CarteiraAddComponent implements OnInit {
       throw this.service.AlertMessage("É necessário informar os campos.")
     
       console.log(carteira);
-    
 
     if (this.userId == undefined || this.userId == null)
       throw this.service.AlertMessage("É necessário adicionar uma vacina!")

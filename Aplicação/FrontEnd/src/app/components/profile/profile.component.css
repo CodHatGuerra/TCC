@@ -26,13 +26,12 @@ mat-card {
   padding: 20px;
 }
 
-.data > label {
+.data>label {
   margin-bottom: 4px;
 }
 
 .data {
   width: 57%;
-  height: 400px;
   display: grid;
   margin-bottom: 25px;
 }

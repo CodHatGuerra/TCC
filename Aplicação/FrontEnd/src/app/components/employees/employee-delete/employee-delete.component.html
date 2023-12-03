@@ -1,4 +1,8 @@
-<div>
-    <h4 style="font-family: Montserrat; ">Deseja remover este funcionário?</h4>
-    <button mat-button style="font-family: Montserrat;" (click)="delete()" >Remover</button>
+<div class="div">
+    <h2 style="font-family: Montserrat; margin-top: 7px;">Deseja remover este funcionário?</h2>
+    
+    <div class="buttons">
+        <button mat-button class="delete" (click)="delete()" >Remover</button>
+        <button mat-button class="cancelar" (click)="close()" >Cancelar</button>
+    </div>
 </div>

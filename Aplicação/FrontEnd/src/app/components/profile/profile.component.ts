@@ -34,7 +34,8 @@ export class ProfileComponent {
   getUser() {
     const user = this.service.GetUser();
     this.infoUser = user;
-
+    console.log(user[0].Data_Nascimento);
+    
     if (user[0].Funcionario == 1)
       this.isFuncionario = true
     else

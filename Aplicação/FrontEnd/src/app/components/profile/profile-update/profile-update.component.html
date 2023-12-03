@@ -1,40 +1,44 @@
 <div class="div">
+  <span>
+    <mat-icon class="close" (click)="close()">close</mat-icon>
+  </span>
   <h1 style="font-family: Montserrat;">Atualize suas informações</h1>
   <div style="margin-bottom: 40px !important">
     <img [src]="imageUrl" style="position: absolute;">
     <button class="editImg" mat-icon-button (click)="fileInput.click()">
-        <mat-icon class="mat-18" appWhite>edit</mat-icon>
+      <mat-icon class="mat-18" appWhite>edit</mat-icon>
     </button>
-      </div>
-  <input hidden (change)="onFileSelected($event)"  #fileInput type="file">
+  </div>
+  <input hidden (change)="onFileSelected($event)" #fileInput type="file">
   <form>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Nome</mat-label>
-      <input matInput name="nome" type="text" [(ngModel)]="profile.Nome"/>
+      <input matInput name="nome" type="text" [(ngModel)]="profile.Nome" />
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Cpf</mat-label>
-      <input matInput name="cpf" mask="000.000.000-00" [(ngModel)]="profile.Cpf"/>
+      <input matInput name="cpf" mask="000.000.000-00" [(ngModel)]="profile.Cpf" />
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput name="email" type="email" [(ngModel)]="profile.Email"/>
+      <input matInput name="email" type="email" [(ngModel)]="profile.Email" />
     </mat-form-field>
     <mat-form-field class="MR" appearance="outline">
       <mat-label>Telefone</mat-label>
-      <input matInput name="telefone" mask="(00) 00000-0000" [(ngModel)]="profile.Numero_do_Telefone"/>
+      <input matInput name="telefone" mask="(00) 00000-0000" [(ngModel)]="profile.Numero_do_Telefone" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Data de Nascimento</mat-label>
-      <input matInput [matDatepicker]="picker" placeholder="00/00/0000" [(ngModel)]="profile.Data_Nascimento" [ngModelOptions]="{standalone: true}"/>
+      <input matInput [matDatepicker]="picker" placeholder="00/00/0000" [(ngModel)]="profile.Data_Nascimento"
+        [ngModelOptions]="{standalone: true}" />
       <mat-datepicker-toggle matIconSuffix [for]="picker" style="color: #449DD1 !important;"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    
+
     <mat-form-field appearance="outline">
       <mat-label>Sexo</mat-label>
-      <mat-select  [(ngModel)]="profile.sexo" name="sexo">
+      <mat-select [(ngModel)]="profile.sexo" name="sexo">
         <mat-option value="Masculino">Masculino</mat-option>
         <mat-option value="Feminino">Feminino</mat-option>
         <mat-option value="Outros">Outros</mat-option>

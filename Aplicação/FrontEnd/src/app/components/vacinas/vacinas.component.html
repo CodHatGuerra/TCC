@@ -12,15 +12,15 @@
     <mat-icon class="add" (click)="OpenDialogRegisterVacciness()">add</mat-icon>
   </header>
   <table mat-table [dataSource]="vaccines">
-    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr style=" width: 100%  !important;" mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row  [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"  *matRowDef="let vaccine; columns: columns; let i = index"></tr>
 
     <ng-container matColumnDef="name">
-      <th style="margin-left: 100px !important;" mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>
+      <th mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>
       <td mat-cell *matCellDef="let vaccine">{{ vaccine.Nome }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="acoes">
+    <ng-container  matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef style="margin-left: 100%;">Ações</th>
       <td mat-cell *matCellDef="let vaccine">
         <div class="icons">

@@ -32,7 +32,7 @@ export class ApplicationComponent implements OnInit {
   dose01: boolean = false;
   dose02: boolean = false;
   dose03: boolean = false;
-
+  selectedOption: string = ''
   bebe: any;
   crianca: any;
   adolecente: any;
@@ -51,10 +51,10 @@ export class ApplicationComponent implements OnInit {
     else {
       this.isFuncionario = false
       this.getCarteira(user[0].Cpf)
+      this.cpf = user[0].Cpf
       this.columnCarteira = ['vacinas', 'doses', 'funcionario']
     }
   }
-
 
   resetFilters() {
     this.dataSource = this.originalDataSource.slice();
@@ -70,33 +70,12 @@ export class ApplicationComponent implements OnInit {
     if (this.cpf == null || this.cpf == undefined || this.cpf == '') {
       return this.isCpf = true
     }
-
     else {
       this.isCpf = false
 
       this.profileService.setCpf(this.cpf)
       this.getCarteira(this.cpf)
     }
-  }
-
-  filterBebe() {
-    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 0, 2));
-  }
-
-  filterCrianca() {
-    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 3, 10));
-  }
-
-  filterAdolescente() {
-    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 11, 17));
-  }
-
-  filterAdulto() {
-    this.applyFilter((data) => this.filtrarPorFaixaEtaria(data, 18, 59));
-  }
-
-  filtrarPorFaixaEtaria(data: any[], inicio: number, fim: number): any[] {
-    return data.filter((Vacina: any) => Vacina.Idade >= inicio && Vacina.Idade <= fim);
   }
 
   formatarData(dataString: string) {
@@ -108,6 +87,49 @@ export class ApplicationComponent implements OnInit {
     return `${dia}/${mes}/${ano}`;
   }
 
+  filtrarPorFaixaEtaria(inicio: number, fim: number): any[] {
+    return this.dataSource.filter((Vacina: any) => Vacina.Idade >= inicio && Vacina.Idade <= fim);
+  }
+
+  filterBebe() {
+    this.selectedOption = 'bebe';
+    this.service.GetVacinasCarteira(this.cpf).subscribe((res) => {
+      this.dataSource = res.result.Vacinas;
+      this.bebe = this.filtrarPorFaixaEtaria(0, 2);
+      this.dataSource = this.bebe
+    })
+  }
+
+  filterCrianca() {
+    this.selectedOption = 'crianca';
+    this.service.GetVacinasCarteira(this.cpf).subscribe((res) => {
+      this.dataSource = res.result.Vacinas;
+      this.crianca = this.filtrarPorFaixaEtaria(3, 10);
+      this.dataSource = this.crianca
+    })
+
+  }
+
+  filterAdolescente() {
+    this.selectedOption = 'adolescente';
+    this.service.GetVacinasCarteira(this.cpf).subscribe((res) => {
+      this.dataSource = res.result.Vacinas;
+      this.adolecente = this.filtrarPorFaixaEtaria(11, 17);
+      this.dataSource = this.adolecente
+    })
+
+  }
+
+  filterAdulto() {
+    this.selectedOption = 'adulto';
+    this.service.GetVacinasCarteira(this.cpf).subscribe((res) => {
+      this.dataSource = res.result.Vacinas;
+      this.adulto = this.filtrarPorFaixaEtaria(18, 59);
+      this.dataSource = this.adulto
+    })
+  }
+
+
   getCarteira(cpf: number): any {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
       if (res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
@@ -115,9 +137,9 @@ export class ApplicationComponent implements OnInit {
       else
         this.isNoCotent = false
 
-    
-      this.originalDataSource = res.result.Vacinas;
-      this.dataSource = this.originalDataSource.slice();
+      this.dataSource = res.result.Vacinas;
+      console.log(this.dataSource);
+      
 
       if (this.dataSource[0].Dose_01 == 1)
         this.dose01 = true
@@ -157,6 +179,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   updateVacinaCarteira(idCarteira: number, idVacina: number) {
+    this.service.setCpfUser(this.cpf)
     this.service.setCarteira(idCarteira)
     this.service.setVacinaCarteira(idVacina)
     const dialog = this.dialog.open(CarteiraUpdateComponent)

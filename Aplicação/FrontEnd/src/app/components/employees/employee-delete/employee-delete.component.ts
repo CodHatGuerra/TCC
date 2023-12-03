@@ -19,7 +19,9 @@ export class EmployeeDeleteComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
+  close() {
+    this.dialogRef.close();
+  }
   delete(): void {
     let id = this.employeeService.getIdFuncionario();
     this.employeeService.deleteEmployee(id).subscribe((result) => {

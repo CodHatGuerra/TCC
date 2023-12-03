@@ -42,6 +42,10 @@ export class EmployeesCreateComponent implements OnInit {
     });
   }
 
+  close() {
+    this.dialogRef.close();
+  }
+
   SubmitEmployee() {
     this.employeeService
       .getUserByCpf(this.formEmployee.value.cpf)

@@ -9,6 +9,7 @@ import { Posto } from "src/app/components/interfaces";
   providedIn: "root",
 })
 export class AppService {
+  cpf: any;
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
   userToken = localStorage.getItem("Token");
@@ -117,6 +118,16 @@ export class AppService {
     return this.id_Vacina
   }
 
+  
+  setCpfUser(cpf: number){
+    this.cpf = cpf
+  }
+
+  getCpfUser(){
+    return this.cpf
+  }
+
+
   setIdVacina(id: number){
     this.id_Vacina = id;
   }
@@ -127,6 +138,10 @@ export class AppService {
       posto,
       { headers: this.httpHeaders }
     );
+  }
+
+  GetVacinaCarteira(idCateira: number, idVacina: number): Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/api/carteira/${idCateira}/${idVacina}`, { headers: this.httpHeaders })
   }
 
   DeleteVacinaCarteira(idCateira: number, idVacina: number){

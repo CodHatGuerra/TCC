@@ -25,4 +25,8 @@ export class CarteiraDeleteComponent {
       this.service.SuccessMessage("Vacina removida!")
     })
   }
+  
+  close() {
+    this.dialog.close();
+  }
 }

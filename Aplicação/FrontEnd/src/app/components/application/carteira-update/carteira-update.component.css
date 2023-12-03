@@ -13,6 +13,10 @@ button{
     margin-top: 25px;
     background-color: #21a4f0 !important;
 }
+.data {
+    margin-top: 30px;
+    width: 100%;
+}
 
 div {
     display: flex;
@@ -20,3 +24,13 @@ div {
     justify-content: space-between;
     margin-top: 17px;
 }
+span {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+ }
+ 
+ .close {
+    color: #1e3241 !important;
+    cursor: pointer;
+ }

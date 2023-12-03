@@ -8,7 +8,7 @@
       <h3 class="name white"> {{ user[0].Nome }} </h3>
     </div>
 
-    <a mat-list-item *ngIf="user[0].Funcionario == 0" (click)="openLogoutDialog()">
+    <a style="cursor: pointer;" mat-list-item *ngIf="user[0].Funcionario == 0" (click)="openLogoutDialog()">
       <div class="exit">
         <mat-icon class="icon" appWhite> exit_to_app </mat-icon>
         <h3 class="name white">Sair</h3>

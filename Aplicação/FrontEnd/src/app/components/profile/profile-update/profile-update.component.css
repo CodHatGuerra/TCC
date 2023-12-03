@@ -15,7 +15,16 @@
     margin-bottom: 20px;
     margin-top: 10px;
 }
-
+span {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+ }
+ 
+ .close {
+    color: #1e3241 !important;
+    cursor: pointer;
+ }
 form {
     display: grid;
     width: 100%;

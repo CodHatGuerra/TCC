@@ -17,6 +17,9 @@ mat-form-field {
   width: 22vw !important;
 }
 
+.selected {
+  background-color: #449dd1;
+}
 mat-card {
   margin-top: 20px;
   width: 100% !important;

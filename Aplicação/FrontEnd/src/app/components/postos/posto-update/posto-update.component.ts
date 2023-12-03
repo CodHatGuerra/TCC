@@ -44,7 +44,9 @@ export class PostoUpdateComponent implements OnInit {
       this.result = response.result!;
     });
   }
-
+  close() {
+    this.dialogRef.close();
+  }
   updatePosto(): void {
     this.postoUpdate = {
       posto: {

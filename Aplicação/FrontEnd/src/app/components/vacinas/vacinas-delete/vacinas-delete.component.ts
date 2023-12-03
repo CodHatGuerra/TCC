@@ -24,6 +24,9 @@ export class VacinasDeleteComponent implements OnInit {
       console.log(this.vacina);
     });
   }
+  close() {
+    this.dialog.close();
+  }
 
   deleteVacina() {
     this.service.DeleteVacinas(this.vacina.ID).subscribe((re) => {

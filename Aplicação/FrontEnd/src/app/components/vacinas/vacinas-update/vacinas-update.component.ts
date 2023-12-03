@@ -23,7 +23,9 @@ export class VacinasUpdateComponent implements OnInit {
       console.log(this.vacina);
     });
   }
-
+  close() {
+    this.dialog.close();
+  }
   updateVacina() {
     const obj = {
       vacina: {
@@ -31,7 +33,7 @@ export class VacinasUpdateComponent implements OnInit {
       Nome: this.vacina.Nome
     }
   }
-
+ 
     console.log(obj);
     
     this.service.UpdateVacina(obj).subscribe((res)=>{

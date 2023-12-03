@@ -25,6 +25,10 @@ export class PostoDeleteComponent implements OnInit {
     });
   }
 
+  close() {
+    this.dialog.close();
+  }
+
   deletePosto(): void { 
     this.service
       .DeletePosto(this.response.postos[0].Posto_ID)

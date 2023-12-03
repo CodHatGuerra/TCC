@@ -88,7 +88,9 @@ export class ProfileUpdateComponent implements OnInit {
     const year = date.getFullYear().toString();
     return `${year}-${month}-${day}`;
   }
- 
+  close() {
+    this.dialogRef.close();
+  }
 
   updateProfile() {
     const date = this.formatDate(this.profile.Data_Nascimento)
