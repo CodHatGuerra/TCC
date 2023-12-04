@@ -1,8 +1,7 @@
 main {
     width: 30vw;
-    height: 30vh;
     text-align: center;
-    padding:  20px;
+    padding:  7px 15px 15px 15px;
 }
 
 form {
@@ -23,3 +22,14 @@ button {
     background-color:  #21a4f0 !important;
     color: #FFF !important;
 }
+
+span {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+ }
+ 
+ .close {
+    color: #1e3241 !important;
+    cursor: pointer;
+ }

@@ -129,7 +129,6 @@ export class ApplicationComponent implements OnInit {
     })
   }
 
-
   getCarteira(cpf: number): any {
     this.service.GetVacinasCarteira(cpf).subscribe((res) => {
       if (res.result.Vacinas[0] == null || res.result.Vacinas[0] == '')
@@ -138,7 +137,7 @@ export class ApplicationComponent implements OnInit {
         this.isNoCotent = false
 
       this.dataSource = res.result.Vacinas;
-      console.log(this.dataSource);
+      console.log(res);
       
 
       if (this.dataSource[0].Dose_01 == 1)

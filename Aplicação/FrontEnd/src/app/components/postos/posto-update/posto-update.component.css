@@ -2,7 +2,6 @@ div {
     width: 57vw;
     min-height: 60vh;
     display: grid;
-    height: 60vh;
     text-align: center;
     padding:  10px 20px 13px 20px;
 }
@@ -12,14 +11,16 @@ span {
     display: flex;
     justify-content: end;
  }
- 
+
  .close {
     color: #1e3241 !important;
     cursor: pointer;
  }
 
-h1 {
+h2 {
     font-size: 24px !important;
+    margin-bottom: 20px !important;
+
 }
 
 form {

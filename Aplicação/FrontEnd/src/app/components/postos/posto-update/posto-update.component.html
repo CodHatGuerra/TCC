@@ -1,6 +1,9 @@
 <div>
-    <h1 style="font-family: Montserrat;">Atualizar posto</h1>
-    <form >
+    <span>
+        <mat-icon class="close" (click)="close()">close</mat-icon>
+    </span>
+    <h2 style="font-family: Montserrat;">Atualizar Posto</h2>
+    <form>
         <mat-form-field class="MR" appearance="outline">
             <mat-label>Nome</mat-label>
             <input matInput [(ngModel)]="result.postos[0].Nome_do_Posto" type="text" name="Nome_do_Posto">
@@ -31,8 +34,9 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Telefone</mat-label>
-            <input matInput [(ngModel)]="result.postos[0].Numero_do_Telefone"  mask="(00) 0000-0000"  name="Telefone">
+            <input matInput [(ngModel)]="result.postos[0].Numero_do_Telefone" mask="(00) 0000-0000" name="Telefone">
         </mat-form-field>
     </form>
-    <button mat-button appWhite style="font-family: Montserrat;" class="buttonUpdate" (click)="updatePosto()">Atualizar</button>
+    <button mat-button appWhite style="font-family: Montserrat;" class="buttonUpdate"
+        (click)="updatePosto()">Atualizar</button>
 </div>

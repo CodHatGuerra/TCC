@@ -2,22 +2,25 @@
   <mat-card>
     <div class="top">
       <h2 style="font-family: Montserrat;">Cateira</h2>
+    </div>
+    <div style="display: flex; justify-content: end;">
       <mat-form-field *ngIf="isFuncionario" appearance="outline">
         <mat-label> Procure um paciente</mat-label>
-        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00" />
+        <input mask="000.000.000-00" (blur)="search()" [(ngModel)]="cpf" matInput placeholder="000.000.000-00"
+          type="search" />
         <mat-icon matSuffix style="cursor: pointer;" (click)="search()"> search </mat-icon>
       </mat-form-field>
     </div>
 
     <div *ngIf="!isCpf">
-      <div class="age" *ngIf="!isNoCotent"  >
+      <div class="age" *ngIf="!isNoCotent">
         <div class="teste" (click)="filterBebe()">
-          <div class="DIV"  [class.selected]="selectedOption === 'bebe'">
+          <div class="DIV" [class.selected]="selectedOption === 'bebe'">
             <img class="imgBaby" src="../../../assets/img/baby.png" />
           </div>
           <p style="font-family: Montserrat;">Ao nascer até 2 anos</p>
         </div>
-        <div class="teste" (click)="filterCrianca()" >
+        <div class="teste" (click)="filterCrianca()">
           <div class="DIV" [class.selected]="selectedOption === 'crianca'">
             <img class="teenager" src="../../../assets/img/teenager.png" />
           </div>
@@ -61,7 +64,7 @@
             <mat-checkbox [checked]="row.Dose_02 == 1" disabled>Dose 02</mat-checkbox>
             <mat-checkbox [checked]="row.Dose_03 == 1" disabled>Dose 03</mat-checkbox>
         </ng-container>
-        
+
         <ng-container matColumnDef="data" sticky>
           <th mat-header-cell *matHeaderCellDef>Próxima Aplicação</th>
           <td mat-cell *matCellDef="let row">{{row.Validade | formatDate}} </td>

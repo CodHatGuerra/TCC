@@ -12,13 +12,16 @@ import { VacinasUpdateComponent } from './vacinas-update/vacinas-update.componen
   styleUrls: ['./vacinas.component.css']
 })
 export class VacinasAppComponent implements OnInit {
-  constructor(private service: AppService, private router: Router, private dialog: MatDialog,) { this.GetVacinas() }
+  constructor(
+    private service: AppService,
+     private router: Router, 
+     private dialog: MatDialog) { this.GetVacinas() }
   ngOnInit(): void {
     this.GetVacinas()
   }
 
   vaccines: any[] = [];
-  columns: string[] = ['name','acoes'];
+  columns: string[] = ['name', 'acoes'];
 
 
   searchTerm: string = '';
@@ -36,8 +39,8 @@ export class VacinasAppComponent implements OnInit {
   }
 
   OpenDialogRegisterVacciness() {
-  var form = this.dialog.open(AddVaccinessComponent)
-  form.afterClosed().subscribe(a => {
+    var form = this.dialog.open(AddVaccinessComponent)
+    form.afterClosed().subscribe(a => {
       this.GetVacinas();
     });
   }

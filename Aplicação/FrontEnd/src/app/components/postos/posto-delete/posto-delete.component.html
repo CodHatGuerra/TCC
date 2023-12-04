@@ -1,4 +1,7 @@
-<div>
-    <h1 style="font-family: Montserrat;">Deseja remover o {{response.postos[0].Nome_do_Posto!}} ?</h1>
-    <button mat-button class="delete" (click)="deletePosto()">Remover</button>
+<div class="div">
+    <h2 style="font-family: Montserrat;">Deseja remover o {{response.postos[0].Nome_do_Posto!}} ?</h2>
+    <div class="buttons">
+        <button mat-button class="delete" (click)="deletePosto()">Remover</button>
+        <button mat-button class="cancelar" (click)="close()">Cancelar</button>
+    </div>
 </div>

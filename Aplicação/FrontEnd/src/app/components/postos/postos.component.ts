@@ -17,8 +17,8 @@ export class PostosComponent implements OnInit {
     private dialog: MatDialog,
     private service: AppService,
     private router: Router,
-    private postoService: PostosService 
-  ) { 
+    private postoService: PostosService
+  ) {
     this.GetPosto();
   }
   dataSource: any[] = [];
@@ -35,12 +35,12 @@ export class PostosComponent implements OnInit {
       this.dataSource = this.allPostos;
     } else {
       this.dataSource = this.allPostos.filter((Posto) =>
-        Posto.Nome_do_Posto.toLowerCase().includes(this.searchTerm.toLowerCase() )
+        Posto.Nome_do_Posto.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     }
   }
 
-  CreatePosto(): void { 
+  CreatePosto(): void {
     const form = this.dialog.open(PostoCreateComponent);
     form.afterClosed().subscribe(a => {
       this.GetPosto()
@@ -72,5 +72,5 @@ export class PostosComponent implements OnInit {
       this.GetPosto()
     });
   }
-  columnPosto: string[] = ["name", "city", "rua", "bairro","actions"];
+  columnPosto: string[] = ["name", "city", "rua", "bairro", "actions"];
 }

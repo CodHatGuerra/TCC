@@ -21,9 +21,9 @@ mat-form-field {
   background-color: #449dd1;
 }
 mat-card {
-  margin-top: 20px;
+  margin-top: 19px;
   width: 100% !important;
-  padding: 20px;
+  padding: 10px 20px 20px 20px; 
   height: auto;
   margin-bottom: 100px;
 }

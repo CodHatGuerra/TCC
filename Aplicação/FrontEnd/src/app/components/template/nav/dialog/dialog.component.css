@@ -1,12 +1,14 @@
-h1 {
-    text-align: center;
-}
 
 .dialog {
-    display: grid;
-    justify-content: center;
     padding: 9px;
     background-color: #F8F1FF;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 6px;
+    top: 0;
+    box-shadow: 0 1px#0000001a;
 }
 
 .No {

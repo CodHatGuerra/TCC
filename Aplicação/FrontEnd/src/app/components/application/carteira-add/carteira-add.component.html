@@ -1,10 +1,11 @@
 <main>
   <span>
     <mat-icon class="close" (click)="close()">close</mat-icon>
-</span>
+  </span>
   <h1 style="font-family: Montserrat;">Registre uma Vacina</h1>
 
-  <mat-form-field style="width: 100% !important; margin-top: 28px !important; background-color: transparent;" appearance="outline">
+  <mat-form-field style="width: 100% !important; margin-top: 28px !important; background-color: transparent;"
+    appearance="outline">
     <mat-label style="font-family: Montserrat !important;">Selecione uma Vacina</mat-label>
     <mat-select (selectionChange)="onSelectionChange($event)">
       <mat-option *ngFor="let vacina of allVacinas" [value]="vacina.ID">
@@ -22,7 +23,7 @@
   </div>
   <mat-form-field class="data" appearance="outline">
     <mat-label>Data da Próxima Aplicação</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="ProximaDose" placeholder="00/00/0000"/>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="ProximaDose" placeholder="00/00/0000" />
     <mat-datepicker-toggle matIconSuffix [for]="picker" style="color: #449DD1 !important;"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

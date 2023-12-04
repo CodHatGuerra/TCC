@@ -27,9 +27,9 @@ export class EmployeeDeleteComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe((result) => {
       if (result) {
         this.dialogRef.close();
-        this.service.SuccessMessage("Posto Removido com sucesso!");
+        this.service.SuccessMessage("Funcionário removido com sucesso!");
       } else {
-        this.service.AlertMessage("Erro ao remover posto!");
+        this.service.AlertMessage("Erro ao remover funcionário!");
       }
     });
   }
