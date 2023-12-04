@@ -13,7 +13,7 @@
   </header>
   <table mat-table [dataSource]="vaccines">
     <tr style=" width: 100%  !important;" mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row  [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"  *matRowDef="let vaccine; columns: columns; let i = index"></tr>
+    <tr mat-row [ngClass]="{'even-row':i%2===0,'odd-row': i % 2 === 1}"  *matRowDef="let vaccine; columns: columns; let i = index"></tr>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Tipo de Vacina</th>

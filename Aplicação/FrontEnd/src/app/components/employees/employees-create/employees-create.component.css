@@ -4,7 +4,18 @@ main {
   min-width: 28vh !important;
   min-height: 59vh;
   height: 59vh;
-  padding: 10px 20px 13px 20px;
+  padding: 10px 20px 19px 20px;
+}
+
+span {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.close {
+  color: #1e3241 !important;
+  cursor: pointer;
 }
 
 form {

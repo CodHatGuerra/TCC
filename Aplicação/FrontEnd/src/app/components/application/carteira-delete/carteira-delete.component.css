@@ -1,7 +1,7 @@
 .div {
     width: 350px;
     text-align: center;
-    padding-bottom: 12px;
+    padding: 0px 20px 12px 20px;
 }
 
 .delete {

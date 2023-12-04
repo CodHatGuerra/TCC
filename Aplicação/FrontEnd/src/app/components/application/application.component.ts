@@ -52,7 +52,7 @@ export class ApplicationComponent implements OnInit {
       this.isFuncionario = false
       this.getCarteira(user[0].Cpf)
       this.cpf = user[0].Cpf
-      this.columnCarteira = ['vacinas', 'doses', 'funcionario']
+      this.columnCarteira = ['vacinas', 'doses', 'data', 'funcionario']
     }
   }
 
@@ -117,7 +117,6 @@ export class ApplicationComponent implements OnInit {
       this.adolecente = this.filtrarPorFaixaEtaria(11, 17);
       this.dataSource = this.adolecente
     })
-
   }
 
   filterAdulto() {

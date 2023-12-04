@@ -1,7 +1,10 @@
 <main>
+  <span>
+    <mat-icon class="close" (click)="close()">close</mat-icon>
+  </span>
   <img style="margin: 0 auto;" src="./../../../../assets/img/employe.png" class="icon" >
   <form [formGroup]="formEmployee" *ngFor="let proper of posto">
-    <p style="font-family: Montserrat;">Infome os dados do funcionário a seguir:</p>
+    <p style="font-family: Montserrat;">Infome os dados do funcionário nos campos a seguir:</p>
     <mat-form-field appearance="outline">
       <mat-label>Cpf</mat-label>
       <input matInput formControlName="cpf" mask="000.000.000-00"/>

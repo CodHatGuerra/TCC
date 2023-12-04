@@ -12,14 +12,14 @@
         <p style="margin-top: 9px; font-size: 19px; font-family: Montserrat;"><strong>{{ infoUser[0].Nome }}</strong>
         </p>
         <p>{{ idade }} Anos</p>
+        <div class="phone" style="display: flex; gap: 10px;">
+          <mat-icon class="mat-18">phone</mat-icon>
+          <p>{{infoUser[0].Numero_Telefone | phoneFormat}}</p>
+        </div>
         <h3 *ngIf="infoUser[0].Funcionario == 1" style="color: #20abfc;">Funcionário</h3>
       </div>
 
       <div class="data">
-        <label>Nome:</label>
-        <mat-form-field appearance="outline">
-          <input matInput readonly [(ngModel)]="infoUser[0].Nome" type="text" />
-        </mat-form-field>
 
         <label>Cpf:</label>
         <mat-form-field appearance="outline">
@@ -29,6 +29,12 @@
         <label>E-mail:</label>
         <mat-form-field appearance="outline">
           <input matInput readonly [(ngModel)]="infoUser[0].Email" type="email" />
+        </mat-form-field>
+
+        
+        <label>Data de Nascimento:</label>
+        <mat-form-field appearance="outline">
+          <input matInput readonly [(ngModel)]="infoUser[0].Data_Nascimento" type="text" />
         </mat-form-field>
 
         <label>Sexo:</label>
